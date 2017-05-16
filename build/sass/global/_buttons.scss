@@ -3,6 +3,8 @@
 	@each $name, $color in $foundation-palette {
 		
 		&.#{$name} {
+			
+			border-radius: 0.25em;
 
 			@include foundation-button-fix( $color );
 			
@@ -31,6 +33,8 @@
 .give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"] {
 
 	@include button( false, $primary-color, scale-color( $primary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
+	
+	border-radius: 0.25em;
 	
 	@include foundation-button-fix( $primary-color );
 
