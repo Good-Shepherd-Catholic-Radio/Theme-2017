@@ -1,0 +1,157 @@
+/*
+Base element settings (no classes or id's).
+
+@since 1.0.0
+*/
+
+@media
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5){
+        html,
+        body{
+            width:100%;
+            overflow-x: hidden;
+
+            overflow-y: scroll; // iOS Safari Momentum Scroll Fix
+            -webkit-overflow-scrolling: touch;
+        }
+}
+
+// Select color
+::selection {
+    background: $primary-color;
+    @include light-or-dark-text($primary-color);
+}
+
+::-moz-selection {
+    background: $primary-color;
+    @include light-or-dark-text($primary-color);
+}
+
+html {
+    height: auto;
+    overflow-y: auto;
+}
+
+section {
+    position: relative;
+}
+
+// Classes
+.screen-reader-text {
+    display: none;
+}
+
+#site-content {
+
+    height: 100%;
+    background-color: $body-background;
+
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+
+    padding: $small-padding;
+
+    @media #{$medium-up} {
+        padding: $medium-padding;   
+    }
+
+}
+
+img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
+
+    @include thumbnail;
+    border: none;
+    box-shadow: none;
+
+    &:hover, &:focus {
+        box-shadow: none;
+    }
+
+}
+
+.pagination {
+    text-align: center;
+}
+
+.widget {
+
+    list-style-type: none;
+
+    .menu {
+
+        list-style-type: $list-style-type;
+        margin-left: $list-side-margin;
+        margin-bottom: $list-margin-bottom;
+
+        li {
+
+            display: list-item;
+
+            a {
+                padding: 0;
+            }
+
+        }
+
+    }
+
+}
+
+// I don't know why this is a Foundation Default. In some locations it makes sense, but people expect links to be underlined.
+#site-content {
+
+    a:not(.button) {
+
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+    }
+    
+}
+
+
+#site-content, footer {
+
+    h1, h2, h3, h4, h5, h6 {
+        a {
+            text-decoration: none !important;
+        }
+    }
+
+}
+
+blockquote {
+
+    position: relative;
+    padding: 0;
+
+    &:before {
+
+        content: '\f10d';
+        font-family: 'FontAwesome';
+        font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h1', 'font-size' ) );
+
+    }
+
+    @media #{$medium-up} {
+
+        padding: $blockquote-padding;
+        padding-left: rem-calc( map-get-deep( $header-styles, 'medium', 'h1', 'font-size' ) );
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h2', 'font-size' ) );
+        }
+
+    }
+
+}

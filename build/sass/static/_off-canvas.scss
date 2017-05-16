@@ -1,0 +1,74 @@
+.off-canvas-wrapper {
+    
+    background-color: darken( $primary-color, 15% );
+    
+}
+
+.off-canvas-content {
+    box-shadow: none;
+    // For something that has to wrap your Site Content, this is a really silly default...
+        
+    .menu-icon-container {
+        
+        background-color: lighten( $topbar-background, 5% );
+        color: $topbar-link-color;
+        font-family: $body-font-family;
+        display: inline-block;
+        padding: 0.25em;
+        margin-top: 0.125em;
+        
+        button {
+            
+            &:focus {
+                outline: none;
+            }
+        
+            .menu-icon {
+
+                &:after {
+                    margin-top: -0.0625em;
+                }
+
+            }
+
+            .menu-icon-text {
+                display: inline-block;
+                height: 1em;
+                vertical-align: middle;
+                margin-top: -0.25em;
+            }
+            
+        }
+
+    }
+    
+}
+
+.off-canvas {
+
+    > .menu {
+        
+        .fa {
+            margin-top: -0.2em;
+        }
+
+        > li {
+
+            background-color: $topbar-background; /* Top Level */
+            
+            a {
+                color: $topbar-link-color !important;
+            }
+
+            ul {
+                li {
+                    background-color: darken( $topbar-background, 5% );
+                    padding-left: 1.25rem;
+                }
+            }
+
+        }
+
+    }
+
+}

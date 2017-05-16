@@ -1,0 +1,49 @@
+footer {
+	
+    color: $light-gray;
+
+    a {
+
+        color: $medium-gray;
+		text-decoration: underline;
+
+        &:hover {
+            color: scale-color( $medium-gray, $lightness: -15% );
+			text-decoration: none;
+        }
+
+    }
+    
+    &, a {
+        font-weight: bold;
+    }
+
+    .widget_nav_menu {
+
+        .menu {
+
+            list-style: none;
+            margin-bottom: 0;
+
+            li {
+
+                margin-bottom: 0.5em;
+
+                &:last-of-type {
+                    margin-bottom: 0;   
+                }
+
+            }
+
+        }
+
+    }
+
+    // Different styling for Submit buttons in the Footer. Just in case it ever happens
+    input[type="submit"] {
+
+        @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+    }
+
+}

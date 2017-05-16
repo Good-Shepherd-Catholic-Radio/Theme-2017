@@ -1,0 +1,37 @@
+.button {
+
+	@each $name, $color in $foundation-palette {
+		
+		&.#{$name} {
+
+			@include foundation-button-fix( $color );
+			
+		}
+
+		&.hollow.#{$name} {
+
+			color: $color;
+			border-width: 0.25em;
+			font-weight: 600;
+
+			&:hover, &:focus {
+
+				background-color: $color;
+				border-color: $color;
+				@include light-or-dark-text( $color );
+
+			}
+
+		}
+
+	}
+
+}
+
+.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"] {
+
+	@include button( false, $primary-color, scale-color( $primary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
+	
+	@include foundation-button-fix( $primary-color );
+
+}

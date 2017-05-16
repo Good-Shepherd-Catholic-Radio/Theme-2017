@@ -1,0 +1,36 @@
+// Allow hex color to be passed into a Data URI
+@function uri-friendly-color( $color ) {
+	@return '%23' + str-slice( '#{$color}', 2, -1 );
+}
+
+// map-get down multiple levels without making nested map-gets manually
+@function map-get-deep( $map, $keys... ) {
+
+	@each $key in $keys {
+		$map: map-get( $map, $key );
+	}
+
+	@return $map;
+
+}
+
+// I guess these got removed from Foundation? Super useful stuff.
+@function lower-bound( $range ) {
+
+	@if ( length( $range ) <= 0 ) {
+		@return 0;
+	}
+
+	@return nth( $range, 1 );
+
+}
+
+@function upper-bound( $range ) {
+
+	@if ( length( $range ) < 2 ) {
+		@return 999999999999;
+	}
+
+	@return nth( $range, 2 );
+
+}

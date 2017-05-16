@@ -1,0 +1,86 @@
+@mixin light-or-dark-text( $color ) {
+
+	@if lightness( $color ) < 50% {
+
+		color: $light-color;
+
+	}
+	@else {
+
+		color: $dark-color;
+
+	}
+
+}
+
+// Foundation's Light/Dark check makes the buttons hard to read sometimes
+@mixin foundation-button-fix( $button-color ) {
+	
+	@include light-or-dark-text( $button-color );
+
+	&:hover, &:focus {
+
+		$hover-background: scale-color( $button-color, $lightness: $button-background-hover-lightness );
+		@include light-or-dark-text( $hover-background );
+
+	}
+	
+}
+
+// Convert Hex to RGBA
+@mixin background-opacity( $color, $opacity: 0.3 ) {
+	background: $color; /* The fallback for ancient things */
+	background: rgba( $color, $opacity );
+}
+
+@mixin create-gradient( $direction, $start, $stop ) {
+
+	// No Switch Statement in SCSS? Blah
+	@if $direction == 'vertical' {
+		$direction: 0;
+	}
+	@else if $direction == 'diagonal-up' {
+		$direction: 45;
+	}
+	@else if $direction == 'diagonal-down' {
+		$direction: -45;
+	}
+	@else {
+		$direction: 90;
+	}
+
+	/* Fallback for ancient things */
+	background: #{$start};
+
+	/* FF3.6-15 */
+	background: -moz-linear-gradient( $direction + deg, #{$start} 0%, #{$stop} 100% );
+
+	/* Chrome10-25,Safari5.1-6 */
+	background: -webkit-linear-gradient( $direction + deg, #{$start} 0%, #{$stop} 100% );
+
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	@if $direction == -45 {
+		background: linear-gradient( 180 + $direction + deg, #{$start} 0%, #{$stop} 100%);
+	}
+	@else if $direction == 45 {
+		background: linear-gradient( $direction + deg, #{$start} 0%, #{$stop} 100%);
+	}
+	@else {
+		background: linear-gradient( 180 - $direction + deg, #{$start} 0%, #{$stop} 100%);
+	}
+
+	/* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start}', endColorstr='#{$stop}',GradientType=1 );
+
+}
+
+// Cross-browser, scaling Text-Stroke
+@mixin text-stroke( $color ) {
+
+	text-shadow:
+		-0.02em -0.02em 0 $color,  
+		0.02em -0.02em 0 $color,
+		-0.02em 0.02em 0 $color,
+		0.02em 0.02em 0 $color;
+
+}

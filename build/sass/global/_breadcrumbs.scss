@@ -1,0 +1,25 @@
+.breadcrumbs {
+    
+    li {
+        
+        &:not(:last-child):after {
+            color: $anchor-color;
+        }
+        
+    }
+    
+    a {
+        
+        color: $anchor-color;
+        
+        &:after {
+            color: $anchor-color;
+        }
+        
+        &:hover {
+            color: $anchor-color-hover;
+        }
+        
+    }
+    
+}

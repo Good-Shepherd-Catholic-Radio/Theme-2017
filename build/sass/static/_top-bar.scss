@@ -1,0 +1,218 @@
+.top-bar {
+    
+    font-weight: 600;
+    position: relative;
+    
+    // Phablet Landscape and Portrait iPad Fix
+    @media screen and (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {
+        
+        .show-for-small-only {
+            display: inline-block !important;
+        }
+        
+        .hide-for-small-only {
+            display: none;
+        }
+        
+    }
+    
+    .top-bar-title {
+        
+        overflow: hidden;
+        font-family: $header-font-family;
+        
+        a {
+            
+            color: $topbar-link-color;
+            
+            padding: $menu-item-padding;
+            font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h2', 'font-size' ) );
+            
+            // This font has crazy descenders. This makes it look more vertically centered than could be done otherwise
+            position: relative;
+            bottom: -0.1em;
+            
+            @media #{$medium-up} {
+                
+                font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h2', 'font-size' ) );
+                
+            }
+
+            &:hover {
+                background-color: lighten( $topbar-background, 5% ) !important;
+                @include light-or-dark-text( $topbar-background );
+            }
+            
+        }
+        
+    }
+
+    .nav-menu {
+        position: absolute;
+        right: 2%;
+        top: 50%;
+        transform: translate( -2%, -50% );
+        -webkit-transform: translate( -2%, -50% );
+        -o-transform: translate( -2%, -50% );
+        -ms-transform: translate( -2%, -50% );
+        z-index: 2;
+        
+        .fa {
+            margin-top: -0.5em; 
+        }
+
+        > .dropdown.menu {
+            
+            background: transparent;
+
+            > .current-menu-item, > .current-menu-ancestor {
+
+                > a {
+                    color: $secondary-color;
+                }
+
+                &.is-dropdown-submenu-parent {
+
+                    > a:after {
+
+                        border-top-color: $secondary-color !important;
+
+                    }
+
+                }
+            }
+            
+            > .is-dropdown-submenu-parent {
+
+                > a:after {
+                    border-top-color: $topbar-link-color;
+                }
+
+                &:hover > a:after {
+
+                    @if lightness( darken( $topbar-background, 10% ) ) < 50% {
+
+                        border-top-color: $light-color;
+
+                    }
+                    @else {
+
+                        border-top-color: $dark-color;
+
+                    }
+
+                }
+                
+                .is-dropdown-submenu-parent {
+                    
+                    a:after {
+
+                        @if lightness( $body-background ) < 50% {
+
+                            border-right-color: $light-color;
+
+                        }
+                        @else {
+
+                            border-right-color: $dark-color;
+
+                        }
+                        
+                    }
+
+                    // Top Level:hover
+                    &:hover > a:after {
+
+                        @if lightness( darken( $topbar-background, 10% ) ) < 50% {
+
+                            border-right-color: $dark-color;
+
+                        }
+                        @else {
+
+                            border-right-color: $light-color;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        > .menu {
+            
+            // All levels
+            li {
+                
+                &.is-dropdown-submenu-parent {
+                    
+                    > a:after {
+                        border-width: 4px;
+                        right: 10px;
+                    }
+                    
+                }
+                
+            }
+
+            // Top Level
+            > li {
+                
+                a {
+                    color: $topbar-link-color;
+                }
+            
+                &:hover {
+                    background-color: lighten( $topbar-background, 5% ) !important;
+
+                    > a {
+                        @include light-or-dark-text( $topbar-background );
+                    }
+                
+                }
+
+            }
+
+            // Everything below
+            > li {
+
+                li {
+                    
+                    background-color: $body-background;
+                    text-transform: none;
+                    
+                    a {
+                        @include light-or-dark-text( $dropdownmenu-background );
+                    }
+                    
+                }
+
+                li:hover {
+                    background-color: $light-gray !important;
+
+                    > a {
+                        @include light-or-dark-text( $light-gray );
+                    }
+
+                }
+
+            }
+
+            > li li.current-menu-item, > li li.current-menu-ancestor {
+
+                background-color: darken( $light-gray, 10% );
+
+                > a {
+                    @include light-or-dark-text( darken( $light-gray, 10% ) );
+                }
+
+            }
+
+        }
+
+    }
+
+}

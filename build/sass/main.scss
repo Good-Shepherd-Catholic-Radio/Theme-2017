@@ -1,0 +1,47 @@
+@charset "utf-8";
+/*!
+ * Theme Name: Good Shepherd Catholic Radio - Theme 2017
+ * Theme URI: https://github.com/Good-Shepherd-Catholic-Radio/Theme-2017
+ * Description: WordPress Theme for Good Shepherd Catholic Radio
+ * Version: 0.1.0
+ * Text Domain: good-shepherd-catholic-radio
+ * Author: Eric Defore
+ * Author URI: http://realbigmarketing.com/
+ * Contributors: d4mation
+ * GitHub Theme URI: Good-Shepherd-Catholic-Radio/Theme-2017.git
+ * GitHub Branch: master
+ */
+
+@import "foundation";
+
+@import "mixins";
+@import "functions";
+
+@import "settings";
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-breadcrumbs;
+@include foundation-callout;
+@include foundation-grid;
+@include foundation-top-bar;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-off-canvas;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-visibility-classes;
+@include foundation-media-object;
+@include foundation-reveal;
+@include foundation-close-button;
+
+@import "global/wp";
+@import "global/base";
+@import "global/buttons";
+@import "global/breadcrumbs";
+
+@import "static/top-bar";
+@import "static/off-canvas";
+@import "static/footer";
