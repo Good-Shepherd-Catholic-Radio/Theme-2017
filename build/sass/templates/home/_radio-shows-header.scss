@@ -1,0 +1,41 @@
+$cell-height: 250px;
+
+.radio-shows-header {
+	
+	.cat_radio-show {
+		
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		
+		position: relative;
+		
+		min-height: $cell-height;
+		
+		@media #{$medium-up} {
+			min-height: $cell-height * 2;
+		}
+		
+		.radio-show-meta {
+			
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			
+			text-align: right;
+			
+			color: #fff;
+			
+		}
+		
+	}
+	
+	.radio-shows-right {
+		
+		.cat_radio-show {
+			min-height: $cell-height;
+		}
+		
+	}
+	
+}
