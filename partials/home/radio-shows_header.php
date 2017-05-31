@@ -36,9 +36,9 @@ $radio_shows = new WP_Query( array(
 		),
 		array(
 			'key' => '_EventEndDate',
-			'value' => date( 'H:i:s' ),
+			'value' => current_time( 'Y-m-d H:i:s' ),
 			'type' => 'DATETIME',
-			'compare' => '<',
+			'compare' => '>',
 		),
 		array(
 			'key' => '_EventHideFromUpcoming',
@@ -53,8 +53,6 @@ $max_per_row = 1;
 ?>
 
 <div class="radio-shows-header row expanded small-collapse">
-	
-	<?php include locate_template(); ?>
 
 	<?php if ( $radio_shows->have_posts() ) : $radio_shows->the_post(); // Forcefully start loop to have our side-section ?>
 	
