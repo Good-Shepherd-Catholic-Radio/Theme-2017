@@ -1,0 +1,166 @@
+/**
+
+.jp-audio-stream {
+
+width: auto;
+border: none;
+
+.jp-controls, .jp-details, .jp-volume-controls {
+display: inline-block;
+position: relative;
+}
+
+.jp-controls {
+width: auto;
+}
+
+.jp-details {
+min-width: 1px;
+top: 5px;
+}
+
+.jp-volume-controls {
+top: 32px;
+float: right;
+}
+
+}
+
+*/
+
+.jp-audio-stream {
+
+	padding: 15px;
+
+	button:focus {
+		outline: none;
+	}
+
+	.fa {
+		color: $primary-color;
+	}
+
+	.jp-play {
+
+		.play-icon:before {
+			content: '\f144';
+		}
+
+		&:hover {
+			.play-icon:before {
+				content: '\f01d';
+			}
+		}
+
+	}
+
+	&.jp-state-playing {
+
+		.jp-play {
+
+			.play-icon:before {
+				content: '\f28b';
+			}
+
+			&:hover {
+				.play-icon:before {
+					content: '\f28c';
+				}
+
+			}
+
+		}
+
+	}
+
+	.title-container {
+
+		position: relative;
+
+		.jp-title {
+			position: absolute;
+			transform: translate(0%,50%);
+			width: 100%;
+		}
+
+	}
+
+	.jp-mute {
+
+		.mute-icon {
+
+			color: $light-gray;
+
+			&:before {
+				content: '\f026';
+			}
+
+		}
+
+	}
+
+	&.jp-state-muted {
+
+		.jp-mute {
+
+			.mute-icon {
+
+				color: $primary-color;
+
+			}
+
+		}
+
+	}
+
+	.jp-volume-controls {
+
+		.volume-bar-container {
+
+			position: relative;
+
+			.jp-volume-bar {
+				overflow: hidden;
+				background-color: $light-gray;
+				height: 1em;
+				cursor: pointer;
+				position: absolute;
+				transform: translate(2%,100%);
+				width: 100%;
+			}
+
+			.jp-volume-bar-value {
+				background-color: $primary-color;
+				width: 0px;
+				height: 1em;
+			}
+
+		}
+
+	}
+
+	.jp-volume-max {
+
+		.volume-max-icon {
+
+			color: $light-gray;
+
+			&:before {
+				content: '\f028';
+			}
+
+		}
+
+	}
+
+	.jp-volume-max:focus {
+
+		.volume-max-icon {
+
+			color: $primary-color;
+
+		}
+
+	}
+
+}

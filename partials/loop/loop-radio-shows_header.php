@@ -13,13 +13,20 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 $attachment_id = get_post_thumbnail_id( get_the_ID() );
 
+if ( has_post_thumbnail() ) {
+	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+}
+else {
+	$image_url = '//placeholdit.co//i/1000x500?&bg=ccc&fc=000&text=Placeholder';
+}
+
 ?>
 
 <div <?php post_class( array(
 	'small-12',
 	'medium-6',
 	'columns'
-) ); ?> style="background-image: url(<?php echo wp_get_attachment_image_url( $attachment_id, 'full' ); ?>);">
+) ); ?> style="background-image: url(<?php echo $image_url; ?>);">
 
 	<div class="radio-show-meta">
 		<?php the_title(); ?>

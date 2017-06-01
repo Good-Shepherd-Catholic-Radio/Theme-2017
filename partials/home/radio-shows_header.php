@@ -95,3 +95,60 @@ $max_per_row = 1;
 	endif; ?> 
 	
 </div>
+
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		
+		<div class="jp-gui jp-interface row expanded">
+			
+			<div class="jp-controls small-2 medium-1 columns">
+				<button class="jp-play" role="button" tabindex="0">
+					<span class="fa fa-3x play-icon"></span>
+				</button>
+			</div>
+			
+			<div class="title-container jp-details small-7 medium-8 columns">
+				<div class="jp-title" aria-label="title">Now Playing: (Not able to pull Track Information...yet)</div>
+			</div>
+			
+			<div class="jp-volume-controls small-2 offset-small-1 medium-2 columns">
+				
+				<div class="row expanded small-collapse">
+					
+					<div class="small-2 columns">
+				
+						<button class="jp-mute" role="button" tabindex="0">
+							<span class="fa fa-3x mute-icon"></span>
+						</button>
+						
+					</div>
+					
+					<div class="volume-bar-container small-7 columns">
+						
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+						
+					</div>
+					
+					<div class="small-2 small-offset-1 columns">
+						
+						<button class="jp-volume-max" role="button" tabindex="0">
+							<span class="fa fa-3x volume-max-icon"></span>
+						</button>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
