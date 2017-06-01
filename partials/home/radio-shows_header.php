@@ -30,7 +30,7 @@ $radio_shows = new WP_Query( array(
 		'relation'    => 'AND',
 		array(
 			'key' => '_EventStartDate',
-			'value' => date( 'Y-m-d' ),
+			'value' => current_time( 'Y-m-d' ),
 			'type' => 'DATETIME',
 			'compare' => '>=',
 		),
