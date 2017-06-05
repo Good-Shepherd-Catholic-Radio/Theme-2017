@@ -1,4 +1,4 @@
-// In jquery.jplayer.js within node_modules, ensure you search/replace 'root.jQuery' with 'jQuery'!
+// In jquery.jplayer.js within ./bower_components, ensure you search/replace 'root.jQuery' with 'jQuery'!
 // I hate solutions like this, but I cannot tell what they were even trying to do there. Maybe it is a Browserify/AMD thing?
 
 ( function( $ ) {
@@ -11,7 +11,7 @@
 		},
 		ready = false;
 		
-		$( '#jquery_jplayer_1' ).jPlayer( {
+		$( '#gscr-radio-stream' ).jPlayer( {
 			ready: function ( event ) {
 				ready = true;
 				$( this ).jPlayer( 'setMedia', stream ).jPlayer( 'play' );
