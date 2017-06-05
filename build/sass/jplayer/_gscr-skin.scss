@@ -1,36 +1,12 @@
-/**
-
-.jp-audio-stream {
-
-width: auto;
-border: none;
-
-.jp-controls, .jp-details, .jp-volume-controls {
-display: inline-block;
-position: relative;
-}
-
-.jp-controls {
-width: auto;
-}
-
-.jp-details {
-min-width: 1px;
-top: 5px;
-}
-
-.jp-volume-controls {
-top: 32px;
-float: right;
-}
-
-}
-
-*/
-
 .jp-audio-stream {
 
 	padding: 15px;
+	width: 100%;
+	background: #fff;
+	
+	&.is-anchored {
+		top: auto !important;
+	}
 
 	button:focus {
 		outline: none;

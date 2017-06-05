@@ -13,6 +13,7 @@ javascript:
       - "bower_components/foundation-sites/js/foundation.util.motion.js"
       - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
       - "bower_components/foundation-sites/js/foundation.offcanvas.js"
+      - "bower_components/foundation-sites/js/foundation.sticky.js"
       - "bower_components/jPlayer/dist/jplayer/jquery.jplayer.js"
     notification: "Running JavaScript"
     # Paths to JavaScript libraries, which are combined into one file

@@ -65,6 +65,15 @@ add_action( 'init', function () {
 		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
 		true
 	);
+	
+	wp_localize_script(
+		'good-shepherd-catholic-radio',
+		'goodShepherdCatholicRadio',
+		apply_filters( 'good_shepherd_catholic_radio_localize_script', array(
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'siteUrl' => site_url(),
+		) )
+	);
 
 	// Theme fonts
 	if ( ! empty( $theme_fonts ) ) {
