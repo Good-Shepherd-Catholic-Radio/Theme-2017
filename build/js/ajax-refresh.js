@@ -123,9 +123,9 @@
 
 		if ( ! pageLoaded ) {
 
-			$( 'html, body' ).animate( {
-				scrollTop: 0
-			}, 1500 );
+			//$( 'html, body' ).animate( {
+				//scrollTop: 0
+			//}, 1500 );
 
 			pageLoaded = true;
 
@@ -150,128 +150,124 @@
 
 			//start changing the page content.
 			$( '#site-content' ).fadeOut( "slow", function() {
-
-				//Nothing like good old pure JavaScript...
-				//document.getElementById( 'site-content' ).innerHTML = AAPL_loading_code;
-				// Loading Message
-
-				$( '#site-content' ).fadeIn( "slow", function() {
-					$.ajax( {
-						type: "GET",
-						url: url,
-						data: getData,
-						cache: false,
-						dataType: "html",
-						success: function( data ) {
-
-							pageLoaded = false;
-
-							//get title attribute
-							var datax = data.split( '<title>' ),
-								titlesx = data.split( '</title>' );
-
-							if ( datax.length == 2 ||
-								titlesx.length == 2 ) {
-
-								data = data.split( '<title>' )[1];
-								var titles = data.split( '</title>' )[0];
-
-								// set the title?
-								// after several months, I think this is the solution to fix &amp; issues
-								$( document ).attr( 'title', ( $( "<div/>" ).html( titles ).text() ) );
-							}
-							
-							var bodyClassRegex = /<body(?:.*)class="(.*)"/igm,
-								bodyClass = bodyClassRegex.exec( data )[1];
-							
-							if ( typeof bodyClass != "undefined" &&
-							   bodyClass.length > 0 ) {
-								// Update the Body Class since it exists outside of the Site Content <div>
-								$( 'body' ).removeClass().addClass( bodyClass );
-							}
-
-							//GOOGLE ANALYTICS TRACKING
-
-							if ( typeof _gaq != "undefined" ) {
-
-								if ( typeof getData == "undefined" ) {
-									getData = "";
-								}
-								else {
-									getData = "?" + getData;
-								}
-
-								_gaq.push( [ '_trackPageview', path + getData ] );
-
-							}
-
-							//GET PAGE CONTENT
-							data = data.split('id="site-content"')[1];
-							data = data.substring( data.indexOf( '>' ) + 1 );
-							var depth = 1;
-							var output = '';
-
-							while ( depth > 0 ) {
-
-								var temp = data.split('</section>')[0];
-
-								//count occurrences
-								var i = 0,
-									pos = temp.indexOf( "<section" );
-
-								while ( pos != -1 ) {
-									i++;
-									pos = temp.indexOf( "<section", pos + 1 );
-								}
-								//end count
-
-								depth = depth + i - 1;
-								output = output + data.split( '</section>' )[0] + '</section>';
-								data = data.substring( data.indexOf( '</section>' ) + 10 ); // 6 characters in </section>
-
-							}
-
-							//put the resulting html back into the page!
-
-							//Nothing like good old pure JavaScript...
-							document.getElementById( 'site-content' ).innerHTML = output;
-
-							//move content area so we cant see it.
-							$( '#site-content' ).css( "position", "absolute" );
-							$( '#site-content' ).css( "left", "20000px" );
-
-							//show the content area
-							$( '#site-content' ).show();
-
-							//recall loader so that new URLS are captured.
-							pageInit( "#site-content" );
-							
-							$( document ).trigger( "ready" ); // Tell browser that Document is "ready" again
-
-							$( 'ul.menu li' ).each( function( index, menuItem ) {
-								$( menuItem ).removeClass( 'current-menu-item' );
-							} );
-
-							$( this ).parents( 'li' ).addClass( 'current-menu-item' );
-
-							//now hide it again and put the position back!
-							$( '#site-content' ).hide();
-							$( '#site-content' ).css( "position", "" );
-							$( '#site-content' ).css( "left", "" );
-
-							$( '#site-content' ).fadeIn( "slow", function() {} );
-							
-						},
-						error: function(jqXHR, textStatus, errorThrown) {
-							//Would append this, but would not be good if this fired more than once!!
-							pageLoaded = false;
-							document.title = "Error loading requested page!";
-						}
-						
-					} );
-					
-				} );
 				
+			} );
+
+			//Nothing like good old pure JavaScript...
+			//document.getElementById( 'site-content' ).innerHTML = AAPL_loading_code;
+			// Loading Message
+			$.ajax( {
+				type: "GET",
+				url: url,
+				data: getData,
+				cache: false,
+				dataType: "html",
+				success: function( data ) {
+
+					pageLoaded = false;
+
+					//get title attribute
+					var datax = data.split( '<title>' ),
+						titlesx = data.split( '</title>' );
+
+					if ( datax.length == 2 ||
+						titlesx.length == 2 ) {
+
+						data = data.split( '<title>' )[1];
+						var titles = data.split( '</title>' )[0];
+
+						// set the title?
+						// after several months, I think this is the solution to fix &amp; issues
+						$( document ).attr( 'title', ( $( "<div/>" ).html( titles ).text() ) );
+					}
+
+					var bodyClassRegex = /<body(?:.*)class="(.*)"/igm,
+						bodyClass = bodyClassRegex.exec( data )[1];
+
+					if ( typeof bodyClass != "undefined" &&
+					   bodyClass.length > 0 ) {
+						// Update the Body Class since it exists outside of the Site Content <div>
+						$( 'body' ).removeClass().addClass( bodyClass );
+					}
+
+					//GOOGLE ANALYTICS TRACKING
+
+					if ( typeof _gaq != "undefined" ) {
+
+						if ( typeof getData == "undefined" ) {
+							getData = "";
+						}
+						else {
+							getData = "?" + getData;
+						}
+
+						_gaq.push( [ '_trackPageview', path + getData ] );
+
+					}
+
+					//GET PAGE CONTENT
+					data = data.split('id="site-content"')[1];
+					data = data.substring( data.indexOf( '>' ) + 1 );
+					var depth = 1;
+					var output = '';
+
+					while ( depth > 0 ) {
+
+						var temp = data.split('</section>')[0];
+
+						//count occurrences
+						var i = 0,
+							pos = temp.indexOf( "<section" );
+
+						while ( pos != -1 ) {
+							i++;
+							pos = temp.indexOf( "<section", pos + 1 );
+						}
+						//end count
+
+						depth = depth + i - 1;
+						output = output + data.split( '</section>' )[0] + '</section>';
+						data = data.substring( data.indexOf( '</section>' ) + 10 ); // 6 characters in </section>
+
+					}
+
+					//put the resulting html back into the page!
+
+					//Nothing like good old pure JavaScript...
+					document.getElementById( 'site-content' ).innerHTML = output;
+
+					//move content area so we cant see it.
+					$( '#site-content' ).css( "position", "absolute" );
+					$( '#site-content' ).css( "left", "20000px" );
+
+					//show the content area
+					$( '#site-content' ).show();
+
+					//recall loader so that new URLS are captured.
+					pageInit( "#site-content" );
+
+					$( document ).trigger( "ready" ); // Tell browser that Document is "ready" again
+
+					$( 'ul.menu li' ).each( function( index, menuItem ) {
+						$( menuItem ).removeClass( 'current-menu-item' );
+					} );
+
+					$( this ).parents( 'li' ).addClass( 'current-menu-item' );
+
+					//now hide it again and put the position back!
+					$( '#site-content' ).hide();
+					$( '#site-content' ).css( "position", "" );
+					$( '#site-content' ).css( "left", "" );
+
+					$( '#site-content' ).fadeIn( "slow", function() {} );
+
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					//Would append this, but would not be good if this fired more than once!!
+					pageLoaded = false;
+					document.title = "Error loading requested page!";
+				}
+
 			} );
 			
 		}
