@@ -15,36 +15,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 </section><!-- #site-content -->
 
 <footer id="site-footer">
-    
-    <div class="row">
-    
-        <?php 
 
-        $footer_sidebars = array(
-            'footer-left',
-            'footer-center',
-            'footer-right',
-        ); 
+	<div class="row">
 
-        foreach ( $footer_sidebars as $sidebar ) : ?>
+		<?php 
 
-            <div class="small-12 medium-4 columns">
+		$footer_sidebars = array(
+			'footer-left',
+			'footer-center',
+			'footer-right',
+		); 
 
-                <?php dynamic_sidebar( $sidebar ); ?>
+		foreach ( $footer_sidebars as $sidebar ) : ?>
 
-            </div>
+		<div class="small-12 medium-4 columns">
 
-        <?php endforeach; ?>
-        
-    </div>
-    
-    <div class="row">
-        <div class="small-12 columns text-center">
-            <?php echo sprintf( _x( 'Site by %s', 'Site By Footer Text', 'good-shepherd-catholic-radio' ), '<a href="//realbigmarketing.com/" target="_blank">Real Big Marketing</a>' ); ?>
-            <br />
-            <?php echo sprintf( _x( 'Copyright &copy; %s %s', 'Copyright Footer Text', 'good-shepherd-catholic-radio' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
-        </div>
-    </div>
+			<?php dynamic_sidebar( $sidebar ); ?>
+
+		</div>
+
+		<?php endforeach; ?>
+
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns text-center">
+			<?php echo sprintf( _x( 'Site by %s', 'Site By Footer Text', 'good-shepherd-catholic-radio' ), '<a href="//realbigmarketing.com/" target="_blank">Real Big Marketing</a>' ); ?>
+			<br />
+			<?php echo sprintf( _x( 'Copyright &copy; %s %s', 'Copyright Footer Text', 'good-shepherd-catholic-radio' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+		</div>
+	</div>
 
 </footer>
 
@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 
 </div><!-- .off-canvas-content -->
@@ -116,5 +116,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php wp_footer(); ?>
 
 </body>
+
+<div class="ajax-loading text-center" style="display: none;">
+	<span class="fa fa-5x fa-spinner fa-pulse"></span>
+</div>
 
 </html>

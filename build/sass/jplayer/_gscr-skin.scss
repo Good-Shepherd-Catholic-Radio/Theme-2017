@@ -13,7 +13,13 @@
 	}
 
 	.fa {
+		
 		color: $primary-color;
+		
+		&:hover {
+			cursor: pointer;
+		}
+		
 	}
 
 	.jp-play {

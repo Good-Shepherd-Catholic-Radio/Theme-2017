@@ -123,9 +123,9 @@
 
 		if ( ! pageLoaded ) {
 
-			//$( 'html, body' ).animate( {
-				//scrollTop: 0
-			//}, 1500 );
+			$( 'html, body' ).animate( {
+				scrollTop: 0
+			}, 1500 );
 
 			pageLoaded = true;
 
@@ -147,11 +147,19 @@
 					window.history.pushState( stateObj, "ajax page loaded...", path );
 				}
 			}
-
-			//start changing the page content.
-			$( '#site-content' ).fadeOut( "slow", function() {
+			
+			// Start Overlay
+			setTimeout( function() {
 				
-			} );
+				$( '#site-header, #site-content, #site-footer' ).css( 'pointer-events', 'none' );
+						
+				$( '#site-content' ).fadeOut( "slow", function() {
+				} );
+
+				$( '.ajax-loading' ).fadeIn( 'slow', function() {
+				} );
+
+			}, 100 );
 
 			//Nothing like good old pure JavaScript...
 			//document.getElementById( 'site-content' ).innerHTML = AAPL_loading_code;
@@ -259,7 +267,17 @@
 					$( '#site-content' ).css( "position", "" );
 					$( '#site-content' ).css( "left", "" );
 
-					$( '#site-content' ).fadeIn( "slow", function() {} );
+					setTimeout( function() {
+						
+						$( '#site-content' ).fadeIn( "slow", function() {
+						} );
+						
+						$( '.ajax-loading' ).fadeOut( 'slow', function() {
+						} );
+						
+						$( '#site-header, #site-content, #site-footer' ).css( 'pointer-events', 'initial' );
+						
+					}, 100 );
 
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
