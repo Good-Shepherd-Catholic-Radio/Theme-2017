@@ -141,3 +141,30 @@ function gscr_custom_breadcrumbs() {
 
 <?php
 }
+
+/**
+ * Determine if a Post is a Radio Show
+ * 
+ * @param		integer $post_id WP_Post ID
+ *                                  
+ * @since		1.0.0
+ * @return		boolean True if it is a Radio Show
+ */
+function gscr_is_radio_show( $post_id = null ) {
+	
+	if ( $post_id == null ) {
+		$post_id = get_the_ID();
+	}
+	
+	if ( get_post_type( $post_id ) !== 'tribe_events' ) return false;
+		
+	$terms = wp_get_post_terms( $post_id, 'tribe_events_cat' );
+
+	// Flatten down the returned Array of Objects into just an Associative Array
+	$terms = wp_list_pluck( $terms, 'slug', 'term_id' );
+
+	if ( ! in_array( 'radio-show', $terms ) ) return false;
+	
+	return true;
+	
+}

@@ -46,7 +46,7 @@
 	 */
 	function pageInit( scope ) {
 		
-		$( "a" ).click( function( event ) {
+		$( "*:not( .tribe-events-nav-next ):not( .tribe-events-nav-previous ) > a" ).click( function( event ) {
 			
 			// if its not an admin url, or doesnt contain #
 			if ( this.href.indexOf( goodShepherdCatholicRadio.siteUrl ) >= 0 && 

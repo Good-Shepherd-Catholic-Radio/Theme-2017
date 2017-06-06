@@ -21,6 +21,8 @@ get_header();
 
 <?php
 
+locate_template( '/includes/hooks/' . get_post_type() . '-hooks.php', true, true );
+
 get_template_part( 'partials/loop/loop', get_post_type() );
 
 get_footer();
