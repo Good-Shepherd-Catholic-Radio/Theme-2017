@@ -63,7 +63,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 
 				<div class="title-container jp-details small-7 medium-8 columns">
-					<div class="jp-title" aria-label="title">Now Playing: (Not able to pull Track Information...yet)</div>
+					<div class="jp-title" aria-label="title">
+						<?php _e( 'Listen Live!', 'good-shepherd-catholic-radio' ); ?>
+					</div>
 				</div>
 
 				<div class="jp-volume-controls small-2 offset-small-1 medium-2 columns">
@@ -101,8 +103,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 
 			<div class="jp-no-solution">
-				<span>Update Required</span>
-				To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				<span><?php _e( 'Update Required', 'good-shepherd-catholic-radio' ); ?></span>
+				<?php _e( 'To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.', 'good-shepherd-catholic-radio' ); ?>
 			</div>
 		</div>
 	</div>
