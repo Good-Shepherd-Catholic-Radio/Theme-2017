@@ -152,13 +152,16 @@
 			// Remove weird garbage from pagination. Maybe it's a nonce?
 			path = path.replace( /&_=\d*/ig, '' );
 
-			//Only do a history state if clicked on the page.
-			if ( push != 1 ) {
+			// Only do a history state if clicked on the page.
+			if ( typeof push == 'undefined' || 
+				push != 1 ) {
 				
 				//TODO: implement a method for IE
 				if ( typeof window.history.pushState == "function" ) {
-					var stateObj = { foo: 1000 + Math.random()*1001 };
-					window.history.pushState( stateObj, "ajax page loaded...", path );
+					var stateObj = {
+						page: path,
+					};
+					window.history.pushState( stateObj, null, path );
 				}
 				
 			}
@@ -176,8 +179,6 @@
 
 			}, 100 );
 
-			//Nothing like good old pure JavaScript...
-			//document.getElementById( 'site-content' ).innerHTML = AAPL_loading_code;
 			// Loading Message
 			$.ajax( {
 				type: "GET",
@@ -303,6 +304,18 @@
 	$( document ).ready( function() {
 
 		pageInit( '#site-content' );
+		
+		window.onpopstate = function(event) {
+			
+			if ( window.history.state !== null ) {
+
+				// By the time popstate has fired, location.pathname has been changed
+				loadPage( window.history.state.page, 1 );
+				
+			}
+
+		};
+		
 
 	} );
 
