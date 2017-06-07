@@ -136,16 +136,31 @@
 			//get domain name...
 			var nohttp = url.replace( "http://", "" ).replace( "https://", "" ),
 				firstsla = nohttp.indexOf( "/" ),
-				pathpos = url.indexOf(nohttp),
-				path = url.substring(pathpos + firstsla);
+				pathpos = url.indexOf( nohttp ),
+				path = url.substring( pathpos + firstsla );
+				
+			if ( typeof getData == "undefined" ) {
+				getData = "";
+			}
+			else {
+				getData = "?" + getData;
+			}
+
+			// Ensure intial Search is appended to URL
+			path = path + getData;
+			
+			// Remove weird garbage from pagination. Maybe it's a nonce?
+			path = path.replace( /&_=\d*/ig, '' );
 
 			//Only do a history state if clicked on the page.
 			if ( push != 1 ) {
+				
 				//TODO: implement a method for IE
 				if ( typeof window.history.pushState == "function" ) {
 					var stateObj = { foo: 1000 + Math.random()*1001 };
 					window.history.pushState( stateObj, "ajax page loaded...", path );
 				}
+				
 			}
 			
 			// Start Overlay
@@ -201,13 +216,6 @@
 					//GOOGLE ANALYTICS TRACKING
 
 					if ( typeof _gaq != "undefined" ) {
-
-						if ( typeof getData == "undefined" ) {
-							getData = "";
-						}
-						else {
-							getData = "?" + getData;
-						}
 
 						_gaq.push( [ '_trackPageview', path + getData ] );
 
