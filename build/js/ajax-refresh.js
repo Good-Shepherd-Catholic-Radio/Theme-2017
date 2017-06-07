@@ -305,6 +305,20 @@
 
 		pageInit( '#site-content' );
 		
+		// Push a state for the very first page load
+		if ( window.history.state === null ) {
+			
+			// Path along with any Query Parameters
+			var path = location.pathname + location.search;
+			
+			var stateObj = {
+				page: path,
+			};
+			
+			window.history.pushState( stateObj, null, path );
+			
+		}
+		
 		window.onpopstate = function(event) {
 			
 			if ( window.history.state !== null ) {
