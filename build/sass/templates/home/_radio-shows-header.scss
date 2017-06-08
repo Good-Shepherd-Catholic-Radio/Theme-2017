@@ -45,6 +45,11 @@ $cell-height: 250px;
 			left: 0;
 			padding: 0.25em 0 0 0.25em;
 			
+			.microphone-live {
+				margin-top: 0.75em;
+				padding-left: 0.5em;
+			}
+			
 			.fa-map-marker {
 				font-size: 2.5em;
 				transform-origin: center bottom;
@@ -58,6 +63,7 @@ $cell-height: 250px;
 			position: absolute;
 			bottom: 0;
 			right: 0;
+			padding: 0 0.5em 0.5em 0;
 			
 			text-align: right;
 			

@@ -56,6 +56,7 @@ else {
 			<?php the_title(); ?>
 			<br />
 			<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
+			<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
 			<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
 		</div>
 		
