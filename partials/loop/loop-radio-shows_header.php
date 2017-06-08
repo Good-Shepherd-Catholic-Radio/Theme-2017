@@ -27,12 +27,38 @@ else {
 	'medium-6',
 	'columns'
 ) ); ?> style="background-image: url(<?php echo $image_url; ?>);">
+	
+	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+	
+		<div class="radio-show-color-overlay"></div>
+		
+		<div class="radio-show-meta">
+			
+			<?php if ( rbm_get_field( 'radio_show_local' ) ) : ?>
+			
+				<span class="fa fa-2x fa-map-marker" title="<?php _e( 'Local', 'good-shepherd-catholic-radio' ); ?>"></span>
+			
+			<?php endif; ?>
+			
+			<?php if ( rbm_get_field( 'radio_show_live' ) ) : ?>
+			
+				<span class="fa-stack microphone-live" title="<?php _e( 'Live', 'good-shepherd-catholic-radio' ); ?>">
+					<span class="fa fa-rss fa-flip-horizontal left fa-stack-1x"></span>
+					<span class="fa fa-rss right fa-stack-1x"></span>
+					<span class="fa fa-microphone fa-stack-2x"></span>
+				</span>
+			
+			<?php endif; ?>
+			
+		</div>
 
-	<div class="radio-show-meta">
-		<?php the_title(); ?>
-		<br />
-		<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-		<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
-	</div>
+		<div class="radio-show-title">
+			<?php the_title(); ?>
+			<br />
+			<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
+			<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+		</div>
+		
+	</a>
 
 </div>

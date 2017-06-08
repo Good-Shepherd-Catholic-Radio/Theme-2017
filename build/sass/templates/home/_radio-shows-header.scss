@@ -17,7 +17,43 @@ $cell-height: 250px;
 			min-height: $cell-height * 2;
 		}
 		
+		.radio-show-color-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			@include background-opacity( $primary-color, 0.5 );
+			transition: all 300ms;
+		}
+		
+		a {
+			&:hover {
+				.radio-show-color-overlay {
+					// Maybe not? Maybe Transparent works better
+					@include background-opacity( $secondary-color, 0.5 );
+				}
+			}
+		}
+		
 		.radio-show-meta {
+			
+			color: #fff;
+			
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 0.25em 0 0 0.25em;
+			
+			.fa-map-marker {
+				font-size: 2.5em;
+				transform-origin: center bottom;
+				animation: wiggle 3s linear infinite;
+			}
+			
+		}
+		
+		.radio-show-title {
 			
 			position: absolute;
 			bottom: 0;
