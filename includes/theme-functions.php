@@ -21,7 +21,14 @@ function gscr_custom_breadcrumbs() {
     $after = '</li>'; // tag after the current crumb
     if ( is_front_page() ) return false;
     global $post;
-    $home_link = get_bloginfo( 'url' ); ?>
+    $home_link = get_bloginfo( 'url' ); 	
+				
+	// Somehow this is broken. Events Calendar must be doing something dumb
+	wp_reset_postdata();
+	
+	global $wp_query;
+	
+?>
  
     <nav aria-label="<?php _e( 'You are here:', 'good-shepherd-catholic-radio' ); ?>" role="navigation">
         <ul class="breadcrumbs">
@@ -65,7 +72,19 @@ function gscr_custom_breadcrumbs() {
             elseif ( is_single() && ! is_attachment() ) {
                 // Since we used Page Templates for most Archives (To allow a Content Editor), we need to make our own Breadcrumbs for each
                 
-                if ( get_post_type() != 'post' ) {
+				if ( get_post_type() == 'tribe_events' ) {
+					
+					if ( ! gscr_is_radio_show() ) {
+						echo $before . '<a href="' . $home_link . '/' . Tribe__Settings_Manager::get_option( 'eventsSlug', 'events' ) . '/">' . tribe_get_event_label_plural() . '</a>' . $after;
+						if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+					}
+					else {
+						echo $before . tribe_get_event_label_plural() . $after;
+						if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+					}
+					
+				}
+                else if ( get_post_type() != 'post' ) {
                     $post_type = get_post_type_object( get_post_type() );
                     $slug = $post_type->rewrite;
                     echo $before . '<a href="' . $home_link . '/' . $slug['slug'] . '/">' . $post_type->labels->name . '</a>' . $after;
@@ -85,8 +104,19 @@ function gscr_custom_breadcrumbs() {
                 }
             } 
             elseif ( ! is_single() && ! is_page() && get_post_type() != 'post' && ! is_404() ) {
-                $post_type = get_post_type_object( get_post_type() );
+				
+				// Seriously, what the heck Events Calendar. What are you even doing
+				if ( $wp_query->query['post_type'] == 'tribe_events' ) {
+					$post_type = 'tribe_events';
+				}
+				else {
+                	$post_type = get_post_type();
+				}
+				
+				$post_type = get_post_type_object( $post_type );
+				
                 echo $before_current . $post_type->labels->name . $after;
+				
             }
             elseif ( is_attachment() ) {
                 $parent = get_post( $post->post_parent );
