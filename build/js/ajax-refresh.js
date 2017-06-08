@@ -46,7 +46,17 @@
 	 */
 	function pageInit( scope ) {
 		
-		$( "*:not( .tribe-events-nav-next ):not( .tribe-events-nav-previous ) > a" ).click( function( event ) {
+		$( "a" ).click( function( event ) {
+			
+			// Sometimes we want the Events Calendar to do its own AJAX rather than our own
+			if ( $( this ).closest( 'body' ).hasClass( 'post-type-archive-tribe_events' ) ) {
+				
+				if ( $( this ).parent().hasClass( 'tribe-events-nav-next' ) ||
+					$( this ).parent().hasClass( 'tribe-events-nav-previous' ) ) {
+					return;
+				}
+				
+			}
 			
 			// if its not an admin url, or doesnt contain #
 			if ( this.href.indexOf( goodShepherdCatholicRadio.siteUrl ) >= 0 && 
