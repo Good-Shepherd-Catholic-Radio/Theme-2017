@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Make sure PHP version is correct
 if ( ! version_compare( PHP_VERSION, '5.3.0', '>=' ) ) {
-	wp_die( 'ERROR in Love From Louie - Theme 2017 theme: PHP version 5.3 or greater is required.' );
+	wp_die( 'ERROR in Good Shepherd Catholic Radio - Theme 2017 theme: PHP version 5.3 or greater is required.' );
 }
 
 // Make sure no theme constants are already defined (realistically, there should be no conflicts)
@@ -20,7 +20,7 @@ if ( defined( 'THEME_VER' ) ||
 	defined( 'THEME_DIR' ) ||
 	defined( 'THEME_FILE' ) ||
 	isset( $theme_fonts ) ) {
-	wp_die( 'ERROR in Love From Louie - Theme 2017 theme: There is a conflicting constant. Please either find the conflict or rename the constant.' );
+	wp_die( 'ERROR in Good Shepherd Catholic Radio - Theme 2017 theme: There is a conflicting constant. Please either find the conflict or rename the constant.' );
 }
 
 /**
@@ -149,8 +149,9 @@ add_action( 'after_setup_theme', function () {
 	// Add theme functions
     require_once __DIR__ . '/includes/theme-functions.php';
 	
-	// Add Button Shortcode
+	// Add Shortcodes
     require_once __DIR__ . '/includes/shortcodes/gscr-button.php';
+	require_once __DIR__ . '/includes/shortcodes/gscr-underwriters.php';
 	
 	// Nav Walker for Foundation
     require_once __DIR__ . '/includes/class-foundation-nav-walker.php';
