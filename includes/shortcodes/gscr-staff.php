@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds the [gscr_underwriters] shortcode
+ * Adds the [gscr_staff] shortcode
  *
  * @since   1.0.0
  * @package Good_Shepherd_Catholic_Radio
@@ -13,36 +13,56 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Add Underwriters Shortcode
+ * Add staffs Shortcode
  *
  * @since       1.0.0
  * @return      HTML
  */
-add_shortcode( 'gscr_underwriters', 'add_gscr_underwriters_shortcode' );
-function add_gscr_underwriters_shortcode( $atts, $content ) {
+add_shortcode( 'gscr_staff', 'add_gscr_staff_shortcode' );
+function add_gscr_staff_shortcode( $atts, $content ) {
     
     $atts = shortcode_atts(
         array( // a few default values
 			'posts_per_page' => -1,
-			'per_row' => 2,
+			'per_row' => 4,
+			'category' => '',
         ),
         $atts,
-        'gscr_underwriters'
+        'gscr_staff'
     );
 	
-	$underwriters = new WP_Query( array(
-		'post_type' => 'underwriter',
+	$args = array(
+		'post_type' => 'staff',
 		'posts_per_page' => $atts['posts_per_page'],
-	) );
+	);
+	
+	if ( ! empty( $atts['category'] ) ) {
+		
+		$categories = explode( ',', trim( $atts['category'] ) );
+		$categories = array_map( 'trim', $categories );
+		
+		$args['tax_query'] = array(
+			'relationship' => 'AND',
+			array(
+				'taxonomy' => 'staff-category',
+				'field' => 'name',
+				'terms' => $categories,
+				'operator' => 'IN'
+			),
+		);
+		
+	}
+	
+	$staff = new WP_Query( $args );
 	
 	$index = 0;
 	$medium_class = 'medium-' . ( 12 / $atts['per_row'] );
     
     ob_start();
 	
-	if ( $underwriters->have_posts() ) : 
+	if ( $staff->have_posts() ) : 
 	
-		while ( $underwriters->have_posts() ) : $underwriters->the_post(); ?>
+		while ( $staff->have_posts() ) : $staff->the_post(); ?>
 
 			<?php if ( $index == 0 ) : ?>
 
@@ -50,7 +70,7 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
 
 			<?php endif;
 	
-					include locate_template( '/partials/loop/loop-underwriters_shortcode.php' );
+					include locate_template( '/partials/loop/loop-staff_shortcode.php' );
 					
 			if ( $index == ( $atts['per_row'] - 1 ) ) : ?>
 					

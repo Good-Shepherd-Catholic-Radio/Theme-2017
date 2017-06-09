@@ -152,6 +152,7 @@ add_action( 'after_setup_theme', function () {
 	// Add Shortcodes
     require_once __DIR__ . '/includes/shortcodes/gscr-button.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-underwriters.php';
+	require_once __DIR__ . '/includes/shortcodes/gscr-staff.php';
 	
 	// Nav Walker for Foundation
     require_once __DIR__ . '/includes/class-foundation-nav-walker.php';
