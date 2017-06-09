@@ -62,4 +62,33 @@ add_action( 'tribe_events_single_meta_details_section_start', function() {
 
 	<?php endif;
 	
+	global $post;
+	
+	if ( $post->post_parent !== 0 ) {
+		$post_id = $post->post_parent;
+	}
+	else {
+		$post_id = get_the_ID();
+	}
+	
+	$on_air_personalities = rbm_cpts_get_p2p_children( 'on-air-personality', $post_id );
+	if ( ! is_array( $on_air_personalities ) ) $on_air_personalities = array( $on_air_personalities );
+	
+	if ( ! empty( $on_air_personalities ) ) : ?>
+
+		<dt><?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?></dt>
+		<dd>
+			<ul>
+				<?php foreach ( $on_air_personalities as $personality ) : ?>
+					<li>
+						<a href="<?php echo get_permalink( $personality ); ?>" title="<?php echo get_the_title( $personality ); ?>">
+							<?php echo get_the_title( $personality ); ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</dd>
+
+	<?php endif;
+	
 } );
