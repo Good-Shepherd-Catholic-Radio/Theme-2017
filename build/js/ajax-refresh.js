@@ -223,6 +223,33 @@
 						// Update the Body Class since it exists outside of the Site Content <div>
 						$( 'body' ).removeClass().addClass( bodyClass );
 					}
+					
+					var cdataRegex = /<script(.*)\n\/\* <!\[CDATA\[ \*\/\n(.*)\n\/\* \]\]> \*\/\n<\/script>/igm,
+						eventsCalendarRegex = /(?:<link|<script)(?:.*)(?:tribe_|events-calendar)(?:.*)>/igm,
+						cdata = data.match( cdataRegex ),
+						eventsCalendarScripts = data.match( eventsCalendarRegex );
+					
+					for ( var script in cdata ) {
+						
+						var strippedHTML = $( 'head' ).html().toString().replace( /\n/igm, '' ),
+							strippedScript = cdata[ script ].replace( /\n/igm, '' ).replace( /'/g, '"' );
+						
+						if ( strippedHTML.indexOf( strippedScript ) > 0 ) continue;
+						
+						$( 'head' ).append( cdata[ script ] );
+						
+					}
+					
+					for ( var script in eventsCalendarScripts ) {
+						
+						var strippedHTML = $( 'head' ).html().toString().replace( /\n/igm, '' ),
+							strippedScript = eventsCalendarScripts[ script ].replace( /\n/igm, '' ).replace( /'/g, '"' ).replace( /\s\/>$/igm, '>' ).replace( /\s\s/g, ' ' );
+						
+						if ( strippedHTML.indexOf( strippedScript ) > 0 ) continue;
+						
+						$( 'head' ).append( eventsCalendarScripts[ script ] );
+						
+					}
 
 					//GOOGLE ANALYTICS TRACKING
 
