@@ -31,7 +31,7 @@
 			wmode: 'window',
 			useStateClassSkin: true,
 			autoBlur: false,
-			keyEnabled: true
+			keyEnabled: false,
 		} );
 
 	} );
