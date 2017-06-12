@@ -125,7 +125,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             
                             <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
                             <?php 
-                                echo wp_get_attachment_image( get_option( 'site_icon' ), 'medium', false, array(
+                                echo wp_get_attachment_image( get_theme_mod( 'gscr_logo_image', 1 ), 'medium', false, array(
                                     'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
                                     'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
                                 ) ); 

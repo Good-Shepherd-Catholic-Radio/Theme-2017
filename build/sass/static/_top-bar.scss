@@ -20,28 +20,11 @@
         
         overflow: hidden;
         font-family: $header-font-family;
+		padding-top: 0;
         
         a {
-            
-            color: $topbar-link-color;
-            
-            padding: $menu-item-padding;
-            font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h2', 'font-size' ) );
-            
-            // This font has crazy descenders. This makes it look more vertically centered than could be done otherwise
-            position: relative;
-            bottom: -0.1em;
-            
-            @media #{$medium-up} {
-                
-                font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h2', 'font-size' ) );
-                
-            }
-
-            &:hover {
-                background-color: lighten( $topbar-background, 5% ) !important;
-                @include light-or-dark-text( $topbar-background );
-            }
+			
+			padding: $menu-item-padding;
             
         }
         
