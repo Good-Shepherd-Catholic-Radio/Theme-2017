@@ -74,7 +74,8 @@ add_action( 'tribe_events_single_meta_details_section_start', function() {
 	$on_air_personalities = rbm_cpts_get_p2p_children( 'on-air-personality', $post_id );
 	if ( ! is_array( $on_air_personalities ) ) $on_air_personalities = array( $on_air_personalities );
 	
-	if ( ! empty( $on_air_personalities ) ) : ?>
+	if ( isset( $on_air_personalities[0] ) && 
+			   ! empty( $on_air_personalities[0] ) ) : ?>
 
 		<dt><?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?></dt>
 		<dd>
