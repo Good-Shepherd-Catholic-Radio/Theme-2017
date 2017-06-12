@@ -16,25 +16,74 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <footer id="site-footer">
 
-	<div class="row">
+	<div class="footer-widgets">
+        
+        <div class="row">
 
-		<?php 
+            <?php
+            $footer_columns = get_theme_mod( 'gscr_footer_columns', 4 );
+            for ( $index = 0; $index < $footer_columns; $index++ ) {
+                ?>
 
-		$footer_sidebars = array(
-			'footer-left',
-			'footer-center',
-			'footer-right',
-		); 
+                    <div class = "small-12 medium-<?php echo ( 12 / $footer_columns ); ?> columns">
+                        <?php dynamic_sidebar( 'footer-' . ( $index + 1 ) ); ?>
+                    </div>
 
-		foreach ( $footer_sidebars as $sidebar ) : ?>
+                <?php
+            }
+            ?>
+            
+        </div>
 
-		<div class="small-12 medium-4 columns">
+	</div>
+	
+	<div class="social row text-center">
 
-			<?php dynamic_sidebar( $sidebar ); ?>
+		<div class="small-12 columns">
+
+			<?php 
+				$social_accounts = array(
+					'gscr_facebook' => array( 
+						'label' => 'Facebook',
+						'icon' => 'facebook-square',
+					),
+					'gscr_twitter' => array( 
+						'label' => 'Twitter',
+						'icon' => 'twitter-square',
+					),
+					'gscr_pinterest' => array( 
+						'label' => 'Pinterest',
+						'icon' => 'pinterest-square',
+					),
+					'gscr_linkedin' => array( 
+						'label' => 'LinkedIn',
+						'icon' => 'linkedin-square',
+					),
+					'gscr_instagram' => array( 
+						'label' => 'Instagram',
+						'icon' => 'instagram',
+					),
+				);
+			
+			foreach ( $social_accounts as $key => $social ) :
+				if ( get_theme_mod( $key, '' ) !== '' ) : ?>
+
+					<a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', 'good-shepherd-catholic-radio' ), $social['label'] ); ?>">
+						<span class="fa fa-<?php echo $social['icon']; ?>"></span>
+					</a>
+
+				<?php endif;
+			endforeach;
+			
+			if ( get_theme_mod( 'gscr_rss_show', false ) === true ) : ?>
+
+				<a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', 'good-shepherd-catholic-radio' ); ?>">
+					<span class="fa fa-rss-square"></span>
+				</a>
+
+			<?php endif; ?>
 
 		</div>
-
-		<?php endforeach; ?>
 
 	</div>
 

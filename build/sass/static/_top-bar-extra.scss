@@ -1,0 +1,56 @@
+$topbar-extra-background: $tertiary-color;
+
+$topbar-extra-link-color: null;
+$topbar-extra-link-hover: null;
+@if lightness( $topbar-extra-background ) < 50% {
+
+	$topbar-extra-link-color: $light-color;
+	$topbar-extra-link-hover: scale-color( $topbar-extra-link-color, $lightness: -25% );
+
+}
+@else {
+
+	$topbar-extra-link-color: $black;
+	$topbar-extra-link-hover: scale-color( $topbar-extra-link-color, $lightness: 25% );
+
+}
+
+.top-bar.extra {
+
+	background: $topbar-extra-background;
+	@include light-or-dark-text( $tertiary-color );
+
+	a {
+
+		color: $topbar-extra-link-color;
+
+		&:hover {
+			color: $topbar-extra-link-hover;
+		}
+
+	}
+
+	.social, .phone {
+
+		display: inline-block;
+		padding: $topbar-title-spacing;
+		
+		a {
+			padding: .7rem 1rem;
+		}
+
+	}
+	
+	.social {
+		a {
+			padding-right: 0;
+		}
+	}
+	
+	.phone {
+		a {
+			font-size: 1.25em;
+		}
+	}
+
+}

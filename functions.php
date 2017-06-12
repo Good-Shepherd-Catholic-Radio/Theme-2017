@@ -132,6 +132,22 @@ add_action( 'widgets_init', function () {
     	'id' => 'sidebar-main',
     	'description' => 'Displays on Interior Pages.',
     ) );
+	
+	// Footer
+    $footer_columns = get_theme_mod( 'gscr_footer_columns', 4 );
+    for ( $index = 0; $index < $footer_columns; $index++ ) {
+        register_sidebar(
+            array(
+                'name'          =>  'Footer ' . ( $index + 1 ),
+                'id'            =>  'footer-' . ( $index + 1 ),
+                'description'   =>  sprintf( __( 'This is Footer Widget Area %d', 'good-shepherd-catholic-radio' ), ( $index + 1 ) ),
+                'before_widget' =>  '<aside id="%1$s" class="widget %2$s">',
+                'after_widget'  =>  '</aside>',
+                'before_title'  =>  '<h3 class="widget-title">',
+                'after_title'   =>  '</h3>',
+            )
+        );
+    }
     
 } );
 
@@ -154,6 +170,9 @@ add_action( 'after_setup_theme', function () {
 	require_once __DIR__ . '/includes/shortcodes/gscr-underwriters.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-staff.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-on-air-personalities.php';
+	
+	// Add Customer Controls
+	require_once __DIR__ . '/includes/customizer.php';
 	
 	// Nav Walker for Foundation
     require_once __DIR__ . '/includes/class-foundation-nav-walker.php';

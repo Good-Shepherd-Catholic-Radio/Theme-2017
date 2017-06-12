@@ -1,49 +1,73 @@
 footer {
-	
-    color: $light-gray;
 
-    a {
+	color: $light-gray;
 
-        color: $medium-gray;
+	a {
+
+		color: $medium-gray;
 		text-decoration: underline;
 
-        &:hover {
-            color: scale-color( $medium-gray, $lightness: -15% );
+		&:hover {
+			color: scale-color( $medium-gray, $lightness: -15% );
 			text-decoration: none;
-        }
+		}
 
-    }
-    
-    &, a {
-        font-weight: bold;
-    }
+	}
 
-    .widget_nav_menu {
+	&, a {
+		font-weight: bold;
+	}
 
-        .menu {
+	.widget_nav_menu {
 
-            list-style: none;
-            margin-bottom: 0;
+		.menu {
 
-            li {
+			list-style: none;
+			margin-bottom: 0;
 
-                margin-bottom: 0.5em;
+			li {
 
-                &:last-of-type {
-                    margin-bottom: 0;   
-                }
+				margin-bottom: 0.5em;
 
-            }
+				&:last-of-type {
+					margin-bottom: 0;   
+				}
 
-        }
+			}
 
-    }
+		}
 
-    // Different styling for Submit buttons in the Footer. Just in case it ever happens
-    input[type="submit"] {
+	}
 
-        @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+	// Different styling for Submit buttons in the Footer. Just in case it ever happens
+	input[type="submit"] {
 
-    }
+		@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+	}
+
+	.social {
+
+		margin-top: 1em;
+
+		.social-icon {
+
+			color: $medium-gray;
+			font-size: 1.5em;
+			transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
+			transition-property: all, all;
+			transition-duration: 0.25s, 0.25s;
+			transition-timing-function: ease-in-out, ease-in-out;
+			transition-delay: initial, initial;
+
+			&:hover {
+
+				color: $dark-gray;
+
+			}
+
+		}
+
+	}
 
 }
