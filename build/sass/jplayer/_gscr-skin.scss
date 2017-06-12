@@ -1,92 +1,145 @@
-.jp-audio-stream {
+.sticky-stream {
 
-	padding: 15px;
-	width: 100%;
-	background: #fff;
-	z-index: 999;
-	
-	&.is-anchored {
-		top: auto !important;
-	}
+	.jp-audio-stream {
 
-	button:focus {
-		outline: none;
-	}
+		padding: 15px;
+		width: 100%;
+		background: #fff;
 
-	.fa {
-		
-		color: $primary-color;
-		
-		&:hover {
-			cursor: pointer;
-		}
-		
-	}
-
-	.jp-play {
-
-		.play-icon:before {
-			content: '\f144';
+		&.is-anchored {
+			top: auto !important;
 		}
 
-		&:hover {
-			.play-icon:before {
-				content: '\f01d';
+		button:focus {
+			outline: none;
+		}
+
+		.fa {
+
+			color: $primary-color;
+
+			&:hover {
+				cursor: pointer;
 			}
+
 		}
-
-	}
-
-	&.jp-state-playing {
 
 		.jp-play {
 
 			.play-icon:before {
-				content: '\f28b';
+				content: '\f144';
 			}
 
 			&:hover {
 				.play-icon:before {
-					content: '\f28c';
+					content: '\f01d';
+				}
+			}
+
+		}
+
+		&.jp-state-playing {
+
+			.jp-play {
+
+				.play-icon:before {
+					content: '\f28b';
+				}
+
+				&:hover {
+					.play-icon:before {
+						content: '\f28c';
+					}
+
 				}
 
 			}
 
 		}
 
-	}
+		.title-container {
 
-	.title-container {
+			position: relative;
 
-		position: relative;
-
-		.jp-title {
-			position: absolute;
-			transform: translate(0%,50%);
-			width: 100%;
-		}
-
-	}
-
-	.jp-mute {
-
-		.mute-icon {
-
-			color: $light-gray;
-
-			&:before {
-				content: '\f026';
+			.jp-title {
+				position: absolute;
+				transform: translate(0%,50%);
+				width: 100%;
 			}
 
 		}
 
-	}
-
-	&.jp-state-muted {
-
 		.jp-mute {
 
 			.mute-icon {
+
+				color: $light-gray;
+
+				&:before {
+					content: '\f026';
+				}
+
+			}
+
+		}
+
+		&.jp-state-muted {
+
+			.jp-mute {
+
+				.mute-icon {
+
+					color: $primary-color;
+
+				}
+
+			}
+
+		}
+
+		.jp-volume-controls {
+
+			.volume-bar-container {
+
+				position: relative;
+
+				.jp-volume-bar {
+					overflow: hidden;
+					background-color: $light-gray;
+					height: 1em;
+					cursor: pointer;
+					position: absolute;
+					transform: translate(2%,100%);
+					width: 100%;
+				}
+
+				.jp-volume-bar-value {
+					background-color: $primary-color;
+					width: 0px;
+					height: 1em;
+				}
+
+			}
+
+		}
+
+		.jp-volume-max {
+
+			.volume-max-icon {
+
+				color: $light-gray;
+
+				&:before {
+					content: '\f028';
+				}
+
+			}
+
+		}
+
+		.jp-volume-max:focus {
+
+			.volume-max-icon {
 
 				color: $primary-color;
 
@@ -95,55 +148,5 @@
 		}
 
 	}
-
-	.jp-volume-controls {
-
-		.volume-bar-container {
-
-			position: relative;
-
-			.jp-volume-bar {
-				overflow: hidden;
-				background-color: $light-gray;
-				height: 1em;
-				cursor: pointer;
-				position: absolute;
-				transform: translate(2%,100%);
-				width: 100%;
-			}
-
-			.jp-volume-bar-value {
-				background-color: $primary-color;
-				width: 0px;
-				height: 1em;
-			}
-
-		}
-
-	}
-
-	.jp-volume-max {
-
-		.volume-max-icon {
-
-			color: $light-gray;
-
-			&:before {
-				content: '\f028';
-			}
-
-		}
-
-	}
-
-	.jp-volume-max:focus {
-
-		.volume-max-icon {
-
-			color: $primary-color;
-
-		}
-
-	}
-
+	
 }
