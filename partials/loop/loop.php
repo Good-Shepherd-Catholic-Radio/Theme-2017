@@ -9,6 +9,8 @@
 
 defined( 'ABSPATH' ) || die();
 
+$date_format = get_option( 'date_format', 'F j, Y' );
+
 if ( have_posts() ) : ?>
 
     <div class="row expanded">
@@ -41,7 +43,7 @@ if ( have_posts() ) : ?>
                                     <?php the_title(); ?>
                                 </a>
                             </h1>
-                            <span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
+                            <span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_time( $date_format ); ?></span>
                             <br />
 
                             <?php the_excerpt(); ?>

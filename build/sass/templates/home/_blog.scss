@@ -1,8 +1,8 @@
 $cell-height: 250px;
 
-.radio-shows-header {
+.blog {
 	
-	.cat_radio-show {
+	.post {
 		
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -17,7 +17,7 @@ $cell-height: 250px;
 			min-height: $cell-height * 2;
 		}
 		
-		.radio-show-color-overlay {
+		.blog-color-overlay {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -29,36 +29,14 @@ $cell-height: 250px;
 		
 		a {
 			&:hover {
-				.radio-show-color-overlay {
+				.blog-color-overlay {
 					// Maybe not? Maybe Transparent works better
-					@include background-opacity( $primary-color, 0.5 );
+					@include background-opacity( $secondary-color, 0.5 );
 				}
 			}
 		}
 		
-		.radio-show-meta {
-			
-			color: #fff;
-			
-			position: absolute;
-			top: 0;
-			left: 0;
-			padding: 0.25em 0 0 0.25em;
-			
-			.microphone-live {
-				margin-top: 0.75em;
-				padding-left: 0.5em;
-			}
-			
-			.fa-map-marker {
-				font-size: 2.5em;
-				transform-origin: center bottom;
-				animation: wiggle 3s linear infinite;
-			}
-			
-		}
-		
-		.radio-show-title {
+		.blog-title {
 			
 			position: absolute;
 			bottom: 0;
@@ -67,18 +45,16 @@ $cell-height: 250px;
 			
 			font-weight: 700;
 			
+			h1, h2, h3, h4, h5, h6 {
+				color: #fff;
+				font-weight: normal;
+				margin-bottom: 0;
+			}
+			
 			text-align: right;
 			
 			color: #fff;
 			
-		}
-		
-	}
-	
-	.radio-shows-right {
-		
-		.cat_radio-show {
-			min-height: $cell-height;
 		}
 		
 	}

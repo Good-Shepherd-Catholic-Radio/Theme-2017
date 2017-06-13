@@ -1,6 +1,6 @@
 <?php
 /**
- * Posts on the Home Page
+ * Radio Shows on the Home Page
  *
  * @since       1.0.0
  * @package     Good_Shepherd_Catholic_Radio
