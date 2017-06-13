@@ -24,7 +24,7 @@ the_post();
     <article id="page-<?php the_ID(); ?>" <?php post_class( array( 
         'columns',
         'small-12',
-        is_active_sidebar( 'sidebar-main' ) ? 'medium-9': 'no-sidebar',
+        'no-sidebar',
     ) ); ?>>
 
         <h1 class="page-title">
@@ -34,16 +34,6 @@ the_post();
         <?php the_content(); ?>
 
     </article>
-    
-    <?php if ( is_active_sidebar( 'sidebar-main' ) ) : ?>
-    
-        <div class="small-12 medium-3 columns">
-            
-            <?php dynamic_sidebar( 'sidebar-main' ); ?>
-            
-        </div>
-    
-    <?php endif; ?>
     
 </div>
 
