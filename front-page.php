@@ -24,7 +24,4 @@ include locate_template( 'partials/home/events.php' );
 
 include locate_template( 'partials/home/blog.php' );
 
-var_dump( date( 'Y-m-d', strtotime( 'last Sunday', strtotime( current_time( 'Y-m-d' ) ) ) ) );
-var_dump( date( 'Y-m-d', strtotime( 'next Saturday', strtotime( current_time( 'Y-m-d' ) ) ) ) );
-
 get_footer();
