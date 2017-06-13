@@ -9,6 +9,8 @@
 
 defined( 'ABSPATH' ) || die();
 
+$time_format = get_option( 'time_format', 'g:i a' );
+
 ?>
 
 <a href="<?php echo tribe_get_event_link(); ?>" title="<?php the_title(); ?>">
@@ -57,7 +59,7 @@ defined( 'ABSPATH' ) || die();
 							<div class="time alignright">
 								<?php echo date_i18n( 'l', $start_date ); ?>
 								<br />
-								<?php echo date_i18n( 'G:i A', $start_date ); ?>
+								<?php echo date_i18n( $time_format, $start_date ); ?>
 							</div>
 
 						</div>
