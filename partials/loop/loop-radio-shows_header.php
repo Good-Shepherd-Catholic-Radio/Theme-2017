@@ -26,9 +26,11 @@ else {
 	'small-12',
 	'medium-6',
 	'columns'
-) ); ?> style="background-image: url(<?php echo $image_url; ?>);">
+) ); ?>>
 	
 	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+		
+		<div class="image" style="background-image: url(<?php echo $image_url; ?>);"></div>
 	
 		<div class="radio-show-color-overlay"></div>
 		

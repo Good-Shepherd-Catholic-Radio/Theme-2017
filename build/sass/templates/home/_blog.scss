@@ -1,23 +1,24 @@
 $cell-height: 250px;
 
 .blog {
-	
+
 	.post {
 		
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		background-color: $tertiary-color;
-		
+		overflow: hidden;
+
 		position: relative;
 		
-		min-height: $cell-height;
-		
-		@media #{$medium-up} {
-			min-height: $cell-height * 2;
+		&, .image {
+
+			min-height: $cell-height;
+
+			@media #{$medium-up} {
+				min-height: $cell-height * 2;
+			}
+			
 		}
-		
-		.blog-color-overlay {
+
+		.blog-color-overlay, .image {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -27,36 +28,53 @@ $cell-height: 250px;
 			transition: all 300ms;
 		}
 		
+		.image {
+
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			background-color: $tertiary-color;
+
+		}
+
 		a {
 			&:hover {
+
+				.image {
+
+					transform: scale( 1.2 );
+
+				}
+
 				.blog-color-overlay {
 					// Maybe not? Maybe Transparent works better
 					@include background-opacity( $secondary-color, 0.5 );
 				}
+
 			}
 		}
-		
+
 		.blog-title {
-			
+
 			position: absolute;
 			bottom: 0;
 			right: 0;
 			padding: 0 0.5em 0.5em 0;
-			
+
 			font-weight: 700;
-			
+
 			h1, h2, h3, h4, h5, h6 {
 				color: #fff;
 				font-weight: normal;
 				margin-bottom: 0;
 			}
-			
+
 			text-align: right;
-			
+
 			color: #fff;
-			
+
 		}
-		
+
 	}
-	
+
 }

@@ -26,10 +26,12 @@ else {
 	'small-12',
 	$medium_class,
 	'columns'
-) ); ?> style="background-image: url(<?php echo $image_url; ?>);">
+) ); ?>>
 	
 	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-	
+		
+		<div class="image" style="background-image: url(<?php echo $image_url; ?>);"></div>
+
 		<div class="blog-color-overlay"></div>
 
 		<div class="blog-title">
@@ -38,7 +40,7 @@ else {
 			</h5>
 			<span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_time( $date_format ); ?></span>
 		</div>
-		
+
 	</a>
 
 </div>
