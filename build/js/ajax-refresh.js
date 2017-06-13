@@ -300,8 +300,6 @@
 					//recall loader so that new URLS are captured.
 					pageInit( "#site-content" );
 
-					$( document ).trigger( "ready" ); // Tell browser that Document is "ready" again
-
 					$( 'ul.menu li' ).each( function( index, menuItem ) {
 						$( menuItem ).removeClass( 'current-menu-item' );
 					} );
@@ -324,6 +322,9 @@
 						$( '#site-header, #site-content, #site-footer' ).css( 'pointer-events', 'initial' );
 						
 					}, 100 );
+					
+					$( document ).trigger( 'ajaxRefresh' );
+					
 
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
@@ -366,8 +367,13 @@
 			}
 
 		};
-		
 
+	} );
+	
+	$( document ).on( 'ajaxRefresh', function() {
+		
+		$( document ).trigger( "ready" ); // Tell browser that Document is "ready" again
+		
 	} );
 
 } )( jQuery );
