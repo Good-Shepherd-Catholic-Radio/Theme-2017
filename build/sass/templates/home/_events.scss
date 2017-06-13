@@ -2,6 +2,39 @@
 
 	.tribe_events {
 
+		margin-bottom: 1em;
+
+		* {
+			transition: 300ms all;
+		}
+
+		& > .row > .columns {
+
+			border: 3px solid $secondary-color;
+			border-color: rgba( 23, 101, 0, 0.2 ); // Secondary-color;
+			
+			@media #{$small-only} {
+				
+				border-left: none;
+				border-right: none;
+				border-top: none;
+				
+				&:nth-of-type( n + 2 ) {
+					border-bottom: none;
+				}
+				
+			}
+
+			@media #{$medium-up} {
+
+				&:nth-of-type( n + 2 ) {
+					border-left: none;
+				}
+
+			}
+
+		}
+
 		.date {
 
 			h1, h2, h3, h4, h5, h6 {
@@ -26,18 +59,69 @@
 
 		.content {
 			
-			position: relative;
-			top: 50%;
-			-webkit-transform: translateY(-50%);
-			-ms-transform: translateY(-50%);
-			transform: translateY(-50%);
-			
-			h1, h2, h3, h4, h5, h6 {
+			@media #{$small-only} {
 				
-				text-transform: none;
+				* {
+					float: none !important;
+					text-align: center !important;
+				}
 				
 			}
-			
+
+			@media #{$medium-up} {
+
+				.vertical-align {
+
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+
+				}
+
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+
+				text-transform: none;
+				display: inline-block;
+				margin-bottom: 0;
+
+			}
+
+			.time {
+				display: inline-block;
+				margin: 0;
+				padding-right: 1em;
+				margin-top: -0.25em;
+			}
+
+			.button {
+				margin: 0;
+			}
+
+		}
+
+	}
+
+	a:hover {
+
+		.tribe_events {
+
+			& > .row > .columns {
+
+				border-color: $secondary-color;
+
+			}
+
+			.button.primary {
+
+				$hover-color: scale-color( $primary-color, -20% );
+
+				background-color: $hover-color;
+				@include foundation-button-fix( $hover-color );
+
+			}
+
 		}
 
 	}
