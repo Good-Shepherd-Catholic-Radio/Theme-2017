@@ -38,7 +38,7 @@ $anchor-color: scale-color( $primary-color, $lightness: -15% );
 $anchor-color-hover: scale-color( $anchor-color, $lightness: -25% );
 
 // We use these to control header font styles
-//$header-font-family: 
+$header-font-family: 'Poppins', sans-serif;
 $header-color: $primary-color;
 
 $topbar-background: $primary-color;

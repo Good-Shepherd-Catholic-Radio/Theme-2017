@@ -36,6 +36,7 @@ define( 'THEME_DIR', get_template_directory() );
  * Fonts for the theme. Must be hosted font (Google fonts for example).
  */
 $theme_fonts = array(
+	'poppins' => '//fonts.googleapis.com/css?family=Poppins:400,700',
 	'open-sans' => '//fonts.googleapis.com/css?family=Open+Sans:300italic,700,300,800',
 	'font-awesome' => '//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
 );

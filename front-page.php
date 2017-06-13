@@ -20,4 +20,9 @@ the_post();
 
 include locate_template( 'partials/home/radio-shows_header.php' );
 
+include locate_template( 'partials/home/events.php' );
+
+var_dump( date( 'Y-m-d', strtotime( 'last Sunday', strtotime( current_time( 'Y-m-d' ) ) ) ) );
+var_dump( date( 'Y-m-d', strtotime( 'next Saturday', strtotime( current_time( 'Y-m-d' ) ) ) ) );
+
 get_footer();
