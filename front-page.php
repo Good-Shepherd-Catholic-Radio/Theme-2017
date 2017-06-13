@@ -24,4 +24,6 @@ include locate_template( 'partials/home/events.php' );
 
 include locate_template( 'partials/home/blog.php' );
 
+include locate_template( 'partials/home/underwriters.php' );
+
 get_footer();
