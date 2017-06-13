@@ -22,8 +22,10 @@ include locate_template( 'partials/home/radio-shows_header.php' );
 
 include locate_template( 'partials/home/events.php' );
 
-include locate_template( 'partials/home/blog.php' );
+include locate_template( 'partials/home/prayer-requests.php' );
 
 include locate_template( 'partials/home/underwriters.php' );
+
+include locate_template( 'partials/home/blog.php' );
 
 get_footer();

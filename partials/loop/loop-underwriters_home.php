@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || die();
 
 <div <?php post_class( array(
 	'small-12',
-	$medium_class,
+	'medium-3',
 	'columns'
 ) ); ?>>
 	
