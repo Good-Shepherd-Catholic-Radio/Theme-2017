@@ -37,6 +37,7 @@
 @include foundation-reveal;
 @include foundation-close-button;
 @include foundation-sticky;
+@include foundation-tabs;
 
 @import "global/wp";
 @import "global/base";
@@ -52,6 +53,7 @@
 
 @import "templates/home/main";
 @import "templates/loop/loop-tribe_events";
+@import "templates/radio-show-schedule";
 
 @import "the-events-calendar/week-view";
 

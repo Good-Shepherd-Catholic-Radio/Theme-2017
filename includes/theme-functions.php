@@ -241,3 +241,28 @@ function gscr_get_phone_number_link( $phone_number, $extension = false, $link_te
     return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
     
 }
+
+if ( ! function_exists( 'gscr_get_weekdays' ) ) {
+
+	/**
+	 * Returns a localized Array of Weekday names with numeric Indices
+	 * The "Week Starts On" day in wp_options does not matter here
+	 * 
+	 * @since		1.0.0
+	 * @return		array Localized Weekday names
+	 */
+	function gscr_get_weekdays() {
+
+		global $wp_locale;
+
+		$options = array();
+
+		foreach ( $wp_locale->weekday as $index => $weekday ) {
+			$options[ $index ] = $weekday;
+		}
+
+		return $options;
+
+	}
+	
+}

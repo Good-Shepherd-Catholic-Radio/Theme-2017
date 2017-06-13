@@ -1,0 +1,22 @@
+.page-template-radio-show-schedule {
+	
+	.tabs-panel {
+		
+		.tribe_events {
+			
+			& > .row {
+				
+				margin-bottom: 1em;
+				border-bottom: 3px solid $light-gray;
+				
+				&:last-child {
+					border-bottom: none;
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}
