@@ -67,6 +67,16 @@
 
 				// remove click border
 				this.blur();
+				
+				$( 'ul.menu li' ).each( function( index, menuItem ) {
+					$( menuItem ).removeClass( 'current-menu-item' );
+				} );
+				
+				if ( $( this ).parents( 'ul' ).hasClass( 'menu' ) ) {
+
+					$( this ).parents( 'li' ).addClass( 'current-menu-item' );
+					
+				}
 
 				// get caption: either title or name attribute
 				var caption = this.title || this.name || "";
@@ -267,7 +277,7 @@
 
 					while ( depth > 0 ) {
 
-						var temp = data.split('</section>')[0];
+						var temp = data.split( '</section>' )[0];
 
 						//count occurrences
 						var i = 0,
@@ -299,12 +309,6 @@
 
 					//recall loader so that new URLS are captured.
 					pageInit( "#site-content" );
-
-					$( 'ul.menu li' ).each( function( index, menuItem ) {
-						$( menuItem ).removeClass( 'current-menu-item' );
-					} );
-
-					$( this ).parents( 'li' ).addClass( 'current-menu-item' );
 
 					//now hide it again and put the position back!
 					$( '#site-content' ).hide();
