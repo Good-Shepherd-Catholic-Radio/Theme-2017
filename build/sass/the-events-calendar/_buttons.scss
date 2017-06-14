@@ -1,0 +1,12 @@
+#tribe-events .tribe-events-button {
+	
+	@include button( false, $primary-color, scale-color( $primary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
+	
+	border-radius: 0.25em;
+	
+	@include foundation-button-fix( $primary-color );
+	
+	text-decoration: none !important;
+	text-transform: none;
+	
+}

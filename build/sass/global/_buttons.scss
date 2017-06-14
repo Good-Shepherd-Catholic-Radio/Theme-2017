@@ -30,7 +30,7 @@
 
 }
 
-.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"] {
+.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], .tribe-events-button {
 
 	@include button( false, $primary-color, scale-color( $primary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
 	
