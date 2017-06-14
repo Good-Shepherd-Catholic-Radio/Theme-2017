@@ -1,0 +1,32 @@
+.nav-menu {
+
+	& > .dropdown.menu {
+
+		& > .is-dropdown-submenu-parent {
+
+			& > .submenu {
+
+				border-radius: 0.25em;
+				margin-top: 0.5em;
+
+				&:after {
+
+					position: absolute;
+					left: 80%;
+					top: -10px;
+					width: 0;
+					height: 0;
+					content: "";
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+					border-bottom: 10px solid $body-background;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
