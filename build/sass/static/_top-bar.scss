@@ -150,6 +150,7 @@
             
                 &:hover {
                     background-color: lighten( $topbar-background, 5% ) !important;
+					border-radius: 0.25em;
 
                     > a {
                         @include light-or-dark-text( $topbar-background );
