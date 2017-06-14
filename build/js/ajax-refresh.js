@@ -170,7 +170,7 @@
 			path = path + getData;
 			
 			// Remove weird garbage from pagination. Maybe it's a nonce?
-			path = path.replace( /&_=\d*/ig, '' );
+			path = path.replace( /[\?|&]_=\d*/ig, '' );
 
 			// Only do a history state if clicked on the page.
 			if ( typeof push == 'undefined' || 

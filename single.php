@@ -21,7 +21,7 @@ the_post();
 
 <div class="row expanded">
 
-    <article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
         
         <?php if ( has_post_thumbnail() ) : ?>
             <div class="thumbnail alignleft">
@@ -29,13 +29,17 @@ the_post();
             </div>
         <?php endif; ?>
 
-        <h1 class="page-title">
+        <h1 class="post-title">
             <?php the_title(); ?>
         </h1>
+		
+		<?php if ( get_post_type() == 'post' ) : ?>
         
-        <p>
-            <span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
-        </p>
+			<p>
+				<span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
+			</p>
+		
+		<?php endif; ?>
 
         <?php the_content(); ?>
 

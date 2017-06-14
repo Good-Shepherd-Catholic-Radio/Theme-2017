@@ -1,0 +1,52 @@
+.radio-show-archive {
+	
+	margin-top: 1em;
+	
+	& > .row {
+		
+		margin-bottom: 1em;
+		
+	}
+
+	.date {
+		
+		padding-bottom: 1em;
+		
+		@media #{$medium-up} {
+			padding-bottom: 0;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			color: $body-font-color;
+			margin-bottom: 0;
+		}
+
+		.day, .month, .year {
+			font-weight: 700;
+		}
+
+		.day {
+			font-size: 3em;
+			margin-bottom: -0.3em;
+		}
+
+		.month, .year {
+			font-size: 1.5em;
+		}
+
+	}
+	
+	.content {
+		
+		border-top: 3px solid $primary-color;
+		padding-top: 1em;
+		
+		@media #{$medium-up} {
+			padding-top: 0;
+			border-top: none;
+			border-left: 3px solid $primary-color;
+		}
+		
+	}
+
+}
