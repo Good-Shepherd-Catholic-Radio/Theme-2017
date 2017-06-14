@@ -33,9 +33,13 @@ defined( 'ABSPATH' ) || die();
 	
 		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 			
-			<h3><?php the_title(); ?></h3>
+			<h4><?php the_title(); ?></h4>
 			
 		</a>
+	
+		<?php if ( $position = rbm_get_field( 'staff_position' ) ) : ?>
+			<h6><?php echo $position; ?></h6>
+		<?php endif; ?>
 	
 	<?php endif; ?>
 	
