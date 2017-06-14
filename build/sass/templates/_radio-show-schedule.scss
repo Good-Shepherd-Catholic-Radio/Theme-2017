@@ -1,22 +1,72 @@
-.page-template-radio-show-schedule {
-	
-	.tabs-panel {
+.tabs {
+
+	border: none;
+
+	li {
+
+		margin-right: 0.5em;
+		border: 3px solid $tab-background-active;
+		border-bottom: none;
+		border-radius: 0.25em 0.25em 0 0;
 		
-		.tribe_events {
-			
-			& > .row {
-				
-				margin-bottom: 1em;
-				border-bottom: 3px solid $light-gray;
-				
-				&:last-child {
-					border-bottom: none;
-				}
-				
-			}
-			
+		a {
+			font-weight: 700;
 		}
-		
+
 	}
-	
+
+}
+
+.tabs-content {
+	border-width: 3px;
+	border-color: $tab-background-active;
+	border-top: 3px solid $tab-background-active;
+}
+
+.page-template-radio-show-schedule {
+
+	.tabs-panel {
+
+		.tribe_events {
+
+			& > .row {
+
+				margin-bottom: 1em;
+				padding-bottom: 1em;
+				border-bottom: 3px solid $tab-background-active;
+
+				.image {
+
+					a {
+						display: block;
+						text-align: center;
+					}
+
+				}
+
+			}
+
+			&:first-of-type {
+
+				& > .row {
+					margin-top: 1em;
+				}
+
+			}
+
+			&:last-of-type {
+
+				& > .row {
+
+					border-bottom: none;
+					padding-bottom: 0;
+
+				}
+
+			}
+
+		}
+
+	}
+
 }

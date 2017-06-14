@@ -60,6 +60,11 @@ $topbar-link-color: null;
 
 $titlebar-icon-hover: scale-color( $titlebar-icon-color, $lightness: -25% );
 
+$tab-content-padding: 0;
+$tab-color: $anchor-color;
+$tab-active-color: $anchor-color-hover;
+$tab-background-active: scale-color( desaturate( $secondary-color, 60% ), $lightness: 60% );
+
 // Media query ranges
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);

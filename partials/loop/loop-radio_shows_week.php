@@ -25,9 +25,9 @@ if ( ! has_post_thumbnail() ) {
 	'columns',
 ) ); ?>>
 	
-	<div class="row">
+	<div class="row expanded">
 		
-		<div class="small-12 medium-4 columns">
+		<div class="small-12 medium-3 columns image">
 			
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				
@@ -40,18 +40,22 @@ if ( ! has_post_thumbnail() ) {
 			</a>
 			
 		</div>
+		
+		<div class="small-12 medium-9 columns content">
 	
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 
-			<div class="radio-show-title">
-				<?php the_title(); ?>
-				<br />
-				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-				<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
-				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
-			</div>
+				<div class="radio-show-title">
+					<?php the_title(); ?>
+					<br />
+					<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
+					<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
+					<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+				</div>
 
-		</a>
+			</a>
+			
+		</div>
 	
 	</div>
 
