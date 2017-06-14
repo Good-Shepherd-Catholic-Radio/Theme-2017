@@ -234,7 +234,7 @@
 						$( 'body' ).removeClass().addClass( bodyClass );
 					}
 					
-					var cdataRegex = /<script(.*)\n\/\* <!\[CDATA\[ \*\/\n(.*)\n\/\* \]\]> \*\/\n<\/script>/igm,
+					var cdataRegex = /<script(.*)\n\/\* <!\[CDATA\[[\s\S]*?> \*\/\n<\/script>/igm,
 						eventsCalendarRegex = /(?:<link|<script)(?:.*)(?:href|src)(?:.*)>/igm,
 						cdata = data.match( cdataRegex ),
 						eventsCalendarScripts = data.match( eventsCalendarRegex );
@@ -254,6 +254,8 @@
 						
 						var strippedHTML = $( 'head' ).html().toString().replace( /\n/igm, '' ),
 							strippedScript = eventsCalendarScripts[ script ].replace( /\n/igm, '' ).replace( /'/g, '"' ).replace( /\s\/>$/igm, '>' ).replace( /\s\s/g, ' ' );
+						
+						if ( strippedScript.indexOf( 'jquery.fancybox' ) > 0 ) continue;
 						
 						if ( strippedHTML.indexOf( strippedScript ) > 0 ) continue;
 						
@@ -376,7 +378,29 @@
 	
 	$( document ).on( 'ajaxRefresh', function() {
 		
-		$( document ).trigger( "ready" ); // Tell browser that Document is "ready" again
+		$( 'a.fancybox-pdf, area.fancybox-pdf, li.fancybox-pdf a' ).fancybox( $.extend( 
+			{}, 
+			fb_opts, 
+			{ 
+				'type' : 'iframe',
+				'width' : '90%',
+				'height' : '90%',
+				'padding' : 10,
+				'titleShow' : false,
+				'titlePosition' : 'float',
+				'titleFromAlt' : true,
+				'autoDimensions' : false,
+				'scrolling' : 'no',
+				'onStart' : function( selectedArray, selectedIndex, selectedOpts ) {
+					
+					console.log( selectedOpts );
+					
+					selectedOpts.content = '<object data="' + selectedArray[ selectedIndex ].href + '" type="application/pdf" height="100%" width="100%"><a href="' + selectedArray[ selectedIndex ].href + '" style="display:block;position:absolute;top:48%;width:100%;text-align:center">' + $( selectedArray[ selectedIndex ] ).html() + '</a></object>';
+				}
+			}
+		) );
+
+		$( document ).trigger( "ready" ).trigger( 'post-load' ); // Tell browser that Document is "ready" again
 		
 	} );
 
