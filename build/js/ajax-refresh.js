@@ -225,7 +225,7 @@
 					}
 					
 					var cdataRegex = /<script(.*)\n\/\* <!\[CDATA\[ \*\/\n(.*)\n\/\* \]\]> \*\/\n<\/script>/igm,
-						eventsCalendarRegex = /(?:<link|<script)(?:.*)(?:tribe_|events-calendar)(?:.*)>/igm,
+						eventsCalendarRegex = /(?:<link|<script)(?:.*)(?:href|src)(?:.*)>/igm,
 						cdata = data.match( cdataRegex ),
 						eventsCalendarScripts = data.match( eventsCalendarRegex );
 					

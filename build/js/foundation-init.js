@@ -1,8 +1,6 @@
 ( function( $ ) {
     
     $( document ).ready( function() {
-		
-		console.log( 'foundation init' );
 
         $( document ).foundation();  
 
@@ -24,7 +22,7 @@
 
 			$( document ).foundation();
 			
-		}, 100 );
+		}, 500 );
 		
 	} );
     
