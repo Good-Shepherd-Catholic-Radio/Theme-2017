@@ -1,8 +1,6 @@
 <?php
 /**
- * On Air Personalities Loop for the Shortcode.
- * On Air Personalities don't have an Archive (To allow for a Content Editor above them)
- * Keeping it out of a Page Template allows for more flexibility as well
+ * Staff Loop for the Home Page.
  *
  * @since       1.0.0
  * @package     Good_Shepherd_Catholic_Radio
@@ -29,16 +27,12 @@ defined( 'ABSPATH' ) || die();
 			
 		</a>
 			
-	<?php else : ?>
-	
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-			
-			<h3><?php the_title(); ?></h3>
-			
-		</a>
-	
 	<?php endif; ?>
 	
-	<?php the_content(); ?>
+	<a class="text-center" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+
+		<h3><?php the_title(); ?></h3>
+
+	</a>
 
 </div>

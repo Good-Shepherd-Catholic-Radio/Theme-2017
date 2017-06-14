@@ -28,4 +28,8 @@ include locate_template( 'partials/home/underwriters.php' );
 
 include locate_template( 'partials/home/blog.php' );
 
+include locate_template( 'partials/home/staff.php' );
+
+include locate_template( 'partials/home/on-air-personalities.php' );
+
 get_footer();
