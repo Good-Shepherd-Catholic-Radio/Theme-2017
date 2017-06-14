@@ -1,7 +1,19 @@
 .home {
 	
 	#site-content {
+		
 		padding: 0;
+		
+		& > .row {
+			
+			&.upcoming-events, &.prayer-requests, &.underwriters-section, &.staff-section {
+			
+				padding: 30px;
+				
+			}
+			
+		}
+		
 	}
 
 	@import "radio-shows-header";
