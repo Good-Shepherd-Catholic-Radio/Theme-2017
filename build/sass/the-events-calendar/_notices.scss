@@ -1,0 +1,5 @@
+.tribe-events-notices {
+	background: $secondary-color;
+	border-color: $secondary-color;
+	@include light-or-dark-text( $secondary-color );
+}
