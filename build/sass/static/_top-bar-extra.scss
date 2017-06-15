@@ -33,6 +33,7 @@ $topbar-extra-link-hover: null;
 	.social, .phone {
 
 		display: inline-block;
+		width: auto;
 		padding: $topbar-title-spacing;
 		
 		a {
