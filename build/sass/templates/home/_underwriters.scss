@@ -1,0 +1,82 @@
+.underwriters-section {
+
+	.row {
+
+		.underwriter {
+
+			border: 3px solid $secondary-color;
+			border-bottom: none;
+			border-left: none;
+			
+			@media #{$medium-up} {
+				height: 170px;
+				padding-top: 0.5em;
+				padding-bottom: 0.6em;
+			}
+			
+			@media #{$small-only} {
+				
+				border-left: none;
+				border-right: none;
+				padding-top: 1em;
+				padding-bottom: 1em;
+				
+			}
+
+			&:last-of-type {
+				border-right: none;
+			}
+
+			@media #{$medium-up} {
+
+				.vertical-align {
+
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+
+				}
+
+			}
+			
+			a {
+				
+				img {
+					filter: grayscale(1);
+					transition: 300ms all;
+					margin: 0;
+				}
+				
+				&:hover {
+					img {
+						filter: initial;
+					}
+				}
+				
+			}
+
+		}
+
+		&:first-of-type {
+			
+			@media #{$small-only} {
+				
+				.underwriter:first-of-type {
+					border-top: 0;
+				}
+				
+			}
+			
+			@media #{$medium-up} {
+
+				.underwriter {
+					border-top: none;
+				}
+				
+			}
+
+		}
+
+	}
+
+}
