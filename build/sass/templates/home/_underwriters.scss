@@ -4,7 +4,7 @@
 
 		.underwriter {
 
-			border: 3px solid $secondary-color;
+			border: 1px solid #505050;
 			border-bottom: none;
 			border-left: none;
 			
@@ -41,9 +41,22 @@
 			
 			a {
 				
+				&, * {
+					transition: 300ms all;
+				}
+				
+				&, h1, h2, h3, h4, h5, h6 {
+					
+					color: #505050;
+					
+					&:hover {
+						color: $anchor-color-hover;
+					}
+					
+				}
+				
 				img {
 					filter: grayscale(1);
-					transition: 300ms all;
 					margin: 0;
 				}
 				
