@@ -1,8 +1,9 @@
 // We use these as default colors throughout
-// https://color.adobe.com/create/color-wheel/?base=2&rule=Complementary&selected=3&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.36996561657837856,0,0.5274509803921568,0.7312796208530699,0.09999999999999987,1,0.5803921568627451,0,0.8274509803921568,0.38542929571205964,0.5274509803921568,0,0.6046511627899226,0.8274509803921568,0&swatchOrder=0,1,2,3,4
-$primary-color: #9400D3;
-$secondary-color: #628600;
-$tertiary-color: #5E0086;
+// https://color.adobe.com/create/color-wheel/?base=1&rule=Custom&selected=4&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.330981194276679,0.015905651595577337,0.6999890172974663,0.5737651371149918,0.2070764017806275,0.9999890172974664,1,0.7201009447988074,0.22811291892037933,0.353149385650061,0.6999890172974663,0.2143464585371027,0.17,0.17,0.17&swatchOrder=0,2,1,3,4
+$primary-color: #9235FF;
+$secondary-color: #5AB237;
+$tertiary-color: #5404B2;
+$quaternary-color: #FFB83A;
 $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
@@ -13,6 +14,7 @@ $foundation-palette: (
     primary: $primary-color,
     secondary: $secondary-color,
 	tertiary: $tertiary-color,
+	quaternary: $quaternary-color,
     info: $info-color,
     success: $success-color,
     warning: $warning-color,
@@ -31,7 +33,7 @@ $light-color: #fff;
 $font-family-sans-serif: "Open Sans", sans-serif;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
-$body-font-color: #222;
+$body-font-color: #2B2B2B;
 $body-font-family: $font-family-sans-serif;
 $body-antialiased: false;
 $anchor-color: scale-color( $primary-color, $lightness: -15% );
