@@ -1,6 +1,6 @@
 @mixin light-or-dark-text( $color ) {
 
-	@if lightness( $color ) < 50% {
+	@if lightness( $color ) < 65% {
 
 		color: $light-color;
 

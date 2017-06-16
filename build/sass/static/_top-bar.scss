@@ -79,7 +79,7 @@
 
                 &:hover > a:after {
 
-                    @if lightness( darken( $topbar-background, 10% ) ) < 50% {
+                    @if lightness( darken( $topbar-background, 10% ) ) < 65% {
 
                         border-top-color: $light-color;
 
@@ -96,7 +96,7 @@
                     
                     a:after {
 
-                        @if lightness( $body-background ) < 50% {
+                        @if lightness( $body-background ) < 65% {
 
                             border-right-color: $light-color;
 
@@ -112,7 +112,7 @@
                     // Top Level:hover
                     &:hover > a:after {
 
-                        @if lightness( darken( $topbar-background, 10% ) ) < 50% {
+                        @if lightness( darken( $topbar-background, 10% ) ) < 65% {
 
                             border-right-color: $dark-color;
 
