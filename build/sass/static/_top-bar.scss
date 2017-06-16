@@ -27,6 +27,10 @@
         overflow: hidden;
         font-family: $header-font-family;
 		padding-top: 0;
+		
+		.menu-icon-text {
+			color: $titlebar-icon-color;
+		}
         
         a {
 			
