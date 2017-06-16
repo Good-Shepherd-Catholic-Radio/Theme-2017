@@ -29,10 +29,10 @@ $cell-height: 75px;
 		
 		&, .image {
 
-			min-height: $cell-height;
+			min-height: $cell-height * 5;
 
 			@media #{$medium-up} {
-				min-height: $cell-height * 2;
+				min-height: $cell-height * 3;
 			}
 			
 		}
