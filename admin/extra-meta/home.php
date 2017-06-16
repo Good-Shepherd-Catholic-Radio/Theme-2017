@@ -74,6 +74,14 @@ function gscr_add_home_metaboxes() {
         );
 		
 		add_meta_box(
+            'gscr-home-donat-listen',
+            _x( 'Donate/Listen Section', 'Home Donate/Listen Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_donate_listen_metabox_content',
+            'page',
+            'normal'
+        );
+		
+		add_meta_box(
             'gscr-home-prayer-requests',
             _x( 'Prayer Requests Section', 'Home Prayer Requests Metabox Title', 'good-shepherd-catholic-radio' ),
             'gscr_home_prayer_requests_metabox_content',
@@ -105,6 +113,44 @@ function gscr_home_events_metabox_content() {
             'window_button_text' => _x( 'Use Image', 'Home Events Image Select Button Text', 'good-shepherd-catholic-radio' ),
         )
     );
+    
+}
+
+/**
+ * Put fields in the Donate/Listen Metabox
+ * 
+ * @since       1.0.0
+ * @return      void
+ */
+function gscr_home_donate_listen_metabox_content() {
+    
+    // All Forms
+	$give_forms = new WP_Query( array(
+		'post_type' => 'give_forms',
+		'posts_per_page' => -1,
+		'orderby' => 'post_title',
+		'order' => 'ASC',
+	) );
+	
+	$give_forms = wp_list_pluck( $give_forms->posts, 'post_title', 'ID' );
+    
+    rbm_do_field_select(
+        'gscr_home_donate_form',
+        _x( 'Donate Form', 'Home Donate Form Label', 'good-shepherd-catholic-radio' ),
+        false,
+        array(
+            'description' => __( 'Choose the Give Form through which Visitors will Donate.', 'good-shepherd-catholic-radio' ),
+            'options' => $give_forms,
+        )
+    );
+	
+	rbm_do_field_wysiwyg(
+		'gscr_home_listen_text',
+		_x( 'Listening Options', 'Home Listen Text Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+		)
+	);
     
 }
 

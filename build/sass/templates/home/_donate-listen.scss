@@ -1,0 +1,36 @@
+.donate-listen {
+	
+	.give-form-wrap {
+		
+		form, input[type="submit"], .give-btn {
+			margin-bottom: 0;
+		}
+		
+	}
+	
+	.donate {
+		
+		border-right: 3px solid green;
+		
+		@media #{$small-only} {
+			
+			border-right: none;
+			border-bottom: 3px solid green;
+			
+			padding-bottom: 1em;
+			
+		}
+		
+	}
+	
+	.listen {
+		
+		@media #{$small-only} {
+			
+			padding-top: 1em;
+			
+		}
+		
+	}
+	
+}

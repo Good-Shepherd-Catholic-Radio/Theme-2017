@@ -20,6 +20,8 @@ the_post();
 
 include locate_template( 'partials/home/radio-shows_header.php' );
 
+include locate_template( 'partials/home/donate-listen.php' );
+
 include locate_template( 'partials/home/events.php' );
 
 include locate_template( 'partials/home/prayer-requests.php' );
