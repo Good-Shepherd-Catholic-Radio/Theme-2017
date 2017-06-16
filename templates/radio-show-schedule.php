@@ -72,9 +72,15 @@ $radio_shows = new WP_Query( array(
 	),
 ) );
 
-the_content();
-
 $weekdays = gscr_get_weekdays(); ?>
+
+<div class="row">
+	
+	<div class="small-12 columns">
+		<?php the_content(); ?>
+	</div>
+	
+</div>
 
 <div class="row">
 	
