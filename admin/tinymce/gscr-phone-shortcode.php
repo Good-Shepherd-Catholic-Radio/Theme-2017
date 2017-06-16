@@ -50,7 +50,7 @@ function gscr_phone_tinymce_l10n( $l10n ) {
     $l10n['gscr_phone_shortcode'] = array(
         'tinymce_title' => _x( 'Add Phone Number', 'Phone Shortcode TinyMCE Phone Text', 'good-shepherd-catholic-radio' ),
         'phone_number' => array(
-            'label' => _x( 'Phone Number', "Phone Number Label", 'good-shepherd-catholic-radio' ),
+            'label' => _x( 'Phone Number (If left empty, this will default to the Phone Number set in the Customizer)', "Phone Number Label", 'good-shepherd-catholic-radio' ),
         ),
         'extension' => array(
             'label' => _x( 'Phone Number Extension (Optional)', 'Phone Number Extension Label', 'good-shepherd-catholic-radio' ),

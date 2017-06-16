@@ -30,6 +30,10 @@ function add_gscr_phone_shortcode( $atts, $content = '' ) {
         $atts,
         'gscr_phone'
     );
+	
+	if ( empty( $atts['phone_number'] ) ) {
+		$atts['phone_number'] = get_theme_mod( 'gscr_phone_number', '1-517-513-3340' );
+	}
     
     ob_start();
     
