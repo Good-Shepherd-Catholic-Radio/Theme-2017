@@ -67,6 +67,25 @@ $tab-color: $anchor-color;
 $tab-active-color: $anchor-color-hover;
 $tab-background-active: scale-color( desaturate( $secondary-color, 60% ), $lightness: 60% );
 
+$header-styles: (
+  small: (
+    'h1': ('font-size': 24),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 19),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 18),
+    'h6': ('font-size': 18),
+  ),
+  medium: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 40),
+    'h3': ('font-size': 31),
+    'h4': ('font-size': 25),
+    'h5': ('font-size': 25),
+    'h6': ('font-size': 25),
+  ),
+);
+
 // Media query ranges
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);
