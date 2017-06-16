@@ -193,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     
                     <?php if ( ! is_front_page() ) : ?>
                     
-                        <div class="row expanded breadcrumbs-container">
+                        <div class="row breadcrumbs-container">
                             <div class="small-12 columns">
                                 <?php gscr_custom_breadcrumbs(); ?>
                             </div>

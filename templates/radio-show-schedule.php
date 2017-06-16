@@ -76,7 +76,7 @@ the_content();
 
 $weekdays = gscr_get_weekdays(); ?>
 
-<div class="row expanded">
+<div class="row">
 	
 	<div class="small-12 columns">
 
