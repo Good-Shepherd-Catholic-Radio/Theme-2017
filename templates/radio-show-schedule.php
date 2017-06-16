@@ -84,7 +84,7 @@ $weekdays = gscr_get_weekdays(); ?>
 
 <div class="row">
 	
-	<div class="small-12 columns">
+	<div class="small-12 columns radio-show-week-schedule">
 
 		<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="radio-show-schedule-tabs">
 
