@@ -2,6 +2,12 @@
     
     font-weight: 600;
     position: relative;
+	
+	@media #{$medium-up} {
+	
+		padding: 1.5rem 1rem;
+		
+	}
     
     // Phablet Landscape and Portrait iPad Fix
     @media screen and (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {

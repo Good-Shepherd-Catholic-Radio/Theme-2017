@@ -56,7 +56,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 					
 					<div class="top-bar extra">
 						
-						<div class="top-bar-left social">
+						<div class="top-bar-left logo">
+							
+							<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+                            <?php 
+                                echo wp_get_attachment_image( get_theme_mod( 'gscr_logo_image', 1 ), 'medium', false, array(
+                                    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                                    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                                ) ); 
+                            ?>
+                           </a>
+							
+						</div>
+						
+						<div class="top-bar-right social">
 							
 							<?php 
 								$social_accounts = array(
@@ -99,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								</a>
 
 							<?php endif; ?>
-							
+						
 						</div>
 						
 						<div class="top-bar-right phone">
@@ -122,15 +135,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     </div>
                                 </button>
                             </div>
-                            
-                            <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
-                            <?php 
-                                echo wp_get_attachment_image( get_theme_mod( 'gscr_logo_image', 1 ), 'medium', false, array(
-                                    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                                    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                                ) ); 
-                            ?>
-                           </a>
 
                         </div>
 

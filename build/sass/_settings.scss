@@ -47,7 +47,7 @@ $topbar-background: $primary-color;
 $offcanvas-background: $topbar-background;
 
 $topbar-link-color: null;
-@if lightness( $topbar-background ) < 50% {
+@if lightness( $topbar-background ) < 65% {
 
     $topbar-link-color: $light-color;
     $titlebar-icon-color: $topbar-link-color;
