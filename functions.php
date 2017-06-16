@@ -73,6 +73,7 @@ add_action( 'init', function () {
 		apply_filters( 'good_shepherd_catholic_radio_localize_script', array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'siteUrl' => site_url(),
+			'baseName' => basename( dirname( __FILE__ ) ),
 		) )
 	);
 

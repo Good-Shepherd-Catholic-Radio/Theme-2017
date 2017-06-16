@@ -257,6 +257,10 @@
 						
 						if ( strippedScript.indexOf( 'jquery.fancybox' ) > 0 ) continue;
 						
+						if ( strippedScript.indexOf( 'uix-shortcodes' ) > 0 ) continue;
+						
+						if ( strippedScript.indexOf( goodShepherdCatholicRadio.baseName ) > 0 ) continue;
+						
 						if ( strippedHTML.indexOf( strippedScript ) > 0 ) continue;
 						
 						$( 'head' ).append( eventsCalendarScripts[ script ] );
