@@ -8,6 +8,21 @@ $cell-height: 250px;
 
 		position: relative;
 
+		border: 1px solid #fff;
+		border-bottom: none;
+		border-left: none;
+
+		@media #{$small-only} {
+
+			border-left: none;
+			border-right: none;
+
+		}
+
+		&:last-of-type {
+			border-right: none;
+		}
+
 		&, .image {
 
 			min-height: $cell-height;
@@ -37,18 +52,18 @@ $cell-height: 250px;
 
 		a {
 			&:hover {
-				
+
 				.radio-show-color-overlay {
 					// Maybe not? Maybe Transparent works better
 					@include background-opacity( $primary-color, 0.5 );
 				}
-				
+
 				.image {
 
 					transform: scale( 1.1 );
 
 				}
-				
+
 			}
 		}
 
@@ -89,6 +104,28 @@ $cell-height: 250px;
 
 		}
 
+	}
+
+	& > .cat_radio-show, .row:first-of-type .cat_radio-show {
+
+		@media #{$medium-up} {
+
+			border-top: none;
+
+		}
+
+	}
+	
+	& > .cat_radio-show {
+		
+		@media #{$small-only} {
+
+			&:first-of-type {
+				border-top: none;
+			}
+
+		}
+		
 	}
 
 	.radio-shows-right {
