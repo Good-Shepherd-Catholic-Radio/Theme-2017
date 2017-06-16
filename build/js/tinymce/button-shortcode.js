@@ -57,7 +57,6 @@
                                 name: 'size',
                                 label: gscr_tinymce_l10n.gscr_button_shortcode.size.label,
                                 values: gscr_generate_tinymce_listbox( gscr_tinymce_l10n.gscr_button_shortcode.size.choices ),
-                                value: gscr_tinymce_l10n.gscr_button_shortcode.size.default,
                             },
                             {
                                 type: 'checkbox',
@@ -79,7 +78,7 @@
                             editor.insertContent( '[gscr_button' + 
                                                      ( e.data.url !== undefined && e.data.url !== '' ? ' url="' + e.data.url + '"' : '' ) + 
                                                      ( e.data.color !== undefined ? ' color="' + e.data.color + '"' : '' ) + 
-                                                     ( e.data.size !== undefined ? ' size="' + e.data.size + '"' : '' ) + 
+                                                     ( e.data.size !== undefined && e.data.size !== '' ? ' size="' + e.data.size + '"' : '' ) + 
                                                      ( e.data.hollow !== undefined && e.data.hollow !== false ? ' hollow="' + e.data.hollow + '"' : '' ) + 
                                                      ( e.data.expand !== undefined && e.data.expand !== false ? ' expand="' + e.data.expand + '"' : '' ) + 
                                                      ( e.data.newTab !== undefined && e.data.newTab !== false ? ' new_tab="' + e.data.newTab + '"' : '' ) + 

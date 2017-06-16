@@ -25,7 +25,7 @@ function add_gscr_button_shortcode( $atts, $content = '' ) {
         array( // a few default values
             'url' => '#',
             'color' => 'primary',
-            'size' => 'small',
+            'size' => '',
             'hollow' => 'false',
             'expand' => 'false',
             'new_tab' => 'false',

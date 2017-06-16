@@ -1,36 +1,50 @@
 .donate-listen {
-	
+
 	.give-form-wrap {
-		
+
 		form, input[type="submit"], .give-btn {
 			margin-bottom: 0;
 		}
-		
+
 	}
-	
+
 	.donate {
-		
-		border-right: 3px solid $secondary-color;
-		
+
+		border-right: 3px solid $medium-gray;
+
 		@media #{$small-only} {
-			
+
 			border-right: none;
-			border-bottom: 3px solid $secondary-color;
-			
+			border-bottom: 3px solid $medium-gray;
+
 			padding-bottom: 1em;
-			
+
 		}
-		
+
 	}
-	
+
 	.listen {
 		
-		@media #{$small-only} {
-			
-			padding-top: 1em;
-			
+		p {
+			margin-bottom: 0;
 		}
-		
+
+		@media #{$small-only} {
+
+			padding-top: 1em;
+
+		}
+
 	}
-	
+
+}
+
+.give-btn {
+
+	@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+	border-radius: 0.25em;
+
+	@include foundation-button-fix( $secondary-color );
+
 }

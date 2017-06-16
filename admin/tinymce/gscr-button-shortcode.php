@@ -67,8 +67,9 @@ function gscr_button_tinymce_l10n( $l10n ) {
         ),
         'size' => array(
             'label' => _x( 'Size', 'Button Size Selection Lable', 'good-shepherd-catholic-radio' ),
-            'default' => 'small',
+            'default' => '',
             'choices' => array(
+				'' => _x( 'Default', 'Default Button Size', 'good-shepherd-catholic-radio' ),
                 'tiny' => _x( 'Tiny', 'Tiny Button Size', 'good-shepherd-catholic-radio' ),
                 'small' => _x( 'Small', 'Small Button Size', 'good-shepherd-catholic-radio' ),
                 'medium' => _x( 'Medium', 'Medium Button Size', 'good-shepherd-catholic-radio' ),

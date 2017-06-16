@@ -37,7 +37,9 @@ defined( 'ABSPATH' ) || die();
 				
 				<h3><?php _e( 'Listening Options', 'good-shepherd-catholic-radio' ); ?></h3>
 				
-				<a class="button primary" href="http://rdo.to/WJKNAM" onclick="window.open( 'http://rdo.to/WJKNAM', 'newwindow', 'width=300, height=250' ); return false;">
+				<?php echo apply_filters( 'the_content', rbm_get_field( 'gscr_home_listen_text' ) ); ?>
+				
+				<a class="button secondary" href="http://rdo.to/WJKNAM" onclick="window.open( 'http://rdo.to/WJKNAM', 'newwindow', 'width=300, height=250' ); return false;">
 					<?php _e( 'Pop-out Player', 'good-shepherd-catholic-radio' ); ?>
 					&nbsp;<span class="fa fa-window-restore"></span>
 				</a>
