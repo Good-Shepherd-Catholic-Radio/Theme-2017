@@ -167,33 +167,33 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
 
                 </header>
-				
-				<?php if ( ! is_front_page() &&
-						 has_post_thumbnail() ) : ?>
-					
-						<?php if ( ( is_single() && get_post_type() == 'post' ) ||
-								 get_post_type() == 'page' ) : ?>
-					
-								<div class="row expanded small-collapse featured-image-container">
-									
-									<?php
-										$attachment_id = get_post_thumbnail_id( get_the_ID() );
-										$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
-									?>
-									
-									<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
-									
-								</div>
-					
-						<?php endif; ?>
-				
-				<?php endif; ?>
 
                 <section id="site-content">
+					
+					<?php if ( ! is_front_page() &&
+						 has_post_thumbnail() ) : ?>
+					
+							<?php if ( ( is_single() && get_post_type() == 'post' ) ||
+									 get_post_type() == 'page' ) : ?>
+
+									<div class="row expanded small-collapse featured-image-container">
+
+										<?php
+											$attachment_id = get_post_thumbnail_id( get_the_ID() );
+											$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+										?>
+
+										<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+
+									</div>
+
+							<?php endif; ?>
+
+					<?php endif; ?>
                     
                     <?php if ( ! is_front_page() ) : ?>
                     
-                        <div class="row expanded">
+                        <div class="row expanded breadcrumbs-container">
                             <div class="small-12 columns">
                                 <?php gscr_custom_breadcrumbs(); ?>
                             </div>

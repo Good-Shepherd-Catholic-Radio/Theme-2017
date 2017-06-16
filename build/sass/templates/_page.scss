@@ -1,5 +1,17 @@
 .page {
 	
+	#site-content {
+		padding: 0;
+	}
+	
+	.main-content, .breadcrumbs-container {
+		padding: 30px; // This allows the Hero image to be properly full-width
+	}
+	
+	.main-content {
+		padding-top: 0;
+	}
+	
 	.featured-image-container {
 		position: relative;
 		min-height: 300px;

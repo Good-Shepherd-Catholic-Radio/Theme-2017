@@ -19,34 +19,38 @@ get_header();
 the_post();
 ?>
 
-<div class="row expanded">
+<div class="main-content">
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
+	<div class="row expanded">
 
-        <h1 class="post-title">
-            <?php the_title(); ?>
-        </h1>
-		
-		<?php if ( get_post_type() == 'post' ) : ?>
-        
-			<p>
-				<span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
-			</p>
-		
+		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
+
+			<h1 class="post-title">
+				<?php the_title(); ?>
+			</h1>
+
+			<?php if ( get_post_type() == 'post' ) : ?>
+
+				<p>
+					<span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
+				</p>
+
+			<?php endif; ?>
+
+			<?php the_content(); ?>
+
+		</article>
+
+		<?php if ( comments_open() ) : ?>
+
+		<div class="columns small-12">
+			<?php comments_template(); ?>
+		</div>
+
 		<?php endif; ?>
 
-        <?php the_content(); ?>
-
-    </article>
-
-    <?php if ( comments_open() ) : ?>
-
-    <div class="columns small-12">
-        <?php comments_template(); ?>
-    </div>
-
-    <?php endif; ?>
-    
+	</div>
+	
 </div>
 
 <?php get_footer();

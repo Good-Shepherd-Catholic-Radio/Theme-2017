@@ -19,22 +19,26 @@ get_header();
 the_post();
 ?>
 
-<div class="row expanded">
+<div class="main-content">
 
-    <article id="page-<?php the_ID(); ?>" <?php post_class( array( 
-        'columns',
-        'small-12',
-        'no-sidebar',
-    ) ); ?>>
+	<div class="row expanded">
 
-        <h1 class="page-title">
-            <?php the_title(); ?>
-        </h1>
+		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 
+			'columns',
+			'small-12',
+			'no-sidebar',
+		) ); ?>>
 
-        <?php the_content(); ?>
+			<h1 class="page-title">
+				<?php the_title(); ?>
+			</h1>
 
-    </article>
-    
+			<?php the_content(); ?>
+
+		</article>
+
+	</div>
+	
 </div>
 
 <?php
