@@ -132,12 +132,17 @@ blockquote {
 	border-left: 0;
     position: relative;
     padding: 0;
+	
+	&, p {
+		color: scale-color( $quaternary-color, $lightness: -25% );
+	}
 
     &:before {
 
         content: '\f10d';
         font-family: 'FontAwesome';
         font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h1', 'font-size' ) );
+		color: $quaternary-color;
 
     }
 

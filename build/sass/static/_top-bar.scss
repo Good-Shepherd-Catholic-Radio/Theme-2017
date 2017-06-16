@@ -57,14 +57,14 @@
             > .current-menu-item, > .current-menu-ancestor {
 
                 > a {
-                    color: scale-color( desaturate( $secondary-color, 40% ), $lightness: 50% );
+                    color: scale-color( $quaternary-color, $lightness: 25% );
                 }
 
                 &.is-dropdown-submenu-parent {
 
                     > a:after {
 
-                        border-top-color: scale-color( desaturate( $secondary-color, 40% ), $lightness: 50% ) !important;
+                        border-top-color: scale-color( $quaternary-color, $lightness: 25% ) !important;
 
                     }
 
