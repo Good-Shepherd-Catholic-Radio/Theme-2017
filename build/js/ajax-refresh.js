@@ -69,7 +69,7 @@
 				this.blur();
 				
 				$( 'ul.menu li' ).each( function( index, menuItem ) {
-					$( menuItem ).removeClass( 'current-menu-item' );
+					$( menuItem ).removeClass( 'current-menu-item' ).removeClass( 'current-menu-ancestor' );
 				} );
 				
 				if ( $( this ).parents( 'ul' ).hasClass( 'menu' ) ) {
