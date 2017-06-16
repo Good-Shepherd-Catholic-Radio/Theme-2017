@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return      HTML
  */
 add_shortcode( 'gscr_button', 'add_gscr_button_shortcode' );
-function add_gscr_button_shortcode( $atts, $content ) {
+function add_gscr_button_shortcode( $atts, $content = '' ) {
     
     $atts = shortcode_atts(
         array( // a few default values

@@ -44,8 +44,8 @@ function add_gscr_button_tinymce_filters() {
  * @since       1.0.0
  * @return      Array Localized Text
  */
-add_filter( 'gscr_tinymce_l10n', 'gscr_tinymce_l10n' );
-function gscr_tinymce_l10n( $l10n ) {
+add_filter( 'gscr_tinymce_l10n', 'gscr_button_tinymce_l10n' );
+function gscr_button_tinymce_l10n( $l10n ) {
     
     $l10n['gscr_button_shortcode'] = array(
         'tinymce_title' => _x( 'Add Button', 'Button Shortcode TinyMCE Button Text', 'good-shepherd-catholic-radio' ),
