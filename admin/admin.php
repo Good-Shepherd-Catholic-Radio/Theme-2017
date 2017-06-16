@@ -24,6 +24,8 @@ else {
 // Run if RBM Field Helpers is active
 if ( class_exists( 'RBM_FieldHelpers' ) ) {
     
+	require_once __DIR__ . '/extra-meta/home.php';
+	
 }
 else {
     

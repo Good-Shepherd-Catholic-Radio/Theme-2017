@@ -19,7 +19,15 @@ defined( 'ABSPATH' ) || die();
 			<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
 		</h2>
 
-		<?php echo do_shortcode( '[gravityform id="2" title="false" description="false" ajax="true"]' ); ?>
+		<?php 
+		
+			if ( $form_id = rbm_get_field( 'gscr_home_prayer_request_form' ) ) {
+		
+				echo do_shortcode( '[gravityform id="' . $form_id . '" title="false" description="false" ajax="true"]' );
+				
+			}
+		
+		?>
 		
 	</div>
 	
