@@ -1,6 +1,35 @@
 .upcoming-events {
+	
+	overflow: hidden;
+	position: relative;
+	
+	.image {
+
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		background-color: $tertiary-color;
+		transform: scale( 1.1 );
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		
+	}
+	
+	.content {
+		position: relative;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
 
 	.tribe_events {
+		
+		background-color: #fff;
+		padding: 0.75em;
 
 		margin-bottom: 1em;
 
@@ -10,26 +39,21 @@
 
 		& > .row > .columns {
 
-			border: 3px solid $secondary-color;
-			border-color: rgba( 23, 101, 0, 0.2 ); // Secondary-color;
 			min-height: 100px;
-			
+
 			@media #{$small-only} {
-				
-				border-left: none;
-				border-right: none;
-				border-top: none;
-				
+
 				&:nth-of-type( n + 2 ) {
-					border-bottom: none;
+					padding-top: 0.5em;
+					border-top: 3px solid $secondary-color;
 				}
-				
+
 			}
 
 			@media #{$medium-up} {
 
 				&:nth-of-type( n + 2 ) {
-					border-left: none;
+					border-left: 3px solid $secondary-color;
 				}
 
 			}
@@ -60,13 +84,17 @@
 
 		.content {
 			
+			h1, h2, h3, h4, h5, h6 {
+				color: $primary-color;
+			}
+
 			@media #{$small-only} {
-				
+
 				* {
 					float: none !important;
 					text-align: center !important;
 				}
-				
+
 			}
 
 			@media #{$medium-up} {

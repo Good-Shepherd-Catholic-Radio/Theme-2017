@@ -47,26 +47,40 @@ $events = new WP_Query( array(
 	),
 ) );
 
+$attachment_id = rbm_get_field( 'gscr_home_events_image' );
+
+$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+
 ?>
 
-<div class="upcoming-events row">
+<div class="upcoming-events row expanded">
+	
+	<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+	
+	<div class="small-12 columns content">
+		
+		<div class="row">
 
-	<h2><?php _e( 'Upcoming Events', 'good-shepherd-catholic-radio' ); ?></h2>
-	
-	<?php if ( $events->have_posts() ) : ?>
-	
-		<?php while ( $events->have_posts() ) : $events->the_post(); ?>
-	
-			<?php get_template_part( 'partials/loop/loop', 'tribe_events_home' ); ?>
-	
-		<?php endwhile; ?>
-	
-		<?php wp_reset_postdata(); ?>
-	
-	<?php else : ?>
-	
-		<?php _e( 'No Events Found', 'good-shepherd-catholic-radio' ); ?>
-	
-	<?php endif; ?>
+			<h2><?php _e( 'Upcoming Events', 'good-shepherd-catholic-radio' ); ?></h2>
+
+			<?php if ( $events->have_posts() ) : ?>
+
+				<?php while ( $events->have_posts() ) : $events->the_post(); ?>
+
+					<?php get_template_part( 'partials/loop/loop', 'tribe_events_home' ); ?>
+
+				<?php endwhile; ?>
+
+				<?php wp_reset_postdata(); ?>
+
+			<?php else : ?>
+
+				<?php _e( 'No Events Found', 'good-shepherd-catholic-radio' ); ?>
+
+			<?php endif; ?>
+			
+		</div>
+		
+	</div>
 	
 </div>
