@@ -1,6 +1,18 @@
 .top-bar.extra {
-	
+
 	background: #fff;
+
+	@media #{$medium-up} {
+
+		.vertical-align {
+
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+
+		}
+
+	}
 
 	a {
 
@@ -17,39 +29,39 @@
 		display: inline-block;
 		width: auto;
 		padding: $topbar-title-spacing;
-		
+
 		a {
 			padding: .7rem 1rem;
 		}
 
 	}
-	
+
 	.logo {
-		
+
 		@media #{$small-only} {
 			width: 100%;
 			text-align: center;
 		}
-		
+
 	}
-	
+
 	.social {
 		a {
 			padding-right: 0;
 		}
 	}
-	
+
 	.phone {
-		
+
 		@media #{$small-only} {
 			float: left;
 		}
-		
+
 		a {
 			font-size: 1.25em;
 			padding-right: 0;
 		}
-		
+
 	}
 
 }
