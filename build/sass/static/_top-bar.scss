@@ -39,6 +39,88 @@
         }
         
     }
+	
+	.sticky-stream {
+
+		.jp-audio-stream {
+
+			background: transparent;
+			padding: 0;
+			width: auto;
+			border-top: none;
+
+			.fa {
+				color: $quaternary-color;
+			}
+			
+			.jp-details {
+				margin-left: 4%;
+				color: $titlebar-icon-color;
+			}
+
+			.jp-mute {
+
+				.mute-icon {
+
+					color: $titlebar-icon-color;
+
+				}
+
+			}
+
+			&.jp-state-muted {
+
+				.jp-mute {
+
+					.mute-icon {
+
+						color: $quaternary-color;
+
+					}
+
+				}
+
+			}
+
+			.jp-volume-controls {
+
+				.volume-bar-container {
+
+					.jp-volume-bar {
+						background-color: $titlebar-icon-color;
+					}
+
+					.jp-volume-bar-value {
+						background-color: $quaternary-color;
+					}
+
+				}
+
+			}
+
+			.jp-volume-max {
+
+				.volume-max-icon {
+
+					color: $titlebar-icon-color;
+
+				}
+
+			}
+
+			.jp-volume-max:focus {
+
+				.volume-max-icon {
+
+					color: $quaternary-color;
+
+				}
+
+			}
+
+		}
+
+	}
 
     .nav-menu {
         position: absolute;
