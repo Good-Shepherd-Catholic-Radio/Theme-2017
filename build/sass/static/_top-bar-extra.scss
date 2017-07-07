@@ -1,15 +1,25 @@
-.top-bar {
+.top-bar.extra {
 
-	//background: #fff;
+	background: #fff;
 
 	@media #{$medium-up} {
 
 		.vertical-align {
 
-			//position: relative;
-			//top: 50%;
-			//transform: translateY(-50%);
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
 
+		}
+
+	}
+
+	a {
+
+		color: $anchor-color;
+
+		&:hover {
+			color: $anchor-color-hover;
 		}
 
 	}
@@ -19,17 +29,9 @@
 		display: inline-block;
 		width: auto;
 		padding: $topbar-title-spacing;
-		padding-top: 0.25rem;
 
 		a {
-
-			color: $topbar-link-color;
 			padding: .7rem 1rem;
-
-			&:hover {
-				color: $titlebar-icon-hover;
-			}
-
 		}
 
 	}

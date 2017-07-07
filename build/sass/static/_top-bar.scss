@@ -3,14 +3,6 @@
     font-weight: 600;
     position: relative;
 	
-	@media #{$small-only} {
-		
-		.top-bar-left.top-bar-title, .top-bar-right {
-			width: auto;
-		}
-		
-	}
-	
 	@media #{$medium-up} {
 	
 		padding: 1.5rem 1rem;

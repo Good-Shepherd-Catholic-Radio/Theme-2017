@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <header id="site-header">
 					
-					<div class="top-bar" data-equalizer data-equalize-on="medium">
+					<div class="top-bar extra" data-equalizer data-equalize-on="medium">
 						
 						<div class="top-bar-left logo" data-equalizer-watch>
 							
@@ -72,147 +72,53 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 							
 						</div>
-								
-						<div class="top-bar-left top-bar-title">
-
-							<div class="show-for-small-only menu-icon-container" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-								<button type="button" data-open="offCanvasLeft">
-									<span class="menu-icon"></span>
-									<div class="menu-icon-text">
-										<?php echo _x( 'Menu', 'Hamburger Button Label', 'good-shepherd-catholic-radio' ); ?>
-									</div>
-								</button>
-							</div>
-
-						</div>
 						
-						<div class="top-bar-right" data-equalizer-watch>
+						<div class="top-bar-right social" data-equalizer-watch>
 							
-							<div class="sticky-stream hide-for-small-only">
-								
-								<div id="gscr-radio-stream-header" class="jp-jplayer"></div>
-								<div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
-									<div class="jp-type-single">
-
-										<div class="jp-gui jp-interface row expanded">
-
-											<div class="jp-controls small-2 medium-1 columns">
-												<button class="jp-play" role="button" tabindex="0">
-													<span class="fa fa-3x play-icon"></span>
-												</button>
-											</div>
-
-											<div class="title-container jp-details small-7 medium-8 columns">
-												<div class="jp-title" aria-label="title">
-													<?php _e( 'Listen Live!', 'good-shepherd-catholic-radio' ); ?>
-												</div>
-											</div>
-
-											<div class="jp-volume-controls small-2 offset-small-1 medium-2 columns">
-
-												<div class="row expanded small-collapse">
-
-													<div class="small-2 columns">
-
-														<button class="jp-mute" role="button" tabindex="0">
-															<span class="fa fa-3x mute-icon"></span>
-														</button>
-
-													</div>
-
-													<div class="volume-bar-container small-7 columns">
-
-														<div class="jp-volume-bar">
-															<div class="jp-volume-bar-value"></div>
-														</div>
-
-													</div>
-
-													<div class="small-2 small-offset-1 columns">
-
-														<button class="jp-volume-max" role="button" tabindex="0">
-															<span class="fa fa-3x volume-max-icon"></span>
-														</button>
-
-													</div>
-
-												</div>
-
-											</div>
-
-										</div>
-
-										<div class="jp-no-solution">
-											<span><?php _e( 'Update Required', 'good-shepherd-catholic-radio' ); ?></span>
-											<?php _e( 'To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.', 'good-shepherd-catholic-radio' ); ?>
-										</div>
-									</div>
-								</div>
+							<div class="vertical-align">
 							
-							</div>
-							
-							<div class="social">
-							
-								<div class="vertical-align">
+								<?php 
+									$social_accounts = array(
+										'gscr_facebook' => array( 
+											'label' => 'Facebook',
+											'icon' => 'facebook-square',
+										),
+										'gscr_twitter' => array( 
+											'label' => 'Twitter',
+											'icon' => 'twitter-square',
+										),
+										'gscr_pinterest' => array( 
+											'label' => 'Pinterest',
+											'icon' => 'pinterest-square',
+										),
+										'gscr_linkedin' => array( 
+											'label' => 'LinkedIn',
+											'icon' => 'linkedin-square',
+										),
+										'gscr_instagram' => array( 
+											'label' => 'Instagram',
+											'icon' => 'instagram',
+										),
+									);
 
-									<?php 
-										$social_accounts = array(
-											'gscr_facebook' => array( 
-												'label' => 'Facebook',
-												'icon' => 'facebook-square',
-											),
-											'gscr_twitter' => array( 
-												'label' => 'Twitter',
-												'icon' => 'twitter-square',
-											),
-											'gscr_pinterest' => array( 
-												'label' => 'Pinterest',
-												'icon' => 'pinterest-square',
-											),
-											'gscr_linkedin' => array( 
-												'label' => 'LinkedIn',
-												'icon' => 'linkedin-square',
-											),
-											'gscr_instagram' => array( 
-												'label' => 'Instagram',
-												'icon' => 'instagram',
-											),
-										);
+								foreach ( $social_accounts as $key => $social ) :
+									if ( get_theme_mod( $key, '' ) !== '' ) : ?>
 
-									foreach ( $social_accounts as $key => $social ) :
-										if ( get_theme_mod( $key, '' ) !== '' ) : ?>
-
-											<a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', 'good-shepherd-catholic-radio' ), $social['label'] ); ?>">
-												<span class="fa fa-2x fa-<?php echo $social['icon']; ?>"></span>
-											</a>
-
-										<?php endif;
-									endforeach;
-
-									if ( get_theme_mod( 'gscr_rss_show', false ) === true ) : ?>
-
-										<a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', 'good-shepherd-catholic-radio' ); ?>">
-											<span class="fa fa-rss-square"></span>
+										<a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', 'good-shepherd-catholic-radio' ), $social['label'] ); ?>">
+											<span class="fa fa-2x fa-<?php echo $social['icon']; ?>"></span>
 										</a>
 
-									<?php endif; ?>
-									
-								</div>
-								
-							</div>
+									<?php endif;
+								endforeach;
 
-							<div class="top-bar-right hide-for-small-only nav-menu">
-								<?php
-								wp_nav_menu( array(
-									'container' => false,
-									'menu' => __( 'Primary Menu', 'good-shepherd-catholic-radio' ),
-									'menu_class' => 'dropdown menu',
-									'theme_location' => 'primary',
-									'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
-									'fallback_cb' => false,
-									'walker' => new Foundation_Nav_Walker(),
-								) );
-								?>
+								if ( get_theme_mod( 'gscr_rss_show', false ) === true ) : ?>
+
+									<a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', 'good-shepherd-catholic-radio' ); ?>">
+										<span class="fa fa-rss-square"></span>
+									</a>
+
+								<?php endif; ?>
+								
 							</div>
 						
 						</div>
@@ -228,6 +134,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 						
 					</div>
+
+                    <div class="top-bar">
+
+                        <div class="top-bar-left top-bar-title">
+                            
+                            <div class="show-for-small-only menu-icon-container" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                                <button type="button" data-open="offCanvasLeft">
+                                    <span class="menu-icon"></span>
+                                    <div class="menu-icon-text">
+                                        <?php echo _x( 'Menu', 'Hamburger Button Label', 'good-shepherd-catholic-radio' ); ?>
+                                    </div>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="top-bar-right hide-for-small-only nav-menu">
+                            <?php
+                            wp_nav_menu( array(
+                                'container' => false,
+                                'menu' => __( 'Primary Menu', 'good-shepherd-catholic-radio' ),
+                                'menu_class' => 'dropdown menu',
+                                'theme_location' => 'primary',
+                                'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+                                'fallback_cb' => false,
+                                'walker' => new Foundation_Nav_Walker(),
+                            ) );
+                            ?>
+                        </div>
+
+                    </div>
 
                 </header>
 
