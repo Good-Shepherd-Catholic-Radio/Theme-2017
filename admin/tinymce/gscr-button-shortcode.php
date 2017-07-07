@@ -57,7 +57,7 @@ function gscr_button_tinymce_l10n( $l10n ) {
         ),
         'colors' => array(
             'label' => _x( 'Color', 'Button Color Selection Label', 'good-shepherd-catholic-radio' ),
-            'default' => 'primary',
+            'default' => 'secondary',
             'choices' => array(
                 'primary' => _x( 'Violet', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
                 'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),

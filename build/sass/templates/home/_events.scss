@@ -142,9 +142,9 @@
 
 			}
 
-			.button.primary {
+			.button.secondary {
 
-				$hover-color: scale-color( $primary-color, -20% );
+				$hover-color: scale-color( $secondary-color, -20% );
 
 				background-color: $hover-color;
 				@include foundation-button-fix( $hover-color );

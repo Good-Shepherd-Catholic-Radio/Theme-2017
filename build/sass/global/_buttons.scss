@@ -32,10 +32,10 @@
 
 .give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], .tribe-events-button {
 
-	@include button( false, $primary-color, scale-color( $primary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
+	@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
 	
 	border-radius: 0.25em;
 	
-	@include foundation-button-fix( $primary-color );
+	@include foundation-button-fix( $secondary-color );
 
 }
