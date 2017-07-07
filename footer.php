@@ -97,9 +97,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </footer>
 
-<div data-sticky-container class="sticky-stream" style="z-index: 999 !important;">
+<div data-sticky-container class="sticky-stream hide-for-medium" style="z-index: 999 !important;">
 
-	<div id="gscr-radio-stream" class="jp-jplayer"></div>
+	<div id="gscr-radio-stream-footer" class="jp-jplayer"></div>
 	<div id="jp_container_1" class="jp-audio-stream sticky" role="application" aria-label="media player" data-sticky data-stick-to="bottom" data-margin-bottom="0" data-sticky-on="small">
 		<div class="jp-type-single">
 

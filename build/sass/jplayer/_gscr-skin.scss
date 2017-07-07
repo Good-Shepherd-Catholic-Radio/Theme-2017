@@ -38,6 +38,25 @@
 			}
 
 		}
+		
+		&.jp-state-paused {
+
+			.jp-play {
+
+				.play-icon:before {
+					content: '\f144';
+				}
+
+				&:hover {
+					.play-icon:before {
+						content: '\f01d';
+					}
+
+				}
+
+			}
+
+		}
 
 		&.jp-state-playing {
 

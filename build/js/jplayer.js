@@ -11,13 +11,19 @@
 		},
 		ready = false;
 		
-		$( '#gscr-radio-stream' ).jPlayer( {
+		$( '#gscr-radio-stream-header, #gscr-radio-stream-footer' ).jPlayer( {
 			ready: function ( event ) {
 				ready = true;
 				$( this ).jPlayer( 'setMedia', stream );
 			},
+			play: function ( event ) {
+				$( this ).next( '.jp-audio-stream' ).removeClass( 'jp-state-paused' );
+				$( this ).next( '.jp-audio-stream' ).addClass( 'jp-state-playing' );
+			},
 			pause: function() {
 				$( this ).jPlayer( 'clearMedia' );
+				$( this ).next( '.jp-audio-stream' ).removeClass( 'jp-state-playing' );
+				$( this ).next( '.jp-audio-stream' ).addClass( 'jp-state-paused' );
 			},
 			error: function( event ) {
 				if( ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET ) {
