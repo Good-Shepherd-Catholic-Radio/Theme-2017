@@ -14,7 +14,7 @@
 		$( '#gscr-radio-stream' ).jPlayer( {
 			ready: function ( event ) {
 				ready = true;
-				$( this ).jPlayer( 'setMedia', stream ).jPlayer( 'play' );
+				$( this ).jPlayer( 'setMedia', stream );
 			},
 			pause: function() {
 				$( this ).jPlayer( 'clearMedia' );
