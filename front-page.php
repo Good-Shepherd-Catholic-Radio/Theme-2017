@@ -18,9 +18,29 @@ get_header();
 
 the_post();
 
-include locate_template( 'partials/home/radio-shows_header.php' );
+?>
 
-include locate_template( 'partials/home/donate-listen.php' );
+<div class="row expanded small-collapse">
+	
+	<div class="small-12 medium-8 columns">
+		
+		<h2 class="text-center">
+			<?php _e( 'Now Playing', 'good-shepherd-catholic-radio' ); ?>
+		</h2>
+
+		<?php include locate_template( 'partials/home/radio-shows_header.php' ); ?>
+		
+	</div>
+	
+	<div class="small-12 medium-4 columns">
+
+		<?php include locate_template( 'partials/home/donate-listen.php' ); ?>
+		
+	</div>
+	
+</div>
+
+<?php
 
 include locate_template( 'partials/home/on-air-personalities.php' );
 
