@@ -1,3 +1,27 @@
+@keyframes gscr-button-flash {
+	0% {
+		color: $primary-color;
+	}
+	89% {
+		color: $primary-color;
+	}
+	90% {
+		color: lighten($primary-color, 20%);
+	}
+	91% {
+		color: $primary-color;
+	}
+	92% {
+		color: lighten($primary-color, 20%);
+	}
+	93% {
+		color: $primary-color;
+	}
+	100% {
+		color: $primary-color;
+	}
+}
+
 .sticky-stream {
 
 	.jp-audio-stream {
@@ -26,6 +50,11 @@
 		}
 
 		.jp-play {
+			
+			.play-icon {
+				animation: gscr-button-flash 10s infinite;
+				transition: 300ms all;
+			}
 
 			.play-icon:before {
 				content: '\f144';

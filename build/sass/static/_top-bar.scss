@@ -1,50 +1,74 @@
-.top-bar {
-    
-    font-weight: 600;
-    position: relative;
-	
-	@media #{$medium-up} {
-	
-		padding: 1.5rem 1rem;
-		
+@keyframes gscr-header-button-flash {
+	0% {
+		color: $quaternary-color;
 	}
-    
-    // Phablet Landscape and Portrait iPad Fix
-    @media screen and (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {
-        
-        .show-for-small-only {
-            display: inline-block !important;
-        }
-        
-        .hide-for-small-only {
-            display: none;
-        }
-        
-    }
-    
-    .top-bar-title {
-        
-        //overflow: hidden;
+	89% {
+		color: $quaternary-color;
+	}
+	90% {
+		color: lighten($quaternary-color, 20%);
+	}
+	91% {
+		color: $quaternary-color;
+	}
+	92% {
+		color: lighten($quaternary-color, 20%);
+	}
+	93% {
+		color: $quaternary-color;
+	}
+	100% {
+		color: $quaternary-color;
+	}
+}
+
+.top-bar {
+
+	font-weight: 600;
+	position: relative;
+
+	@media #{$medium-up} {
+
+		padding: 1.5rem 1rem;
+
+	}
+
+	// Phablet Landscape and Portrait iPad Fix
+	@media screen and (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {
+
+		.show-for-small-only {
+			display: inline-block !important;
+		}
+
+		.hide-for-small-only {
+			display: none;
+		}
+
+	}
+
+	.top-bar-title {
+
+		//overflow: hidden;
 		overflow: visible;
 		position: relative;
-		
-        font-family: $header-font-family;
+
+		font-family: $header-font-family;
 		padding-top: 0;
-		
+
 		.menu-icon-text {
 			color: $titlebar-icon-color;
 		}
-        
-        a {
-			
+
+		a {
+
 			padding: $menu-item-padding;
-            
-        }
-        
-    }
-	
+
+		}
+
+	}
+
 	.sticky-stream {
-		
+
 		min-width: 500px;
 		position: absolute;
 		top: 0;
@@ -64,16 +88,24 @@
 			.fa {
 				color: $quaternary-color;
 			}
-			
+
+			.jp-play {
+
+				.play-icon {
+					animation: gscr-header-button-flash 10s infinite;
+				}
+
+			}
+
 			.jp-details {
-				
+
 				margin-left: 4%;
 				color: $titlebar-icon-color;
-				
+
 				.jp-title {
 					transform: translateY(20%);
 				}
-				
+
 			}
 
 			.jp-mute {
@@ -141,175 +173,175 @@
 
 	}
 
-    .nav-menu {
-        position: absolute;
-        right: 2%;
-        top: 50%;
-        transform: translate( -2%, -50% );
-        -webkit-transform: translate( -2%, -50% );
-        -o-transform: translate( -2%, -50% );
-        -ms-transform: translate( -2%, -50% );
-        z-index: 2;
-        
-        .fa {
-            margin-top: -0.5em; 
-        }
+	.nav-menu {
+		position: absolute;
+		right: 2%;
+		top: 50%;
+		transform: translate( -2%, -50% );
+		-webkit-transform: translate( -2%, -50% );
+		-o-transform: translate( -2%, -50% );
+		-ms-transform: translate( -2%, -50% );
+		z-index: 2;
 
-        > .dropdown.menu {
-            
-            background: transparent;
+		.fa {
+			margin-top: -0.5em; 
+		}
 
-            > .current-menu-item, > .current-menu-ancestor {
+		> .dropdown.menu {
 
-                > a {
-                    color: scale-color( $quaternary-color, $lightness: 25% );
-                }
+			background: transparent;
 
-                &.is-dropdown-submenu-parent {
+			> .current-menu-item, > .current-menu-ancestor {
 
-                    > a:after {
+				> a {
+					color: scale-color( $quaternary-color, $lightness: 25% );
+				}
 
-                        border-top-color: scale-color( $quaternary-color, $lightness: 25% ) !important;
+				&.is-dropdown-submenu-parent {
 
-                    }
+					> a:after {
 
-                }
-            }
-            
-            > .is-dropdown-submenu-parent {
+						border-top-color: scale-color( $quaternary-color, $lightness: 25% ) !important;
 
-                > a:after {
-                    border-top-color: $topbar-link-color;
-                }
+					}
 
-                &:hover > a:after {
+				}
+			}
 
-                    @if lightness( darken( $topbar-background, 10% ) ) < 65% {
+			> .is-dropdown-submenu-parent {
 
-                        border-top-color: $light-color;
+				> a:after {
+					border-top-color: $topbar-link-color;
+				}
 
-                    }
-                    @else {
+				&:hover > a:after {
 
-                        border-top-color: $dark-color;
+					@if lightness( darken( $topbar-background, 10% ) ) < 65% {
 
-                    }
+						border-top-color: $light-color;
 
-                }
-                
-                .is-dropdown-submenu-parent {
-                    
-                    a:after {
+					}
+					@else {
 
-                        @if lightness( $body-background ) < 65% {
+						border-top-color: $dark-color;
 
-                            border-right-color: $light-color;
+					}
 
-                        }
-                        @else {
+				}
 
-                            border-right-color: $dark-color;
+				.is-dropdown-submenu-parent {
 
-                        }
-                        
-                    }
+					a:after {
 
-                    // Top Level:hover
-                    &:hover > a:after {
+						@if lightness( $body-background ) < 65% {
 
-                        @if lightness( darken( $topbar-background, 10% ) ) < 65% {
+							border-right-color: $light-color;
 
-                            border-right-color: $dark-color;
+						}
+						@else {
 
-                        }
-                        @else {
+							border-right-color: $dark-color;
 
-                            border-right-color: $light-color;
+						}
 
-                        }
+					}
 
-                    }
+					// Top Level:hover
+					&:hover > a:after {
 
-                }
+						@if lightness( darken( $topbar-background, 10% ) ) < 65% {
 
-            }
+							border-right-color: $dark-color;
 
-        }
+						}
+						@else {
 
-        > .menu {
-            
-            // All levels
-            li {
-                
-                &.is-dropdown-submenu-parent {
-                    
-                    > a:after {
-                        border-width: 4px;
-                        right: 10px;
-                    }
-                    
-                }
-                
-            }
+							border-right-color: $light-color;
 
-            // Top Level
-            > li {
-                
-                a {
-                    color: $topbar-link-color;
-                }
-            
-                &:hover {
-                    background-color: lighten( $topbar-background, 5% ) !important;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		> .menu {
+
+			// All levels
+			li {
+
+				&.is-dropdown-submenu-parent {
+
+					> a:after {
+						border-width: 4px;
+						right: 10px;
+					}
+
+				}
+
+			}
+
+			// Top Level
+			> li {
+
+				a {
+					color: $topbar-link-color;
+				}
+
+				&:hover {
+					background-color: lighten( $topbar-background, 5% ) !important;
 					border-radius: 0.25em;
 
-                    > a {
-                        @include light-or-dark-text( $topbar-background );
-                    }
-                
-                }
+					> a {
+						@include light-or-dark-text( $topbar-background );
+					}
 
-            }
+				}
 
-            // Everything below
-            > li {
+			}
 
-                li {
-                    
-                    background-color: $body-background;
-                    text-transform: none;
-                    
-                    a {
-                        @include light-or-dark-text( $dropdownmenu-background );
-                    }
-                    
-                }
+			// Everything below
+			> li {
 
-                li:hover {
-                    background-color: $light-gray !important;
+				li {
 
-                    > a {
-                        @include light-or-dark-text( $light-gray );
-                    }
+					background-color: $body-background;
+					text-transform: none;
 
-                }
+					a {
+						@include light-or-dark-text( $dropdownmenu-background );
+					}
 
-            }
+				}
 
-            > li li.current-menu-item, > li li.current-menu-ancestor {
+				li:hover {
+					background-color: $light-gray !important;
 
-                background-color: darken( $light-gray, 10% );
+					> a {
+						@include light-or-dark-text( $light-gray );
+					}
 
-                > a {
-                    @include light-or-dark-text( darken( $light-gray, 10% ) );
-                }
+				}
 
-            }
+			}
 
-        }
+			> li li.current-menu-item, > li li.current-menu-ancestor {
 
-    }
-	
+				background-color: darken( $light-gray, 10% );
+
+				> a {
+					@include light-or-dark-text( darken( $light-gray, 10% ) );
+				}
+
+			}
+
+		}
+
+	}
+
 	// Holds the little rounded edges and Triangle thing for immediate children of the top-level
 	@import "top-bar-menu";
 
