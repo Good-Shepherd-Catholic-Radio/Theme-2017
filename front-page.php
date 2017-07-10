@@ -22,6 +22,8 @@ include locate_template( 'partials/home/radio-shows_header.php' );
 
 include locate_template( 'partials/home/donate-listen.php' );
 
+include locate_template( 'partials/home/on-air-personalities.php' );
+
 include locate_template( 'partials/home/events.php' );
 
 include locate_template( 'partials/home/prayer-requests.php' );
@@ -31,7 +33,5 @@ include locate_template( 'partials/home/underwriters.php' );
 include locate_template( 'partials/home/blog.php' );
 
 include locate_template( 'partials/home/staff.php' );
-
-include locate_template( 'partials/home/on-air-personalities.php' );
 
 get_footer();

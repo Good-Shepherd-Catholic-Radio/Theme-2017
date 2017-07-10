@@ -22,6 +22,10 @@ $on_air_personalities = new WP_Query( array(
 $index = 0;
 $per_row = 4;
 
+$count = count( $on_air_personalities->posts );
+
+$medium_class = 'medium-3';
+
 ?>
 
 <div class="on-air-personalities-section row expanded collapse-small">
