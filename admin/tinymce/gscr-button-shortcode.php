@@ -61,8 +61,9 @@ function gscr_button_tinymce_l10n( $l10n ) {
             'choices' => array(
                 'primary' => _x( 'Violet', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
                 'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
-				'tertiary' => _x( 'Dark Purple', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
-				'quaternary' => _x( 'Gold', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Dark Purple', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
             ),
         ),
         'size' => array(
