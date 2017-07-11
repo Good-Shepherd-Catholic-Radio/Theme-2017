@@ -25,18 +25,22 @@ $time_format = get_option( 'time_format', 'g:i a' );
 			<div class="small-12 medium-2 columns date text-center" data-equalizer-watch>
 
 				<?php $start_date = strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ); ?>
+				
+				<div class="vertical-align">
 
-				<h4 class="day">
-					<?php echo date_i18n( 'j', $start_date ); ?>
-				</h4>
-				<h5>
-					<span class="month">
-						<?php echo date_i18n( 'M', $start_date ); ?>
-					</span>
-					<span class="year">
-						'<?php echo date_i18n( 'y', $start_date ); ?>
-					</span>
-				</h5>
+					<h4 class="day">
+						<?php echo date_i18n( 'j', $start_date ); ?>
+					</h4>
+					<h5>
+						<span class="month">
+							<?php echo date_i18n( 'M', $start_date ); ?>
+						</span>
+						<span class="year">
+							'<?php echo date_i18n( 'y', $start_date ); ?>
+						</span>
+					</h5>
+					
+				</div>
 
 			</div>
 
@@ -46,7 +50,7 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 					<div class="row">
 
-						<div class="small-12 medium-8 columns">
+						<div class="small-12 medium-6 columns">
 
 							<h4 class="title">
 								<?php the_title(); ?>
@@ -54,7 +58,7 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 						</div>
 
-						<div class="small-12 medium-2 columns">
+						<div class="small-12 medium-3 columns">
 
 							<div class="time alignright">
 								<?php echo date_i18n( 'l', $start_date ); ?>
@@ -64,7 +68,7 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 						</div>
 
-						<div class="small-12 medium-2 columns">
+						<div class="small-12 medium-3 columns">
 
 							<div class="button secondary alignright">
 								<?php _e( 'Learn More', 'good-shepherd-catholic-radio' ); ?>

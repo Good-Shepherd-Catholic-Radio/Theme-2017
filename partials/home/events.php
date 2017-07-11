@@ -57,7 +57,27 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 	
 	<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
 	
-	<div class="small-12 columns content">
+	<div class="small-12 medium-4 columns form">
+		
+		<h2>Events/PSA Form will go here</h2>
+		
+		<a data-open="gscr_events_modal" class="secondary button">
+			<?php _e( 'Submit an Event/PSA', 'good-shepherd-catholic-radio' ); ?>
+		</a>
+
+		<div class="reveal" id="gscr_events_modal" data-reveal>
+
+			Nothing here... yet
+
+			<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'good-shepherd-catholic-radio' ); ?>" type="button">
+				<span aria-hidden="true">&times;</span>
+			</button>
+
+		</div>
+		
+	</div>
+	
+	<div class="small-12 medium-8 columns content">
 		
 		<div class="row">
 
