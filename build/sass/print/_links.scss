@@ -1,0 +1,4 @@
+// Seriously, this makes print stylesheets so hard to read
+a[href]:after {
+	content: none !important;
+}

@@ -1,0 +1,22 @@
+.show-for-print-only {
+	display: none;
+	visibility: hidden;
+}
+
+@media print {
+	
+	.show-for-print-only {
+		display: inline-block;
+		visibility: visible;
+	}
+	
+	.hide-for-print {
+		display: none;
+		visibility: hidden;
+	}
+	
+	@import "links";
+	
+	@import "foundation/main";
+	
+}

@@ -27,7 +27,7 @@ if ( ! has_post_thumbnail() ) {
 	
 	<div class="row expanded">
 		
-		<div class="small-12 medium-3 columns image">
+		<div class="small-12 medium-3 columns image hide-for-print">
 			
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				

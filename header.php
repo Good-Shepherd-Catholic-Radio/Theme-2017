@@ -151,7 +151,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<div class="sticky-stream hide-for-small-only">
 								
 								<div id="gscr-radio-stream-header" class="jp-jplayer"></div>
-								<div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
+								<div id="jp_container_1" class="jp-audio-stream hide-for-print" role="application" aria-label="media player">
 									<div class="jp-type-single">
 
 										<div class="jp-gui jp-interface row expanded">

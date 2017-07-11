@@ -86,7 +86,7 @@ $weekdays = gscr_get_weekdays(); ?>
 	
 	<div class="small-12 columns radio-show-week-schedule">
 
-		<ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="radio-show-schedule-tabs">
+		<ul class="tabs hide-for-print" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="radio-show-schedule-tabs">
 
 			<?php foreach ( $weekdays as $index => $weekday ) : ?>
 				<li class="tabs-title<?php echo ( $index == 0 ) ? ' is-active' : ''; ?>">
@@ -123,6 +123,22 @@ $weekdays = gscr_get_weekdays(); ?>
 							 $first ) : ?>
 
 						<div id="<?php echo strtolower( $weekdays[ $day_index ] ); ?>" class="<?php echo implode( ' ', $tab_classes ); ?>">
+							
+							<article class="small-12 columns tribe_events show-for-print-only">
+								
+								<div class="row expanded">
+
+									<div class="small-12 medium-3 columns">
+
+										<h3>
+											<?php _e( $weekdays[ $day_index ] ); ?>
+										</h3>
+
+									</div>
+
+								</div>
+
+							</article>
 
 					<?php 
 
