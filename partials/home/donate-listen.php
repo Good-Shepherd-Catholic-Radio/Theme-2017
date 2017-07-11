@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || die();
 					
 						<div class="reveal" id="gscr_donate_modal" data-reveal>
 
-							<?php echo do_shortcode( '[give_form id="' . $give_form . '" show_title="false" show_goal="false" show_content="none"]' ); ?>
+							<?php echo do_shortcode( '[give_form id="' . $give_form . '" show_title="true" show_goal="false" show_content="none"]' ); ?>
 							
 							<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'good-shepherd-catholic-radio' ); ?>" type="button">
 								<span aria-hidden="true">&times;</span>
