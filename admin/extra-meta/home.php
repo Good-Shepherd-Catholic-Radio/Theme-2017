@@ -162,5 +162,13 @@ function gscr_home_prayer_requests_metabox_content() {
             'options' => $gravity_forms,
         )
     );
+	
+	rbm_do_field_wysiwyg(
+		'gscr_home_prayer_request_text',
+		_x( 'Prayer Request Content', 'Home Prayer Request Text Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+		)
+	);
     
 }
