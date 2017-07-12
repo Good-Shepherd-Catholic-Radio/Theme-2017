@@ -263,7 +263,26 @@
 						
 						if ( strippedHTML.indexOf( strippedScript ) > 0 ) continue;
 						
-						$( 'head' ).append( eventsCalendarScripts[ script ] );
+						if ( eventsCalendarScripts[ script ].indexOf( '<script' ) > -1 ) {
+							
+							var re = /src='(.*)'/i,
+								src = eventsCalendarScripts[ script ].match( re );
+							
+							if ( typeof src[1] !== undefined ) {
+							
+								$.getScript( src[1], function( data, textStatus, jqxhr ) {
+									$( 'head' ).append( eventsCalendarScripts[ script ] );
+								} );
+								
+							}
+							else {
+								$( 'head' ).append( eventsCalendarScripts[ script ] );
+							}
+							
+						}
+						else {
+							$( 'head' ).append( eventsCalendarScripts[ script ] );
+						}
 						
 					}
 
