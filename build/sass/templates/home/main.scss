@@ -13,7 +13,11 @@
 			}
 			
 			.section-header {
-				margin-left: 30px;
+				
+				@media #{$medium-up} {
+					margin-left: 30px;
+				}
+				
 				margin-top: 0.4em;
 			}
 			
