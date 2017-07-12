@@ -255,22 +255,22 @@
 						var strippedHTML = $( 'head' ).html().toString().replace( /\n/igm, '' ),
 							strippedScript = eventsCalendarScripts[ script ].replace( /\n/igm, '' ).replace( /'/g, '"' ).replace( /\s\/>$/igm, '>' ).replace( /\s\s/g, ' ' );
 						
-						if ( strippedScript.indexOf( 'jquery.fancybox' ) > 0 ) continue;
+						if ( strippedScript.indexOf( 'jquery.fancybox' ) > -1 ) continue;
 						
-						if ( strippedScript.indexOf( 'uix-shortcodes' ) > 0 ) continue;
+						if ( strippedScript.indexOf( 'uix-shortcodes' ) > -1 ) continue;
 						
-						if ( strippedScript.indexOf( goodShepherdCatholicRadio.baseName ) > 0 ) continue;
+						if ( strippedScript.indexOf( goodShepherdCatholicRadio.baseName ) > -1 ) continue;
 						
-						if ( strippedHTML.indexOf( strippedScript ) > 0 ) continue;
+						if ( strippedHTML.indexOf( strippedScript ) > -1 ) continue;
 						
 						if ( eventsCalendarScripts[ script ].indexOf( '<script' ) > -1 ) {
 							
 							var re = /src='(.*)'/i,
 								src = eventsCalendarScripts[ script ].match( re );
 							
-							if ( typeof src[1] !== undefined ) {
+							if ( typeof src[1] != "undefined" ) {
 							
-								$.getScript( src[1], function( data, textStatus, jqxhr ) {
+								$.getScript( src[1] ).done( function( scriptContents, textStatus ) {
 									$( 'head' ).append( eventsCalendarScripts[ script ] );
 								} );
 								
