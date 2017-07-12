@@ -24,9 +24,15 @@ $per_row = 4;
 
 ?>
 
-<div class="underwriters-section row">
+<div class="row expanded">
+	<div class="small-12 columns">
+		<h2 class="section-header">
+			<?php _e( 'Underwriters', 'good-shepherd-catholic-radio' ); ?>
+		</h2>
+	</div>
+</div>
 
-	<h2 class="text-center"><?php _e( 'Underwriters', 'good-shepherd-catholic-radio' ); ?></h2>
+<div class="underwriters-section row">
 	
 	<?php if ( $underwriters->have_posts() ) : ?>
 	

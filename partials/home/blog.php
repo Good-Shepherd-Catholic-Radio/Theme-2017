@@ -27,7 +27,13 @@ $medium_class = 'medium-' . ( 12 / $count );
 
 <div class="blog row expanded collapse-small">
 
-	<h2 class="text-center"><?php _e( 'Our Blog', 'good-shepherd-catholic-radio' ); ?></h2>
+	<div class="row expanded">
+		<div class="small-12 columns">
+			<h2 class="section-header">
+				<?php _e( 'Our Blog', 'good-shepherd-catholic-radio' ); ?>
+			</h2>
+		</div>
+	</div>
 	
 	<?php if ( $posts->have_posts() ) : ?>
 	

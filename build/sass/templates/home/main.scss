@@ -7,10 +7,14 @@
 		
 		& > .row {
 			
-			&.upcoming-events .content, &.upcoming-events .form, &.prayer-requests, &.underwriters-section, &.staff-section, &.donate-listen {
+			&.upcoming-events .content, &.upcoming-events .form, &.prayer-requests {
 			
 				padding: 30px;
 				
+			}
+			
+			.section-header {
+				margin-left: 30px;
 			}
 			
 		}

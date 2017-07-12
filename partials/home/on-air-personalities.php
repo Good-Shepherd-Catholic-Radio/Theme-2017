@@ -29,8 +29,14 @@ $medium_class = 'medium-3';
 ?>
 
 <div class="on-air-personalities-section row expanded collapse-small">
-
-	<h2 class="text-center"><?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?></h2>
+	
+	<div class="row expanded">
+		<div class="small-12 columns">
+			<h2 class="section-header">
+				<?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
+			</h2>
+		</div>
+	</div>
 	
 	<?php if ( $on_air_personalities->have_posts() ) : ?>
 	

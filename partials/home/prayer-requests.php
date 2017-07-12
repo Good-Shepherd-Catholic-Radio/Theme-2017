@@ -13,11 +13,15 @@ defined( 'ABSPATH' ) || die();
 
 <div class="prayer-requests row expanded small-collapse">
 	
+	<div class="row expanded">
+		<div class="small-12 columns">
+			<h2>
+				<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
+			</h2>
+		</div>
+	</div>
+	
 	<div class="small-12 medium-6 medium-offset-3 columns text-center">
-		
-		<h2>
-			<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
-		</h2>
 
 		<?php 
 		

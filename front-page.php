@@ -24,9 +24,13 @@ the_post();
 	
 	<div class="small-12 medium-8 columns">
 		
-		<h2 class="text-center">
-			<?php _e( 'Now Playing', 'good-shepherd-catholic-radio' ); ?>
-		</h2>
+		<div class="row">
+			<div class="small-12 columns">
+				<h2 class="section-header">
+					<?php _e( 'Now Playing', 'good-shepherd-catholic-radio' ); ?>
+				</h2>
+			</div>
+		</div>
 
 		<?php include locate_template( 'partials/home/radio-shows_header.php' ); ?>
 		

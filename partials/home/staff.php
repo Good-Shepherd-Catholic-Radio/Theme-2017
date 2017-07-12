@@ -24,9 +24,15 @@ $per_row = 4;
 
 ?>
 
-<div class="staff-section row">
+<div class="row expanded">
+	<div class="small-12 columns">
+		<h2 class="section-header">
+			<?php _e( 'Our Team', 'good-shepherd-catholic-radio' ); ?>
+		</h2>
+	</div>
+</div>
 
-	<h2 class="text-center"><?php _e( 'Our Team', 'good-shepherd-catholic-radio' ); ?></h2>
+<div class="staff-section row">
 	
 	<?php if ( $staff->have_posts() ) : ?>
 	
