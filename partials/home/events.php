@@ -55,8 +55,6 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 <div class="upcoming-events row expanded">
 	
-	<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
-	
 	<div class="small-12 medium-4 columns form">
 		
 		<div class="row">

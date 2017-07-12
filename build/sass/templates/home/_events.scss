@@ -3,27 +3,8 @@
 	overflow: hidden;
 	position: relative;
 	
-	.image {
-
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		background-color: $tertiary-color;
-		transform: scale( 1.1 );
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		
-	}
-	
 	.form, .content {
 		position: relative;
-	}
-	
-	h1, h2, h3, h4, h5, h6 {
-		color: #fff;
 	}
 
 	.tribe_events {
