@@ -7,6 +7,10 @@
 		}
 
 	}
+	
+	h3 {
+		line-height: 1.2;
+	}
 
 	.donate {
 
@@ -14,6 +18,14 @@
 
 			padding-bottom: 1em;
 
+		}
+		
+		@media #{$medium-up} {
+			
+			h3 {
+				margin-top: 0.2em;
+			}
+			
 		}
 
 	}
