@@ -116,7 +116,7 @@ $max_per_row = 0;
 					<div class="small-12 columns">
 					
 						<h2>
-							<?php _e( 'Upcoming', 'good-shepherd-catholic-radio' ); ?>
+							<?php _e( 'Up Next', 'good-shepherd-catholic-radio' ); ?>
 						</h2>
 						
 					</div>
