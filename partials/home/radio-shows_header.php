@@ -16,7 +16,7 @@ global $post;
 
 $radio_shows = new WP_Query( array(
 	'post_type' => 'tribe_events',
-	'posts_per_page' => 5,
+	'posts_per_page' => 3,
 	'tax_query' => array(
 		'relationship' => 'AND',
 		array(
@@ -48,7 +48,7 @@ $radio_shows = new WP_Query( array(
 ) );
 
 $index = 0; 
-$max_per_row = 1;
+$max_per_row = 0;
 
 ?>
 
@@ -56,9 +56,17 @@ $max_per_row = 1;
 
 	<?php if ( $radio_shows->have_posts() ) : $radio_shows->the_post(); // Forcefully start loop to have our side-section ?>
 	
-		<?php 
-			// Included outside so that we have the one large cell to the left
-			get_template_part( 'partials/loop/loop', 'radio-shows_header' ); ?>
+		<div class="small-12 medium-6 columns radio-shows-left">
+			
+			<div class="row expanded">
+			
+				<?php 
+				// Included outside so that we have the one large cell to the left
+				get_template_part( 'partials/loop/loop', 'radio-shows_header' ); ?>
+				
+			</div>
+			
+		</div>
 	
 		<div class="small-12 medium-6 columns radio-shows-right">
 

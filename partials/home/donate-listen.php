@@ -19,8 +19,6 @@ defined( 'ABSPATH' ) || die();
 	
 			<div class="small-12 columns">
 				
-				<h3>&nbsp;</h3>
-				
 				<div class="donate">
 				
 					<h3><?php printf( __( 'Support %s', 'good-shepherd-catholic-radio' ), get_bloginfo( 'name' ) ); ?></h3>

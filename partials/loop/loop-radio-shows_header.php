@@ -24,7 +24,6 @@ else {
 
 <div <?php post_class( array(
 	'small-12',
-	'medium-6',
 	'columns'
 ) ); ?>>
 	

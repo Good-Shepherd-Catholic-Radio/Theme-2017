@@ -10,17 +10,12 @@ $cell-height: 175px;
 
 		border: 1px solid #fff;
 		border-bottom: none;
-		border-left: none;
 
 		@media #{$small-only} {
 
 			border-left: none;
 			border-right: none;
 
-		}
-
-		&:last-of-type {
-			border-right: none;
 		}
 
 		&, .image {
@@ -127,8 +122,20 @@ $cell-height: 175px;
 		}
 		
 	}
+	
+	.radio-shows-left {
+		
+		.cat_radio-show {
+			border-left: none;
+		}
+		
+	}
 
 	.radio-shows-right {
+		
+		.cat_radio-show {
+			border-right: none;
+		}
 
 		.cat_radio-show, .image {
 			min-height: $cell-height;

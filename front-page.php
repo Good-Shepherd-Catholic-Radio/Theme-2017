@@ -23,14 +23,6 @@ the_post();
 <div class="row expanded small-collapse">
 	
 	<div class="small-12 medium-8 columns">
-		
-		<div class="row">
-			<div class="small-12 columns">
-				<h2 class="section-header">
-					<?php _e( 'Now Playing', 'good-shepherd-catholic-radio' ); ?>
-				</h2>
-			</div>
-		</div>
 
 		<?php include locate_template( 'partials/home/radio-shows_header.php' ); ?>
 		
