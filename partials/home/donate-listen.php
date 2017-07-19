@@ -19,6 +19,15 @@ defined( 'ABSPATH' ) || die();
 	
 			<div class="small-12 columns">
 				
+				<?php
+				
+				$attachment_id = rbm_get_field( 'gscr_home_donate_listen_image' );
+				$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+				
+				?>
+				
+				<div class="image" style="background-image: url('<?php echo $image_url ?>');"></div>
+				
 				<div class="donate">
 				
 					<h3><?php printf( __( 'Support %s', 'good-shepherd-catholic-radio' ), get_bloginfo( 'name' ) ); ?></h3>
@@ -53,7 +62,7 @@ defined( 'ABSPATH' ) || die();
 
 					<?php echo apply_filters( 'the_content', rbm_get_field( 'gscr_home_listen_text' ) ); ?>
 
-				</div>	
+				</div>
 				
 			</div>
 			

@@ -140,6 +140,19 @@ function gscr_home_donate_listen_metabox_content() {
 		array(
 		)
 	);
+	
+	rbm_do_field_media(
+ 		'gscr_home_donate_listen_image',
+ 		_x( 'Background Image', 'Home Donate Listen Background Image Label', 'good-shepherd-catholic-radio' ),
+ 		false,
+ 		array(
+			'type' => 'image',
+			'button_text' => _x( 'Upload/Choose Image', 'Home Donate Listen Image Upload Button Text', 'good-shepherd-catholic-radio' ),
+			'button_remove_text' => _x( 'Remove Image', 'Home Donate Listen Image Remove Button Text', 'good-shepherd-catholic-radio' ),
+			'window_title' => _x( 'Choose Image', 'Home Donate Listen Image Window Title', 'good-shepherd-catholic-radio' ),
+			'window_button_text' => _x( 'Use Image', 'Home Donate Listen Image Select Button Text', 'good-shepherd-catholic-radio' ),
+ 		)
+ 	);
     
 }
 

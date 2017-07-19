@@ -1,4 +1,15 @@
+$cell-height: 175px;
+
 .donate-listen {
+	
+	overflow: hidden;
+	
+	.columns {
+		
+		position: relative;
+		min-height: $cell-height * 2;
+		
+	}
 
 	.give-form-wrap {
 
@@ -13,6 +24,8 @@
 	}
 
 	.donate {
+		
+		position: relative;
 
 		@media #{$small-only} {
 
@@ -32,6 +45,8 @@
 
 	.listen {
 		
+		position: relative;
+		
 		p {
 			margin-bottom: 0;
 		}
@@ -43,6 +58,20 @@
 		}
 
 	}
+	
+	.image {
+ 		
+ 		background-repeat: no-repeat;
+ 		background-size: cover;
+ 		background-position: center center;
+ 		transform: scale( 1.1 );
+ 		position: absolute;
+ 		top: 0;
+ 		left: 0;
+ 		right: 0;
+ 		bottom: 0;
+		
+ 	}
 
 }
 
