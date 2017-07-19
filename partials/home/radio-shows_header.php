@@ -66,6 +66,20 @@ $max_per_row = 0;
 				
 			</div>
 			
+			<div class="header-overlay">
+					
+				<div class="row">
+					<div class="small-12 columns">
+
+						<h2>
+							<?php _e( 'Now Playing', 'good-shepherd-catholic-radio' ); ?>
+						</h2>
+
+					</div>
+				</div>
+
+			</div>
+			
 		</div>
 	
 		<div class="small-12 medium-6 columns radio-shows-right">
@@ -95,6 +109,20 @@ $max_per_row = 0;
 				endif; ?>
 
 			<?php endwhile; ?>
+			
+			<div class="header-overlay">
+				
+				<div class="row">
+					<div class="small-12 columns">
+					
+						<h2>
+							<?php _e( 'Upcoming', 'good-shepherd-catholic-radio' ); ?>
+						</h2>
+						
+					</div>
+				</div>
+
+			</div>
 			
 		</div>
 
