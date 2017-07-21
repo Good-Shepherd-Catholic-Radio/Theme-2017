@@ -82,5 +82,7 @@
 		0.02em -0.02em 0 $color,
 		-0.02em 0.02em 0 $color,
 		0.02em 0.02em 0 $color;
+	//-webkit-text-stroke: 0.025em $color;
+	// text-shadow is supported by IE 11, but doesn't work the best with this typeface
 
 }
