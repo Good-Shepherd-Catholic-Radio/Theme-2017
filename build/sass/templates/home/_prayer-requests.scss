@@ -28,5 +28,13 @@
 		@include foundation-button-fix( $secondary-color );
 
 	}
+	
+	@media #{$medium-up} {
+		
+		.button-container {
+			text-align: right;
+		}
+		
+	}
 
 }

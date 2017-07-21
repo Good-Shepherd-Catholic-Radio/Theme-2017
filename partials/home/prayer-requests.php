@@ -11,10 +11,9 @@ defined( 'ABSPATH' ) || die();
 
 ?>
 
-<div class="prayer-requests row expanded small-collapse">
+<div class="prayer-requests row expanded">
 	
 	<div class="small-12 columns">
-		
 		<div class="row">
 			<div class="small-12 columns">
 				<h2>
@@ -22,48 +21,53 @@ defined( 'ABSPATH' ) || die();
 				</h2>
 			</div>
 		</div>
+	</div>
 		
+	<div class="small-12 columns">
 		<div class="row">
-			
-			<div class="medium-6 columns">
-				
-				<?php echo apply_filters( 'the_content', rbm_get_field( 'gscr_home_prayer_request_text' ) ); ?>
-			
-			</div>
-			
-			<div class="medium-6 columns text-center">
-				
-				<a data-open="gscr_prayer_request_modal" class="secondary button">
-					<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
-				</a>
+			<div class="small-12 columns">
+				<div class="row expanded small-collapse">
 
-				<div class="reveal" id="gscr_prayer_request_modal" data-reveal>
+					<div class="medium-6 columns">
 
-					<?php if ( $form_id = rbm_get_field( 'gscr_home_prayer_request_form' ) ) : 
+						<?php echo apply_filters( 'the_content', rbm_get_field( 'gscr_home_prayer_request_text' ) ); ?>
 
-						echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="false" ajax="true"]' );
+					</div>
 
-					else : 
-					
-						echo _e( 'Set a Gravity Form on the Edit Screen for this page', 'good-shepherd-catholic-radio' );
-					
-					endif; ?>
+					<div class="medium-6 columns text-center button-container">
 
-					<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'good-shepherd-catholic-radio' ); ?>" type="button">
-						<span aria-hidden="true">&times;</span>
-					</button>
+						<a data-open="gscr_prayer_request_modal" class="secondary button">
+							<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
+						</a>
+
+						<div class="reveal" id="gscr_prayer_request_modal" data-reveal>
+
+							<?php if ( $form_id = rbm_get_field( 'gscr_home_prayer_request_form' ) ) : 
+
+								echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="false" ajax="true"]' );
+
+							else : 
+
+								echo _e( 'Set a Gravity Form on the Edit Screen for this page', 'good-shepherd-catholic-radio' );
+
+							endif; ?>
+
+							<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'good-shepherd-catholic-radio' ); ?>" type="button">
+								<span aria-hidden="true">&times;</span>
+							</button>
+
+						</div>
+
+						<?php 
+
+
+
+						?>
+					</div>
 
 				</div>
-
-				<?php 
-
-					
-
-				?>
 			</div>
-			
 		</div>
-		
 	</div>
 	
 </div>
