@@ -25,7 +25,7 @@
 .sticky-stream {
 	
 	// Phablet Landscape and Portrait iPad Fix
-	@media screen and (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {
+	@media #{$phablet-landscape}, #{$ipad-portrait} {
 		
 		&.show-for-medium {
 			display: none !important;

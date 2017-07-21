@@ -126,5 +126,8 @@ $retina-only: (
   "#{$screen} and (min-resolution: 2dppx)"
 ) !default;
 
+$phablet-landscape: "#{$screen} and (max-width: 733px) and (orientation: landscape)" !default;
+$ipad-portrait: "#{$medium-only} and (orientation: portrait)" !default;
+
 // Flexbox breaks Media Object and likely other things
 $global-flexbox: false;
