@@ -21,7 +21,7 @@ else {
 ?>
 
 <div <?php post_class( array(
-	'small-12',
+	'small-6',
 	$medium_class,
 	'columns'
 ) ); ?>>

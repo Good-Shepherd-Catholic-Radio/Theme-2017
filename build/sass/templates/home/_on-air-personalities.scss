@@ -11,25 +11,32 @@ $cell-height: 75px;
 		border: 1px solid #fff;
 		border-bottom: none;
 		border-left: none;
+		
+		@media #{$medium-up} {
 
-		@media #{$small-only} {
-
-			border-left: none;
-			border-right: none;
-
-		}
-
-		&:last-of-type {
-			border-right: none;
+			&:last-of-type {
+				border-right: none;
+			}
+			
 		}
 		
 		&:last-child:not( :first-child ) {
 			float: none;
 		}
+
+		@media #{$small-only} {
+			
+			&:nth-of-type( 2n + 2 ) {
+
+				border-right: none;
+				
+			}
+
+		}
 		
 		&, .image {
 
-			min-height: $cell-height * 5;
+			min-height: ( ( $cell-height * 5 ) / 2 );
 
 			@media #{$medium-up} {
 				min-height: $cell-height * 3;
