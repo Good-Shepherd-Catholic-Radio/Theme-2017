@@ -74,14 +74,28 @@ $cell-height: 250px;
 			position: absolute;
 			top: 0;
 			left: 0;
-			padding: 0.5em 0 0 0.5em;
+			padding: 0.5em 0 0.5em 1em;
+			width: 100%;
 
 			font-weight: 700;
+			
+			.blog-title-color-overlay {
+				@include background-opacity( $dark-gray, 0.75 );
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+			}
 
 			h1, h2, h3, h4, h5, h6 {
 				color: #fff;
 				font-weight: normal;
 				margin-bottom: 0;
+			}
+			
+			h1, h2, h3, h4, h5, h6, span.timestamp {
+				position: relative;
 			}
 
 			text-align: left;

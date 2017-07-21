@@ -33,6 +33,7 @@ else {
 		<div class="on-air-personality-color-overlay"></div>
 
 		<div class="on-air-personality-title">
+			<div class="on-air-personality-title-overlay"></div>
 			<h5>
 				<?php the_title(); ?>
 			</h5>

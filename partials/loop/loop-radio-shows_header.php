@@ -54,11 +54,19 @@ else {
 		</div>
 
 		<div class="radio-show-title">
-			<?php the_title(); ?>
-			<br />
-			<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-			<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
-			<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+			
+			<div class="radio-show-title-color-overlay"></div>
+			
+			<span>
+			
+				<?php the_title(); ?>
+				<br />
+				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
+				<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
+				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+				
+			</span>
+			
 		</div>
 		
 	</a>

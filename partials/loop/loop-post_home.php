@@ -35,6 +35,7 @@ else {
 		<div class="blog-color-overlay"></div>
 
 		<div class="blog-title">
+			<div class="blog-title-color-overlay"></div>
 			<h5>
 				<?php the_title(); ?>
 			</h5>
