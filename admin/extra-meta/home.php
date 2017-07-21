@@ -74,7 +74,7 @@ function gscr_add_home_metaboxes() {
         );
 		
 		add_meta_box(
-            'gscr-home-donat-listen',
+            'gscr-home-donate-listen',
             _x( 'Donate/Listen Section', 'Home Donate/Listen Metabox Title', 'good-shepherd-catholic-radio' ),
             'gscr_home_donate_listen_metabox_content',
             'page',
@@ -133,6 +133,19 @@ function gscr_home_donate_listen_metabox_content() {
         )
     );
 	
+	rbm_do_field_media(
+ 		'gscr_home_donate_image',
+ 		_x( 'Donate Background Image', 'Home Donate Background Image Label', 'good-shepherd-catholic-radio' ),
+ 		false,
+ 		array(
+			'type' => 'image',
+			'button_text' => _x( 'Upload/Choose Image', 'Home Donate Image Upload Button Text', 'good-shepherd-catholic-radio' ),
+			'button_remove_text' => _x( 'Remove Image', 'Home Donate Image Remove Button Text', 'good-shepherd-catholic-radio' ),
+			'window_title' => _x( 'Choose Image', 'Home Donate Image Window Title', 'good-shepherd-catholic-radio' ),
+			'window_button_text' => _x( 'Use Image', 'Home Donate Image Select Button Text', 'good-shepherd-catholic-radio' ),
+ 		)
+ 	);
+	
 	rbm_do_field_wysiwyg(
 		'gscr_home_listen_text',
 		_x( 'Listening Options', 'Home Listen Text Label', 'good-shepherd-catholic-radio' ),
@@ -142,15 +155,15 @@ function gscr_home_donate_listen_metabox_content() {
 	);
 	
 	rbm_do_field_media(
- 		'gscr_home_donate_listen_image',
- 		_x( 'Background Image', 'Home Donate Listen Background Image Label', 'good-shepherd-catholic-radio' ),
+ 		'gscr_home_listen_image',
+ 		_x( 'Listen Background Image', 'Home Listen Background Image Label', 'good-shepherd-catholic-radio' ),
  		false,
  		array(
 			'type' => 'image',
-			'button_text' => _x( 'Upload/Choose Image', 'Home Donate Listen Image Upload Button Text', 'good-shepherd-catholic-radio' ),
-			'button_remove_text' => _x( 'Remove Image', 'Home Donate Listen Image Remove Button Text', 'good-shepherd-catholic-radio' ),
-			'window_title' => _x( 'Choose Image', 'Home Donate Listen Image Window Title', 'good-shepherd-catholic-radio' ),
-			'window_button_text' => _x( 'Use Image', 'Home Donate Listen Image Select Button Text', 'good-shepherd-catholic-radio' ),
+			'button_text' => _x( 'Upload/Choose Image', 'Home Listen Image Upload Button Text', 'good-shepherd-catholic-radio' ),
+			'button_remove_text' => _x( 'Remove Image', 'Home Listen Image Remove Button Text', 'good-shepherd-catholic-radio' ),
+			'window_title' => _x( 'Choose Image', 'Home Listen Image Window Title', 'good-shepherd-catholic-radio' ),
+			'window_button_text' => _x( 'Use Image', 'Home Listen Image Select Button Text', 'good-shepherd-catholic-radio' ),
  		)
  	);
     

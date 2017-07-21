@@ -7,7 +7,6 @@ $cell-height: 175px;
 	.columns {
 		
 		position: relative;
-		min-height: $cell-height * 2;
 		
 	}
 
@@ -24,28 +23,16 @@ $cell-height: 175px;
 	}
 
 	.donate {
-		
-		position: relative;
 
 		@media #{$small-only} {
 
 			padding-bottom: 1em;
 
 		}
-		
-		@media #{$medium-up} {
-			
-			h3 {
-				margin-top: 0.2em;
-			}
-			
-		}
 
 	}
 
 	.listen {
-		
-		position: relative;
 		
 		p {
 			margin-bottom: 0;
@@ -57,6 +44,26 @@ $cell-height: 175px;
 
 		}
 
+	}
+	
+	.donate, .listen {
+		
+		min-height: $cell-height;
+		position: relative;
+		overflow: auto;
+		
+		@media #{$medium-up} {
+			
+			h3 {
+				margin-top: 0.2em;
+			}
+			
+		}
+		
+		.content {
+			position: relative;
+		}
+		
 	}
 	
 	.image {
