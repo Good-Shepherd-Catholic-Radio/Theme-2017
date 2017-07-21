@@ -48,6 +48,4 @@ include locate_template( 'partials/home/underwriters.php' );
 
 include locate_template( 'partials/home/blog.php' );
 
-include locate_template( 'partials/home/staff.php' );
-
 get_footer();
