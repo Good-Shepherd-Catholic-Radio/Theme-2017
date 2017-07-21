@@ -4,6 +4,10 @@ $cell-height: 175px;
 	
 	overflow: hidden;
 	
+	@media #{$small-only} {
+		margin-top: 1em;
+	}
+	
 	.columns {
 		
 		position: relative;
@@ -56,6 +60,14 @@ $cell-height: 175px;
 			
 			h3 {
 				margin-top: 0.2em;
+			}
+			
+		}
+		
+		@media #{$ipad-landscape}, #{$ipad-portrait} {
+			
+			h3 {
+				font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h4', 'font-size' ) );
 			}
 			
 		}

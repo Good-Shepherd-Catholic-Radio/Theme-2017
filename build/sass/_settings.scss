@@ -127,7 +127,8 @@ $retina-only: (
 ) !default;
 
 $phablet-landscape: "#{$screen} and (max-width: 733px) and (orientation: landscape)" !default;
-$ipad-portrait: "#{$medium-only} and (orientation: portrait)" !default;
+$ipad-portrait: "#{$medium-only} and (orientation: portrait)" !default; // This includes up through Medium technically, but it shouldn't cause problems for desktop users unless they have a low resolution portrait monitor for some reason
+$ipad-landscape: "#{$screen} and (min-device-width : 768px) and (max-width: 1024px) and (orientation: landscape)" !default;
 
 // Flexbox breaks Media Object and likely other things
 $global-flexbox: false;
