@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || die();
 	
 	<div class="small-12 columns">
 		
-		<div class="row expanded">
+		<div class="row">
 			<div class="small-12 columns">
 				<h2>
 					<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || die();
 			</div>
 		</div>
 		
-		<div class="row expanded">
+		<div class="row">
 			
 			<div class="medium-6 columns">
 				

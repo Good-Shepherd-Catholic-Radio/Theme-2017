@@ -6,9 +6,16 @@
 		
 		& > .row {
 			
-			&.upcoming-events .content, &.upcoming-events .form, &.prayer-requests {
+			&.prayer-requests {
 			
 				padding: 30px;
+				
+			}
+			
+			&.upcoming-events .content, &.upcoming-events .form {
+				
+				padding-top: 30px;
+				padding-bottom: 30px;
 				
 			}
 			
