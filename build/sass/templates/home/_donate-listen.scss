@@ -54,7 +54,7 @@ $cell-height: 175px;
 		
 		min-height: $cell-height;
 		position: relative;
-		overflow: auto;
+		overflow: hidden;
 		
 		@media #{$medium-up} {
 			
