@@ -25,30 +25,40 @@ $medium_class = 'medium-' . ( 12 / $count );
 
 ?>
 
-<div class="blog row expanded collapse-small">
+<div class="blog row expanded">
 
-	<div class="row expanded">
-		<div class="small-12 columns">
-			<h2 class="section-header">
-				<?php _e( 'Our Blog', 'good-shepherd-catholic-radio' ); ?>
-			</h2>
+	<div class="small-12 columns">
+		<div class="row">
+			<div class="small-12 columns">
+				<h2 class="section-header">
+					<?php _e( 'Our Blog', 'good-shepherd-catholic-radio' ); ?>
+				</h2>
+			</div>
 		</div>
 	</div>
 	
-	<?php if ( $posts->have_posts() ) : ?>
-	
-		<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
-	
-			<?php include locate_template( 'partials/loop/loop-post_home.php' ); ?>
-	
-		<?php endwhile; ?>
-	
-		<?php wp_reset_postdata(); ?>
-	
-	<?php else : ?>
-	
-		<?php _e( 'No Blog Posts Found', 'good-shepherd-catholic-radio' ); ?>
-	
-	<?php endif; ?>
+	<div class="row expanded small-collapse">
+		<div class="small-12 columns">
+			<div class="row expanded small-collapse">
+
+				<?php if ( $posts->have_posts() ) : ?>
+
+					<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+
+						<?php include locate_template( 'partials/loop/loop-post_home.php' ); ?>
+
+					<?php endwhile; ?>
+
+					<?php wp_reset_postdata(); ?>
+
+				<?php else : ?>
+
+					<?php _e( 'No Blog Posts Found', 'good-shepherd-catholic-radio' ); ?>
+
+				<?php endif; ?>
+
+			</div>
+		</div>
+	</div>
 	
 </div>

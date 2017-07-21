@@ -28,30 +28,40 @@ $medium_class = 'medium-3';
 
 ?>
 
-<div class="on-air-personalities-section row expanded collapse-small">
+<div class="on-air-personalities-section row expanded">
 	
-	<div class="row expanded">
-		<div class="small-12 columns">
-			<h2 class="section-header">
-				<?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
-			</h2>
+	<div class="small-12 columns">
+		<div class="row">
+			<div class="small-12 columns">
+				<h2 class="section-header">
+					<?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
+				</h2>
+			</div>
 		</div>
 	</div>
 	
-	<?php if ( $on_air_personalities->have_posts() ) : ?>
+	<div class="row expanded small-collapse">
+		<div class="small-12 columns">
+			<div class="row expanded small-collapse">
 	
-		<?php while ( $on_air_personalities->have_posts() ) : $on_air_personalities->the_post(); ?>
-	
-			<?php include locate_template( 'partials/loop/loop-on_air_personalities_home.php' ); ?>
-	
-		<?php endwhile; ?>
-	
-		<?php wp_reset_postdata(); ?>
-	
-	<?php else : ?>
-	
-		<?php _e( 'No On-Air Personalities Found', 'good-shepherd-catholic-radio' ); ?>
-	
-	<?php endif; ?>
+				<?php if ( $on_air_personalities->have_posts() ) : ?>
+
+					<?php while ( $on_air_personalities->have_posts() ) : $on_air_personalities->the_post(); ?>
+
+						<?php include locate_template( 'partials/loop/loop-on_air_personalities_home.php' ); ?>
+
+					<?php endwhile; ?>
+
+					<?php wp_reset_postdata(); ?>
+
+				<?php else : ?>
+
+					<?php _e( 'No On-Air Personalities Found', 'good-shepherd-catholic-radio' ); ?>
+
+				<?php endif; ?>
+				
+			</div>
+		</div>
+	</div>
 	
 </div>

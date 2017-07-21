@@ -1,95 +1,104 @@
 .underwriters-section {
+	
+	.underwriters-container {
 
-	.row {
+		.row {
 
-		.underwriter {
+			.underwriter {
 
-			border: 1px solid #505050;
-			border-bottom: none;
-			border-left: none;
-			
-			@media #{$medium-up} {
-				height: 170px;
-				padding-top: 0.5em;
-				padding-bottom: 0.6em;
-			}
-			
-			@media #{$small-only} {
-				
+				border: 1px solid #505050;
+				border-bottom: none;
 				border-left: none;
-				border-right: none;
-				padding-top: 1em;
-				padding-bottom: 1em;
 				
-			}
+				h1, h2, h3, h4, h5, h6 {
+					margin-bottom: 0;
+					word-break: break-all;
+				}
 
-			&:last-of-type {
-				border-right: none;
-			}
+				@media #{$medium-up} {
+					height: 170px;
+					padding-top: 0.5em;
+					padding-bottom: 0.6em;
+				}
 
-			@media #{$medium-up} {
+				@media #{$small-only} {
 
-				.vertical-align {
-
-					position: relative;
-					top: 50%;
-					transform: translateY(-50%);
+					border-left: none;
+					border-right: none;
+					padding-top: 1em;
+					padding-bottom: 1em;
 
 				}
 
-			}
-			
-			a {
-				
-				&, * {
-					transition: 300ms all;
+				&:last-of-type {
+					border-right: none;
 				}
-				
-				&, h1, h2, h3, h4, h5, h6 {
-					
-					color: #505050;
-					
-					&:hover {
-						color: $anchor-color-hover;
+
+				@media #{$medium-up} {
+
+					.vertical-align {
+
+						position: relative;
+						top: 50%;
+						transform: translateY(-50%);
+
 					}
-					
+
 				}
-				
-				img {
-					filter: grayscale(1);
-					margin: 0;
-				}
-				
-				&:hover {
+
+				a {
+
+					&, * {
+						transition: 300ms all;
+					}
+
+					&, h1, h2, h3, h4, h5, h6 {
+
+						color: #505050;
+
+						&:hover {
+							color: $anchor-color-hover;
+						}
+
+					}
+
 					img {
-						filter: initial;
+						filter: grayscale(1);
+						margin: 0 auto;
 					}
+
+					&:hover {
+						img {
+							filter: initial;
+						}
+					}
+
 				}
-				
+
 			}
 
-		}
+			&:first-of-type {
 
-		&:first-of-type {
-			
-			@media #{$small-only} {
-				
-				.underwriter:first-of-type {
-					border-top: 0;
-				}
-				
-			}
-			
-			@media #{$medium-up} {
+				@media #{$small-only} {
 
-				.underwriter {
-					border-top: none;
+					.underwriter:first-of-type {
+						border-top: 0;
+					}
+
 				}
-				
+
+				@media #{$medium-up} {
+
+					.underwriter {
+						border-top: none;
+					}
+
+				}
+
 			}
 
 		}
 
 	}
-
+	
 }

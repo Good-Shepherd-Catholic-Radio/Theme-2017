@@ -24,56 +24,65 @@ $per_row = 4;
 
 ?>
 
-<div class="row expanded">
+<div class="underwriters-section expanded row">
+	
 	<div class="small-12 columns">
-		<h2 class="section-header">
-			<?php _e( 'Underwriters', 'good-shepherd-catholic-radio' ); ?>
-		</h2>
+		<div class="row">
+			<div class="small-12 columns">
+				<h2 class="section-header">
+					<?php _e( 'Underwriters', 'good-shepherd-catholic-radio' ); ?>
+				</h2>
+			</div>
+		</div>
 	</div>
-</div>
+	
+	<div class="row expanded small-collapse">
+		<div class="small-12 columns">
+			<div class="row expanded small-collapse underwriters-container">
+	
+				<?php if ( $underwriters->have_posts() ) : ?>
 
-<div class="underwriters-section row">
-	
-	<?php if ( $underwriters->have_posts() ) : ?>
-	
-		<?php while ( $underwriters->have_posts() ) : $underwriters->the_post(); ?>
-	
-			<?php if ( $index == 0 ) : ?>
-	
-				<div class="row">
-					
-			<?php endif; ?>
-	
-					<?php include locate_template( 'partials/loop/loop-underwriters_home.php' ); ?>
-					
-			<?php if ( $index == ( $per_row - 1 ) ) : ?>
-					
-				</div>
-	
-			<?php
-	
-				$index = 0;
-	
-			else : 
-	
-				$index++;
-	
-			endif; ?>
-	
-		<?php endwhile; ?>
-	
-		<?php if ( $index !== 0 ) : ?>
+					<?php while ( $underwriters->have_posts() ) : $underwriters->the_post(); ?>
+
+						<?php if ( $index == 0 ) : ?>
+
+							<div class="row">
+
+						<?php endif; ?>
+
+								<?php include locate_template( 'partials/loop/loop-underwriters_home.php' ); ?>
+
+						<?php if ( $index == ( $per_row - 1 ) ) : ?>
+
+							</div>
+
+						<?php
+
+							$index = 0;
+
+						else : 
+
+							$index++;
+
+						endif; ?>
+
+					<?php endwhile; ?>
+
+					<?php if ( $index !== 0 ) : ?>
+
+							</div>
+
+					<?php endif; ?>
+
+					<?php wp_reset_postdata(); ?>
+
+				<?php else : ?>
+
+					<?php _e( 'No Underwriters Found', 'good-shepherd-catholic-radio' ); ?>
+
+				<?php endif; ?>
 			
-				</div>
-
-		<?php endif; ?>
-	
-		<?php wp_reset_postdata(); ?>
-	
-	<?php else : ?>
-	
-		<?php _e( 'No Underwriters Found', 'good-shepherd-catholic-radio' ); ?>
-	
-	<?php endif; ?>
+			</div>
+		</div>
 	
 </div>
