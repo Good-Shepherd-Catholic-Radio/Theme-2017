@@ -99,17 +99,35 @@ $cell-height: 175px;
 		.radio-show-meta {
 
 			color: #fff;
+			
+			top: 0;
+ 			right: 0;
+ 			padding: 0.25em 0 0 0.25em;
 
-			display: none;
+			@media #{$medium-up} {
+				display: none;
+				bottom: 0;
+				left: 0;
+				right: auto;
+				top: auto;
+				padding: 0 0 0 0.25em;
+			}
+			
 			transition: all 300ms;
 			position: absolute;
-			bottom: 0;
-			left: 0;
-			padding: 0 0 0 0.25em;
 
 			.microphone-live {
-				margin-bottom: 0.75em;
-				padding-left: 0.5em;
+				
+				margin-top: 0.75em;
+				margin-right: 0.5em;
+				
+				@media #{$medium-up} {
+					margin-top: 0;
+					margin-right: 0;
+					margin-bottom: 0.75em;
+					padding-left: 0.5em;
+				}
+				
 			}
 
 			.fa-map-marker {
@@ -121,17 +139,26 @@ $cell-height: 175px;
 		}
 
 		.radio-show-title {
+			
+			bottom: 0;
+ 			right: 0;
+ 			padding: 0 0.5em 0.5em 0;
+			text-align: right;
 
-			display: none;
+			@media #{$medium-up} {
+				display: none;
+				top: 0;
+				left: 0;
+				bottom: auto;
+				right: auto;
+				padding: 0.5em 0 0 0.5em;
+				text-align: left;
+			}
+			
 			transition: all 300ms;
 			position: absolute;
-			top: 0;
-			left: 0;
-			padding: 0.5em 0 0 0.5em;
 
 			font-weight: 700;
-
-			text-align: left;
 
 			color: #fff;
 
