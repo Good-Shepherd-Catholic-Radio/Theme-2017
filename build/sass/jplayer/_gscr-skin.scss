@@ -23,6 +23,32 @@
 }
 
 .sticky-stream {
+	
+	// Phablet Landscape and Portrait iPad Fix
+	@media screen and (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {
+		
+		&.show-for-medium {
+			display: none !important;
+		}
+
+		&.hide-for-medium {
+			
+			display: inline-block !important;
+			width: 100%;
+			
+			.jp-audio-stream {
+				
+				width: 100% !important;
+				
+				&.is-at-bottom {
+					bottom: -0.65em !important
+				}
+				
+			}
+			
+		}
+		
+	}
 
 	.jp-audio-stream {
 
