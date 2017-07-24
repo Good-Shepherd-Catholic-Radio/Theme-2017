@@ -24,7 +24,7 @@ function add_gscr_on_air_personalities_shortcode( $atts, $content ) {
     $atts = shortcode_atts(
         array( // a few default values
 			'posts_per_page' => -1,
-			'per_row' => 2,
+			'per_row' => 4,
         ),
         $atts,
         'gscr_on_air_personalities'

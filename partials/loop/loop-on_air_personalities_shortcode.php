@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || die();
 
 <div <?php post_class( array(
 	'small-12',
-	'medium-3',
+	$medium_class,
 	'columns'
 ) ); ?>>
 	
@@ -28,6 +28,12 @@ defined( 'ABSPATH' ) || die();
 			) ); ?>
 			
 		</a>
+	
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			
+			<h3><?php the_title(); ?></h3>
+			
+		</a>
 			
 	<?php else : ?>
 	
@@ -38,7 +44,5 @@ defined( 'ABSPATH' ) || die();
 		</a>
 	
 	<?php endif; ?>
-	
-	<?php the_content(); ?>
 
 </div>

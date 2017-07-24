@@ -16,7 +16,7 @@ global $post;
 
 $on_air_personalities = new WP_Query( array(
 	'post_type' => 'on-air-personality',
-	'posts_per_page' => -1,
+	'posts_per_page' => 8,
 ) );
 
 $index = 0;
@@ -60,6 +60,16 @@ $medium_class = 'medium-3';
 
 				<?php endif; ?>
 				
+			</div>
+		</div>
+	</div>
+	
+	<div class="small-12 columns view-all-container">
+		<div class="row">
+			<div class="small-12 columns text-center">
+				<a href="/on-air-personalities/" class="button secondary">
+					<?php _e( 'View All On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
+				</a>
 			</div>
 		</div>
 	</div>
