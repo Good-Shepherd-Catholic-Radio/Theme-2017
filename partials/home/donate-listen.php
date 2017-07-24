@@ -89,6 +89,16 @@ defined( 'ABSPATH' ) || die();
 								<?php echo do_shortcode( '[gscr_button url="https://itunes.apple.com/ro/app/good-shepherd-catholic-radio/id951107141?mt=8&ign-mpt=uo%3D2" color="secondary" new_tab="true"]On iTunes <span class="fa fa-apple"></span>[/gscr_button]' ); ?>
 							</p>
 							
+							<p>
+								<span class="button secondary">
+									<?php _e( 'On 93.3FM', 'good-shepherd-catholic-radio' ); ?><?php echo ' '; ?><span class="gscr-icon gscr-icon-radio-tower"></span>
+								</span>
+								<?php echo ' '; ?>
+								<span class="button secondary">
+									<?php _e( 'On 1510AM', 'good-shepherd-catholic-radio' ); ?><?php echo ' '; ?><span class="gscr-icon gscr-icon-radio-tower"></span>
+								</span>
+							</p>
+							
 						</div>
 						
 					</div>

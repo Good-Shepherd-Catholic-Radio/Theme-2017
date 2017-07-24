@@ -91,6 +91,16 @@ $cell-height: 175px;
  		bottom: 0;
 		
  	}
+	
+	span.secondary.button {
+		
+		&:hover {
+			background-color: $secondary-color;
+			@include foundation-button-fix( $secondary-color );
+			cursor: default;
+		}
+		
+	}
 
 }
 
