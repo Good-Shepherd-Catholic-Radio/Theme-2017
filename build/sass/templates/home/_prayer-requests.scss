@@ -5,8 +5,21 @@
 	@include light-or-dark-text( $primary-color );
 
 	h1, h2, h3, h4, h5, h6 {
+		
 		@include light-or-dark-text( $primary-color );
 		text-shadow: none;
+	}
+	
+	a:not(.button) {
+
+		color: $medium-gray;
+		text-decoration: underline;
+
+		&:hover {
+			color: scale-color( $medium-gray, $lightness: -15% );
+			text-decoration: none;
+		}
+
 	}
 
 	.gform_title {
