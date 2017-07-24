@@ -4,11 +4,7 @@ footer {
 	
 	@include light-or-dark-text( $primary-color );
 
-	.gform_title {
-		@include light-or-dark-text( $primary-color );
-	}
-
-	.gfield_label, label, .gfield_description, .ginput_counter {
+	.gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
 		@include light-or-dark-text( $primary-color );
 	}
 
