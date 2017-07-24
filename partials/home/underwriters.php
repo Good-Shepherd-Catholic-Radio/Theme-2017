@@ -16,7 +16,7 @@ global $post;
 
 $underwriters = new WP_Query( array(
 	'post_type' => 'underwriter',
-	'posts_per_page' => -1,
+	'posts_per_page' => 8,
 ) );
 
 $index = 0;
@@ -84,5 +84,15 @@ $per_row = 4;
 			
 			</div>
 		</div>
+	
+	<div class="small-12 columns view-all-container">
+		<div class="row">
+			<div class="small-12 columns text-center">
+				<a href="/underwriters/" class="button secondary">
+					<?php _e( 'View All Underwriters', 'good-shepherd-catholic-radio' ); ?>
+				</a>
+			</div>
+		</div>
+	</div>
 	
 </div>
