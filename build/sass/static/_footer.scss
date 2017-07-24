@@ -1,6 +1,29 @@
 footer {
+	
+	padding-top: 30px;
+	
+	@include light-or-dark-text( $primary-color );
 
-	color: $light-gray;
+	.gform_title {
+		@include light-or-dark-text( $primary-color );
+	}
+
+	.gfield_label, label, .gfield_description, .ginput_counter {
+		@include light-or-dark-text( $primary-color );
+	}
+
+	input[type="submit"] {
+
+		display: block !important;
+		width: 100% !important;
+
+		@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+		border-radius: 0.25em;
+
+		@include foundation-button-fix( $secondary-color );
+
+	}
 
 	a {
 
@@ -36,13 +59,6 @@ footer {
 			}
 
 		}
-
-	}
-
-	// Different styling for Submit buttons in the Footer. Just in case it ever happens
-	input[type="submit"] {
-
-		@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
 
 	}
 

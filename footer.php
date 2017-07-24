@@ -37,6 +37,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 	
+	<div class="row footer-affiliates">
+		
+		<?php dynamic_sidebar( 'footer-affiliates' ); ?>
+	
+	</div>
+	
 	<div class="social row text-center">
 
 		<div class="small-12 columns">
