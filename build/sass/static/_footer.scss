@@ -1,40 +1,44 @@
 footer {
-	
+
 	padding-top: 30px;
-	
-	@include light-or-dark-text( $primary-color );
 
-	.gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
+	.footer-widgets {
+
 		@include light-or-dark-text( $primary-color );
-	}
 
-	input[type="submit"] {
-
-		display: block !important;
-		width: 100% !important;
-
-		@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
-
-		border-radius: 0.25em;
-
-		@include foundation-button-fix( $secondary-color );
-
-	}
-
-	a {
-
-		color: $medium-gray;
-		text-decoration: underline;
-
-		&:hover {
-			color: scale-color( $medium-gray, $lightness: -15% );
-			text-decoration: none;
+		.gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
+			@include light-or-dark-text( $primary-color );
 		}
 
-	}
+		input[type="submit"] {
 
-	&, a {
-		font-weight: bold;
+			display: block !important;
+			width: 100% !important;
+
+			@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+			border-radius: 0.25em;
+
+			@include foundation-button-fix( $secondary-color );
+
+		}
+
+		a {
+
+			color: $medium-gray;
+			text-decoration: underline;
+
+			&:hover {
+				color: scale-color( $medium-gray, $lightness: -15% );
+				text-decoration: none;
+			}
+
+		}
+
+		&, a {
+			font-weight: bold;
+		}
+
 	}
 
 	.widget_nav_menu {
@@ -57,14 +61,16 @@ footer {
 		}
 
 	}
+	
+	.footer-affiliates, .social {
+		padding-top: 1em;
+	}
 
 	.social {
 
-		margin-top: 1em;
-
 		.social-icon {
 
-			color: $medium-gray;
+			//color: $medium-gray;
 			font-size: 1.5em;
 			transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
 			transition-property: all, all;
@@ -74,11 +80,18 @@ footer {
 
 			&:hover {
 
-				color: $dark-gray;
+				//color: $dark-gray;
 
 			}
 
 		}
+
+	}
+
+	.footer-affiliates, .social, .copyright {
+
+		background-color: #fff;
+		@include light-or-dark-text( #fff );
 
 	}
 
