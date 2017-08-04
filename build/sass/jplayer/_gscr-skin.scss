@@ -22,7 +22,17 @@
 	}
 }
 
-.sticky-stream {
+.sticky-container {
+	
+	.sticky {
+		
+		width: 100%;
+		
+		&, * {
+			transition: all 300ms;
+		}
+		
+	}
 	
 	// Phablet Landscape and Portrait iPad Fix
 	@media #{$phablet-landscape}, #{$ipad-portrait} {
