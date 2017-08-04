@@ -38,6 +38,7 @@
 			useStateClassSkin: true,
 			autoBlur: false,
 			keyEnabled: false,
+			volume: 1,
 		} );
 
 	} );
