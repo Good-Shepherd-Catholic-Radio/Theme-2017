@@ -200,7 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<div id="jp_container_1" class="jp-audio-stream hide-for-print" role="application" aria-label="media player">
 										<div class="jp-type-single">
 
-											<div class="jp-gui jp-interface row small-collapse medium-uncollapse expanded">
+											<div class="jp-gui jp-interface row small-collapse large-uncollapse expanded">
 
 												<div class="small-12 columns">
 
@@ -212,17 +212,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 															</button>
 														</div>
 
-														<div class="title-container jp-details text-center hide-for-small-only medium-4 medium-pull-1 columns">
+														<div class="title-container jp-details text-center hide-for-small-only large-4 large-pull-1 columns">
 															<div class="jp-title" aria-label="title">
 																<?php _e( 'Listen Live!', 'good-shepherd-catholic-radio' ); ?>
 															</div>
 														</div>
 
-														<div class="jp-volume-controls small-2 small-pull-9 medium-5 medium-pull-3 columns">
+														<div class="jp-volume-controls small-2 small-pull-9 medium-5 medium-pull-6 large-5 large-pull-3 columns">
 
 															<div class="row expanded small-collapse">
 
-																<div class="small-3 medium-2 medium-offset-1 columns">
+																<div class="small-3 medium-2 large-2 large-offset-1 columns">
 
 																	<button class="jp-mute" role="button" tabindex="0">
 																		<span class="fa fa-2x mute-icon"></span>
@@ -238,7 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 																</div>
 
-																<div class="small-2 small-pull-1 columns">
+																<div class="small-2 small-pull-1 medium-2 medium-pull-2 large-pull-1 columns">
 
 																	<button class="jp-volume-max" role="button" tabindex="0">
 																		<span class="fa fa-2x volume-max-icon"></span>
