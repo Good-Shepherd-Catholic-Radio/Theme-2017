@@ -71,18 +71,37 @@
 				margin-left: 1em;
 			}
 			
-			svg {
-				
-				height: 2.5em;
-				width: auto;
-				
-				path {
-					@if lightness( $primary-color ) < 65% {
-						fill: #fff;
+			a {
+			
+				svg {
+
+					height: 2.5em;
+					width: auto;
+
+					path {
+						@if lightness( $primary-color ) < 65% {
+							fill: #fff;
+						}
+						else {
+							fill: $body-font-color;
+						}
 					}
-					else {
-						fill: $body-font-color;
+
+				}
+				
+				&:hover {
+					
+					svg {
+						path{
+							@if lightness( $primary-color ) < 65% {
+								fill: scale-color( #fff, $lightness: -25% );
+							}
+							else {
+								fill: scale-color( $body-font-color, $lightness: 25% );
+							}
+						}
 					}
+					
 				}
 				
 			}
