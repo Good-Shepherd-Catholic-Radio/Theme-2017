@@ -39,6 +39,18 @@
 			autoBlur: false,
 			keyEnabled: false,
 			volume: 1,
+			noVolume: {
+				ipad: false,
+				iphone: false,
+				ipod: false,
+				android_pad: false,
+				android_phone: false,
+				blackberry: false,
+				windows_ce: false,
+				iemobile: false,
+				webos: false,
+				playbook: false,
+			},
 		} );
 
 	} );

@@ -17,6 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 add_action( 'customize_register', function( $wp_customize ) {
+    
+    // General Theme Options
+    $wp_customize->add_section( 'gscr_customizer_section' , array(
+            'title'      => __( 'Good Shepherd Catholic Radio Settings', 'good-shepherd-catholic-radio' ),
+            'priority'   => 30,
+        ) 
+    );
 	
 	$wp_customize->add_setting( 'gscr_logo_image', array(
             'default'     => 1,
@@ -29,13 +36,6 @@ add_action( 'customize_register', function( $wp_customize ) {
         'settings'   => 'gscr_logo_image',
         'mime_type'  => 'image',
     ) ) );
-    
-    // General Theme Options
-    $wp_customize->add_section( 'gscr_customizer_section' , array(
-            'title'      => __( 'Good Shepherd Catholic Radio Settings', 'good-shepherd-catholic-radio' ),
-            'priority'   => 30,
-        ) 
-    );
     
     $wp_customize->add_setting( 'gscr_phone_number', array(
             'default'     => '1-517-513-3340',

@@ -144,7 +144,7 @@
 		if ( ! pageLoaded ) {
 
 			$( 'html, body' ).animate( {
-				scrollTop: 0
+				scrollTop: $( '#sticky-anchor' ).offset().top,
 			}, 1500 );
 
 			pageLoaded = true;
@@ -349,6 +349,10 @@
 						} );
 						
 						$( '#site-header, #site-content, #site-footer' ).css( 'pointer-events', 'initial' );
+						
+						$( 'html, body' ).animate( {
+							scrollTop: $( '#sticky-anchor' ).offset().top,
+						}, 1500 );
 						
 					}, 100 );
 					

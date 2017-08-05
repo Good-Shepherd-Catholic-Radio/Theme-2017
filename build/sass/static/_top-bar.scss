@@ -55,14 +55,38 @@
 		font-family: $header-font-family;
 		padding-top: 0;
 
-		.menu-icon-text {
-			color: $titlebar-icon-color;
-		}
-
 		a {
 
 			padding: $menu-item-padding;
 
+		}
+		
+		.top-bar-logo {
+			
+			position: absolute;
+			display: none;
+			
+			@media #{$medium-up} {
+				margin-top: -1em;
+				margin-left: 1em;
+			}
+			
+			svg {
+				
+				height: 2.5em;
+				width: auto;
+				
+				path {
+					@if lightness( $primary-color ) < 65% {
+						fill: #fff;
+					}
+					else {
+						fill: $body-font-color;
+					}
+				}
+				
+			}
+			
 		}
 
 	}
@@ -76,7 +100,12 @@
 		right: 0;
 		bottom: 0;
 		height: 3em;
-		margin-top: -0.75em;
+		
+		margin-top: 0.25em;
+		
+		@media #{$medium-up} {
+			margin-top: -0.75em;
+		}
 
 		.jp-audio-stream {
 
@@ -87,6 +116,14 @@
 
 			.fa {
 				color: $quaternary-color;
+			}
+			
+			@media #{$small-only} {
+				
+				.jp-controls, .jp-volume-controls {
+					padding: 0;
+				}
+				
 			}
 
 			.jp-play {
@@ -341,8 +378,41 @@
 		}
 
 	}
+	
+	.menu-icon-container {
+		
+		width: auto;
+		
+		@media #{$small-only} {
+			margin-top: -0.25em !important;
+    		margin-bottom: 0.15em !important;
+		}
+		
+		.menu-icon-text {
+			color: $titlebar-icon-color;
+		}
+		
+		span.menu-icon {
+			margin: -0.15em 0.15em 0 0.15em;
+		}
+		
+	}
 
 	// Holds the little rounded edges and Triangle thing for immediate children of the top-level
 	@import "top-bar-menu";
+	
+	&.is-stuck {
+		
+		.top-bar-logo {
+			display: inline-block;
+		}
+		
+		.stream-container {
+			
+			margin-left: 9em;
+			
+		}
+		
+	}
 
 }

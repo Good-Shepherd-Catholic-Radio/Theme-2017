@@ -304,3 +304,18 @@ if ( ! function_exists( 'remove_class_action' ) ) {
 }
 
 require_once __DIR__ . '/admin/admin.php';
+
+/**
+ * I still don't know why WP doesn't support this out of the box
+ * 
+ * @param		array $mimes Supported MIME Types
+ *                                     
+ * @since		1.0.0
+ * @return		array Supported MIME Types
+ */
+add_filter('upload_mimes', function ( $mimes ) {
+	
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+	
+} );

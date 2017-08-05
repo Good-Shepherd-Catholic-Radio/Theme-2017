@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <div id="wrapper" class = "off-canvass-wrapper-inner" data-off-canvas-wrapper>
 
-            <div class="off-canvas position-left nav-menu" id="offCanvasLeft" data-off-canvas>
+            <div class="off-canvas position-right nav-menu" id="offCanvasRight" data-off-canvas>
 
                 <?php
                 wp_nav_menu( array(
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <header id="site-header">
 					
-					<div class="top-bar extra" data-equalizer data-equalize-on="medium">
+					<div id="header-logo-container" class="top-bar extra" data-equalizer data-equalize-on="medium">
 						
 						<div class="top-bar-left logo" data-equalizer-watch>
 							
@@ -62,10 +62,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 							
 								<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
 								<?php 
-									echo wp_get_attachment_image( get_theme_mod( 'gscr_logo_image', 1 ), 'medium', false, array(
-										'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-										'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-									) ); 
+									
+									$header_logo_id = get_theme_mod( 'gscr_logo_image', 1 );
+									
+									if ( get_post_mime_type( $header_logo_id ) == 'image/svg+xml' ) {
+                                        echo file_get_contents( get_attached_file( $header_logo_id ) );
+                                    }
+                                    else {
+                                        echo wp_get_attachment_image( $header_log_id, 'medium', false, array(
+											'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+											'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+										) ); 
+                                    }
+									
 								?>
 							   </a>
 								
@@ -134,106 +143,133 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 						
 					</div>
+					
+					<div id="sticky-anchor">
+						<?php // This allows the Sticky Menu Bar to only become stuck once it hits the top of the screen ?>
+					</div>
 
-                    <div class="top-bar">
+                    <div data-sticky-container style="z-index: 999 !important;">
+						
+						<div class="top-bar sticky" data-sticky data-stick-to="top" data-sticky-on="small" data-top-anchor="sticky-anchor"<?php echo ( is_admin_bar_showing() ) ? ' data-margin-top="2"' : ' data-margin-top="0"'; ?>>
 
-                        <div class="top-bar-left top-bar-title">
-                            
-                            <div class="show-for-small-only menu-icon-container" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-                                <button type="button" data-open="offCanvasLeft">
-                                    <span class="menu-icon"></span>
-                                    <div class="menu-icon-text">
-                                        <?php echo _x( 'Menu', 'Hamburger Button Label', 'good-shepherd-catholic-radio' ); ?>
-                                    </div>
-                                </button>
-                            </div>
-							
-							<div class="sticky-stream hide-for-small-only">
+							<div class="top-bar-left top-bar-title">
 								
-								<div id="gscr-radio-stream-header" class="jp-jplayer"></div>
-								<div id="jp_container_1" class="jp-audio-stream hide-for-print" role="application" aria-label="media player">
-									<div class="jp-type-single">
+								<div class="top-bar-logo">
+									<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+									<?php 
 
-										<div class="jp-gui jp-interface row expanded">
-											
-											<div class="small-12 columns">
-												
-												<div class="row">
+										$header_logo_id = get_theme_mod( 'gscr_logo_image', 1 );
 
-													<div class="jp-controls small-2 medium-1 columns">
-														<button class="jp-play" role="button" tabindex="0">
-															<span class="fa fa-2x play-icon"></span>
-														</button>
-													</div>
+										if ( get_post_mime_type( $header_logo_id ) == 'image/svg+xml' ) {
+											echo file_get_contents( get_attached_file( $header_logo_id ) );
+										}
+										else {
+											echo wp_get_attachment_image( $header_log_id, 'medium', false, array(
+												'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+												'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+											) ); 
+										}
 
-													<div class="title-container jp-details text-center medium-4 medium-pull-1 columns">
-														<div class="jp-title" aria-label="title">
-															<?php _e( 'Listen Live!', 'good-shepherd-catholic-radio' ); ?>
+									?>
+								   </a>
+								</div>
+
+								<div class="stream-container">
+
+									<div id="gscr-radio-stream-header" class="jp-jplayer"></div>
+									<div id="jp_container_1" class="jp-audio-stream hide-for-print" role="application" aria-label="media player">
+										<div class="jp-type-single">
+
+											<div class="jp-gui jp-interface row small-collapse medium-uncollapse expanded">
+
+												<div class="small-12 columns">
+
+													<div class="row">
+
+														<div class="jp-controls small-1 columns">
+															<button class="jp-play" role="button" tabindex="0">
+																<span class="fa fa-2x play-icon"></span>
+															</button>
 														</div>
-													</div>
 
-													<div class="jp-volume-controls small-2 offset-small-1 medium-5 medium-pull-3 columns">
-
-														<div class="row expanded small-collapse">
-
-															<div class="small-2 small-offset-1 columns">
-
-																<button class="jp-mute" role="button" tabindex="0">
-																	<span class="fa fa-2x mute-icon"></span>
-																</button>
-
+														<div class="title-container jp-details text-center hide-for-small-only medium-4 medium-pull-1 columns">
+															<div class="jp-title" aria-label="title">
+																<?php _e( 'Listen Live!', 'good-shepherd-catholic-radio' ); ?>
 															</div>
+														</div>
 
-															<div class="volume-bar-container small-5 columns">
+														<div class="jp-volume-controls small-2 small-pull-9 medium-5 medium-pull-3 columns">
 
-																<div class="jp-volume-bar">
-																	<div class="jp-volume-bar-value"></div>
+															<div class="row expanded small-collapse">
+
+																<div class="small-3 medium-2 medium-offset-1 columns">
+
+																	<button class="jp-mute" role="button" tabindex="0">
+																		<span class="fa fa-2x mute-icon"></span>
+																	</button>
+
+																</div>
+
+																<div class="volume-bar-container small-5 columns">
+
+																	<div class="jp-volume-bar">
+																		<div class="jp-volume-bar-value"></div>
+																	</div>
+
+																</div>
+
+																<div class="small-2 small-pull-1 columns">
+
+																	<button class="jp-volume-max" role="button" tabindex="0">
+																		<span class="fa fa-2x volume-max-icon"></span>
+																	</button>
+
 																</div>
 
 															</div>
 
-															<div class="small-2 small-pull-1 columns">
-
-																<button class="jp-volume-max" role="button" tabindex="0">
-																	<span class="fa fa-2x volume-max-icon"></span>
-																</button>
-
-															</div>
-
 														</div>
 
 													</div>
-													
+
 												</div>
-												
+
 											</div>
 
-										</div>
-
-										<div class="jp-no-solution">
-											<span><?php _e( 'Update Required', 'good-shepherd-catholic-radio' ); ?></span>
-											<?php _e( 'To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.', 'good-shepherd-catholic-radio' ); ?>
+											<div class="jp-no-solution">
+												<span><?php _e( 'Update Required', 'good-shepherd-catholic-radio' ); ?></span>
+												<?php _e( 'To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.', 'good-shepherd-catholic-radio' ); ?>
+											</div>
 										</div>
 									</div>
+
 								</div>
 
 							</div>
 
-                        </div>
+							<div class="top-bar-right hide-for-small-only nav-menu">
+								
+								<?php
+								wp_nav_menu( array(
+									'container' => false,
+									'menu' => __( 'Primary Menu', 'good-shepherd-catholic-radio' ),
+									'menu_class' => 'dropdown menu',
+									'theme_location' => 'primary',
+									'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+									'fallback_cb' => false,
+									'walker' => new Foundation_Nav_Walker(),
+								) );
+								?>
+								
+							</div>
+								
+							<div class="top-bar-right show-for-small-only menu-icon-container" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+								<button type="button" data-open="offCanvasRight">
+									<span class="menu-icon"></span>
+								</button>
+							</div>
 
-                        <div class="top-bar-right hide-for-small-only nav-menu">
-                            <?php
-                            wp_nav_menu( array(
-                                'container' => false,
-                                'menu' => __( 'Primary Menu', 'good-shepherd-catholic-radio' ),
-                                'menu_class' => 'dropdown menu',
-                                'theme_location' => 'primary',
-                                'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
-                                'fallback_cb' => false,
-                                'walker' => new Foundation_Nav_Walker(),
-                            ) );
-                            ?>
-                        </div>
+						</div>
 
                     </div>
 
