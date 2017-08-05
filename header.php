@@ -154,11 +154,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							<div class="top-bar-left top-bar-title">
 								
-								<div class="top-bar-logo">
+								<div class="top-bar-logo show-for-medium">
 									<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
 									<?php 
 
 										$header_logo_id = get_theme_mod( 'gscr_logo_image', 1 );
+
+										if ( get_post_mime_type( $header_logo_id ) == 'image/svg+xml' ) {
+											echo file_get_contents( get_attached_file( $header_logo_id ) );
+										}
+										else {
+											echo wp_get_attachment_image( $header_log_id, 'medium', false, array(
+												'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+												'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+											) ); 
+										}
+
+									?>
+								   </a>
+								</div>
+								
+								<div class="top-bar-logo show-for-small-only">
+									<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+									<?php 
+
+										$header_logo_id = get_theme_mod( 'gscr_logo_image_scroll', 1 );
 
 										if ( get_post_mime_type( $header_logo_id ) == 'image/svg+xml' ) {
 											echo file_get_contents( get_attached_file( $header_logo_id ) );

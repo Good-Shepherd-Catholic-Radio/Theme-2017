@@ -31,9 +31,21 @@ add_action( 'customize_register', function( $wp_customize ) {
         ) 
     );
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'gscr_logo_image', array(
-        'label'        => __( 'Header Logo', THEME_ID ),
+        'label'        => __( 'Header Logo', 'good-shepherd-catholic-radio' ),
         'section'    => 'gscr_customizer_section',
         'settings'   => 'gscr_logo_image',
+        'mime_type'  => 'image',
+    ) ) );
+	
+	$wp_customize->add_setting( 'gscr_logo_image_scroll', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'gscr_logo_image_scroll', array(
+        'label'        => __( 'Header Logo on Scroll (Mobile Only)', 'good-shepherd-catholic-radio' ),
+        'section'    => 'gscr_customizer_section',
+        'settings'   => 'gscr_logo_image_scroll',
         'mime_type'  => 'image',
     ) ) );
     

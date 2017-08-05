@@ -404,12 +404,29 @@
 	&.is-stuck {
 		
 		.top-bar-logo {
+			
 			display: inline-block;
+			
+			@media #{$small-only} {
+				
+				$menu-item-padding-list: str-split( inspect( $menu-item-padding ), ' ' );
+				
+				a {
+					// The things I'll do to keep things scalable with Foundation's units
+					padding-left: to-number( nth( $menu-item-padding-list, 1 ) ) / 2;
+				}
+				
+			}
+			
 		}
 		
 		.stream-container {
 			
-			margin-left: 9em;
+			margin-left: 4em;
+			
+			@media #{$medium-up} {
+				margin-left: 9em;
+			}
 			
 		}
 		
