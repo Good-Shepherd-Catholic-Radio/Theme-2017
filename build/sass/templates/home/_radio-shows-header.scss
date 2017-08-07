@@ -70,9 +70,6 @@ $cell-height: 175px;
 			bottom: 0;
 			background: transparent;
 			transition: all 300ms;
-		}
-
-		.image {
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: right center;
@@ -86,6 +83,17 @@ $cell-height: 175px;
 
 					transform: scale( 1.1 );
 
+				}
+				
+				.radio-show-title-color-overlay {
+					
+					&:after {
+						
+						width: 100%;
+						left: 0;
+						
+					}
+					
 				}
 
 			}
@@ -137,7 +145,7 @@ $cell-height: 175px;
 			
 			bottom: 0;
  			right: 0;
- 			padding: 0.5em 0.5em 0.5em 0;
+ 			padding: 0.5em 0.5em 0.75em 0;
 			text-align: right;
 			width: 100%;
 
@@ -147,7 +155,7 @@ $cell-height: 175px;
 				left: 0;
 				bottom: auto;
 				right: auto;
-				padding: 0.5em 0 0.5em 0.5em;
+				padding: 0.5em 0 0.75em 0.5em;
 				text-align: left;
 			}
 			
@@ -159,12 +167,29 @@ $cell-height: 175px;
 			color: #fff;
 			
 			.radio-show-title-color-overlay {
-				@include background-opacity( $dark-gray, 0.75 );
+				
+				@include background-opacity( #000, 0.6 );
 				position: absolute;
 				top: 0;
 				left: 0;
 				bottom: 0;
 				right: 0;
+				
+				&:after {
+
+					content: '';
+					position: absolute;
+					width: 0;
+					height: 0.5em;
+					display: block;
+					right: 0;
+					bottom: 0;
+					background: $secondary-color;
+					transition: width .2s ease;
+					-webkit-transition: width .2s ease;
+					
+				}
+				
 			}
 			
 			span {
