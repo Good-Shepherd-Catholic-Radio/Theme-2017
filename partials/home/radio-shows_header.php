@@ -61,8 +61,13 @@ $max_per_row = 0;
 			<div class="row expanded">
 			
 				<?php 
+				
+				$first = true;
+				
 				// Included outside so that we have the one large cell to the left
-				get_template_part( 'partials/loop/loop', 'radio-shows_header' ); ?>
+				include locate_template( 'partials/loop/loop-radio-shows_header.php', false, false );
+				
+				$first = false; ?>
 				
 			</div>
 			
@@ -92,7 +97,7 @@ $max_per_row = 0;
 						
 				<?php endif;
 
-						get_template_part( 'partials/loop/loop', 'radio-shows_header' );
+						include locate_template( 'partials/loop/loop-radio-shows_header.php', false, false );
 						
 				if ( $index == $max_per_row ) : ?>
 						

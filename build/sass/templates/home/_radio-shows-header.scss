@@ -1,27 +1,27 @@
 $cell-height: 175px;
 
 .radio-shows-header {
-	
+
 	.radio-shows-left, .radio-shows-right {
-		
+
 		position: relative;
-		
+
 		&:hover {
-			
+
 			.header-overlay {
 				display: none;
 			}
-			
-			.radio-show-meta, .radio-show-title {
+
+			.radio-show-meta, .radio-show-title, .stream-control {
 				display: inline-block;
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	.header-overlay {
-		
+
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -29,7 +29,7 @@ $cell-height: 175px;
 		bottom: 0;
 		background: transparent;
 		transition: all 300ms;
-		
+
 		h1, h2, h3, h4, h5, h6 {
 			color: lighten( $quaternary-color, 10% );
 		}
@@ -84,16 +84,16 @@ $cell-height: 175px;
 					transform: scale( 1.1 );
 
 				}
-				
+
 				.radio-show-title-color-overlay {
-					
+
 					&:after {
-						
+
 						width: 100%;
 						left: 0;
-						
+
 					}
-					
+
 				}
 
 			}
@@ -102,10 +102,10 @@ $cell-height: 175px;
 		.radio-show-meta {
 
 			color: #fff;
-			
+
 			top: 0;
- 			right: 0;
- 			padding: 0.25em 0 0 0.25em;
+			right: 0;
+			padding: 0.25em 0 0 0.25em;
 
 			@media #{$medium-up} {
 				display: none;
@@ -115,22 +115,22 @@ $cell-height: 175px;
 				top: auto;
 				padding: 0 0 0 0.25em;
 			}
-			
+
 			transition: all 300ms;
 			position: absolute;
 
 			.microphone-live {
-				
+
 				margin-top: 0.75em;
 				margin-right: 0.5em;
-				
+
 				@media #{$medium-up} {
 					margin-top: 0;
 					margin-right: 0;
 					margin-bottom: 0.75em;
 					padding-left: 0.5em;
 				}
-				
+
 			}
 
 			.fa-map-marker {
@@ -142,10 +142,10 @@ $cell-height: 175px;
 		}
 
 		.radio-show-title {
-			
+
 			bottom: 0;
- 			right: 0;
- 			padding: 0.5em 0.5em 0.75em 0;
+			right: 0;
+			padding: 0.5em 0.5em 0.75em 1em;
 			text-align: right;
 			width: 100%;
 
@@ -155,26 +155,26 @@ $cell-height: 175px;
 				left: 0;
 				bottom: auto;
 				right: auto;
-				padding: 0.5em 0 0.75em 0.5em;
+				padding: 0.5em 1em 0.75em 0.5em;
 				text-align: left;
 			}
-			
+
 			transition: all 300ms;
 			position: absolute;
 
 			font-weight: 700;
 
 			color: #fff;
-			
+
 			.radio-show-title-color-overlay {
-				
+
 				@include background-opacity( #000, 0.6 );
 				position: absolute;
 				top: 0;
 				left: 0;
 				bottom: 0;
 				right: 0;
-				
+
 				&:after {
 
 					content: '';
@@ -187,13 +187,90 @@ $cell-height: 175px;
 					background: $secondary-color;
 					transition: width .2s ease;
 					-webkit-transition: width .2s ease;
-					
+
 				}
-				
+
 			}
-			
+
 			span {
 				position: relative;
+				margin: 0;
+			}
+
+		}
+
+		.stream-control {
+
+			margin: 0;
+			z-index: 9999;
+			position: absolute;
+			right: 0.75em;
+			top: 0.75em;
+			display: none;
+			
+			.fa {
+				color: $quaternary-color;
+			}
+
+			.jp-play {
+
+				.play-icon {
+					animation: gscr-header-button-flash 10s infinite;
+					transition: 300ms all;
+				}
+
+				.play-icon:before {
+					content: '\f144';
+				}
+
+				&:hover {
+					
+					cursor: pointer;
+					
+					.play-icon:before {
+						content: '\f01d';
+					}
+					
+				}
+
+			}
+
+			&.jp-state-paused {
+
+				.jp-play {
+
+					.play-icon:before {
+						content: '\f144';
+					}
+
+					&:hover {
+						.play-icon:before {
+							content: '\f01d';
+						}
+
+					}
+
+				}
+
+			}
+
+			&.jp-state-playing {
+
+				.jp-play {
+
+					.play-icon:before {
+						content: '\f28b';
+					}
+
+					&:hover {
+						.play-icon:before {
+							content: '\f28c';
+						}
+
+					}
+
+				}
+
 			}
 
 		}
@@ -209,9 +286,9 @@ $cell-height: 175px;
 		}
 
 	}
-	
+
 	& > .cat_radio-show {
-		
+
 		@media #{$small-only} {
 
 			&:first-of-type {
@@ -219,15 +296,15 @@ $cell-height: 175px;
 			}
 
 		}
-		
+
 	}
-	
+
 	.radio-shows-left {
-		
+
 		.cat_radio-show {
 			border-left: none;
 		}
-		
+
 	}
 
 	.radio-shows-right {

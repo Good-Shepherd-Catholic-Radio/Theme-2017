@@ -27,6 +27,20 @@ else {
 	'columns'
 ) ); ?>>
 	
+	<?php if ( $first ) : ?>
+			
+		<div class="stream-control alignright">
+
+			<div class="jp-play">
+
+				<span class="fa fa-2x play-icon"></span>
+
+			</div>
+
+		</div>
+
+	<?php endif; ?>
+	
 	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 		
 		<div class="image" style="background-image: url(<?php echo $image_url; ?>);"></div>
@@ -55,7 +69,7 @@ else {
 			
 			<div class="radio-show-title-color-overlay"></div>
 			
-			<span>
+			<span class="alignleft">
 			
 				<?php the_title(); ?>
 				<br />
