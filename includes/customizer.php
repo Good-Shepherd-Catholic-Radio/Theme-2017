@@ -43,7 +43,7 @@ add_action( 'customize_register', function( $wp_customize ) {
         ) 
     );
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'gscr_logo_image_scroll', array(
-        'label'        => __( 'Header Logo on Scroll (Mobile Only)', 'good-shepherd-catholic-radio' ),
+        'label'        => __( 'Header Logo on Scroll', 'good-shepherd-catholic-radio' ),
         'section'    => 'gscr_customizer_section',
         'settings'   => 'gscr_logo_image_scroll',
         'mime_type'  => 'image',

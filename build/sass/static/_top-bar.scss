@@ -68,13 +68,6 @@
 			position: absolute;
 			display: none;
 			
-			// Phablet Landscape and Portrait iPad Fix
-			@media #{$phablet-landscape}, #{$ipad-portrait} {
-				&.show-for-small-only {
-					display: none !important;
-				}
-			}
-			
 			@media #{$medium-up} {
 				margin-top: -1em;
 				margin-left: 1em;
@@ -82,7 +75,8 @@
 			
 			// Phablet Landscape and Portrait iPad Fix
 			@media #{$phablet-landscape}, #{$ipad-portrait} {
-				margin-top: 0em;	
+				margin-top: 0em;
+				margin-left: -1em;
 			}
 			
 			a {
@@ -128,6 +122,37 @@
 		}
 
 	}
+	
+	.radio-stations-header {
+		
+		@include light-or-dark-text( $topbar-background );
+		
+		min-width: 250px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 3em;
+		
+		margin-left: 0.25em;
+		margin-top: -0.25em;
+		
+		line-height: 1.5;
+		
+		@media #{$medium-up} {
+			margin-left: 2em;
+			margin-top: -1.25em;
+		}
+		
+		// Phablet Landscape and Portrait iPad Fix
+		@media #{$phablet-landscape}, #{$ipad-portrait} {
+			margin-top: 0em;
+			margin-left: 0;
+			line-height: 1.1
+		}
+		
+	}
 
 	.stream-container {
 
@@ -139,6 +164,8 @@
 		bottom: 0;
 		height: 3em;
 		
+		margin-left: 5.5em;
+		
 		margin-top: 0.25em;
 		
 		@media #{$medium-up} {
@@ -147,7 +174,18 @@
 		
 		// Phablet Landscape and Portrait iPad Fix
 		@media #{$phablet-landscape}, #{$ipad-portrait} {
+			
 			margin-top: 0em;	
+			margin-left: 4.5em;
+			
+			.hide-for-small-only {
+				display: inline-block;
+			}
+			
+			.show-for-small-only {
+				display: none;
+			}
+			
 		}
 
 		.jp-audio-stream {
@@ -463,12 +501,30 @@
 			
 		}
 		
-		.stream-container {
+		.radio-stations-header {
 			
-			margin-left: 4em;
+			margin-left: 3em;
 			
 			@media #{$medium-up} {
-				margin-left: 9em;
+				margin-left: 5em;
+			}
+			
+			@media #{$phablet-landscape}, #{$ipad-portrait} {
+				margin-left: 2.5em;
+			}
+			
+		}
+		
+		.stream-container {
+			
+			margin-left: 8em;
+			
+			@media #{$medium-up} {
+				margin-left: 8em;	
+			}
+			
+			@media #{$phablet-landscape}, #{$ipad-portrait} {
+				margin-left: 7em;
 			}
 			
 		}

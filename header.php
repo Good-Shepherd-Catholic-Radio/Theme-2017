@@ -154,27 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							<div class="top-bar-left top-bar-title">
 								
-								<div class="top-bar-logo show-for-medium">
-									<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
-									<?php 
-
-										$header_logo_id = get_theme_mod( 'gscr_logo_image', 1 );
-
-										if ( get_post_mime_type( $header_logo_id ) == 'image/svg+xml' ) {
-											echo file_get_contents( get_attached_file( $header_logo_id ) );
-										}
-										else {
-											echo wp_get_attachment_image( $header_log_id, 'medium', false, array(
-												'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-												'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-											) ); 
-										}
-
-									?>
-								   </a>
-								</div>
-								
-								<div class="top-bar-logo show-for-small-only">
+								<div class="top-bar-logo">
 									<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
 									<?php 
 
@@ -192,6 +172,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 									?>
 								   </a>
+								</div>
+								
+								<div class="radio-stations-header">
+									<?php _e( '93.3 FM', 'good-shepherd-catholic-radio' ); ?> <br />
+									<?php _e( '1510 AM', 'good-shepherd-catholic-radio' ); ?>
 								</div>
 
 								<div class="stream-container">
@@ -212,13 +197,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 															</button>
 														</div>
 
-														<div class="title-container jp-details text-center hide-for-small-only large-4 large-pull-1 columns">
+														<div class="title-container jp-details text-center hide-for-small-only medium-4 medium-pull-1 columns">
 															<div class="jp-title" aria-label="title">
 																<?php _e( 'Listen Live!', 'good-shepherd-catholic-radio' ); ?>
 															</div>
 														</div>
 
-														<div class="jp-volume-controls small-2 small-pull-9 medium-5 medium-pull-6 large-5 large-pull-3 columns">
+														<div class="jp-volume-controls small-2 small-pull-9 medium-5 medium-pull-3 large-5 large-pull-3 columns">
 
 															<div class="row expanded small-collapse">
 
