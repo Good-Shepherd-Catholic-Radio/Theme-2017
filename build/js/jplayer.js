@@ -11,7 +11,7 @@
 		},
 		ready = false;
 		
-		$( '#gscr-radio-stream-header, #gscr-radio-stream-footer' ).jPlayer( {
+		$( '#gscr-radio-stream-header' ).jPlayer( {
 			ready: function ( event ) {
 				ready = true;
 				$( this ).jPlayer( 'setMedia', stream );
@@ -19,11 +19,13 @@
 			play: function ( event ) {
 				$( this ).next( '.jp-audio-stream' ).removeClass( 'jp-state-paused' );
 				$( this ).next( '.jp-audio-stream' ).addClass( 'jp-state-playing' );
+				$( '.radio-shows-header .stream-control' ).addClass( 'jp-state-playing' ).removeClass( 'jp-state-paused' );
 			},
 			pause: function() {
 				$( this ).jPlayer( 'clearMedia' );
 				$( this ).next( '.jp-audio-stream' ).removeClass( 'jp-state-playing' );
 				$( this ).next( '.jp-audio-stream' ).addClass( 'jp-state-paused' );
+				$( '.radio-shows-header .stream-control' ).addClass( 'jp-state-paused' ).removeClass( 'jp-state-playing' );
 			},
 			error: function( event ) {
 				if( ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET ) {
@@ -52,7 +54,56 @@
 				playbook: false,
 			},
 		} );
+		
+		$( document ).on( 'click', '.radio-shows-header .stream-control .jp-play .play-icon', function() {
 
+			if ( $( '.sticky-container .stream-container .jp-audio-stream' ).hasClass( 'jp-state-paused' ) ) {
+
+				$( '#gscr-radio-stream-header' ).jPlayer( 'play' );
+
+				$( this ).closest( '.stream-control' ).addClass( 'jp-state-playing' ).removeClass( 'jp-state-paused' );
+
+			}
+			else if ( $( '.sticky-container .stream-container .jp-audio-stream' ).hasClass( 'jp-state-playing' ) ) {
+
+				$( '#gscr-radio-stream-header' ).jPlayer( 'pause' );
+
+				$( this ).closest( '.stream-control' ).removeClass( 'jp-state-playing' ).addClass( 'jp-state-paused' );
+
+			}
+			else {
+
+				$( '#gscr-radio-stream-header' ).jPlayer( 'play' );
+
+				$( this ).closest( '.stream-control' ).removeClass( 'jp-state-paused' ).addClass( 'jp-state-playing' );
+
+			}
+
+		} );
+
+	} );
+	
+	$( document ).on( 'ready ajaxRefresh', function() {
+		
+		setTimeout( function() {
+		
+			if ( $( '.radio-shows-header .stream-control' ).length > 0 ) {
+
+				if ( $( '.sticky-container .stream-container .jp-audio-stream' ).hasClass( 'jp-state-paused' ) ) {
+
+					$( '.radio-shows-header .stream-control' ).addClass( 'jp-state-paused' ).removeClass( 'jp-state-playing' );
+
+				}
+				else if ( $( '.sticky-container .stream-container .jp-audio-stream' ).hasClass( 'jp-state-playing' ) ) {
+
+					$( '.radio-shows-header .stream-control' ).removeClass( 'jp-state-paused' ).addClass( 'jp-state-playing' );
+
+				}
+
+			}
+			
+		}, 500 );
+		
 	} );
 
 } )( jQuery );
