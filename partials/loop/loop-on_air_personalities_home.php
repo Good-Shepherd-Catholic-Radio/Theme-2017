@@ -30,7 +30,7 @@ else {
 		
 		<div class="row">
 			
-			<div class="small-7 columns image-container alignright">
+			<div class="small-5 columns image-container alignright">
 				
 				<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
 				
