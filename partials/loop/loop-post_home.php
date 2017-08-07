@@ -17,7 +17,7 @@ if ( has_post_thumbnail() ) {
 	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 }
 else {
-	$image_url = '//placeholdit.co//i/1000x500?&bg=ccc&fc=000&text=Placeholder';
+	$image_url = THEME_URL . '/assets/images/default-radio-show.png';
 }
 
 ?>

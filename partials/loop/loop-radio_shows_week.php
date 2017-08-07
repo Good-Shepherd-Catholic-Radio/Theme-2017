@@ -15,7 +15,7 @@ $attachment_id = get_post_thumbnail_id( get_the_ID() );
 
 $image_url = '';
 if ( ! has_post_thumbnail() ) {
-	$image_url = '//placeholdit.co//i/1000x500?&bg=ccc&fc=000&text=Placeholder';
+	$image_url = THEME_URL . '/assets/images/default-radio-show.png';
 }
 
 ?>
