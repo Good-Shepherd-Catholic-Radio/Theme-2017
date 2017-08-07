@@ -28,15 +28,21 @@ else {
 	
 	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 		
-		<div class="image" style="background-image: url(<?php echo $image_url; ?>);"></div>
-
-		<div class="on-air-personality-color-overlay"></div>
-
-		<div class="on-air-personality-title">
-			<div class="on-air-personality-title-overlay"></div>
-			<h5>
-				<?php the_title(); ?>
-			</h5>
+		<div class="row">
+			
+			<div class="small-7 columns image-container alignright">
+				
+				<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+				
+			</div>
+			
+			<div class="small-8 small-push-1 columns on-air-personality-title">
+				<div class="on-air-personality-title-overlay"></div>
+				<h5>
+					<?php the_title(); ?>
+				</h5>
+			</div>
+			
 		</div>
 
 	</a>

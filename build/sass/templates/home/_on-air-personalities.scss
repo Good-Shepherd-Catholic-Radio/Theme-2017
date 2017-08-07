@@ -3,103 +3,105 @@ $cell-height: 150px;
 .on-air-personalities-section {
 
 	.on-air-personality {
-		
+
 		overflow: hidden;
 
 		position: relative;
-		
-		border: 1px solid #fff;
-		border-bottom: none;
-		border-left: none;
-		
-		@media #{$medium-up} {
 
-			&:last-of-type {
-				border-right: none;
-			}
-			
-		}
-		
 		&:last-child:not( :first-child ) {
 			float: none;
 		}
 
-		@media #{$small-only} {
-			
-			&:nth-of-type( 2n + 2 ) {
+		margin-bottom: 1em;
 
-				border-right: none;
-				
+		a:hover {
+
+			.on-air-personality-title {
+
+				.on-air-personality-title-overlay {
+
+					&:after {
+
+						width: 100%;
+						left: 0;
+
+					}
+
+				}
+
 			}
 
 		}
-		
-		&, .image {
 
-			min-height: $cell-height * 2;
+		&, .image-container {
+
+			height: $cell-height;
 
 			@media #{$medium-up} {
-				min-height: $cell-height * 3;
+				height: $cell-height * 1.5;
 			}
-			
-		}
-
-		.on-air-personality-color-overlay, .image {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: transparent;
-			transition: all 300ms;
-		}
-		
-		.image {
-
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center center;
-			background-color: $tertiary-color;
 
 		}
 
-		a {
-			&:hover {
+		.image-container {
 
-				.image {
+			position: relative;
 
-					transform: scale( 1.2 );
+			.image {
 
-				}
-
-				.on-air-personality-color-overlay {
-					// Maybe not? Maybe Transparent works better
-					@include background-opacity( $secondary-color, 0.5 );
-				}
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: transparent;
+				transition: all 300ms;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center center;
+				background-color: $tertiary-color;
 
 			}
+
 		}
 
 		.on-air-personality-title {
 
 			position: absolute;
-			top: 0;
-			left: 0;
+			bottom: 10%;
 			padding: 0.5em 0 0.5em 1em;
-			width: 100%;
 
 			font-weight: 700;
-			
+
 			.on-air-personality-title-overlay {
+
 				@include background-opacity( $dark-gray, 0.75 );
 				position: absolute;
 				top: 0;
 				left: 0;
 				bottom: 0;
 				right: 0;
+				
+				&:after {
+
+					content: '';
+					position: absolute;
+					width: 0;
+					height: 3px;
+					display: block;
+					margin-top: 5px;
+					right: 0;
+					bottom: 0;
+					background: $secondary-color;
+					transition: width .2s ease;
+					-webkit-transition: width .2s ease;
+					
+				}
+
 			}
 
 			h1, h2, h3, h4, h5, h6 {
+
 				color: #fff;
 				font-weight: normal;
 				margin-bottom: 0;
@@ -113,27 +115,7 @@ $cell-height: 150px;
 		}
 
 	}
-	
-	&:first-of-type {
 
-		@media #{$small-only} {
-
-			.on-air-personality:first-of-type {
-				border-top: 0;
-			}
-
-		}
-
-		@media #{$medium-up} {
-
-			.on-air-personality {
-				border-top: none;
-			}
-
-		}
-
-	}
-	
 	.view-all-container {
 		margin-top: 30px;
 	}
