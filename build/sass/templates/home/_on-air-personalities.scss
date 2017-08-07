@@ -75,7 +75,7 @@ $cell-height: 150px;
 
 			.on-air-personality-title-overlay {
 
-				@include background-opacity( $dark-gray, 0.75 );
+				@include background-opacity( #000, 0.60 );
 				position: absolute;
 				top: 0;
 				left: 0;
