@@ -12,10 +12,6 @@ $cell-height: 175px;
 				display: none;
 			}
 
-			.radio-show-meta, .radio-show-title, .stream-control {
-				display: inline-block;
-			}
-
 		}
 
 	}
@@ -105,16 +101,7 @@ $cell-height: 175px;
 
 			top: 0;
 			right: 0;
-			padding: 0.25em 0 0 0.25em;
-
-			@media #{$medium-up} {
-				display: none;
-				bottom: 0;
-				left: 0;
-				right: auto;
-				top: auto;
-				padding: 0 0 0 0.25em;
-			}
+			padding: 1.5em 2em 0 .25em;
 
 			transition: all 300ms;
 			position: absolute;
@@ -143,21 +130,11 @@ $cell-height: 175px;
 
 		.radio-show-title {
 
-			bottom: 0;
-			right: 0;
+			bottom: 10%;
+			left: 0;
 			padding: 0.5em 0.5em 0.75em 1em;
-			text-align: right;
-			width: 100%;
-
-			@media #{$medium-up} {
-				display: none;
-				top: 0;
-				left: 0;
-				bottom: auto;
-				right: auto;
-				padding: 0.5em 1em 0.75em 0.5em;
-				text-align: left;
-			}
+			text-align: left;
+			width: 85%;
 
 			transition: all 300ms;
 			position: absolute;
@@ -170,10 +147,10 @@ $cell-height: 175px;
 
 				@include background-opacity( #000, 0.6 );
 				position: absolute;
-				top: 0;
-				left: 0;
 				bottom: 0;
-				right: 0;
+				left: 0;
+				top: 0;
+				right: -10%;
 
 				&:after {
 
@@ -204,9 +181,14 @@ $cell-height: 175px;
 			margin: 0;
 			z-index: 9999;
 			position: absolute;
-			right: 0.75em;
-			top: 0.75em;
-			display: none;
+			
+			right: 10%;
+			bottom: 26%;
+			
+			@media #{$medium-up} {
+				right: 3em;
+				bottom: 3.25em;
+			}
 			
 			.fa {
 				color: $quaternary-color;
