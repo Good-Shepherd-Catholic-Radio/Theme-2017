@@ -1,17 +1,26 @@
 .top-bar.extra {
 
 	background: #fff;
+	
+	padding: 0;
+	
+	@media #{$small-only} {
+		
+		padding-bottom: 3rem;
+		
+	}
 
 	@media #{$medium-up} {
+		
+		padding: 0 2.25rem;
 
-		.vertical-align {
+	}
+	
+	// Phablet Landscape and Portrait iPad Fix
+	@media #{$phablet-landscape}, #{$ipad-portrait} {
 
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
-
-		}
-
+		padding: $topbar-padding;
+		
 	}
 
 	a {
@@ -66,9 +75,18 @@
 	}
 
 	.social {
+		
 		a {
 			padding-right: 0;
 		}
+		
+		// Phablet Landscape and Portrait iPad Fix
+		@media #{$phablet-landscape}, #{$ipad-portrait} {
+
+			padding-right: 0;
+
+		}
+		
 	}
 
 	.phone {
