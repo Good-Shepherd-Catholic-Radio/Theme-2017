@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	<div class="footer-affiliates">
 	
-		<div class="row">
+		<div class="row" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">
 
 			<?php dynamic_sidebar( 'footer-affiliates' ); ?>
 

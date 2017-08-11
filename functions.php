@@ -156,8 +156,8 @@ add_action( 'widgets_init', function () {
     	'name' => 'Footer Affiliates',
     	'id' => 'footer-affiliates',
     	'description' => 'Displays on Beneathe the other Footer Widget Areas.',
-		'before_widget' =>  '<aside id="%1$s" class="widget small-12 medium-4 columns text-center %2$s">',
-		'after_widget'  =>  '</aside>',
+		'before_widget' =>  '<aside id="%1$s" class="widget small-12 medium-4 columns text-center %2$s" data-equalizer-watch><div class="vertical-align">',
+		'after_widget'  =>  '</div></aside>',
     ) );
     
 } );

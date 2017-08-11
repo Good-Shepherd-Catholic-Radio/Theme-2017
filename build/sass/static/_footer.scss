@@ -95,5 +95,17 @@ footer {
 		@include light-or-dark-text( #fff );
 
 	}
+	
+	.footer-affiliates {
+		
+		.vertical-align {
+
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+
+		}
+		
+	}
 
 }
