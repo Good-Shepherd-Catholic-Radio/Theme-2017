@@ -271,7 +271,7 @@
 
 				.mute-icon {
 
-					color: $medium-gray;
+					color: desaturate( lighten( $primary-color, 25% ), 30% );
 
 				}
 
@@ -312,7 +312,7 @@
 
 				.volume-max-icon {
 
-					color: $medium-gray;
+					color: desaturate( lighten( $primary-color, 25% ), 30% );
 
 				}
 
