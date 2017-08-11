@@ -296,7 +296,7 @@
 				.volume-bar-container {
 
 					.jp-volume-bar {
-						background-color: $medium-gray;
+						background-color: desaturate( lighten( $primary-color, 25% ), 30% );
 						height: 0.65em;
 					}
 
