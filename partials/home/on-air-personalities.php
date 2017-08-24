@@ -42,7 +42,7 @@ $medium_class = 'medium-3';
 	
 	<div class="row expanded small-collapse">
 		<div class="small-12 columns">
-			<div class="row expanded small-collapse">
+			<div class="row expanded small-uncollapse">
 	
 				<?php if ( $on_air_personalities->have_posts() ) : ?>
 

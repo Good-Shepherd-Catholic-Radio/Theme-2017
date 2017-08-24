@@ -11,8 +11,16 @@ $cell-height: 125px;
 		&:last-child:not( :first-child ) {
 			float: none;
 		}
-
-		margin-bottom: 1em;
+		
+		$small-padding: rem-calc( map-get( $grid-column-gutter, 'small' ) ) / 4;
+		
+		padding-left: $small-padding;
+		padding-right: $small-padding;
+		margin-bottom: $small-padding;
+		
+		a > .row {
+			position: relative;
+		}
 
 		a:hover {
 
@@ -68,14 +76,14 @@ $cell-height: 125px;
 		.on-air-personality-title {
 
 			position: absolute;
-			bottom: 10%;
+			bottom: 1.5em;
 			padding: 0.5em 0 0.5em 1em;
 
 			font-weight: 700;
 
 			.on-air-personality-title-overlay {
 
-				@include background-opacity( #000, 0.60 );
+				background-image: linear-gradient( to right, rgba( 0, 0, 0, 0.60 ), rgba( 0, 0, 0, 0.60 ), rgba( 0, 0, 0, 0.60 ), transparent 90% );
 				position: absolute;
 				top: 0;
 				left: 0;

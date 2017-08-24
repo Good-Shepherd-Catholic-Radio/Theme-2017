@@ -36,7 +36,7 @@ else {
 				
 			</div>
 			
-			<div class="small-8 small-push-1 columns on-air-personality-title">
+			<div class="small-12 columns on-air-personality-title">
 				<div class="on-air-personality-title-overlay"></div>
 				<h5>
 					<?php the_title(); ?>
