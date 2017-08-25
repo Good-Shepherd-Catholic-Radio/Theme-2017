@@ -467,20 +467,20 @@
 
 				li {
 
-					background-color: $primary-color;
+					background-color: $quinary-color;
 					text-transform: none;
 
 					a {
-						@include light-or-dark-text( $primary-color );
+						@include light-or-dark-text( $quinary-color );
 					}
 
 				}
 
 				li:hover {
-					background-color: lighten( $primary-color, 20% ) !important;
+					background-color: lighten( $quinary-color, 20% ) !important;
 
 					> a {
-						@include light-or-dark-text( lighten( $primary-color, 20% ) );
+						@include light-or-dark-text( lighten( $quinary-color, 20% ) );
 					}
 
 				}
@@ -489,10 +489,10 @@
 
 			> li li.current-menu-item, > li li.current-menu-ancestor {
 
-				background-color: darken( lighten( $primary-color, 20% ), 10% );
+				background-color: darken( lighten( $quinary-color, 20% ), 10% );
 
 				> a {
-					@include light-or-dark-text( darken( lighten( $primary-color, 20% ), 10% ) );
+					@include light-or-dark-text( darken( lighten( $quinary-color, 20% ), 10% ) );
 				}
 
 			}
