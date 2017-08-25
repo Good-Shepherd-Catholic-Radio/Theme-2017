@@ -1,7 +1,11 @@
 .prayer-requests {
-
-	h1, h2, h3, h4, h5, h6 {
-		text-shadow: none;
+	
+	& > .columns:nth-of-type( 2 ) {
+		
+		h1, h2, h3, h4, h5, h6 {
+			text-shadow: none;
+		}
+		
 	}
 	
 	@each $name, $color in $foundation-palette {
