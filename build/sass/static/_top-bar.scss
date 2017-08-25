@@ -271,7 +271,7 @@
 
 				.mute-icon {
 
-					color: desaturate( lighten( $primary-color, 25% ), 30% );
+					color: $primary-color;
 
 				}
 
@@ -296,7 +296,7 @@
 				.volume-bar-container {
 
 					.jp-volume-bar {
-						background-color: desaturate( lighten( $primary-color, 25% ), 30% );
+						background-color: $primary-color;
 						height: 0.65em;
 					}
 
@@ -312,7 +312,7 @@
 
 				.volume-max-icon {
 
-					color: desaturate( lighten( $primary-color, 25% ), 30% );
+					color: $primary-color;
 
 				}
 
