@@ -42,9 +42,9 @@ include locate_template( 'partials/home/on-air-personalities.php' );
 
 include locate_template( 'partials/home/events.php' );
 
-include locate_template( 'partials/home/prayer-requests.php' );
-
 include locate_template( 'partials/home/underwriters.php' );
+
+include locate_template( 'partials/home/prayer-requests.php' );
 
 include locate_template( 'partials/home/blog.php' );
 

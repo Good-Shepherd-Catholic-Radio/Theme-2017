@@ -90,17 +90,17 @@ function gscr_add_home_metaboxes() {
         );
 		
 		add_meta_box(
-            'gscr-home-prayer-requests',
-            _x( 'Prayer Requests Section', 'Home Prayer Requests Metabox Title', 'good-shepherd-catholic-radio' ),
-            'gscr_home_prayer_requests_metabox_content',
+            'gscr-home-underwriters',
+            _x( 'Underwriters Section', 'Home Underwriters Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_underwriters_metabox_content',
             'page',
             'normal'
         );
 		
 		add_meta_box(
-            'gscr-home-underwriters',
-            _x( 'Underwriters Section', 'Home Underwriters Metabox Title', 'good-shepherd-catholic-radio' ),
-            'gscr_home_underwriters_metabox_content',
+            'gscr-home-prayer-requests',
+            _x( 'Prayer Requests Section', 'Home Prayer Requests Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_prayer_requests_metabox_content',
             'page',
             'normal'
         );
