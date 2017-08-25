@@ -1,46 +1,27 @@
 .prayer-requests {
 
-	background: $primary-color;
-
-	@include light-or-dark-text( $primary-color );
-
 	h1, h2, h3, h4, h5, h6 {
-		
-		@include light-or-dark-text( $primary-color );
 		text-shadow: none;
 	}
 	
-	a:not(.button) {
+	@each $name, $color in $foundation-palette {
+		
+		&.background-#{$name} {
+	
+			a:not(.button) {
 
-		color: $medium-gray;
-		text-decoration: underline;
+				color: $medium-gray;
+				text-decoration: underline;
 
-		&:hover {
-			color: scale-color( $medium-gray, $lightness: -15% );
-			text-decoration: none;
+				&:hover {
+					color: scale-color( $medium-gray, $lightness: -15% );
+					text-decoration: none;
+				}
+
+			}
+			
 		}
-
-	}
-
-	.gform_title {
-		@include light-or-dark-text( $primary-color );
-	}
-
-	.gfield_label, label, .gfield_description, .ginput_counter {
-		@include light-or-dark-text( $primary-color );
-	}
-
-	input[type="submit"] {
-
-		display: block !important;
-		width: 100% !important;
-
-		@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
-
-		border-radius: 0.25em;
-
-		@include foundation-button-fix( $secondary-color );
-
+		
 	}
 	
 	@media #{$medium-up} {

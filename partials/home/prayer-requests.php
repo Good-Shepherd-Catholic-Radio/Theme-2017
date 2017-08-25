@@ -9,9 +9,13 @@
 
 defined( 'ABSPATH' ) || die();
 
+$background_color = rbm_get_field( 'gscr_home_prayer_request_background' );
+
+$background_color = ( ! $background_color ) ? '' : ' background-' . $background_color;
+
 ?>
 
-<div class="prayer-requests row expanded">
+<div class="prayer-requests row expanded<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">
@@ -35,8 +39,12 @@ defined( 'ABSPATH' ) || die();
 					</div>
 
 					<div class="medium-6 columns text-center button-container">
+						
+						<?php $button_color = rbm_get_field( 'gscr_home_prayer_request_button_color' );
+						
+						$button_color = ( ! $button_color ) ? 'secondary' : $button_color; ?>
 
-						<a data-open="gscr_prayer_request_modal" class="secondary button">
+						<a data-open="gscr_prayer_request_modal" class="<?php echo $button_color; ?> button">
 							<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
 						</a>
 

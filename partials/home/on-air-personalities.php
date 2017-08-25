@@ -26,9 +26,15 @@ $count = count( $on_air_personalities->posts );
 
 $medium_class = 'medium-3';
 
+$background_color = rbm_get_field( 'gscr_home_on_air_personalities_background' );
+$background_color = ( ! $background_color ) ? '' : ' background-' . $background_color;
+
+$button_color = rbm_get_field( 'gscr_home_on_air_personalities_button_color' );						
+$button_color = ( ! $button_color ) ? 'secondary' : $button_color;
+
 ?>
 
-<div class="on-air-personalities-section row expanded">
+<div class="on-air-personalities-section row expanded<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">
@@ -67,7 +73,7 @@ $medium_class = 'medium-3';
 	<div class="small-12 columns view-all-container">
 		<div class="row">
 			<div class="small-12 columns text-center">
-				<a href="/on-air-personalities/" class="button secondary">
+				<a href="/on-air-personalities/" class="button <?php echo $button_color; ?>">
 					<?php _e( 'View All On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
 				</a>
 			</div>

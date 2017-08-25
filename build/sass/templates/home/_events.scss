@@ -6,6 +6,26 @@
 	.form, .content {
 		position: relative;
 	}
+	
+	@each $name, $color in $foundation-palette {
+		
+		&.background-#{$name} {
+	
+			a:not(.button) {
+
+				color: $medium-gray;
+				text-decoration: underline;
+
+				&:hover {
+					color: scale-color( $medium-gray, $lightness: -15% );
+					text-decoration: none;
+				}
+
+			}
+			
+		}
+		
+	}
 
 	.tribe_events {
 		

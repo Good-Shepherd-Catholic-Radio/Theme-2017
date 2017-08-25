@@ -12,6 +12,12 @@ defined( 'ABSPATH' ) || die();
 // Just in case there are any Hooks for Events
 locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
 
+$background_color = rbm_get_field( 'gscr_home_events_background' );
+$background_color = ( ! $background_color ) ? '' : ' background-' . $background_color;
+
+$button_color = rbm_get_field( 'gscr_home_events_button_color' );						
+$button_color = ( ! $button_color ) ? 'secondary' : $button_color;
+
 global $post;
 
 $events = new WP_Query( array(
@@ -53,7 +59,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 ?>
 
-<div class="upcoming-events row expanded">
+<div class="upcoming-events row expanded<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		
@@ -66,7 +72,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 						<h2>Events/PSA Form will go here</h2>
 
-						<a data-open="gscr_events_modal" class="secondary button">
+						<a data-open="gscr_events_modal" class="<?php echo $button_color; ?> button">
 							<?php _e( 'Submit an Event/PSA', 'good-shepherd-catholic-radio' ); ?>
 						</a>
 
@@ -98,7 +104,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 							<?php while ( $events->have_posts() ) : $events->the_post(); ?>
 
-								<?php get_template_part( 'partials/loop/loop', 'tribe_events_home' ); ?>
+								<?php include locate_template( 'partials/loop/loop-tribe_events_home.php' ); ?>
 
 							<?php endwhile; ?>
 

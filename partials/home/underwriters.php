@@ -22,9 +22,15 @@ $underwriters = new WP_Query( array(
 $index = 0;
 $per_row = 4;
 
+$background_color = rbm_get_field( 'gscr_home_underwriters_background' );
+$background_color = ( ! $background_color ) ? '' : ' background-' . $background_color;
+
+$button_color = rbm_get_field( 'gscr_home_underwriters_button_color' );						
+$button_color = ( ! $button_color ) ? 'secondary' : $button_color;
+
 ?>
 
-<div class="underwriters-section expanded row">
+<div class="underwriters-section expanded row<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">
@@ -88,7 +94,7 @@ $per_row = 4;
 	<div class="small-12 columns view-all-container">
 		<div class="row">
 			<div class="small-12 columns text-center">
-				<a href="/underwriters/" class="button secondary">
+				<a href="/underwriters/" class="button <?php echo $button_color; ?>">
 					<?php _e( 'View All Underwriters', 'good-shepherd-catholic-radio' ); ?>
 				</a>
 			</div>

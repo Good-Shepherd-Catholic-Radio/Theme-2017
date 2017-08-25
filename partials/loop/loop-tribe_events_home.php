@@ -70,7 +70,7 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 						<div class="small-12 medium-3 columns">
 
-							<div class="button secondary alignright">
+							<div class="button <?php echo $button_color; ?> alignright">
 								<?php _e( 'Learn More', 'good-shepherd-catholic-radio' ); ?>
 							</div>
 

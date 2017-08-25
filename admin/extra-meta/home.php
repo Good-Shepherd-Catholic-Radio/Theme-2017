@@ -66,14 +66,6 @@ function gscr_add_home_metaboxes() {
 		$_REQUEST['post'] == get_option( 'page_on_front' ) ) {
 		
 		add_meta_box(
-            'gscr-home-events',
-            _x( 'Upcoming Events Section', 'Home Events Metabox Title', 'good-shepherd-catholic-radio' ),
-            'gscr_home_events_metabox_content',
-            'page',
-            'normal'
-        );
-		
-		add_meta_box(
             'gscr-home-donate-listen',
             _x( 'Donate/Listen Section', 'Home Donate/Listen Metabox Title', 'good-shepherd-catholic-radio' ),
             'gscr_home_donate_listen_metabox_content',
@@ -82,9 +74,33 @@ function gscr_add_home_metaboxes() {
         );
 		
 		add_meta_box(
+            'gscr-home-on-air-personalities',
+            _x( 'On-Air Personalities Section', 'Home On-Air Personalities Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_on_air_personalities_metabox_content',
+            'page',
+            'normal'
+        );
+		
+		add_meta_box(
+            'gscr-home-events',
+            _x( 'Upcoming Events Section', 'Home Events Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_events_metabox_content',
+            'page',
+            'normal'
+        );
+		
+		add_meta_box(
             'gscr-home-prayer-requests',
             _x( 'Prayer Requests Section', 'Home Prayer Requests Metabox Title', 'good-shepherd-catholic-radio' ),
             'gscr_home_prayer_requests_metabox_content',
+            'page',
+            'normal'
+        );
+		
+		add_meta_box(
+            'gscr-home-underwriters',
+            _x( 'Underwriters Section', 'Home Underwriters Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_underwriters_metabox_content',
             'page',
             'normal'
         );
@@ -101,7 +117,124 @@ function gscr_add_home_metaboxes() {
  */
 function gscr_home_events_metabox_content() {
     
+    rbm_do_field_select(
+		'gscr_home_events_background',
+		_x( 'Events Background Color', 'Home Events Background Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'options' => array(
+				'' => __( 'White', 'good-shepherd-catholic-radio' ),
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+	
+	rbm_do_field_select(
+		'gscr_home_events_button_color',
+		_x( 'Events Button Color', 'Home Events Button Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'description' => __( 'This changes the color of the buttons in this section', 'good-shepherd-catholic-radio' ),
+			'default' => 'secondary',
+			'options' => array(
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
     
+}
+
+/**
+ * Put fields in the On-Air Personalities Metabox
+ * 
+ * @since       1.0.0
+ * @return      void
+ */
+function gscr_home_on_air_personalities_metabox_content() {
+    
+    rbm_do_field_select(
+		'gscr_home_on_air_personalities_background',
+		_x( 'On-Air Personalities Background Color', 'Home On-Air Personalities Background Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'options' => array(
+				'' => __( 'White', 'good-shepherd-catholic-radio' ),
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+	
+	rbm_do_field_select(
+		'gscr_home_on_air_personalities_button_color',
+		_x( 'On-Air Personalities Button Color', 'Home On-Air Personalities Button Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'description' => __( 'This changes the color of the buttons in this section', 'good-shepherd-catholic-radio' ),
+			'default' => 'secondary',
+			'options' => array(
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+    
+}
+
+/**
+ * Put fields in the Underwriters Metabox
+ * 
+ * @since       1.0.0
+ * @return      void
+ */
+function gscr_home_underwriters_metabox_content() {
+    
+    rbm_do_field_select(
+		'gscr_home_underwriters_background',
+		_x( 'Underwriters Background Color', 'Home Underwriters Background Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'options' => array(
+				'' => __( 'White', 'good-shepherd-catholic-radio' ),
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+	
+	rbm_do_field_select(
+		'gscr_home_underwriters_button_color',
+		_x( 'Underwriters Button Color', 'Home Underwriters Button Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'description' => __( 'This changes the color of the buttons in this section', 'good-shepherd-catholic-radio' ),
+			'default' => 'secondary',
+			'options' => array(
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
     
 }
 
@@ -194,6 +327,40 @@ function gscr_home_prayer_requests_metabox_content() {
 		_x( 'Prayer Request Content', 'Home Prayer Request Text Label', 'good-shepherd-catholic-radio' ),
 		false,
 		array(
+		)
+	);
+	
+	rbm_do_field_select(
+		'gscr_home_prayer_request_background',
+		_x( 'Prayer Requests Background Color', 'Home Prayer Requests Background Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'default' => 'primary',
+			'options' => array(
+				'' => __( 'White', 'good-shepherd-catholic-radio' ),
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+	
+	rbm_do_field_select(
+		'gscr_home_prayer_request_button_color',
+		_x( 'Prayer Requests Button Color', 'Home Prayer Requests Button Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'description' => __( 'This changes the color of the button on the right-hand side of the section', 'good-shepherd-catholic-radio' ),
+			'default' => 'secondary',
+			'options' => array(
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
 		)
 	);
     
