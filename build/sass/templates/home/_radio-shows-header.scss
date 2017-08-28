@@ -130,22 +130,23 @@ $cell-height: 175px;
 
 		.radio-show-title {
 
-			bottom: 10%;
+			bottom: 0;
 			left: 0;
 			padding: 0.5em 0.5em 0.75em 1em;
 			text-align: left;
-			width: 85%;
+			width: 100%;
 
 			transition: all 300ms;
 			position: absolute;
 
 			font-weight: 700;
 
-			color: #fff;
+			color: #000;
 
 			.radio-show-title-color-overlay {
 
-				@include background-opacity( #000, 0.6 );
+				//background-color: #E5E5E5;
+				background-image: linear-gradient( to right, rgba( 229, 229, 229, 0.60 ), rgba( 229, 229, 229, 0.60 ), rgba( 229, 229, 229, 0.60 ), transparent 90% );
 				position: absolute;
 				bottom: 0;
 				left: 0;

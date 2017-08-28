@@ -80,7 +80,7 @@ $cell-height: 250px;
 			font-weight: 700;
 			
 			.blog-title-color-overlay {
-				@include background-opacity( $dark-gray, 0.75 );
+				@include background-opacity( #E5E5E5, 0.60 );
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -89,7 +89,7 @@ $cell-height: 250px;
 			}
 
 			h1, h2, h3, h4, h5, h6 {
-				color: #fff;
+				color: #000;
 				font-weight: normal;
 				margin-bottom: 0;
 			}
@@ -100,7 +100,7 @@ $cell-height: 250px;
 
 			text-align: left;
 
-			color: #fff;
+			color: #000;
 
 		}
 
