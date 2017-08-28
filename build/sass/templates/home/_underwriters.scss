@@ -5,10 +5,6 @@
 		.row {
 
 			.underwriter {
-
-				border: 1px solid #505050;
-				border-bottom: none;
-				border-left: none;
 				
 				h1, h2, h3, h4, h5, h6 {
 					margin-bottom: 0;
@@ -23,16 +19,10 @@
 				}
 
 				@media #{$small-only} {
-
-					border-left: none;
-					border-right: none;
+					
 					padding-top: 1em;
 					padding-bottom: 1em;
 
-				}
-
-				&:last-of-type {
-					border-right: none;
 				}
 
 				@media #{$medium-up} {
@@ -64,34 +54,7 @@
 					}
 
 					img {
-						filter: grayscale(1);
 						margin: 0 auto;
-					}
-
-					&:hover {
-						img {
-							filter: initial;
-						}
-					}
-
-				}
-
-			}
-
-			&:first-of-type {
-
-				@media #{$small-only} {
-
-					.underwriter:first-of-type {
-						border-top: 0;
-					}
-
-				}
-
-				@media #{$medium-up} {
-
-					.underwriter {
-						border-top: none;
 					}
 
 				}
