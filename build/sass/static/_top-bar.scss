@@ -90,12 +90,7 @@
 
 					svg {
 						path{
-							@if lightness( $primary-color ) < 65% {
-								fill: scale-color( #fff, $lightness: -25% );
-							}
-							else {
-								fill: scale-color( $body-font-color, $lightness: 25% );
-							}
+							fill: $quaternary-color;
 						}
 					}
 
