@@ -25,10 +25,10 @@
 
 	a {
 
-		color: $anchor-color;
+		color: $primary-color;
 
 		&:hover {
-			color: $anchor-color-hover;
+			color: scale-color( $primary-color, $lightness: -10% );
 		}
 
 	}
