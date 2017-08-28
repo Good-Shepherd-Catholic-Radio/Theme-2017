@@ -8,6 +8,7 @@
 
 				border-radius: 0.25em;
 				margin-top: 0.5em;
+				border-color: #E5E5E5;
 
 				&:after {
 
@@ -19,7 +20,7 @@
 					content: "";
 					border-left: 10px solid transparent;
 					border-right: 10px solid transparent;
-					border-bottom: 10px solid $body-background;
+					border-bottom: 10px solid #E5E5E5;
 
 				}
 
