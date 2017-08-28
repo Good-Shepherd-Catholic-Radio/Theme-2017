@@ -157,5 +157,22 @@
 		}
 
 	}
+	
+	.view-all-button {
+		
+		margin-right: 2.375rem;
+		@include -zf-each-breakpoint {
+			$margin: rem-calc( -zf-get-bp-val( $grid-column-gutter, $-zf-size ) );
+			margin-right: $margin + 0.5;
+		}
+		
+		@media #{$small-only} {
+			margin-right: 0;
+		}
+		
+		font-weight: normal;
+		text-transform: none;
+		
+	}
 
 }

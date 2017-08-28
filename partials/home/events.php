@@ -98,7 +98,15 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 					<div class="small-12 columns">
 
-						<h2><?php _e( 'Upcoming Events', 'good-shepherd-catholic-radio' ); ?></h2>
+						<h2>
+							
+							<?php _e( 'Upcoming Events', 'good-shepherd-catholic-radio' ); ?>
+							
+							<a href="<?php echo get_post_type_archive_link( 'tribe_events' ); ?>" class="button <?php echo $button_color; ?> alignright view-all-button">
+								<?php _e( 'View All', 'good-shepherd-catholic-radio' ); ?>
+							</a>
+							
+						</h2>
 
 						<?php if ( $events->have_posts() ) : ?>
 
