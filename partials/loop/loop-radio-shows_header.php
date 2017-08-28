@@ -33,7 +33,7 @@ else {
 
 			<div class="jp-play">
 
-				<span class="fa fa-2x play-icon"></span>
+				<span class="fa fa-3x play-icon"></span>
 
 			</div>
 
