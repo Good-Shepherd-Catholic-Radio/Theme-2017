@@ -27,6 +27,8 @@ defined( 'ABSPATH' ) || die();
 				<?php the_post_thumbnail( 'full', array(
 					'class' => 'aligncenter',
 				) ); ?>
+				
+				<div class="underline"></div>
 
 			</a>
 
@@ -35,6 +37,8 @@ defined( 'ABSPATH' ) || die();
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 
 				<h3><?php the_title(); ?></h3>
+				
+				<div class="underline"></div>
 
 			</a>
 

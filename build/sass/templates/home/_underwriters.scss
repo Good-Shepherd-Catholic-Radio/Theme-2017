@@ -38,6 +38,8 @@
 				}
 
 				a {
+					
+					position: relative;
 
 					&, * {
 						transition: 300ms all;
@@ -55,6 +57,47 @@
 
 					img {
 						margin: 0 auto;
+					}
+					
+					&:hover {
+						
+						.underline {
+
+							&:after {
+
+								width: 100%;
+								left: 0;
+
+							}
+
+						}
+						
+					}
+					
+					.underline {
+						
+						position: relative;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						right: 0;
+						margin-top: 3%;
+						
+						&:after {
+
+							content: '';
+							position: absolute;
+							width: 0;
+							height: 0.5em;
+							display: block;
+							right: 0;
+							bottom: 0;
+							background: $secondary-color;
+							transition: width .2s ease;
+							-webkit-transition: width .2s ease;
+
+						}
+						
 					}
 
 				}
