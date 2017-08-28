@@ -137,7 +137,7 @@
 
 	.radio-stations-header {
 
-		color: $quinary-color;
+		color: $anchor-color;
 
 		min-width: 250px;
 		position: absolute;
@@ -254,7 +254,7 @@
 			.jp-details {
 
 				margin-left: 4%;
-				color: $quinary-color;
+				color: $anchor-color;
 
 				.jp-title {
 					transform: translateY(20%);
@@ -266,7 +266,7 @@
 
 				.mute-icon {
 
-					color: $quinary-color;
+					color: $primary-color;
 
 				}
 
@@ -291,7 +291,7 @@
 				.volume-bar-container {
 
 					.jp-volume-bar {
-						background-color: $quinary-color;
+						background-color: $primary-color;
 						height: 0.65em;
 					}
 
@@ -307,7 +307,7 @@
 
 				.volume-max-icon {
 
-					color: $quinary-color;
+					color: $primary-color;
 
 				}
 
