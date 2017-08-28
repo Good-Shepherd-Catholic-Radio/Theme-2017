@@ -2,11 +2,21 @@
 	
 	@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
 	
-	border-radius: 0.25em;
+	border-radius: 2em;
+	border-width: 0.25em;
+	border-color: $secondary-color;
 	
 	@include foundation-button-fix( $secondary-color );
 	
 	text-decoration: none !important;
 	text-transform: none;
+	
+	&:hover, &:focus {
+				
+		background: $body-background;
+		color: $secondary-color;
+		border-width: 0.25em;
+
+	}
 	
 }

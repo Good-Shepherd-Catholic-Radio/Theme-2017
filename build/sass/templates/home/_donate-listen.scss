@@ -103,13 +103,3 @@ $cell-height: 175px;
 	}
 
 }
-
-.give-btn {
-
-	@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
-
-	border-radius: 0.25em;
-
-	@include foundation-button-fix( $secondary-color );
-
-}
