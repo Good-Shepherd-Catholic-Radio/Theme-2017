@@ -1,0 +1,19 @@
+body.events-category-radio-show {
+	
+	.tribe-bar-geoloc-filter {
+		display: none;
+	}
+	
+	.tribe-bar-date-filter, .tribe-bar-search-filter, .tribe-bar-submit {
+		width: 33.333%;
+	}
+	
+	.tribe-bar-views-option {
+		
+		&.tribe-bar-views-option-map, &.tribe-bar-views-option-photo {
+			display: none !important;
+		}
+		
+	}
+	
+}
