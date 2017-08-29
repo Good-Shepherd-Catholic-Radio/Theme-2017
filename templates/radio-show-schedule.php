@@ -72,7 +72,10 @@ $radio_shows = new WP_Query( array(
 	),
 ) );
 
-$weekdays = gscr_get_weekdays(); ?>
+$weekdays = gscr_get_weekdays();
+$current_date = date( 'w', current_time( 'timestamp' ) );
+
+?>
 
 <div class="row">
 	
@@ -89,7 +92,7 @@ $weekdays = gscr_get_weekdays(); ?>
 		<ul class="tabs hide-for-print" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="radio-show-schedule-tabs">
 
 			<?php foreach ( $weekdays as $index => $weekday ) : ?>
-				<li class="tabs-title<?php echo ( $index == 0 ) ? ' is-active' : ''; ?>">
+				<li class="tabs-title<?php echo ( $index == $current_date ) ? ' is-active' : ''; ?>">
 					<a href="#<?php echo strtolower( $weekday ); ?>"<?php echo ( $index == 0 ) ? ' aria-selected="true"' : ''; ?>>
 						<?php echo $weekday; ?>
 					</a>
