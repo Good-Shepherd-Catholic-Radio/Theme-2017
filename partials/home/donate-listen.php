@@ -37,10 +37,14 @@ defined( 'ABSPATH' ) || die();
 							<h3><?php printf( __( 'Support %s', 'good-shepherd-catholic-radio' ), get_bloginfo( 'name' ) ); ?></h3>
 
 							<?php if ( $give_form = rbm_get_field( 'gscr_home_donate_form' ) ) : ?>
+							
+								<div class="button-container">
 
-								<a data-open="gscr_donate_modal" class="secondary button">
-									<?php _e( 'Donate Now', 'good-shepherd-catholic-radio' ); ?>
-								</a>
+									<a data-open="gscr_donate_modal" class="secondary button">
+										<?php _e( 'Donate Now', 'good-shepherd-catholic-radio' ); ?>
+									</a>
+									
+								</div>
 
 								<div class="reveal" id="gscr_donate_modal" data-reveal>
 
@@ -83,11 +87,15 @@ defined( 'ABSPATH' ) || die();
 
 							<?php echo apply_filters( 'the_content', rbm_get_field( 'gscr_home_listen_text' ) ); ?>
 							
-							<p>
-								<?php echo do_shortcode( '[gscr_button url="https://play.google.com/store/apps/details?id=com.securenetsystems.wjknam&hl=en" color="secondary" new_tab="true"]On Android <span class="fa fa-android"></span>[/gscr_button]' ); ?>
-								<?php echo ' '; ?>
-								<?php echo do_shortcode( '[gscr_button url="https://itunes.apple.com/ro/app/good-shepherd-catholic-radio/id951107141?mt=8&ign-mpt=uo%3D2" color="secondary" new_tab="true"]On iTunes <span class="fa fa-apple"></span>[/gscr_button]' ); ?>
-							</p>
+							<div class="button-container">
+							
+								<p>
+									<?php echo do_shortcode( '[gscr_button url="https://play.google.com/store/apps/details?id=com.securenetsystems.wjknam&hl=en" color="secondary" new_tab="true"]On Android <span class="fa fa-android"></span>[/gscr_button]' ); ?>
+									<?php echo ' '; ?>
+									<?php echo do_shortcode( '[gscr_button url="https://itunes.apple.com/ro/app/good-shepherd-catholic-radio/id951107141?mt=8&ign-mpt=uo%3D2" color="secondary" new_tab="true"]On iTunes <span class="fa fa-apple"></span>[/gscr_button]' ); ?>
+								</p>
+								
+							</div>
 							
 						</div>
 						

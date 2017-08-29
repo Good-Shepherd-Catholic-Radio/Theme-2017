@@ -33,6 +33,10 @@ $cell-height: 175px;
 			padding-bottom: 1em;
 
 		}
+		
+		.button-container {
+			left: 9em;
+		}
 
 	}
 
@@ -41,10 +45,18 @@ $cell-height: 175px;
 		p {
 			margin-bottom: 0;
 		}
+		
+		.button-container {
+			left: 5em;
+		}
 
 		@media #{$small-only} {
 
 			padding-top: 1em;
+			
+			.button-container {
+				top: 6em !important;
+			}
 
 		}
 
@@ -74,6 +86,12 @@ $cell-height: 175px;
 		
 		.content {
 			position: relative;
+		}
+		
+		.button-container {
+			position: absolute;
+			top: 7em;
+			bottom: 0;
 		}
 		
 	}
