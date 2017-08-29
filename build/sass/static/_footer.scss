@@ -49,6 +49,15 @@ footer {
 		&, a {
 			font-weight: bold;
 		}
+		
+		.columns {
+			
+			@media #{$medium-up} {
+				padding-left: 1.5625rem;
+				padding-right: 1.5625rem;
+			}
+			
+		}
 
 	}
 
