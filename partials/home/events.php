@@ -60,7 +60,9 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 ?>
 
 <div class="home-section upcoming-events row expanded<?php echo $background_color; ?>">
-	
+
+	<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+
 	<div class="small-12 columns">
 		
 		<div class="row">
