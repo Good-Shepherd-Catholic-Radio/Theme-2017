@@ -32,8 +32,6 @@ else {
 		
 		<div class="image" style="background-image: url(<?php echo $image_url; ?>);"></div>
 
-		<div class="blog-color-overlay"></div>
-
 		<div class="blog-title">
 			<div class="blog-title-color-overlay"></div>
 			<h5>
