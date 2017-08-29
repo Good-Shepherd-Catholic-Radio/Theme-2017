@@ -30,12 +30,12 @@ $button_color = ( ! $button_color ) ? 'secondary' : $button_color;
 
 ?>
 
-<div class="underwriters-section expanded row<?php echo $background_color; ?>">
+<div class="home-section underwriters-section expanded row<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<h2 class="section-header">
+				<h2>
 					<?php _e( 'Underwriters', 'good-shepherd-catholic-radio' ); ?>
 				</h2>
 			</div>
@@ -90,6 +90,8 @@ $button_color = ( ! $button_color ) ? 'secondary' : $button_color;
 			
 			</div>
 		</div>
+	
+	</div>
 	
 	<div class="small-12 columns view-all-container">
 		<div class="row">

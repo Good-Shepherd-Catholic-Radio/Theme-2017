@@ -15,7 +15,7 @@ $background_color = ( ! $background_color ) ? '' : ' background-' . $background_
 
 ?>
 
-<div class="prayer-requests row expanded<?php echo $background_color; ?>">
+<div class="home-section prayer-requests row expanded<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">

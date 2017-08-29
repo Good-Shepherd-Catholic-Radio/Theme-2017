@@ -34,12 +34,12 @@ $button_color = ( ! $button_color ) ? 'secondary' : $button_color;
 
 ?>
 
-<div class="on-air-personalities-section row expanded<?php echo $background_color; ?>">
+<div class="home-section on-air-personalities-section row expanded<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<h2 class="section-header">
+				<h2>
 					<?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
 				</h2>
 			</div>

@@ -25,12 +25,12 @@ $medium_class = 'medium-' . ( 12 / $count );
 
 ?>
 
-<div class="blog row expanded">
+<div class="home-section blog row expanded">
 
 	<div class="small-12 columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<h2 class="section-header">
+				<h2>
 					<?php _e( 'Our Blog', 'good-shepherd-catholic-radio' ); ?>
 				</h2>
 			</div>
