@@ -11,11 +11,13 @@ defined( 'ABSPATH' ) || die();
 
 $time_format = get_option( 'time_format', 'g:i a' );
 
-$attachment_id = get_post_thumbnail_id( get_the_ID() );
-
-$image_url = '';
+$image_url;
 if ( ! has_post_thumbnail() ) {
 	$image_url = THEME_URL . '/assets/images/default-radio-show.png';
+}
+else {
+	$attachment_id = get_post_thumbnail_id( get_the_ID() );
+	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 }
 
 ?>
@@ -27,15 +29,11 @@ if ( ! has_post_thumbnail() ) {
 	
 	<div class="row expanded">
 		
-		<div class="small-12 medium-3 columns image hide-for-print">
+		<div class="small-12 medium-3 columns image-container hide-for-print">
 			
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				
-				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail( 'medium' ); ?>
-				<?php else : ?>
-					<img src="<?php echo $image_url; ?>" title="<?php the_title(); ?>" />
-				<?php endif; ?>
+				<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
 				
 			</a>
 			
