@@ -316,14 +316,49 @@
 
 						depth = depth + i - 1;
 						output = output + data.split( '</section>' )[0] + '</section>';
-						data = data.substring( data.indexOf( '</section>' ) + 10 ); // 6 characters in </section>
+						data = data.substring( data.indexOf( '</section>' ) + 10 ); // 10 characters in </section>
 
+					}
+					
+					// Get Admin Bar
+					
+					data = data.split('id="wpadminbar"')[1];
+					var adminbar = '';
+					
+					if ( data !== undefined ) {
+						
+						data = data.substring( data.indexOf( '>' ) + 1 );
+						var depth = 1;
+
+						while ( depth > 0 ) {
+
+							var temp = data.split( '</div>' )[0];
+
+							//count occurrences
+							var i = 0,
+								pos = temp.indexOf( "<div" );
+
+							while ( pos != -1 ) {
+								i++;
+								pos = temp.indexOf( "<div", pos + 1 );
+							}
+							//end count
+
+							depth = depth + i - 1;
+							adminbar = adminbar + data.split( '</div>' )[0] + '</div>';
+							data = data.substring( data.indexOf( '</div>' ) + 6 ); // 6 characters in </section>
+
+						}
 					}
 
 					//put the resulting html back into the page!
 
 					//Nothing like good old pure JavaScript...
 					document.getElementById( 'site-content' ).innerHTML = output;
+					
+					if ( adminbar.length > 0 ) {
+						document.getElementById( 'wpadminbar' ).innerHTML = adminbar;
+					}
 
 					//move content area so we cant see it.
 					$( '#site-content' ).css( "position", "absolute" );
