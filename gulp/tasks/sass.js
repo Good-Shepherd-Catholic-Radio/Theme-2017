@@ -27,7 +27,9 @@ gulp.task( 'sass:front', function() {
 		 ) )
 		.pipe( concat( config.front.filename ) )
 		.pipe( autoprefixer( config.compatibility ) )
-		.pipe( $.cssnano() )
+		.pipe( $.cssnano( {
+			zindex: false
+		} ) )
 		.pipe( gulpif( ! isRelease, $.sourcemaps.write( '.' ) ) )
 		.pipe( gulp.dest( config.front.root ) )
 		.pipe( notify( {

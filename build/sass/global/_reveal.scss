@@ -1,7 +1,13 @@
-.reveal {
+.reveal-overlay {
 	
-	outline: none;
-	
-	@import "../give/form";
+	z-index: 999;
+
+	.reveal {
+
+		outline: none;
+
+		@import "../give/form";
+
+	}
 	
 }
