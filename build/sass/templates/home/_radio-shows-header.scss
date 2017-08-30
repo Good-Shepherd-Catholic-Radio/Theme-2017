@@ -184,11 +184,10 @@ $cell-height: 175px;
 			position: absolute;
 			
 			right: 10%;
-			bottom: 26%;
+			bottom: 0.75em;
 			
 			@media #{$medium-up} {
 				right: 2em;
-				bottom: 0.75em;
 			}
 			
 			.fa {
@@ -256,6 +255,16 @@ $cell-height: 175px;
 
 			}
 
+		}
+		
+		.call-in-container {
+			
+			left: 1em;
+			bottom: .75em;
+			position: absolute;
+			z-index: 1;
+			font-weight: 700;
+			
 		}
 
 	}

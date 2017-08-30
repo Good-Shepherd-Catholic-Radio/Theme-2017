@@ -38,6 +38,16 @@ else {
 			</div>
 
 		</div>
+	
+		<?php if ( $phone_number = rbm_get_field( 'radio_show_call_in' ) ) : ?>
+	
+			<div class="call-in-container">
+				
+				<?php _e( 'Call in now!', 'good-shepherd-catholic-radio' ); ?> <?php echo gscr_get_phone_number_link( $phone_number ); ?>
+				
+			</div>
+	
+		<?php endif; ?>
 
 	<?php endif; ?>
 	
@@ -76,6 +86,13 @@ else {
 				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
 				<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
 				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+				
+				<?php if ( $first && rbm_get_field( 'radio_show_call_in' ) ) : ?>
+				
+					<br />
+					&nbsp;
+				
+				<?php endif; ?>
 				
 			</span>
 			
