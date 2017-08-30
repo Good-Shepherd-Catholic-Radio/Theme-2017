@@ -35,5 +35,31 @@
 		}
 
 	}
+	
+	&.has-featured-image {
+	
+		.post-title {
+
+			position: absolute;
+			margin-top: -7em;
+
+			@media #{$medium-up} {
+				margin-top: -4.5em;
+			}
+
+			& + p {
+
+				position: absolute;
+				margin-top: -8.5em;
+
+				@media #{$medium-up} {
+					margin-top: -9em;
+				}
+
+			}
+
+		}
+		
+	}
 
 }

@@ -35,5 +35,20 @@
 		}
 
 	}
+	
+	&.has-featured-image {
+	
+		.page-title {
+
+			position: absolute;
+			margin-top: -6em;
+
+			@media #{$medium-up} {
+				margin-top: -4em;
+			}
+
+		}
+		
+	}
 
 }

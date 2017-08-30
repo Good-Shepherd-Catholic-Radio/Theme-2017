@@ -29,8 +29,20 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php wp_head(); ?>
 
     </head>
+	
+	<?php 
+	
+		$body_class = array( 'off-canvas-wrapper' );
+	
+		if ( has_post_thumbnail() ) {
+			$body_class[] = 'has-featured-image';
+		}
+	
+		$body_class = apply_filters( 'gscr_body_class', $body_class, get_the_ID() );
+	
+	?>
 
-    <body <?php body_class( 'off-canvas-wrapper' ); ?>>
+    <body <?php body_class( $body_class ); ?>>
 
         <div id="wrapper" class = "off-canvass-wrapper-inner" data-off-canvas-wrapper>
 
