@@ -1,0 +1,55 @@
+.single-tribe_events {
+	
+	#site-content {
+		padding: 0;
+	}
+
+	.main-content, .breadcrumbs-container {
+		padding: 30px; // This allows the Hero image to be properly full-width
+	}
+
+	.featured-image-container {
+
+		position: relative;
+		min-height: 300px;
+
+		.image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			background-color: $tertiary-color;
+		}
+
+	}
+
+	&.has-featured-image {
+
+		.tribe-events-single-event-title {
+
+			position: absolute;
+			margin-top: -7em;
+
+			@media #{$medium-up} {
+				margin-top: -7.5em;
+			}
+
+		}
+		
+		.tribe-events-schedule {
+			
+			margin-top: -1em;
+			
+		}
+
+	}
+	
+	.tribe-events-schedule > h2 {
+		font-size: 1.7em;
+	}
+
+}

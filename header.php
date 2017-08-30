@@ -32,13 +32,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 	<?php 
 	
+		// Events Calendar is such garbage
+		wp_reset_postdata();
+	
 		$body_class = array( 'off-canvas-wrapper' );
 	
-		if ( has_post_thumbnail() ) {
+		if ( get_post_type() == 'tribe_events' && 
+			$post->post_parent !== 0 ) {
+			$post_id = $post->post_parent;
+		}
+		else {
+			$post_id = get_the_ID();
+		}
+	
+		if ( has_post_thumbnail() || 
+		   get_post_type() == 'tribe_events' && has_post_thumbnail( $post_id ) ) {
 			$body_class[] = 'has-featured-image';
 		}
 	
-		$body_class = apply_filters( 'gscr_body_class', $body_class, get_the_ID() );
+		$body_class = apply_filters( 'gscr_body_class', $body_class, $post_id );
 	
 	?>
 
@@ -282,11 +294,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <section id="site-content">
 					
-					<?php if ( ! is_front_page() &&
-						 has_post_thumbnail() ) : ?>
+					<?php if ( ! is_front_page() && has_post_thumbnail() || 
+							 get_post_type() == 'tribe_events' && has_post_thumbnail( $post->post_parent ) ) : ?>
 					
 							<?php if ( ( is_single() && get_post_type() == 'post' ) ||
-									 get_post_type() == 'page' ) : ?>
+									 get_post_type() == 'page' || 
+									 get_post_type() == 'tribe_events' ) : ?>
 
 									<div class="row expanded small-collapse featured-image-container">
 

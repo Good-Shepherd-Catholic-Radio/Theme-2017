@@ -11,19 +11,6 @@ add_filter( 'tribe_events_event_schedule_details', function( $output, $post_id )
 
 		<div class="recurringinfo">
 			<div class="event-is-recurring">
-				<span class="tribe-events-divider">|</span>
-
-				<?php if ( ! gscr_is_radio_show( $post_id ) ) : ?>
-					<?php _e( 'Recurring Event', 'tribe-events-calendar-pro' ); ?>
-				<?php else : ?>
-					<?php _e( 'Recurring Radio Show', 'good-shepherd-catholic-radio' ); ?>
-				<?php endif; ?>
-				
-				<?php printf(
-					' <a href="%s">%s</a>',
-					tribe_all_occurences_link( $post_id, false ),
-					__( '(See all)', 'tribe-events-calendar-pro' )
-				); ?>
 			</div>
 		</div>
 
@@ -93,3 +80,23 @@ add_action( 'tribe_events_single_meta_details_section_start', function() {
 	<?php endif;
 	
 } );
+
+/**
+ * Remove auto-added Featured Image from Single Events
+ * 
+ * @param		string  $featured_image HTML
+ * @param		integer $post_id        Post ID
+ * @param		string  $size           Image Size Name
+ *                                            
+ * @since		1.0.0
+ * @return		string  HTML
+ */
+add_filter( 'tribe_event_featured_image', function( $featured_image, $post_id, $size ) {
+	
+	if ( is_single( $post_id ) ) {
+		return '';
+	}
+	
+	return $featured_image;
+	
+}, 10, 3 );

@@ -40,7 +40,7 @@
 
 }
 
-.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], .tribe-events-button {
+.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], #site-content .tribe-events-button, #site-content #tribe-events .tribe-events-button {
 
 	@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
 	
