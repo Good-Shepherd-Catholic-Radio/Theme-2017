@@ -25,6 +25,8 @@ javascript:
       # Paths to your own project code are here
       # All the files in this list and in the js dir are concatenated into script.js
       - "build/js/**/*.js"
+      - "!build/js/vendor/jQuery-Facets/jquery.min.js"
+      - "!build/js/vendor/jQuery-Facets/demo/**/*.js"
       - "!build/js/admin/**/*.js"
       - "!build/js/tinymce/**/*.js"
   admin:
