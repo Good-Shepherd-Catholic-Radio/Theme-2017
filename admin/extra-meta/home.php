@@ -155,6 +155,7 @@ function gscr_home_events_metabox_content() {
         _x( 'Background Image', 'Home Upcomming Events Background Image Label', 'good-shepherd-catholic-radio' ),
         false,
         array(
+			'description' => _x( 'This is also used as the Hero Image on the Calendar page', 'Home Upcoming Events Background Image Description', 'good-shepherd-catholic-radio' ),
             'type' => 'image',
             'button_text' => _x( 'Upload/Choose Image', 'Home Events Image Upload Button Text', 'good-shepherd-catholic-radio' ),
             'button_remove_text' => _x( 'Remove Image', 'Home Events Image Remove Button Text', 'good-shepherd-catholic-radio' ),
