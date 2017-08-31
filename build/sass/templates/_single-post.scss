@@ -1,22 +1,5 @@
 .single-post {
 
-	#site-content {
-		padding: 0;
-	}
-
-	.main-content, .breadcrumbs-container {
-		padding: 30px; // This allows the Hero image to be properly full-width
-	}
-
-	.breadcrumbs-container {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.main-content {
-		padding-top: 0;
-	}
-
 	.featured-image-container {
 
 		position: relative;
@@ -38,25 +21,87 @@
 	
 	&.has-featured-image {
 	
+		#site-content {
+			padding: 0;
+		}
+
+		.main-content {
+			padding: 30px; // This allows the Hero image to be properly full-width
+		}
+
+		.breadcrumbs-container {
+			
+			padding-top: 15px; // This allows the Hero image to be properly full-width
+			padding-bottom: 15px;
+			
+			@media #{$small-only} {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+			
+		}
+
+		.main-content {
+			padding-top: 0;
+		}
+
 		.post-title {
 
 			position: absolute;
-			margin-top: -7em;
+			padding: 0.5em 0 0.5em 1em;
+			width: 100%;
+			margin-top: -8rem;
 
 			@media #{$medium-up} {
-				margin-top: -4.5em;
+				margin-top: -8.6rem;
 			}
 
-			& + p {
+			font-weight: 700;
 
+			.post-title-color-overlay {
+
+				background-image: linear-gradient( to right, rgba( 229, 229, 229, 0.60 ), rgba( 229, 229, 229, 0.60 ), rgba( 229, 229, 229, 0.60 ), transparent 90% );
 				position: absolute;
-				margin-top: -8.5em;
-
-				@media #{$medium-up} {
-					margin-top: -9em;
-				}
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
 
 			}
+
+			.post-title-text {
+				
+				h1, h2, h3, h4, h5, h6 {
+					
+					color: #000;
+					margin-bottom: 0;
+					
+					font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h5', 'font-size' ) );
+					
+					@media #{$medium-up} {
+						font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h5', 'font-size' ) );
+					}
+					
+				}
+				
+				@include grid-row();
+				position: relative;
+				
+				padding-left: 22.5px;
+				padding-right: 22.5px;
+				
+				@media #{$medium-up} {
+				
+					padding-left: 7.5px;
+					padding-right: 7.5px;
+					
+				}
+				
+			}
+
+			text-align: left;
+
+			color: #000;
 
 		}
 		
