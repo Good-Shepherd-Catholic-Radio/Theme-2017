@@ -73,8 +73,12 @@
 		.tribe-events-single-event-title {
 
 			position: absolute;
-			margin-top: -5em;
+			margin-top: -5.15rem;
 			width: 100%;
+			
+			@media #{$medium-up} {
+				margin-top: -4rem;
+			}
 
 			.event-title {
 
