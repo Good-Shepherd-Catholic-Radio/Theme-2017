@@ -1,0 +1,13 @@
+.commentlist {
+	
+	margin-left: 0;
+	
+	&, .children {
+		list-style: none;
+	}
+	
+	footer {
+		background-color: transparent;
+	}
+	
+}
