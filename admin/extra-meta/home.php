@@ -325,14 +325,18 @@ function gscr_home_donate_listen_metabox_content() {
 function gscr_home_prayer_requests_metabox_content() {
     
     $gravity_forms = wp_list_pluck( RGFormsModel::get_forms( null, 'title' ), 'title', 'id' );
-    
-    rbm_do_field_select(
-        'gscr_home_prayer_request_form',
-        _x( 'Prayer Requests Form', 'Home Prayer Requests Form Label', 'good-shepherd-catholic-radio' ),
+	
+	rbm_do_field_media(
+        'gscr_home_prayer_request_left_image',
+        _x( 'Left-side Image', 'Home Prayer Requests Left Side Image Label', 'good-shepherd-catholic-radio' ),
         false,
         array(
-            'description' => __( 'Choose the Gravity Form through which Visitors will submit Prayer Requests.', 'good-shepherd-catholic-radio' ),
-            'options' => $gravity_forms,
+			'description' => _x( 'This will optionally show on the left-hand side', 'Home Prayer Requests Left Side Image Description', 'good-shepherd-catholic-radio' ),
+            'type' => 'image',
+            'button_text' => _x( 'Upload/Choose Image', 'Prayer Requests Image Upload Button Text', 'good-shepherd-catholic-radio' ),
+            'button_remove_text' => _x( 'Remove Image', 'Prayer Requests Image Remove Button Text', 'good-shepherd-catholic-radio' ),
+            'window_title' => _x( 'Choose Image', 'Prayer Requests Image Window Title', 'good-shepherd-catholic-radio' ),
+            'window_button_text' => _x( 'Use Image', 'Prayer Requests Image Select Button Text', 'good-shepherd-catholic-radio' ),
         )
     );
 	
@@ -343,6 +347,16 @@ function gscr_home_prayer_requests_metabox_content() {
 		array(
 		)
 	);
+	
+	rbm_do_field_select(
+        'gscr_home_prayer_request_form',
+        _x( 'Prayer Requests Form', 'Home Prayer Requests Form Label', 'good-shepherd-catholic-radio' ),
+        false,
+        array(
+            'description' => __( 'Choose the Gravity Form through which Visitors will submit Prayer Requests.', 'good-shepherd-catholic-radio' ),
+            'options' => $gravity_forms,
+        )
+    );
 	
 	rbm_do_field_select(
 		'gscr_home_prayer_request_background',
@@ -377,5 +391,18 @@ function gscr_home_prayer_requests_metabox_content() {
             ),
 		)
 	);
+	
+	rbm_do_field_media(
+        'gscr_home_prayer_request_image',
+        _x( 'Background Image', 'Home Prayer Requests Background Image Label', 'good-shepherd-catholic-radio' ),
+        false,
+        array(
+            'type' => 'image',
+            'button_text' => _x( 'Upload/Choose Image', 'Prayer Requests Image Upload Button Text', 'good-shepherd-catholic-radio' ),
+            'button_remove_text' => _x( 'Remove Image', 'Prayer Requests Image Remove Button Text', 'good-shepherd-catholic-radio' ),
+            'window_title' => _x( 'Choose Image', 'Prayer Requests Image Window Title', 'good-shepherd-catholic-radio' ),
+            'window_button_text' => _x( 'Use Image', 'Prayer Requests Image Select Button Text', 'good-shepherd-catholic-radio' ),
+        )
+    );
     
 }

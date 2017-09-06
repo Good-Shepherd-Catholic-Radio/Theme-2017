@@ -1,17 +1,54 @@
 .prayer-requests {
-	
-	& > .columns:nth-of-type( 2 ) {
-		
+
+	.prayer-request-content > .columns:nth-of-type( 2 ) {
+
 		h1, h2, h3, h4, h5, h6 {
 			text-shadow: none;
 		}
-		
+
 	}
-	
+
+	&.has-background-image {
+
+		.prayer-request-content {
+
+			position: relative;
+			overflow: auto;
+			padding-top: 1.5em;
+			padding-bottom: 1.5em;
+
+			@include background-opacity( #fff, 0.4 );
+
+			h1, h2, h3, h4, h5, h6 {
+				color: #fff;
+			}
+
+		}
+
+	}
+
+	position: relative;
+	overflow: hidden;
+
+	.image {
+
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		background-color: transparent;
+		transform: scale( 1.1 );
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+	}
+
 	@each $name, $color in $foundation-palette {
-		
+
 		&.background-#{$name} {
-	
+
 			a:not(.button) {
 
 				color: $medium-gray;
@@ -23,17 +60,25 @@
 				}
 
 			}
-			
+
+		}
+
+	}
+	
+	.button-container {
+		
+		p {
+			font-weight: 700;
 		}
 		
 	}
-	
-	@media #{$medium-up} {
-		
+
+	@media #{$small-only} {
+
 		.button-container {
-			text-align: right;
+			text-align: center;
 		}
-		
+
 	}
 
 }
