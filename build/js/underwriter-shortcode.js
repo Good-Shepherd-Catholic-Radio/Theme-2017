@@ -12,7 +12,8 @@
 
 				$element = $( this );
 				$container = $element.closest( '.underwriter' );
-				$children = $container.find( '*' );
+				
+				$children = $container.find( '> *' );
 
 				if ( ! $container.hasClass( 'opened' ) ) {
 					
@@ -20,7 +21,7 @@
 
 					// measure how tall inside should be by adding together heights of all inside paragraphs
 					$children.each( function() {
-						totalHeight += $( this ).outerHeight();
+						totalHeight += $( this ).outerHeight( true );
 					} );
 
 					$container.addClass( 'closed' );
