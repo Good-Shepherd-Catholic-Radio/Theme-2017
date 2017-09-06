@@ -25,15 +25,35 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
         array( // a few default values
 			'posts_per_page' => -1,
 			'per_row' => 2,
+			'category' => '',
         ),
         $atts,
         'gscr_underwriters'
     );
 	
-	$underwriters = new WP_Query( array(
+	$args = array(
 		'post_type' => 'underwriter',
 		'posts_per_page' => $atts['posts_per_page'],
-	) );
+	);
+	
+	if ( ! empty( $atts['category'] ) ) {
+		
+		$categories = explode( ',', trim( $atts['category'] ) );
+		$categories = array_map( 'trim', $categories );
+		
+		$args['tax_query'] = array(
+			'relationship' => 'AND',
+			array(
+				'taxonomy' => 'underwriter-category',
+				'field' => 'name',
+				'terms' => $categories,
+				'operator' => 'IN'
+			),
+		);
+		
+	}
+	
+	$underwriters = new WP_Query( $args );
 	
 	$index = 0;
 	$medium_class = 'medium-' . ( 12 / $atts['per_row'] );
