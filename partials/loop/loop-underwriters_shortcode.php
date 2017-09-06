@@ -40,5 +40,11 @@ defined( 'ABSPATH' ) || die();
 	<?php endif; ?>
 	
 	<?php the_content(); ?>
+	
+	<div class="read-more-container">
+		<a class="secondary button aligncenter" href="#">
+			<?php _e( 'Read More', 'good-shepherd-catholic-radio' ); ?>
+		</a>
+	</div>
 
 </div>

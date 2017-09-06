@@ -60,37 +60,41 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
     
     ob_start();
 	
-	if ( $underwriters->have_posts() ) : 
+	echo '<div class="underwriters-shortcode">';
 	
-		while ( $underwriters->have_posts() ) : $underwriters->the_post(); ?>
+		if ( $underwriters->have_posts() ) : 
 
-			<?php if ( $index == 0 ) : ?>
+			while ( $underwriters->have_posts() ) : $underwriters->the_post(); ?>
 
-				<div class="row">
+				<?php if ( $index == 0 ) : ?>
 
-			<?php endif;
+					<div class="row">
+
+				<?php endif;
+
+						include locate_template( '/partials/loop/loop-underwriters_shortcode.php' );
+
+				if ( $index == ( $atts['per_row'] - 1 ) ) : ?>
+
+					</div>
+
+				<?php 
+
+					$index = 0;
+
+				else :
+
+					$index++;
+
+				endif;
+
+			endwhile;
+
+			wp_reset_postdata();
+
+		endif;
 	
-					include locate_template( '/partials/loop/loop-underwriters_shortcode.php' );
-					
-			if ( $index == ( $atts['per_row'] - 1 ) ) : ?>
-					
-				</div>
-					
-			<?php 
-	
-				$index = 0;
-	
-			else :
-	
-				$index++;
-	
-			endif;
-	
-		endwhile;
-	
-		wp_reset_postdata();
-	
-	endif;
+	echo '</div>';
     
     $output = ob_get_contents();
     ob_end_clean();
