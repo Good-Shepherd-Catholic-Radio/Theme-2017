@@ -1,22 +1,5 @@
 .post-type-archive-tribe_events {
 
-	#site-content {
-		padding: 0;
-	}
-
-	.main-content, .breadcrumbs-container {
-		padding: 30px; // This allows the Hero image to be properly full-width
-	}
-
-	.breadcrumbs-container {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.main-content {
-		padding-top: 0;
-	}
-
 	.featured-image-container {
 
 		position: relative;
@@ -35,5 +18,86 @@
 		}
 
 	}
-	
+
+	&.has-featured-image {
+
+		#site-content {
+			padding: 0;
+		}
+
+		.main-content, .breadcrumbs-container {
+			padding: 30px; // This allows the Hero image to be properly full-width
+		}
+
+		.breadcrumbs-container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.main-content {
+			padding-top: 0;
+		}
+
+		.page-title {
+
+			position: absolute;
+			padding: 0.5em 0 0.5em 1em;
+			width: 100%;
+			margin-top: -8.35rem;
+
+			@media #{$medium-up} {
+				margin-top: -9rem;
+			}
+
+			font-weight: 700;
+
+			.page-title-color-overlay {
+
+				background-image: linear-gradient( to right, rgba( 229, 229, 229, 0.60 ), rgba( 229, 229, 229, 0.60 ), rgba( 229, 229, 229, 0.60 ), transparent 90% );
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+
+			}
+
+			.page-title-text {
+
+				h1, h2, h3, h4, h5, h6 {
+
+					color: #000;
+					margin-bottom: 0;
+
+					font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h5', 'font-size' ) );
+
+					@media #{$medium-up} {
+						font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h5', 'font-size' ) );
+					}
+
+				}
+
+				@include grid-row();
+				position: relative;
+
+				padding-left: 22.5px;
+				padding-right: 22.5px;
+
+				@media #{$medium-up} {
+
+					padding-left: 7.5px;
+					padding-right: 7.5px;
+
+				}
+
+			}
+
+			text-align: left;
+
+			color: #000;
+
+		}
+
+	}
+
 }

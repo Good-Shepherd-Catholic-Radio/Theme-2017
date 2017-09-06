@@ -24,13 +24,27 @@ wp_reset_postdata();
 
 ?>
 
-<?php if ( $has_featured_image && get_post_type() !== 'tribe_events' ) : ?>
+<?php if ( $has_featured_image ) : ?>
+
+	<?php 
+
+	$title = get_the_title();
+
+	if ( is_archive() && get_post_type() == 'tribe_events' ) {
+		
+		$post_type = get_post_type_object( 'tribe_events' );
+				
+		$title = $post_type->labels->name;
+		
+	}
+
+	?>
 
 	<div class="page-title">
 		<div class="page-title-color-overlay"></div>
 		<div class="page-title-text">
 			<h1>
-				<?php the_title(); ?>
+				<?php echo $title; ?>
 			</h1>
 		</div>
 	</div>
@@ -47,11 +61,22 @@ wp_reset_postdata();
 			'no-sidebar',
 		) ); ?>>
 			
-			<?php if ( ! $has_featured_image && 
-					  get_post_type() !== 'tribe_events' ) : ?>
+			<?php if ( ! $has_featured_image ) : 
+			
+				$title = get_the_title();
+
+				if ( is_archive() && get_post_type() == 'tribe_events' ) {
+
+					$post_type = get_post_type_object( 'tribe_events' );
+
+					$title = $post_type->labels->name;
+
+				}
+			
+				?>	  
 
 				<h1 class="page-title">
-					<?php the_title(); ?>
+					<?php echo $title; ?>
 				</h1>
 			
 			<?php endif; ?>
