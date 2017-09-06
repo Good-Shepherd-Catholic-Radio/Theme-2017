@@ -38,16 +38,19 @@ wp_reset_postdata();
 		
 	}
 
-	?>
+	if ( is_page() && get_post_type() !== 'tribe_events' || 
+	   is_archive() && get_post_type() == 'tribe_events' ) : ?>
 
-	<div class="page-title">
-		<div class="page-title-color-overlay"></div>
-		<div class="page-title-text">
-			<h1>
-				<?php echo $title; ?>
-			</h1>
+		<div class="page-title">
+			<div class="page-title-color-overlay"></div>
+			<div class="page-title-text">
+				<h1>
+					<?php echo $title; ?>
+				</h1>
+			</div>
 		</div>
-	</div>
+
+	<?php endif; ?>
 
 <?php endif; ?>
 

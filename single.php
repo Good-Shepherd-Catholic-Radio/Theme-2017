@@ -22,7 +22,8 @@ global $has_featured_image;
 
 ?>
 
-<?php if ( $has_featured_image && get_post_type() !== 'tribe_events' ) : ?>
+<?php if ( $has_featured_image && 
+		  get_post_type() == 'post' ) : ?>
 
 	<div class="post-title">
 		<div class="post-title-color-overlay"></div>
@@ -44,8 +45,8 @@ global $has_featured_image;
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
 			
-			<?php if ( ! $has_featured_image && 
-					  get_post_type() !== 'tribe_events' ) : ?>
+			<?php if ( ! $has_featured_image && get_post_type() !== 'tribe_events' || 
+					 get_post_type() !== 'post' && get_post_type() !== 'tribe_events' ) : ?>
 
 				<h1 class="post-title">
 					<?php the_title(); ?>
