@@ -16,7 +16,8 @@ defined( 'ABSPATH' ) || die();
 <div <?php post_class( array(
 	'small-12',
 	$medium_class,
-	'columns'
+	'columns',
+	'closed',
 ) ); ?>>
 	
 	<?php if ( has_post_thumbnail() ) : ?>
@@ -41,8 +42,8 @@ defined( 'ABSPATH' ) || die();
 	
 	<?php the_content(); ?>
 	
-	<div class="read-more-container">
-		<a class="secondary button aligncenter" href="#">
+	<div class="read-more-container text-center">
+		<a class="secondary button" href="#">
 			<?php _e( 'Read More', 'good-shepherd-catholic-radio' ); ?>
 		</a>
 	</div>

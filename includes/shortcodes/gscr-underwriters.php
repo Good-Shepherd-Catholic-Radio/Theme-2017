@@ -102,3 +102,14 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
     return html_entity_decode( $output );
     
 }
+
+add_filter( 'good_shepherd_catholic_radio_localize_script', function( $l10n ) {
+	
+	$l10n['underwritersShortcode'] = array(
+		'readMore' => __( 'Read More', 'good-shepherd-catholic-radio' ),
+		'collapse' => __( 'Collapse', 'good-shepherd-catholic-radio' ),
+	);
+	
+	return $l10n;
+	
+} );

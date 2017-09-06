@@ -2,20 +2,26 @@
 
 	.underwriter {
 
-		max-height: 120px;
+		max-height: 150px;
 		position: relative;
 		overflow: hidden;
+		
+		&.closed {
 
-		.read-more-container {
-			position: absolute; 
-			bottom: 0; 
-			left: 0;
-			width: 100%; 
-			text-align: center; 
-			margin: 0; padding: 30px 0; 
+			.read-more-container {
 
-			/* "transparent" only works here because == rgba(0,0,0,0) */
-			background-image: linear-gradient( to bottom, transparent, #fff );
+				position: absolute; 
+				bottom: 0; 
+				left: 0;
+				width: 100%; 
+				text-align: center; 
+				margin: 0;
+				padding: 15px 0; 
+
+				background-image: linear-gradient( to bottom, transparent, $body-background );
+				
+			}
+			
 		}
 
 	}
