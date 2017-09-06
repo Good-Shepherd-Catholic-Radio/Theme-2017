@@ -46,7 +46,7 @@ if ( have_posts() ) : ?>
 
                             <?php the_excerpt(); ?>
 
-                            <a href="<?php the_permalink(); ?>" class="button primary">
+                            <a href="<?php the_permalink(); ?>" class="button primary alignright">
                                 <?php echo _x( 'Read More', 'Read More Text', 'good-shepherd-catholic-radio' ); ?>
                             </a>
 
