@@ -23,7 +23,7 @@
 
 					$container.data( 'max-height', $container.css( 'max-height' ) );
 					
-					console.log( 'set max-height data to ' + $container.css( 'max-height' ) );
+					console.log( 'set max-height data to ' + $container.data( 'max-height' ) );
 					
 					console.log( 'opening to ' + totalHeight );
 
@@ -37,23 +37,24 @@
 					.animate( {
 						'height': totalHeight
 					}, {
-						duration: 1500,
+						duration: 300,
 						easing: 'linear'
 					} );
 
 				}
 				else {
 					
-					console.log( 'Closing to ' + $container.css( 'max-height' ) );
+					console.log( 'Closing to ' + $container.data( 'max-height' ) );
 
 					$container.removeAttr( 'style' ).css( {
 						// Set height to prevent instant jumpdown when max height is removed
+						'height': $container.data( 'max-height' ),
 					} )
 					.removeClass( 'opened' )
 					//.addClass( 'closed' )
 					.animate( {
 						'height': $container.data( 'max-height' ),
-						//'maxHeight': $container.data( 'max-height' )
+						'maxHeight': $container.data( 'max-height' )
 					}, {
 						duration: 1500,
 						easing: 'linear'
