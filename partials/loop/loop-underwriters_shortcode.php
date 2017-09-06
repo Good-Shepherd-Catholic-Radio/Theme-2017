@@ -22,21 +22,37 @@ defined( 'ABSPATH' ) || die();
 	
 	<?php if ( has_post_thumbnail() ) : ?>
 	
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+		<div class="image-container">
 			
-			<?php the_post_thumbnail( 'full', array(
-				'class' => 'aligncenter',
-			) ); ?>
+			<div class="vertical-align">
+	
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+
+					<?php the_post_thumbnail( 'full', array(
+						'class' => 'aligncenter',
+					) ); ?>
+
+				</a>
+				
+			</div>
 			
-		</a>
+		</div>
 			
 	<?php else : ?>
 	
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+		<div class="header-container">
 			
-			<h3><?php the_title(); ?></h3>
+			<div class="vertical-align">
+	
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+
+					<h3><?php the_title(); ?></h3>
+
+				</a>
+				
+			</div>
 			
-		</a>
+		</div>
 	
 	<?php endif; ?>
 	

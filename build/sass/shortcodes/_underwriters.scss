@@ -8,7 +8,7 @@
 
 	.underwriter {
 
-		max-height: 150px;
+		max-height: 200px;
 		position: relative;
 		overflow: hidden;
 		
@@ -17,6 +17,26 @@
 			padding-left: $medium-padding;
 			padding-right: $medium-padding;
 			
+		}
+		
+		.image-container, .header-container {
+		
+			height: 100px;
+			margin-bottom: 1em;
+			
+			.vertical-align {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			
+		}
+		
+		.image-container {
+			img {
+				max-height: 100px;
+				width: auto;
+			}
 		}
 		
 		&.closed {
@@ -29,7 +49,7 @@
 				width: 100%; 
 				text-align: center; 
 				margin: 0;
-				padding: 15px 0; 
+				padding: 7.5px 0; 
 
 				background-image: linear-gradient( to bottom, transparent, $body-background );
 				
