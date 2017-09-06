@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || die();
 
 if ( have_posts() ) : ?>
 
-    <div class="row expanded">
+    <div class="row">
         
         <div class="small-12 <?php echo ( is_active_sidebar( 'sidebar-main' ) ) ? 'medium-9': 'no-sidebar'; ?> columns">
 
@@ -71,7 +71,7 @@ if ( have_posts() ) : ?>
         
     </div>
 
-    <div class="row expanded">
+    <div class="row">
 
         <div class="columns small-12">
         <?php
@@ -87,7 +87,7 @@ if ( have_posts() ) : ?>
 
 <?php else: ?>
 
-    <div class="row expanded">
+    <div class="row">
 
         <div class="columns small-12">
             <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', 'good-shepherd-catholic-radio' ); ?>
