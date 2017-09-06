@@ -1,10 +1,23 @@
 .underwriters-shortcode {
+	
+	$medium-padding: rem-calc( map-get( $grid-column-gutter, 'medium' ) ) * 2;
+	
+	.row {
+		margin-bottom: $medium-padding;
+	}
 
 	.underwriter {
 
 		max-height: 150px;
 		position: relative;
 		overflow: hidden;
+		
+		@media #{$medium-up} {
+		
+			padding-left: $medium-padding;
+			padding-right: $medium-padding;
+			
+		}
 		
 		&.closed {
 
