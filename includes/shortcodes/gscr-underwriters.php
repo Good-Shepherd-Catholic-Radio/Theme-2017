@@ -24,7 +24,7 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
     $atts = shortcode_atts(
         array( // a few default values
 			'posts_per_page' => -1,
-			'per_row' => 2,
+			'per_row' => 3,
 			'category' => '',
         ),
         $atts,
@@ -89,6 +89,8 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
 				endif;
 
 			endwhile;
+	
+			if ( $index !== 0 ) echo '</div>';
 
 			wp_reset_postdata();
 
