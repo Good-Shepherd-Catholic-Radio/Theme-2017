@@ -11,14 +11,20 @@
 
 defined( 'ABSPATH' ) || die();
 
-?>
-
-<div <?php post_class( array(
+$classes = array(
 	'small-12',
 	$medium_class,
 	'columns',
 	'closed',
-) ); ?>>
+);
+
+if ( $count % 2 == 0 ) {
+	$classes[] = 'background-quaternary';
+}
+
+?>
+
+<div <?php post_class( $classes ); ?>>
 	
 	<?php if ( has_post_thumbnail() ) : ?>
 	
