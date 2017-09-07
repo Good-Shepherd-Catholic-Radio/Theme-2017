@@ -12,6 +12,16 @@
 		position: relative;
 		overflow: hidden;
 		
+		h1, h2, h3, h4, h5, h6 {
+			
+			font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h6', 'font-size' ) );
+			
+			@media #{$medium-up} {
+				font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h6', 'font-size' ) );
+			}
+				
+		}
+		
 		@media #{$medium-up} {
 		
 			padding-left: $medium-padding;
@@ -40,6 +50,11 @@
 		}
 		
 		&.closed {
+			
+			h1, h2, h3, h4, h5, h6 {
+				display: inline-block;
+				font-size: $base-font-size;
+			}
 
 			.read-more-container {
 
