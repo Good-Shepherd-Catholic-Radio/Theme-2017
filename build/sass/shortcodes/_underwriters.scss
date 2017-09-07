@@ -8,18 +8,22 @@
 
 	.underwriter {
 
-		max-height: 200px;
+		max-height: 16em;
 		position: relative;
 		overflow: hidden;
 		
-		h1, h2, h3, h4, h5, h6 {
-			
-			font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h6', 'font-size' ) );
-			
-			@media #{$medium-up} {
-				font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h6', 'font-size' ) );
+		& > {
+		
+			h1, h2, h3, h4, h5, h6 {
+
+				font-size: rem-calc( map-get-deep( $header-styles, 'small', 'h6', 'font-size' ) );
+
+				@media #{$medium-up} {
+					font-size: rem-calc( map-get-deep( $header-styles, 'medium', 'h6', 'font-size' ) );
+				}
+
 			}
-				
+			
 		}
 		
 		@media #{$medium-up} {
@@ -31,7 +35,7 @@
 		
 		.image-container, .header-container {
 		
-			height: 100px;
+			height: 6.25em;
 			margin-bottom: 1em;
 			
 			.vertical-align {
@@ -51,9 +55,13 @@
 		
 		&.closed {
 			
-			h1, h2, h3, h4, h5, h6 {
-				display: inline-block;
-				font-size: $base-font-size;
+			& > {
+			
+				h1, h2, h3, h4, h5, h6 {
+					display: inline-block;
+					font-size: $base-font-size;
+				}
+				
 			}
 
 			.read-more-container {
