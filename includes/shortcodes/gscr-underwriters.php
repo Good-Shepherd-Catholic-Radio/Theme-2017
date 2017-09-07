@@ -56,7 +56,6 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
 	$underwriters = new WP_Query( $args );
 	
 	$index = 0;
-	$count = 0; // Used for odd/even coloring
 	$medium_class = 'medium-' . ( 12 / $atts['per_row'] );
     
     ob_start();
@@ -88,8 +87,6 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
 					$index++;
 
 				endif;
-	
-				$count++;
 
 			endwhile;
 	

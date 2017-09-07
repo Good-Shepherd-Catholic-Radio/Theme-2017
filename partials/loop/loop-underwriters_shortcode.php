@@ -18,10 +18,6 @@ $classes = array(
 	'closed',
 );
 
-if ( $count % 2 == 0 ) {
-	$classes[] = 'background-quaternary';
-}
-
 ?>
 
 <div <?php post_class( $classes ); ?>>

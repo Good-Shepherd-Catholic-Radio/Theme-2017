@@ -1,6 +1,14 @@
 .underwriters-shortcode {
 	
 	$medium-padding: rem-calc( map-get( $grid-column-gutter, 'medium' ) ) * 2;
+	
+	@media #{$medium-up} {
+		
+		.row {
+			margin-bottom: $medium-padding / 2;
+		}
+		
+	}
 
 	.underwriter {
 
@@ -17,16 +25,6 @@
 		.header-container a {
 
 			color: $header-color;
-			
-		}
-		
-		&.background-quaternary {
-			
-			.header-container a {
-
-				@include light-or-dark-text( $quaternary-color );
-
-			}
 			
 		}
 		
