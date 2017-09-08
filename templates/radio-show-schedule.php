@@ -118,8 +118,9 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 				while ( $radio_shows->have_posts() ) : $radio_shows->the_post(); ?>
 
 					<?php $start_datetime = get_post_meta( get_the_ID(), '_EventStartDate', true ); ?>
-					<?php $end_datetime = get_post_meta( get_the_ID(), '_EventEndDate', true ); ?>
+					<?php $start_time = date( 'Hi', strtotime( $start_datetime ) ); ?>
 					<?php $start_index = date( 'w', strtotime( $start_datetime ) ); ?>
+					<?php $end_datetime = get_post_meta( get_the_ID(), '_EventEndDate', true ); ?>
 					<?php $end_index = date( 'w', strtotime( $end_datetime ) ); ?>
 
 					<?php if ( $day_index == $start_index &&
@@ -149,16 +150,29 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 
 					endif; ?>
 
-					<?php include locate_template( '/partials/loop/loop-radio_shows_week.php' ); ?>
-
-					<?php if ( $start_index !== $end_index ) : ?>
+					<?php if ( (int) $end_index == ( $day_index + 1 ) ) : ?>
+							
+						<?php include locate_template( '/partials/loop/loop-radio_shows_week.php' ); ?>
 
 						</div>
 
 					<?php 
+			
+						$first = true;
+						$day_index++;
+			
+					elseif ( (int) $start_index !== $day_index ) : ?>
+			
+						</div>
+		
+						<?php
 
 						$first = true;
 						$day_index++;
+			
+					else : 
+			
+						include locate_template( '/partials/loop/loop-radio_shows_week.php' );
 
 					endif; ?>
 
