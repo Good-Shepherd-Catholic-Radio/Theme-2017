@@ -1,0 +1,33 @@
+.gform_wrapper form {
+	
+	.gfield_description {
+		
+		li {
+			list-style: inherit !important;
+		}
+	
+		ul li {
+
+			list-style-type: disc !important;
+
+		}
+		
+		ol {
+			
+			li {
+				list-style-type: decimal !important;
+			}
+			
+			&.alpha {
+				
+				li {
+					list-style-type: lower-alpha !important;
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}
