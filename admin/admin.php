@@ -36,6 +36,7 @@ else {
 require_once __DIR__ . '/tinymce/localization.php';
 require_once __DIR__ . '/tinymce/gscr-button-shortcode.php';
 require_once __DIR__ . '/tinymce/gscr-phone-shortcode.php';
+require_once __DIR__ . '/tinymce/gscr-form-overlay-shortcode.php';
 
 function gscr_rbm_cpts_inactive() { ?>
     
