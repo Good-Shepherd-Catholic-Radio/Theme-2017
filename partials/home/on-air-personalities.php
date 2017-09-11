@@ -14,9 +14,13 @@ locate_template( '/includes/hooks/on-air-personality-hooks.php', true, true );
 
 global $post;
 
+$offset = get_option( 'gscr_on_air_personalities_offset', 0 );
+
 $on_air_personalities = new WP_Query( array(
 	'post_type' => 'on-air-personality',
 	'posts_per_page' => 8,
+	'order' => 'ASC',
+	'offset' => $offset,
 ) );
 
 $index = 0;
@@ -31,6 +35,22 @@ $background_color = ( ! $background_color ) ? '' : ' background-' . $background_
 
 $button_color = rbm_get_field( 'gscr_home_on_air_personalities_button_color' );						
 $button_color = ( ! $button_color ) ? 'secondary' : $button_color;
+
+if ( $on_air_personalities->post_count < 8 ) {
+	
+	$more = new WP_Query( array(
+		'post_type' => 'on-air-personality',
+		'posts_per_page' => 8 - $on_air_personalities->post_count,
+		'order' => 'ASC',
+	) );
+	
+	$on_air_personalities->post_count = 8;
+	
+	$on_air_personalities->posts = array_merge( $on_air_personalities->posts, $more->posts );
+	
+	$on_air_personalities->posts = array_values( $on_air_personalities->posts );
+	
+}
 
 ?>
 

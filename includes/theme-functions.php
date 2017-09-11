@@ -419,3 +419,51 @@ if ( ! function_exists( 'gscr_get_radio_shows' ) ) {
 	}
 	
 }
+
+/**
+ * Increment the Underwriters Offset
+ * 
+ * @since		1.0.0
+ * @return		void
+ */
+function gscr_underwriters_offset_increment() {
+	
+	$offset = get_option( 'gscr_underwriters_offset', 0 );
+	
+	$underwriters = new WP_Query( array(
+		'post_type' => 'underwriter',
+		'posts_per_page' => -1,
+	) );
+	
+	if ( $offset == $underwriters->post_count ) {
+		update_option( 'gscr_underwriters_offset', 1 );
+	}
+	else {
+		update_option( 'gscr_underwriters_offset', $offset + 1 );
+	}
+	
+}
+
+/**
+ * Increment the On-Air Personalities Offset
+ * 
+ * @since		1.0.0
+ * @return		void
+ */
+function gscr_on_air_personalities_offset_increment() {
+	
+	$offset = get_option( 'gscr_on_air_personalities_offset', 0 );
+	
+	$on_air_personalities = new WP_Query( array(
+		'post_type' => 'on-air-personality',
+		'posts_per_page' => -1,
+	) );
+	
+	if ( $offset == $on_air_personalities->post_count ) {
+		update_option( 'gscr_on_air_personalities_offset', 1 );
+	}
+	else {
+		update_option( 'gscr_on_air_personalities_offset', $offset + 1 );
+	}
+	
+}
