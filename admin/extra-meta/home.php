@@ -116,6 +116,15 @@ function gscr_add_home_metaboxes() {
  * @return      void
  */
 function gscr_home_events_metabox_content() {
+	
+	rbm_do_field_text(
+		'gscr_home_events_psa_title',
+		_x( 'Events/PSA Title', 'Home Events/PSA Title', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'default' => __( 'Events/Public Service Announcement Policies and Forms', 'good-shepherd-catholic-radio' ),
+		)
+	);
     
     rbm_do_field_select(
 		'gscr_home_events_background',
