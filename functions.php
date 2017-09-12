@@ -76,9 +76,33 @@ add_action( 'init', function () {
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'siteUrl' => site_url(),
 			'baseName' => basename( dirname( __FILE__ ) ),
-			'eventsCalendar' => array(
-				'communityEvents' => $communityBase,
-			)
+			'ajaxIgnore' => array( 
+				'urlPatterns' => array (
+					// The AJAX Refresh will instantly bail if a URL matches these patterns. It will force a normal load
+					// This should only be used in cases where you obviously wouldn't want it, like downloading a .ZIP or accessing /wp-admin/
+					'#',
+					'/wp-',
+					'.pdf',
+					'.zip',
+					'.rar',
+				),
+				'classes' => array(
+					// The AJAX Refresh will instantly bail if a Class on an element matches one from this list. It will force a normal load
+					// This can be applied onto buttons where for some reason a URL match would be inappropriate
+					'no-ajax',
+				),
+			),
+			'navigationConfirm' => array( // The Navigation Confirmation message is only shown if they are listening to the Radio Stream
+				'urlPatterns' => array( // The AJAX Refresh cannot work for anything matching these URL Patterns, so a regular refresh will occur
+					// The User will be asked if this is OK before proceeding
+					$communityBase
+				),
+				'classes' => array( // The AJAX Refresh cannot work for elements with a Class on this list. It will force a normal load
+					// The User will be asked if this is OK before proceeding
+					'no-ajax-confirm',
+				),
+				'message' => __( 'Are you sure? This will stop playback of the Radio Stream', 'good-shepherd-catholic-radio' ),
+			),
 		) )
 	);
 

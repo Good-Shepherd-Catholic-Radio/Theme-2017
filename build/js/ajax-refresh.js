@@ -10,32 +10,79 @@
 	/**
 	 * Check whether to ignore a URL from AJAX-ifying or not
 	 * 
-	 * @param		{string}  url URL
+	 * @param 		{object}           $element jQuery Object of the <a> tag
 	 *                       
 	 * @since		1.0.0
-	 * @returns 	{boolean} Ignore or not
+	 * @returns 	{boolean}		   Ignore or not
 	 */
-	function checkIgnoreURL( url ) {
+	function checkAjaxIgnore( $element ) {
 
-		var ignoreURLs = [
-			'#',
-			'/wp-',
-			'.pdf',
-			'.zip',
-			'.rar',
-			goodShepherdCatholicRadio.eventsCalendar.communityEvents
-		];
+		var urlPatterns = goodShepherdCatholicRadio.ajaxIgnore.urlPatterns,
+			classes = goodShepherdCatholicRadio.ajaxIgnore.classes;
 
-		for ( var index in ignoreURLs ) {
+		for ( var index in urlPatterns ) {
 
-			if ( url.indexOf( ignoreURLs[index] ) >= 0 ) {
+			if ( $element.attr( 'href' ).indexOf( urlPatterns[ index ] ) >= 0 ) {
 				return false;
 			}
 
 		}
+		
+		for ( var index in classes ) {
+			
+			if ( $element.hasClass( classes[ index ] ) ) {
+				return false;
+			}
+			
+		}
 
 		return true;
 
+	}
+	
+	/**
+	 * In the off-chance that we have URLs that cannot be loaded via AJAX, this function handles that
+	 * The URL Patterns and Classes can be managed in PHP-land via a Filter
+	 * 
+	 * @param 		{object}           $element jQuery Object of the <a> tag
+	 *                                      
+	 * @since		1.0.0
+	 * @returns 	{boolean}|{string} confirmation for a Redirect, otherwise a String which is unused
+	 */
+	function checkConfirmNavigation( $element ) {
+		
+		var urlPatterns = goodShepherdCatholicRadio.navigationConfirm.urlPatterns,
+			classes = goodShepherdCatholicRadio.navigationConfirm.classes,
+			needsConfirm = 'ajax'; // If this is not overriden, then the URL will be allowed to load over Ajax
+		
+		// Check if the URL Pattern signifies that a confirmation message should be shown
+		for ( var index in urlPatterns ) {
+
+			if ( $element.attr( 'href' ).indexOf( urlPatterns[ index ] ) >= 0 ) {
+				needsConfirm = true;
+			}
+
+		}
+
+		// Check if the Element has a Class that we are checking confirmations for
+		for ( var index in classes ) {
+
+			if ( $element.hasClass( classes[ index ] ) ) {
+				needsConfirm = true;
+			}
+
+		}
+		
+		if ( $( '.sticky-container .stream-container .jp-audio-stream' ).hasClass( 'jp-state-playing' ) ) {
+		
+			if ( needsConfirm ) {
+				return confirm( goodShepherdCatholicRadio.navigationConfirm.message );
+			}
+			
+		}
+		
+		return needsConfirm;
+		
 	}
 
 	/**
@@ -49,7 +96,9 @@
 		
 		$( "a" ).click( function( event ) {
 			
-			if ( $( this ).hasClass( 'no-ajax' ) ) return true;
+			var confirmNavigation = checkConfirmNavigation( $( this ) );
+			
+			if ( confirmNavigation !== 'ajax' ) return confirmNavigation;
 			
 			// Sometimes we want the Events Calendar to do its own AJAX rather than our own
 			if ( $( this ).closest( 'body' ).hasClass( 'post-type-archive-tribe_events' ) ) {
@@ -63,7 +112,7 @@
 			
 			// if its not an admin url, or doesnt contain #
 			if ( this.href.indexOf( goodShepherdCatholicRadio.siteUrl ) >= 0 && 
-				checkIgnoreURL( this.href ) == true ) {
+				checkAjaxIgnore( $( this ) ) == true ) {
 
 				// stop default behaviour
 				event.preventDefault();
