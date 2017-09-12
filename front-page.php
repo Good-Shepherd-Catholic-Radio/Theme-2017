@@ -18,6 +18,9 @@ get_header();
 
 the_post();
 
+global $allow_radio_shows;
+$allow_radio_shows = true;
+
 ?>
 
 <div class="row expanded small-collapse">
