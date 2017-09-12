@@ -130,6 +130,54 @@
 		
 	}
 	
+	var loadCount = 0,
+		syncScripts = [];
+	
+	/**
+	 * Look, web browser. I appreciate what you're doing, but we need to load this SYNCRHONOUSLY
+	 * https://xpnsbraindump.wordpress.com/2012/01/26/dynamically-loading-javascript-synchronously/
+	 * 
+	 * @param		{string} url URL to JS File
+	 *                      
+	 * @since		1.0.0
+	 * @returns 	{object} <script>
+	 */
+	function loadJavascript( url ) {
+		
+		var script = document.createElement( 'script' );
+		script.type = 'text/javascript';
+		script.src = url;
+
+		script.onreadystatechange = function() {
+			if ( this.readyState == 'complete' )
+				handler();
+		}
+
+		script.onload = handler;
+
+		if ( typeof script != 'undefined' ) {
+				document.getElementsByTagName( 'head' )[0].appendChild( script );
+		}
+
+		return script;
+		
+	}
+	
+	/**
+	 * We trick the Web Browser to load the Scripts Synchronously using Recursion
+	 * 
+	 * @since		1.0.0
+	 */
+	function handler() {
+		
+		loadCount++;
+
+		// Use recursion here to load the next script when we know our last is successfully loaded
+		if ( loadCount < syncScripts.length )
+			loadJavascript( syncScripts[ loadCount ] );
+		
+	}
+	
 	/**
 	 * Load the Page via AJAX
 	 * 
@@ -234,8 +282,8 @@
 						$( 'body' ).removeClass().addClass( bodyClass );
 					}
 					
-					var cdataRegex = /<script(.*)\n\/\* <!\[CDATA\[[\s\S]*?> \*\/\n<\/script>/igm,
-						eventsCalendarRegex = /(?:<link|<script)(?:.*)(?:href|src)(?:.*)>/igm,
+					var cdataRegex = /<script(.*)\n\/\*\s<!\[CDATA\[[\s\S]*?>\s\*\/\n<\/script>/igm,
+						eventsCalendarRegex = /(?:<link|<script)(?:.*)(?:href|src)?(?:.*)<\/script>/igm,
 						cdata = data.match( cdataRegex ),
 						eventsCalendarScripts = data.match( eventsCalendarRegex );
 					
@@ -250,41 +298,45 @@
 						
 					}
 					
+					syncScripts = [],
+						loadCount = 0;
+					
 					for ( var script in eventsCalendarScripts ) {
 						
 						var strippedHTML = $( 'head' ).html().toString().replace( /\n/igm, '' ),
 							strippedScript = eventsCalendarScripts[ script ].replace( /\n/igm, '' ).replace( /'/g, '"' ).replace( /\s\/>$/igm, '>' ).replace( /\s\s/g, ' ' );
-						
+
 						if ( strippedScript.indexOf( 'jquery.fancybox' ) > -1 ) continue;
-						
+
 						if ( strippedScript.indexOf( 'uix-shortcodes' ) > -1 ) continue;
-						
+
 						if ( strippedScript.indexOf( goodShepherdCatholicRadio.baseName ) > -1 ) continue;
-						
+
 						if ( strippedHTML.indexOf( strippedScript ) > -1 ) continue;
-						
+
 						if ( eventsCalendarScripts[ script ].indexOf( '<script' ) > -1 ) {
-							
+
 							var re = /src='(.*)'/i,
-								src = eventsCalendarScripts[ script ].match( re );
-							
-							if ( typeof src[1] != "undefined" ) {
-							
-								$.getScript( src[1] ).done( function( scriptContents, textStatus ) {
-									$( 'head' ).append( eventsCalendarScripts[ script ] );
-								} );
+								srcRegex = eventsCalendarScripts[ script ].match( re );
+
+							if ( srcRegex && 
+								typeof srcRegex[1] != "undefined" ) {
 								
+								syncScripts.push( srcRegex[1] );
+
 							}
 							else {
 								$( 'head' ).append( eventsCalendarScripts[ script ] );
 							}
-							
+
 						}
 						else {
 							$( 'head' ).append( eventsCalendarScripts[ script ] );
 						}
 						
 					}
+					
+					loadJavascript( syncScripts[ loadCount ] );
 
 					//GOOGLE ANALYTICS TRACKING
 
@@ -454,8 +506,6 @@
 				'autoDimensions' : false,
 				'scrolling' : 'no',
 				'onStart' : function( selectedArray, selectedIndex, selectedOpts ) {
-					
-					console.log( selectedOpts );
 					
 					selectedOpts.content = '<object data="' + selectedArray[ selectedIndex ].href + '" type="application/pdf" height="100%" width="100%"><a href="' + selectedArray[ selectedIndex ].href + '" style="display:block;position:absolute;top:48%;width:100%;text-align:center">' + $( selectedArray[ selectedIndex ] ).html() + '</a></object>';
 				}
