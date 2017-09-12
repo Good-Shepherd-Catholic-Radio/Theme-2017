@@ -67,6 +67,8 @@ add_action( 'init', function () {
 		true
 	);
 	
+	$communityBase = trailingslashit( tribe_get_events_link() . tribe( 'community.main' )->getOption( 'communityRewriteSlug', 'community', true ) );
+	
 	wp_localize_script(
 		'good-shepherd-catholic-radio',
 		'goodShepherdCatholicRadio',
@@ -74,6 +76,9 @@ add_action( 'init', function () {
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'siteUrl' => site_url(),
 			'baseName' => basename( dirname( __FILE__ ) ),
+			'eventsCalendar' => array(
+				'communityEvents' => $communityBase,
+			)
 		) )
 	);
 

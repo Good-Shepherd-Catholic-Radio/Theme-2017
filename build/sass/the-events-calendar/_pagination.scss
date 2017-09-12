@@ -1,0 +1,14 @@
+#site-content {
+
+	.tribe-nav .tribe-pagination {
+
+		.current {
+
+			background: $secondary-color;
+			@include light-or-dark-text( $secondary-color );
+
+		}
+
+	}
+
+}

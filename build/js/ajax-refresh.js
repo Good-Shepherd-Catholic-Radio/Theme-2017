@@ -22,12 +22,13 @@
 			'/wp-',
 			'.pdf',
 			'.zip',
-			'.rar'
+			'.rar',
+			goodShepherdCatholicRadio.eventsCalendar.communityEvents
 		];
 
 		for ( var index in ignoreURLs ) {
 
-			if (url.indexOf( ignoreURLs[index] ) >= 0 ) {
+			if ( url.indexOf( ignoreURLs[index] ) >= 0 ) {
 				return false;
 			}
 
@@ -47,6 +48,8 @@
 	function pageInit( scope ) {
 		
 		$( "a" ).click( function( event ) {
+			
+			if ( $( this ).hasClass( 'no-ajax' ) ) return true;
 			
 			// Sometimes we want the Events Calendar to do its own AJAX rather than our own
 			if ( $( this ).closest( 'body' ).hasClass( 'post-type-archive-tribe_events' ) ) {

@@ -84,6 +84,11 @@ function gscr_custom_breadcrumbs() {
 					}
 					
 				}
+				else if ( get_post_type() == 'wp_router_page' ) {
+					
+					if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+					
+				}
                 else if ( get_post_type() != 'post' ) {
                     $post_type = get_post_type_object( get_post_type() );
                     $slug = $post_type->rewrite;
@@ -106,6 +111,7 @@ function gscr_custom_breadcrumbs() {
             elseif ( ! is_single() && ! is_page() && get_post_type() != 'post' && ! is_404() ) {
 				
 				// Seriously, what the heck Events Calendar. What are you even doing
+				// Edit from the future: Stupid things. It always reports that it is a Page, so it hijacks your Page template
 				if ( $wp_query->query['post_type'] == 'tribe_events' ) {
 					$post_type = 'tribe_events';
 				}

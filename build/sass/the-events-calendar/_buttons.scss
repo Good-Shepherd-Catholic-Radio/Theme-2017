@@ -1,0 +1,34 @@
+#site-content {
+
+	.tribe-button {
+
+		&.tribe-button-activate {
+
+			padding-right: 2.5em;
+			margin-bottom: 0;
+
+			&:after {
+
+				@include light-or-dark-text( $secondary-color );
+
+			}
+
+			&:hover, &:focus {
+
+				&:after {
+
+					color: $secondary-color;
+
+				}
+
+			}
+
+			& + .table-menu {
+				width: 100%;
+			}
+
+		}
+
+	}
+
+}

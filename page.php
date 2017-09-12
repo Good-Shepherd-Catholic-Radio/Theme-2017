@@ -76,13 +76,15 @@ wp_reset_postdata();
 
 				}
 			
-				?>	  
+				if ( get_post_type() !== 'wp_router_page' ) : ?>
 
-				<h1 class="page-title">
-					<?php echo $title; ?>
-				</h1>
+					<h1 class="page-title">
+						<?php echo $title; ?>
+					</h1>
 			
-			<?php endif; ?>
+				<?php endif;
+			
+			endif; ?>
 
 			<?php the_content(); ?>
 
