@@ -52,6 +52,21 @@ wp_reset_postdata();
 
 	<?php endif; ?>
 
+	<?php if ( is_single() && get_post_type() == 'tribe_events' ) : ?>
+
+		<div class="tribe-events-single-event-title">
+			<div class="event-title">
+				<div class="event-title-color-overlay"></div>
+				<div class="event-title-text">
+					<h1>
+						<?php echo $title; ?>
+					</h1>
+				</div>
+			</div>
+		</div>
+
+	<?php endif; ?>
+
 <?php endif; ?>
 
 <div class="main-content">

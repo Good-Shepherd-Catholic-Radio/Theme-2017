@@ -100,16 +100,3 @@ add_filter( 'tribe_event_featured_image', function( $featured_image, $post_id, $
 	return $featured_image;
 	
 }, 10, 3 );
-
-add_filter( 'the_title', function( $title, $post_id = null ) {
-	
-	if ( is_single() &&
-	   get_post_type( $post_id ) == 'tribe_events' ) {
-		
-		return '<div class="event-title"><div class="event-title-color-overlay"></div><div class="event-title-text">' . $title . '</div></div>';
-		
-	}
-	
-	return $title;
-	
-}, 10, 2 );

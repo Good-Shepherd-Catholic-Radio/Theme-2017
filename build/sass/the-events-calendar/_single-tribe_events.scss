@@ -69,15 +69,22 @@
 			}
 
 		}
+		
+		#tribe-events-content {
+			.tribe-events-single-event-title {
+				display: none;
+			}
+		}
 
 		.tribe-events-single-event-title {
 
 			position: absolute;
-			margin-top: -5.15rem;
+			margin-top: -5rem;
 			width: 100%;
+			font-size: 1.7em; // From the-events-calendar/src/resources/css/tribe-events-full.css?ver=4.5.12.2
 			
 			@media #{$medium-up} {
-				margin-top: -4rem;
+				margin-top: -3.95rem;
 			}
 
 			.event-title {
@@ -103,8 +110,8 @@
 
 				h1, h2, h3, h4, h5, h6 {
 					color: #000;
-					font-weight: normal;
 					margin-bottom: 0;
+					font-size: 1em; // Trick to load at defined font-size in parent container above
 				}
 
 				div.event-title-text {
