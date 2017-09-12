@@ -1,6 +1,6 @@
 ( function( $ ) {
 
-	$( document ).on( 'ready', function() {
+	$( document ).on( 'ready ajaxRefresh', function() {
 
 		if ( $( '.underwriters-shortcode' ).length > 0 ) {
 
