@@ -73,22 +73,19 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 					<div class="small-12 columns">
 
 						<h2><?php echo rbm_get_field( 'gscr_home_events_psa_title' ); ?></h2>
+						
+						<?php 
+						
+							$base = tribe_get_events_link() . tribe( 'community.main' )->getOption( 'communityRewriteSlug', 'community', true );
+							$add_event_url = esc_url( $base . '/' . sanitize_title( __( 'add', 'tribe-events-community' ) ) );
+						
+						?>
 
-						<a data-open="gscr_events_modal" class="<?php echo $button_color; ?> button">
+						<a class="<?php echo $button_color; ?> button" href="<?php echo $add_event_url; ?>">
 							<?php _e( 'Submit an Event/PSA', 'good-shepherd-catholic-radio' ); ?>
 						</a>
 
 					</div>
-
-				</div>
-
-				<div class="reveal" id="gscr_events_modal" data-reveal>
-
-					Nothing here... yet
-
-					<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'good-shepherd-catholic-radio' ); ?>" type="button">
-						<span aria-hidden="true">&times;</span>
-					</button>
 
 				</div>
 
