@@ -271,7 +271,8 @@
 							var re = /src='(.*)'/i,
 								src = eventsCalendarScripts[ script ].match( re );
 							
-							if ( typeof src[1] != "undefined" ) {
+							if ( src && 
+								typeof src[1] != "undefined" ) {
 							
 								$.getScript( src[1] ).done( function( scriptContents, textStatus ) {
 									$( 'head' ).append( eventsCalendarScripts[ script ] );
