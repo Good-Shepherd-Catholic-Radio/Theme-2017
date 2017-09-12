@@ -71,6 +71,17 @@ add_action( 'customize_register', function( $wp_customize ) {
         'section'    => 'gscr_customizer_section',
         'settings'   => 'gscr_address',
     ) ) );
+	
+	$wp_customize->add_setting( 'gscr_cron_secret', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'gscr_cron_secret', array(
+        'label'        => __( 'Cron Secret. This is used as the "?key=" parameter in Ghost Inspector', 'good-shepherd-catholic-radio' ),
+        'section'    => 'gscr_customizer_section',
+        'settings'   => 'gscr_cron_secret',
+    ) ) );
     
     $wp_customize->add_setting( 'gscr_facebook', array(
             'default'     => '//www.facebook.com/goodshepherdcatholicradio',

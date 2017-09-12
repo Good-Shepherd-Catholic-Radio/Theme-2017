@@ -181,6 +181,9 @@ add_action( 'after_setup_theme', function () {
 	// Add theme functions
     require_once __DIR__ . '/includes/theme-functions.php';
 	
+	// Add Endpoints
+	require_once __DIR__ . '/includes/rest-api.php';
+	
 	// Add Shortcodes
     require_once __DIR__ . '/includes/shortcodes/gscr-button.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-phone.php';
