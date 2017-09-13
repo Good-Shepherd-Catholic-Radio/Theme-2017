@@ -28,19 +28,29 @@ defined( 'ABSPATH' ) || die();
 			) ); ?>
 			
 		</a>
-			
-	<?php else : ?>
+	
+	<?php else : 
+	
+		$image_url = THEME_URL . '/assets/images/default-radio-show.png';
+	
+		?>
 	
 		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 			
-			<h4><?php the_title(); ?></h4>
+			<img src="<?php echo $image_url; ?>" class="wp-post-image aligncenter" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
 			
 		</a>
 	
-		<?php if ( $position = rbm_get_field( 'staff_position' ) ) : ?>
-			<h6><?php echo $position; ?></h6>
-		<?php endif; ?>
+	<?php endif; ?>
 	
+	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+
+		<h4><?php the_title(); ?></h4>
+
+	</a>
+
+	<?php if ( $position = rbm_get_field( 'staff_position' ) ) : ?>
+		<h6><?php echo $position; ?></h6>
 	<?php endif; ?>
 	
 	<?php the_content(); ?>
