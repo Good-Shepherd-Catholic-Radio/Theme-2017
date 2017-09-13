@@ -354,3 +354,49 @@ add_filter('upload_mimes', function ( $mimes ) {
 	return $mimes;
 	
 } );
+
+/*
+
+I have no idea why these Radio Shows did not have their categories
+Here's the code in case I need it again
+
+add_action( 'init', function() {
+	
+	$post_ids = array(
+		25640,
+		25641,
+		25642,
+		25643,
+		25644,
+		25645,
+		25646,
+		25647,
+		25648,
+		25649,
+		25650,
+		25651,
+		25652,
+		25653,
+		25654,
+		25655,
+		25656,
+		25657,
+		25658,
+		25639,
+		25659,
+		25660,
+		25661,
+		25662,
+		25663,
+		25664,
+		25665,
+		25666
+	);
+	
+	foreach ( $post_ids as $post_id ) {
+		wp_set_post_terms( $post_id, array( 5 ), 'tribe_events_cat', true );
+	}
+	
+} );
+
+*/
