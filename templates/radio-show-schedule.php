@@ -16,9 +16,6 @@ locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
 
 global $post;
 
-global $allow_radio_shows;
-$allow_radio_shows = true;
-
 $current_time = current_time( 'Y-m-d' );
 
 // If today is a Sunday, use today. Else get the last Sunday

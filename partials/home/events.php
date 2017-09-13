@@ -24,6 +24,7 @@ $events = new WP_Query( array(
 	'post_type' => 'tribe_events',
 	'posts_per_page' => 3,
 	'eventDisplay' => 'custom',
+	'order' => 'ASC',
 	'tax_query' => array(
 		'relationship' => 'AND',
 		array(
