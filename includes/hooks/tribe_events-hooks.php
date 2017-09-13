@@ -100,3 +100,15 @@ add_filter( 'tribe_event_featured_image', function( $featured_image, $post_id, $
 	return $featured_image;
 	
 }, 10, 3 );
+
+add_action( 'tribe_events_community_form_before_template', function( $event_id ) {
+
+?>
+	
+	<a href="/wp-content/uploads/2017/09/PSA.Policies.and_.Guidelines.Revised.pdf" class="tribe-button">
+		<?php echo _e( 'Policies and Guidelines', 'good-shepherd-catholic-radio' ); ?>
+	</a>
+
+<?php
+	
+} );

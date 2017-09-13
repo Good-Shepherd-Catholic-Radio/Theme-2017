@@ -338,6 +338,8 @@ if ( ! function_exists( 'remove_class_action' ) ) {
 
 require_once __DIR__ . '/admin/admin.php';
 
+locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
+
 /**
  * I still don't know why WP doesn't support this out of the box
  * 
