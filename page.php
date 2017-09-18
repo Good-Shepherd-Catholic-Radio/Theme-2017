@@ -91,7 +91,8 @@ wp_reset_postdata();
 
 				}
 			
-				if ( get_post_type() !== 'wp_router_page' ) : ?>
+				if ( get_post_type() !== 'wp_router_page' && 
+				   get_post_type() !== 'tribe_events' ) : ?>
 
 					<h1 class="page-title">
 						<?php echo $title; ?>
