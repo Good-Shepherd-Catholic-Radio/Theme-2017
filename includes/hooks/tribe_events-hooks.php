@@ -29,9 +29,6 @@ add_filter( 'tribe_events_event_schedule_details', function( $output, $post_id )
  */
 add_action( 'tribe_events_single_meta_details_section_start', function() {
 	
-	global $allow_radio_shows;
-	$allow_radio_shows = true;
-	
 	if ( ! gscr_is_radio_show() ) return false;
 	
 	if ( rbm_get_field( 'radio_show_local' ) ) : ?>
@@ -105,9 +102,6 @@ add_filter( 'tribe_event_featured_image', function( $featured_image, $post_id, $
 }, 10, 3 );
 
 add_action( 'tribe_events_community_form_before_template', function( $event_id ) {
-	
-	global $allow_radio_shows;
-	$allow_radio_shows = false;
 
 ?>
 	

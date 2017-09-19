@@ -56,9 +56,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 		$body_class = apply_filters( 'gscr_body_class', $body_class, $post_id );
 	
-		global $allow_radio_shows;
-		$allow_radio_shows = true;
-	
 	?>
 
     <body <?php body_class( $body_class ); ?>>
