@@ -53,9 +53,6 @@ function add_gscr_staff_shortcode( $atts, $content ) {
 	}
 	
 	$staff = new WP_Query( $args );
-	
-	$index = 0;
-	$medium_class = 'medium-' . ( 12 / $atts['per_row'] );
     
     ob_start();
 	
