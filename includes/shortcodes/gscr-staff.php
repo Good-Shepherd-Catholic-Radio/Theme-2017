@@ -24,7 +24,6 @@ function add_gscr_staff_shortcode( $atts, $content ) {
     $atts = shortcode_atts(
         array( // a few default values
 			'posts_per_page' => -1,
-			'per_row' => 4,
 			'category' => '',
         ),
         $atts,
@@ -60,37 +59,21 @@ function add_gscr_staff_shortcode( $atts, $content ) {
     
     ob_start();
 	
-	if ( $staff->have_posts() ) : 
-	
-		while ( $staff->have_posts() ) : $staff->the_post(); ?>
+	if ( $staff->have_posts() ) : ?>
 
-			<?php if ( $index == 0 ) : ?>
+		<ul class="no-bullet">
+	
+			<?php while ( $staff->have_posts() ) : $staff->the_post();
 
-				<div class="row">
+				include locate_template( '/partials/loop/loop-staff_shortcode.php' );
 
-			<?php endif;
+			endwhile;
+
+			wp_reset_postdata(); ?>
+			
+		</ul>
 	
-					include locate_template( '/partials/loop/loop-staff_shortcode.php' );
-					
-			if ( $index == ( $atts['per_row'] - 1 ) ) : ?>
-					
-				</div>
-					
-			<?php 
-	
-				$index = 0;
-	
-			else :
-	
-				$index++;
-	
-			endif;
-	
-		endwhile;
-	
-		wp_reset_postdata();
-	
-	endif;
+	<?php endif;
     
     $output = ob_get_contents();
     ob_end_clean();

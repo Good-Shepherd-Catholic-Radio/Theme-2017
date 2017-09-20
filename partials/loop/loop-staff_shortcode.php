@@ -13,46 +13,12 @@ defined( 'ABSPATH' ) || die();
 
 ?>
 
-<div <?php post_class( array(
-	'small-12',
-	$medium_class,
-	'columns'
-) ); ?>>
-	
-	<?php if ( has_post_thumbnail() ) : ?>
-	
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-			
-			<?php the_post_thumbnail( 'full', array(
-				'class' => 'aligncenter',
-			) ); ?>
-			
-		</a>
-	
-	<?php else : 
-	
-		$image_url = THEME_URL . '/assets/images/default-radio-show.png';
-	
-		?>
-	
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-			
-			<img src="<?php echo $image_url; ?>" class="wp-post-image aligncenter" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-			
-		</a>
-	
-	<?php endif; ?>
-	
-	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+<li>
 
-		<h4><?php the_title(); ?></h4>
-
-	</a>
+	<?php the_title(); ?>
 
 	<?php if ( $position = rbm_get_field( 'staff_position' ) ) : ?>
-		<h6><?php echo $position; ?></h6>
+		&nbsp;-&nbsp;<?php echo $position; ?>
 	<?php endif; ?>
-	
-	<?php the_content(); ?>
 
-</div>
+</li>
