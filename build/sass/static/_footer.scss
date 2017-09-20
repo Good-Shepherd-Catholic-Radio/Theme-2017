@@ -117,12 +117,16 @@ footer {
 	
 	.footer-affiliates {
 		
-		.vertical-align {
+		@media #{$medium-up} {
+		
+			.vertical-align {
 
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
 
+			}
+			
 		}
 		
 	}
