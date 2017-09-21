@@ -180,13 +180,20 @@ add_action( 'widgets_init', function () {
         );
     }
 	
-	// Main Sidebar
+	// Affiliates
     register_sidebar( array(
     	'name' => 'Footer Affiliates',
     	'id' => 'footer-affiliates',
-    	'description' => 'Displays on Beneathe the other Footer Widget Areas.',
+    	'description' => 'Displays beneathe the other Footer Widget Areas.',
 		'before_widget' =>  '<aside id="%1$s" class="widget small-12 medium-4 columns text-center %2$s" data-equalizer-watch><div class="vertical-align">',
 		'after_widget'  =>  '</div></aside>',
+    ) );
+	
+	// To the right of the Copyright in the Footer
+    register_sidebar( array(
+    	'name' => 'Privacy Policy',
+    	'id' => 'copyright-right',
+    	'description' => 'Displays to the right of the Copyright in the Footer.',
     ) );
     
 } );
