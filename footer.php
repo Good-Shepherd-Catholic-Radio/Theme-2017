@@ -103,12 +103,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="copyright">
 		<div class="row">
-			<div class="small-12 medium-5 medium-push-2 columns text-center">
+			<div class="small-12 columns text-center">
 				<?php echo sprintf( _x( 'Site by %s', 'Site By Footer Text', 'good-shepherd-catholic-radio' ), '<a href="//realbigmarketing.com/" target="_blank">Real Big Marketing</a>' ); ?>
 				<br />
 				<?php echo sprintf( _x( 'Copyright &copy; %s %s', 'Copyright Footer Text', 'good-shepherd-catholic-radio' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
 			</div>
-			<div class="small-12 medium-4 medium-pull-1 columns text-left">
+			<div class="small-12 columns text-center">
 				<?php dynamic_sidebar( 'copyright-right' ); ?>
 			</div>
 		</div>
