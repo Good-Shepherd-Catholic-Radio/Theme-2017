@@ -59,6 +59,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	?>
 
     <body <?php body_class( $body_class ); ?>>
+		
+		<?php do_action( 'gscr_body_start' ); // For Google Tag Manager ?>
 
         <div id="wrapper" class = "off-canvass-wrapper-inner" data-off-canvas-wrapper>
 
