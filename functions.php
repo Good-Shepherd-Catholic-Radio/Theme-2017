@@ -365,7 +365,7 @@ add_filter('upload_mimes', function ( $mimes ) {
 /**
  * Add Google Tag Manager Script
  * 
- * @since		{{VERSION}}
+ * @since		1.0.4
  * @return		void
  */
 add_action( 'wp_head', function() { ?>
@@ -385,7 +385,7 @@ add_action( 'wp_head', function() { ?>
 /**
  * Add Google Tag Manager iFrame for if JavaScript is disabled 
  * 
- * @since		{{VERSION}}
+ * @since		1.0.4
  * @return		void
  */
 add_action( 'gscr_body_start', function() { ?>
