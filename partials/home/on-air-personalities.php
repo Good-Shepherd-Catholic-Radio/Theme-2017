@@ -54,7 +54,7 @@ if ( $on_air_personalities->post_count < 8 ) {
 
 ?>
 
-<div class="home-section on-air-personalities-section row expanded<?php echo $background_color; ?>">
+<div class="home-section on-air-personalities-section row<?php echo $background_color; ?>">
 	
 	<div class="small-12 columns">
 		<div class="row">
