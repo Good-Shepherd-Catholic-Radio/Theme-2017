@@ -408,7 +408,7 @@ add_filter( 'post_type_labels_tribe_events', 'gscr_change_featured_image_labels'
  * 
  * @param		array $labels Featured Image Labels
  *                                      
- * @since		{{VERSION}}
+ * @since		1.0.6
  * @return		array Featured Image Labels
  */
 function gscr_change_featured_image_labels( $labels ) {
