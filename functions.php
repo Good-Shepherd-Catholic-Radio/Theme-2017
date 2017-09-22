@@ -429,7 +429,7 @@ add_filter( 'post_type_labels_on-air-personality', 'gscr_change_featured_image_o
  * 
  * @param		array $labels Featured Image Labels
  *                                      
- * @since		{{VERSION}}
+ * @since		1.0.7
  * @return		array Featured Image Labels
  */
 function gscr_change_featured_image_on_air_personality_profile_labels( $labels ) {
@@ -450,7 +450,7 @@ add_filter( 'post_type_labels_staff', 'gscr_change_featured_image_staff_profile_
  * 
  * @param		array $labels Featured Image Labels
  *                                      
- * @since		{{VERSION}}
+ * @since		1.0.7
  * @return		array Featured Image Labels
  */
 function gscr_change_featured_image_staff_profile_labels( $labels ) {
