@@ -399,9 +399,9 @@ add_action( 'gscr_body_start', function() { ?>
 	
 } );
 
-add_filter( 'post_type_labels_page', 'gscr_change_featured_image_labels' );
-add_filter( 'post_type_labels_post', 'gscr_change_featured_image_labels' );
-add_filter( 'post_type_labels_tribe_events', 'gscr_change_featured_image_labels' );
+add_filter( 'post_type_labels_page', 'gscr_change_featured_image_banner_labels' );
+add_filter( 'post_type_labels_post', 'gscr_change_featured_image_banner_labels' );
+add_filter( 'post_type_labels_tribe_events', 'gscr_change_featured_image_banner_labels' );
 
 /**
  * Change Featured Image Labels for Posts, Pages, and Events
@@ -411,12 +411,54 @@ add_filter( 'post_type_labels_tribe_events', 'gscr_change_featured_image_labels'
  * @since		1.0.6
  * @return		array Featured Image Labels
  */
-function gscr_change_featured_image_labels( $labels ) {
+function gscr_change_featured_image_banner_labels( $labels ) {
 
 	$labels->featured_image = __( 'Banner Image (Recommended 1170 × 400)', 'good-shepherd-catholic-radio' );
 	$labels->set_featured_image = __( 'Set Banner Image', 'good-shepherd-catholic-radio' );
 	$labels->remove_featured_image = __( 'Remove Banner Image', 'good-shepherd-catholic-radio' );
 	$labels->use_featured_image = __( 'Use as Banner Image', 'good-shepherd-catholic-radio' );
+
+	return $labels;
+
+}
+
+add_filter( 'post_type_labels_on-air-personality', 'gscr_change_featured_image_on_air_personality_profile_labels' );
+
+/**
+ * Change Featured Image Labels for On-Air Personalities
+ * 
+ * @param		array $labels Featured Image Labels
+ *                                      
+ * @since		{{VERSION}}
+ * @return		array Featured Image Labels
+ */
+function gscr_change_featured_image_on_air_personality_profile_labels( $labels ) {
+
+	$labels->featured_image = __( 'Profile Image (Recommended 700 × 1000)', 'good-shepherd-catholic-radio' );
+	$labels->set_featured_image = __( 'Set Profile Image', 'good-shepherd-catholic-radio' );
+	$labels->remove_featured_image = __( 'Remove Profile Image', 'good-shepherd-catholic-radio' );
+	$labels->use_featured_image = __( 'Use as Profile Image', 'good-shepherd-catholic-radio' );
+
+	return $labels;
+
+}
+
+add_filter( 'post_type_labels_staff', 'gscr_change_featured_image_staff_profile_labels' );
+
+/**
+ * Change Featured Image Labels for Staff
+ * 
+ * @param		array $labels Featured Image Labels
+ *                                      
+ * @since		{{VERSION}}
+ * @return		array Featured Image Labels
+ */
+function gscr_change_featured_image_staff_profile_labels( $labels ) {
+
+	$labels->featured_image = __( 'Profile Image (Recommended 500 × 300)', 'good-shepherd-catholic-radio' );
+	$labels->set_featured_image = __( 'Set Profile Image', 'good-shepherd-catholic-radio' );
+	$labels->remove_featured_image = __( 'Remove Profile Image', 'good-shepherd-catholic-radio' );
+	$labels->use_featured_image = __( 'Use as Profile Image', 'good-shepherd-catholic-radio' );
 
 	return $labels;
 
