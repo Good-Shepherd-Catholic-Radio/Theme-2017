@@ -399,6 +399,29 @@ add_action( 'gscr_body_start', function() { ?>
 	
 } );
 
+add_filter( 'post_type_labels_page', 'gscr_change_featured_image_labels' );
+add_filter( 'post_type_labels_post', 'gscr_change_featured_image_labels' );
+add_filter( 'post_type_labels_tribe_events', 'gscr_change_featured_image_labels' );
+
+/**
+ * Change Featured Image Labels for Posts, Pages, and Events
+ * 
+ * @param		array $labels Featured Image Labels
+ *                                      
+ * @since		{{VERSION}}
+ * @return		array Featured Image Labels
+ */
+function gscr_change_featured_image_labels( $labels ) {
+
+	$labels->featured_image = __( 'Banner Image (Recommended 1170 × 400)', 'good-shepherd-catholic-radio' );
+	$labels->set_featured_image = __( 'Set Banner Image', 'good-shepherd-catholic-radio' );
+	$labels->remove_featured_image = __( 'Remove Banner Image', 'good-shepherd-catholic-radio' );
+	$labels->use_featured_image = __( 'Use as Banner Image', 'good-shepherd-catholic-radio' );
+
+	return $labels;
+
+}
+
 /*
 
 I have no idea why these Radio Shows did not have their categories
