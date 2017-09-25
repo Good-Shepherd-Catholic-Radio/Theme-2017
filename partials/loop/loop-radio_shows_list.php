@@ -79,15 +79,31 @@ else {
 					else {
 						
 						// Every day
-						$days_array = array( '1', '2', '3', '4', '5', '6', '7' );
+						$days_array = array( '0', '1', '2', '3', '4', '5', '6' );
 						$same_time = isset( $rule['custom']['day']['same-time'] );
+						
+					}
+				
+					// Events calendar must have changed data formatting slightly for this
+					if ( isset( $rule['custom']['same-time'] ) ) {
+						$same_time = true;
+					}
+				
+					// Some shows store their dates in the _wrong_ format but some store it in the correct format
+					// There's no other difference between their data, so I unfortunately am unable to do this in a clean way
+					// If the dates are offset by 1 but don't have a "7" in the Array, we won't know until someone points it out
+					if ( in_array( '7', $days_array ) ) {
+						
+						foreach ( $days_array as &$day ) {
+							$day = $day - 1;
+						}
 						
 					}
 				
 					foreach ( $days_array as $day_index ) : ?>
 				
 						<li>
-							<?php echo $weekdays[ $day_index - 1 ]; ?>
+							<?php echo $weekdays[ $day_index ]; ?>
 							<?php echo tribe_get_option( 'dateTimeSeparator', ' @ ' ); ?>
 							
 							<?php if ( $same_time ) : ?>
