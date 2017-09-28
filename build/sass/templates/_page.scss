@@ -4,6 +4,10 @@
 
 		position: relative;
 		min-height: 300px;
+		
+		@media #{$xlarge-up} {
+			min-height: 600px;
+		}
 
 		.image {
 			position: absolute;
