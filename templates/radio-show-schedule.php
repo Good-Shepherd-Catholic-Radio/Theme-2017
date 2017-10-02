@@ -150,7 +150,7 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 
 					endif; ?>
 
-					<?php if ( (int) $end_index == ( $day_index + 1 ) ) : ?>
+					<?php if ( (int) $end_index == ( $day_index + 1 ) ) : // If it is the end of a day, include that last Show and then close it out ?>
 							
 						<?php include locate_template( '/partials/loop/loop-radio_shows_week.php' ); ?>
 
@@ -161,16 +161,7 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 						$first = true;
 						$day_index++;
 			
-					elseif ( (int) $start_index !== $day_index ) : ?>
-			
-						</div>
-		
-						<?php
-
-						$first = true;
-						$day_index++;
-			
-					else : 
+					elseif ( (int) $start_index == $day_index ) : // If we're still in the same day, just include the Show
 			
 						include locate_template( '/partials/loop/loop-radio_shows_week.php' );
 
