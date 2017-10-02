@@ -2,7 +2,7 @@
 /**
  * Popup modal for Stream failure
  *
- * @since       {{VERSION}}
+ * @since       1.0.12
  * @package     Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/partials/static
  */

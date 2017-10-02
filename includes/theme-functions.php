@@ -481,7 +481,7 @@ add_action( 'wp_ajax_nopriv_gscr_stream_down', 'gscr_stream_down_email' );
  * Send an email notification if an attempt to play the Stream is made while it is down
  * This will only be done at a rate of once per hour to prevent it being sent numerous times
  * 
- * @since		{{VERSION}}
+ * @since		1.0.12
  * @return		boolean Success/Failure
  */
 function gscr_stream_down_email() {
