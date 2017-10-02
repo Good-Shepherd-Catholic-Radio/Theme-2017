@@ -124,6 +124,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </body>
 
+<?php include locate_template( 'partials/static/stream-error.php' ); ?>
+
 <div class="ajax-loading text-center" style="display: none;">
 	<span class="fa fa-5x fa-spinner fa-pulse"></span>
 </div>

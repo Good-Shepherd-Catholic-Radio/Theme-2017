@@ -28,10 +28,32 @@
 				$( '.radio-shows-header .stream-control' ).addClass( 'jp-state-paused' ).removeClass( 'jp-state-playing' );
 			},
 			error: function( event ) {
-				if( ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET ) {
+				
+				if ( ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET ) {
 					// Setup the media stream again and play it.
 					$( this ).jPlayer( 'setMedia', stream ).jPlayer( 'play' );
 				}
+				
+				if ( ready && event.jPlayer.error.type === $.jPlayer.error.URL ) {
+					
+					var data = {
+						action: 'gscr_stream_down',
+					};
+					
+					$( '#gscr_stream_down' ).foundation( 'open' );
+					
+					$.ajax( {
+						'type' : 'POST',
+						'url' : goodShepherdCatholicRadio.ajaxUrl,
+						'data' : data,
+						success : function( response ) {
+						},
+						error : function( request, status, error ) {
+						}
+					} );
+					
+				}
+				
 			},
 			swfPath: './',
 			supplied: 'M4A',

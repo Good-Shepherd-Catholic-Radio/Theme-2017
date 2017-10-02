@@ -473,3 +473,49 @@ function gscr_on_air_personalities_offset_increment() {
 	}
 	
 }
+
+add_action( 'wp_ajax_gscr_stream_down', 'gscr_stream_down_email' );
+add_action( 'wp_ajax_nopriv_gscr_stream_down', 'gscr_stream_down_email' );
+
+/**
+ * Send an email notification if an attempt to play the Stream is made while it is down
+ * This will only be done at a rate of once per hour to prevent it being sent numerous times
+ * 
+ * @since		{{VERSION}}
+ * @return		boolean Success/Failure
+ */
+function gscr_stream_down_email() {
+	
+	if ( get_transient( 'gscr_stream_down_timer' ) ) return false;
+	
+	$emails = get_theme_mod( 'gscr_stream_down_emails', get_option( 'admin_email', 'hshill@gscr.org' ) );
+	$emails = str_replace( ' ', '', $emails ); // Remove any whitespace
+	
+	$date_format = get_option( 'date_format', 'F j, Y' );
+	$time_format = get_option( 'time_format', 'g:i a' );
+	
+	$message = sprintf(
+		__( 'A visitor attempted to play the Radio Stream at %s and it failed. This is due to the Stream itself being unavailable.' ),
+		current_time( $date_format . ' @ ' . $time_format )
+	);
+	
+	$message .= "\n\n";
+	
+	$message .= sprintf(
+		__( 'If this has not been resolved by %s, attempting to play the Radio Stream again will re-send this email.', 'good-shepherd-catholic-radio' ),
+		date_i18n( $date_format . ' @ ' . $time_format, current_time( 'timestamp' ) + HOUR_IN_SECONDS )
+	);
+	
+	$success = wp_mail(
+		$emails,
+		__( 'GSCR Radio Stream Down', 'good-shepherd-catholic-radio' ),
+		$message
+	);
+	
+	if ( $success ) {
+		set_transient( 'gscr_stream_down_timer', HOUR_IN_SECONDS );
+	}
+	
+	return $success;
+	
+}
