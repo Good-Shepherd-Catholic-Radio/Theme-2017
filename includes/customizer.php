@@ -60,18 +60,6 @@ add_action( 'customize_register', function( $wp_customize ) {
         'section'    => 'gscr_customizer_section',
         'settings'   => 'gscr_stream_emails',
     ) ) );
-	
-	$wp_customize->add_setting( 'gscr_stream_failure_message', array(
-            'default'     => get_option( 'admin_email', 'hshill@gscr.org' ),
-            'transport'   => 'refresh',
-        )
-    );
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'gscr_stream_failure_message', array(
-        'label'        => __( 'Message Shown on Stream Failure', 'good-shepherd-catholic-radio' ),
-		'description' => __( 'This is shown each time the Stream fails to load, even when an Email is not sent.', 'good-shepherd-catholic-radio' ),
-        'section'    => 'gscr_customizer_section',
-        'settings'   => 'gscr_stream_failure_message',
-    ) ) );
     
     $wp_customize->add_setting( 'gscr_phone_number', array(
             'default'     => '1-517-513-3340',
