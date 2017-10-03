@@ -2,6 +2,8 @@
 
 // Remove nasty recurrence data. We don't need to know that it happens every third Tuesday into the future	
 remove_class_filter( 'tribe_events_event_schedule_details', 'Tribe__Events__Pro__Main', 'append_recurring_info_tooltip', 9 );
+	
+remove_class_action( 'tribe_events_list_before_the_content', 'Tribe__Events__Pro__Templates__Mods__List_View', 'print_all_events_link', 10 );
 
 add_filter( 'tribe_events_event_schedule_details', function( $output, $post_id ) {
 	

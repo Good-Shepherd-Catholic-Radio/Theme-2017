@@ -19,6 +19,7 @@ get_header();
 the_post();
 
 global $has_featured_image;
+global $wp_query;
 
 wp_reset_postdata();
 
@@ -52,7 +53,10 @@ wp_reset_postdata();
 
 	<?php endif; ?>
 
-	<?php if ( is_single() && get_post_type() == 'tribe_events' ) : ?>
+	<?php if ( is_single() && 
+			  get_post_type() == 'tribe_events' && 
+			  ( ! isset( $wp_query->query_vars['eventDisplay'] ) || $wp_query->query_vars['eventDisplay'] !== 'all' )
+			 ) : ?>
 
 		<div class="tribe-events-single-event-title">
 			<div class="event-title">

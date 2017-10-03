@@ -280,18 +280,21 @@ if ( ! function_exists( 'remove_class_filter' ) ) {
 
 		// Loop through each filter for the specified priority, looking for our class & method
 		foreach( (array) $callbacks[ $priority ] as $filter_id => $filter ) {
-
-			// Filter should always be an array - array( $this, 'method' ), if not goto next
-			if ( ! isset( $filter[ 'function' ] ) || ! is_array( $filter[ 'function' ] ) ) continue;
-
-			// If first value in array is not an object, it can't be a class
-			if ( ! is_object( $filter[ 'function' ][ 0 ] ) ) continue;
+			
+			if ( is_string( $filter['function'][ 0 ] ) ) { // Support Static Methods
+				$filter[ 'function' ][ 0 ] = strtok( $filter[ 'function' ][ 0 ], ':' );
+			}
+			else if ( ! is_object( $filter[ 'function' ][ 0 ] ) ) {
+				// If first value in array is not an object, it can't be a class
+				continue;
+			}
 
 			// Method doesn't match the one we're looking for, goto next
 			if ( $filter[ 'function' ][ 1 ] !== $method_name ) continue;
 
 			// Method matched, now let's check the Class
-			if ( get_class( $filter[ 'function' ][ 0 ] ) === $class_name ) {
+			if ( $filter[ 'function'][ 0 ] == $class_name || 
+				get_class( $filter[ 'function' ][ 0 ] ) === $class_name ) {
 
 				// Now let's remove it from the array
 				unset( $callbacks[ $priority ][ $filter_id ] );
