@@ -1,6 +1,6 @@
 {
   "name": "Good_Shepherd_Catholic_Radio",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "dependencies": {
     "foundation-sites": "^6.3.1",
     "jPlayer": "jplayer#^2.9.2"
