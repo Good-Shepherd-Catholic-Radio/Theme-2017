@@ -84,6 +84,14 @@ function gscr_custom_breadcrumbs() {
 					}
 					
 				}
+				else if ( get_post_type() == 'on-air-personality' ) {
+					
+					$post_type = get_post_type_object( get_post_type() );
+					
+					echo $before . '<a href="' . $home_link . '/on-air-personalities/">' . $post_type->labels->name . '</a>' . $after;
+					if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+					
+				}
 				else if ( get_post_type() == 'wp_router_page' ) {
 					
 					if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
