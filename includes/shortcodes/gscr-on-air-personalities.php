@@ -40,37 +40,41 @@ function add_gscr_on_air_personalities_shortcode( $atts, $content ) {
     
     ob_start();
 	
-	if ( $on_air_personalities->have_posts() ) : 
+	echo '<div class="on-air-personalities-shortcode">';
 	
-		while ( $on_air_personalities->have_posts() ) : $on_air_personalities->the_post(); ?>
+		if ( $on_air_personalities->have_posts() ) : 
 
-			<?php if ( $index == 0 ) : ?>
+			while ( $on_air_personalities->have_posts() ) : $on_air_personalities->the_post(); ?>
 
-				<div class="row">
+				<?php if ( $index == 0 ) : ?>
 
-			<?php endif;
+					<div class="row">
+
+				<?php endif;
+
+						include locate_template( '/partials/loop/loop-on_air_personalities_shortcode.php' );
+
+				if ( $index == ( $atts['per_row'] - 1 ) ) : ?>
+
+					</div>
+
+				<?php 
+
+					$index = 0;
+
+				else :
+
+					$index++;
+
+				endif;
+
+			endwhile;
+
+			wp_reset_postdata();
+
+		endif;
 	
-					include locate_template( '/partials/loop/loop-on_air_personalities_shortcode.php' );
-					
-			if ( $index == ( $atts['per_row'] - 1 ) ) : ?>
-					
-				</div>
-					
-			<?php 
-	
-				$index = 0;
-	
-			else :
-	
-				$index++;
-	
-			endif;
-	
-		endwhile;
-	
-		wp_reset_postdata();
-	
-	endif;
+	echo '</div>';
     
     $output = ob_get_contents();
     ob_end_clean();
