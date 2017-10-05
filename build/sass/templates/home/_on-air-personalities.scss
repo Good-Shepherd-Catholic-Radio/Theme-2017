@@ -18,6 +18,10 @@ $cell-height: 125px;
 		padding-right: $small-padding;
 		margin-bottom: $small-padding;
 		
+		@media #{$medium-up} {
+			margin-bottom: $small-padding * 6;
+		}
+		
 		a > .row {
 			position: relative;
 		}
