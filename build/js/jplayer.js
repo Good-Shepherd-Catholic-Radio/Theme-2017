@@ -7,9 +7,10 @@
 
 		var stream = {
 			//title: 'ABC Jazz',
-			m4a: '//ice10.securenetsystems.net/WJKNAM'
+			m4a: '//ice10.securenetsystems.net/WJKNAMd'
 		},
-		ready = false;
+		ready = false,
+		played = false;
 		
 		$( '#gscr-radio-stream-header' ).jPlayer( {
 			ready: function ( event ) {
@@ -17,6 +18,7 @@
 				$( this ).jPlayer( 'setMedia', stream );
 			},
 			play: function ( event ) {
+				played = true;
 				$( this ).next( '.jp-audio-stream' ).removeClass( 'jp-state-paused' );
 				$( this ).next( '.jp-audio-stream' ).addClass( 'jp-state-playing' );
 				$( '.radio-shows-header .stream-control' ).addClass( 'jp-state-playing' ).removeClass( 'jp-state-paused' );
@@ -34,23 +36,35 @@
 					$( this ).jPlayer( 'setMedia', stream ).jPlayer( 'play' );
 				}
 				
-				if ( ready && event.jPlayer.error.type === $.jPlayer.error.URL ) {
+				if ( played && event.jPlayer.error.type === $.jPlayer.error.URL ) {
 					
-					var data = {
-						action: 'gscr_stream_down',
-					};
+					var ie = GSCRdetectIE();
 					
-					$( '#gscr_stream_down' ).foundation( 'open' );
+					// If they're not on IE 11 or below, determine the Stream must be down
+					if ( ! ie || ie >= 12 ) {
 					
-					$.ajax( {
-						'type' : 'POST',
-						'url' : goodShepherdCatholicRadio.ajaxUrl,
-						'data' : data,
-						success : function( response ) {
-						},
-						error : function( request, status, error ) {
-						}
-					} );
+						var data = {
+							action: 'gscr_stream_down',
+						};
+
+						$( '#gscr_stream_down' ).foundation( 'open' );
+
+						$.ajax( {
+							'type' : 'POST',
+							'url' : goodShepherdCatholicRadio.ajaxUrl,
+							'data' : data,
+							success : function( response ) {
+							},
+							error : function( request, status, error ) {
+							}
+						} );
+						
+					}
+					else { // If IE 11 or below, not supported
+						
+						$( '#gscr_stream_old' ).foundation( 'open' );
+						
+					}
 					
 				}
 				

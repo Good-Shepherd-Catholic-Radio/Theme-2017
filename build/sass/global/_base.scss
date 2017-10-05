@@ -102,7 +102,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 }
 
 // I don't know why this is a Foundation Default. In some locations it makes sense, but people expect links to be underlined.
-#site-content {
+#site-content, .reveal {
 
     a:not(.button) {
 
