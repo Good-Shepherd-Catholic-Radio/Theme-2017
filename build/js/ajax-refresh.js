@@ -75,7 +75,7 @@
 		
 		if ( $( '.sticky-container .stream-container .jp-audio-stream' ).hasClass( 'jp-state-playing' ) ) {
 		
-			if ( needsConfirm ) {
+			if ( needsConfirm === true ) {
 				return confirm( goodShepherdCatholicRadio.navigationConfirm.message );
 			}
 			
