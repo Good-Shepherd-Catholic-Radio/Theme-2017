@@ -2,7 +2,7 @@
 /**
  * Popup modal for Stream on IE 11 or below
  *
- * @since       {{VERSION}}
+ * @since       1.0.14
  * @package     Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/partials/static
  */
