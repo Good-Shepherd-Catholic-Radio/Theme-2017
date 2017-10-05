@@ -7,7 +7,7 @@
 
 		var stream = {
 			//title: 'ABC Jazz',
-			m4a: '//ice10.securenetsystems.net/WJKNAM'
+			m4a: '//ice10.securenetsystems.net/WJKNAMd'
 		},
 		ready = false;
 		

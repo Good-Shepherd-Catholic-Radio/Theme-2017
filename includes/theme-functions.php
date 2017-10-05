@@ -496,7 +496,7 @@ function gscr_stream_down_email() {
 	
 	if ( get_transient( 'gscr_stream_down_timer' ) ) return false;
 	
-	$emails = get_theme_mod( 'gscr_stream_down_emails', get_option( 'admin_email', 'hshill@gscr.org' ) );
+	$emails = get_theme_mod( 'gscr_stream_emails', get_option( 'admin_email', 'hshill@gscr.org' ) );
 	$emails = str_replace( ' ', '', $emails ); // Remove any whitespace
 	
 	$date_format = get_option( 'date_format', 'F j, Y' );
@@ -521,7 +521,7 @@ function gscr_stream_down_email() {
 	);
 	
 	if ( $success ) {
-		set_transient( 'gscr_stream_down_timer', HOUR_IN_SECONDS );
+		set_transient( 'gscr_stream_down_timer', 'set', HOUR_IN_SECONDS );
 	}
 	
 	return $success;
