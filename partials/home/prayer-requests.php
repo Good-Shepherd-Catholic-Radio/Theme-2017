@@ -26,7 +26,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 		<div class="small-12 columns">
 			<div class="row">
 				<div class="small-12 columns">
-					<h2>
+					<h2 class="section-header">
 						<?php _e( 'Submit a Prayer Request', 'good-shepherd-catholic-radio' ); ?>
 					</h2>
 				</div>

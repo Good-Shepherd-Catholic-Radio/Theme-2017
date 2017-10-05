@@ -22,9 +22,14 @@
 				padding-top: 1.5em;
 				padding-bottom: 1.5em;
 				
-				& > .small-12 > .row > .small-12 > h2 {
+				.section-header {
 					padding-top: 0.75em;
 					padding-bottom: 0.75em;
+				}
+				
+				.view-all-container .button {
+					margin-top: 2.0833em;
+					margin-bottom: 2.0833em;
 				}
 				
 				&:last-of-type {

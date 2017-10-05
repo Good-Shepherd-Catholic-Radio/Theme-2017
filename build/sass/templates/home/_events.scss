@@ -22,6 +22,14 @@
 		position: relative;
 	}
 	
+	.form {
+		
+		.button {
+			margin-bottom: 2.0833em;
+		}
+		
+	}
+	
 	@each $name, $color in $foundation-palette {
 		
 		&.background-#{$name} {

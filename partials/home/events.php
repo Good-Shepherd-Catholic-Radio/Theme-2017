@@ -74,7 +74,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 				<div class="row small-collapse">
 					<div class="small-12 columns">
 
-						<h2><?php echo rbm_get_field( 'gscr_home_events_psa_title' ); ?></h2>
+						<h2 class="section-header"><?php echo rbm_get_field( 'gscr_home_events_psa_title' ); ?></h2>
 						
 						<?php 
 						
@@ -99,7 +99,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 					<div class="small-12 columns">
 
-						<h2>
+						<h2 class="section-header">
 							
 							<?php _e( 'Upcoming Events', 'good-shepherd-catholic-radio' ); ?>
 							

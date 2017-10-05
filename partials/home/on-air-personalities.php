@@ -59,7 +59,7 @@ if ( $on_air_personalities->post_count < 8 ) {
 	<div class="small-12 columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<h2>
+				<h2 class="section-header">
 					<?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
 				</h2>
 			</div>
