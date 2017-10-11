@@ -19,10 +19,12 @@ defined( 'ABSPATH' ) || die();
 ) ); ?>>
 	
 	<div class="vertical-align">
+		
+		<?php $permalink = get_permalink(); ?>
 	
 		<?php if ( has_post_thumbnail() ) : ?>
 
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"<?php echo ( strpos( $permalink, get_home_url() ) === false ) ? ' target="_blank"' : ''; ?>>
 
 				<?php the_post_thumbnail( 'full', array(
 					'class' => 'aligncenter',
@@ -34,7 +36,7 @@ defined( 'ABSPATH' ) || die();
 
 		<?php else : ?>
 
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"<?php echo ( strpos( $permalink, get_home_url() ) === false ) ? ' target="_blank"' : ''; ?>>
 
 				<h3><?php the_title(); ?></h3>
 				
