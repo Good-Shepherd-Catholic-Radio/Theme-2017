@@ -47,11 +47,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 		global $has_featured_image;
 		$has_featured_image = false;
-		if ( ! is_front_page() && has_post_thumbnail() && get_post_type() !== 'tribe_events' || 
+	
+		if ( ! is_front_page() && has_post_thumbnail() && get_post_type() !== 'tribe_events' && get_post_type() !== 'post' || 
+			 get_post_type() == 'post' && is_single() && rbm_get_field( 'gscr_post_banner_image', $post_id ) || 
 			 get_post_type() == 'tribe_events' && is_single() && has_post_thumbnail( $post_id ) || 
 			 get_post_type() == 'tribe_events' && is_archive() && strpos( $_SERVER['REQUEST_URI'], 'radio-show' ) === false ) {
+			
 			$body_class[] = 'has-featured-image';
 			$has_featured_image = true;
+			
 		}
 	
 		$body_class = apply_filters( 'gscr_body_class', $body_class, $post_id );
@@ -302,8 +306,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					
 					<?php if ( $has_featured_image ) : ?>
 					
-							<?php if ( ( is_single() && get_post_type() == 'post' ) ||
-									 get_post_type() == 'page' || 
+							<?php if ( get_post_type() == 'page' || 
 									 get_post_type() == 'tribe_events' ) : ?>
 
 									<div class="row expanded small-collapse featured-image-container">
@@ -318,6 +321,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$attachment_id = get_post_thumbnail_id( get_the_ID() );
 												$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 											}
+										
+										?>
+
+										<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+
+									</div>
+					
+							<?php elseif ( is_single() && get_post_type() == 'post' ) : ?>
+					
+									<div class="row expanded small-collapse featured-image-container">
+
+										<?php
+										
+											$attachment_id = rbm_get_field( 'gscr_post_banner_image', get_the_ID() );
+											$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 										
 										?>
 

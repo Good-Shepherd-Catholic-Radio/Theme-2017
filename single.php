@@ -62,6 +62,14 @@ global $has_featured_image;
 				</p>
 
 			<?php endif; ?>
+			
+			<?php if ( get_post_type() == 'post' ) : ?>
+			
+				<?php the_post_thumbnail( 'medium', array(
+					'class' => 'attachment-medium size-medium alignleft',
+				) ); ?>
+			
+			<?php endif; ?>
 
 			<?php the_content(); ?>
 

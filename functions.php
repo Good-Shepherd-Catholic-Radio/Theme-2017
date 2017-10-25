@@ -403,7 +403,6 @@ add_action( 'gscr_body_start', function() { ?>
 } );
 
 add_filter( 'post_type_labels_page', 'gscr_change_featured_image_banner_labels' );
-add_filter( 'post_type_labels_post', 'gscr_change_featured_image_banner_labels' );
 add_filter( 'post_type_labels_tribe_events', 'gscr_change_featured_image_banner_labels' );
 
 /**

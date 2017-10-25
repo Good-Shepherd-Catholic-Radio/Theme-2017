@@ -25,6 +25,7 @@ else {
 if ( class_exists( 'RBM_FieldHelpers' ) ) {
     
 	require_once __DIR__ . '/extra-meta/home.php';
+	require_once __DIR__ . '/extra-meta/post.php';
 	
 }
 else {
