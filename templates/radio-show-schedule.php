@@ -145,15 +145,13 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 							</article>
 
 					<?php 
+							
+							include locate_template( '/partials/loop/loop-radio_shows_week.php' );
 
 							$first = false;
 
-					endif; ?>
-
-					<?php if ( (int) $end_index == ( $day_index + 1 ) ) : // If it is the end of a day, include that last Show and then close it out ?>
+					elseif ( (int) $start_index == ( $day_index + 1 ) ) : // If it is the end of a day, close out the Day and then set the Pointer for our WP_Query one Post back so that we can re-do it as "First". This is a little dirty, but it should hopefully not break ?>
 							
-						<?php include locate_template( '/partials/loop/loop-radio_shows_week.php' ); ?>
-
 						</div>
 
 					<?php 
@@ -161,10 +159,12 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 						$first = true;
 						$day_index++;
 			
+						$radio_shows->current_post--;
+			
 					elseif ( (int) $start_index == $day_index ) : // If we're still in the same day, just include the Show
 			
 						include locate_template( '/partials/loop/loop-radio_shows_week.php' );
-
+			
 					endif; ?>
 
 				<?php endwhile; ?>
