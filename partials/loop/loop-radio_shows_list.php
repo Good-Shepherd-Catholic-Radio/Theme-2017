@@ -85,22 +85,18 @@ else {
 					}
 				
 					// Events calendar must have changed data formatting slightly for this
-					if ( isset( $rule['custom']['same-time'] ) ) {
+					if ( isset( $rule['custom']['same-time'] ) && 
+					   $rule['custom']['same-time'] == 'yes' ) {
 						$same_time = true;
 					}
 				
-					// Some shows store their dates in the _wrong_ format but some store it in the correct format
-					// There's no other difference between their data, so I unfortunately am unable to do this in a clean way
-					// If the dates are offset by 1 but don't have a "7" in the Array, we won't know until someone points it out
-					if ( in_array( '7', $days_array ) ) {
-						
-						foreach ( $days_array as &$day ) {
-							$day = $day - 1;
-						}
-						
-					}
+					foreach ( $days_array as $day_index ) : 
 				
-					foreach ( $days_array as $day_index ) : ?>
+							// When they say 7, they really mean 0
+							// This ensure we show Sunday properly
+							if ( (int) $day_index == 7 ) $day_index = 0;
+				
+						?>
 				
 						<li>
 							<?php echo $weekdays[ $day_index ]; ?>
@@ -112,41 +108,52 @@ else {
 								<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
 							<?php else : 
 							
-								$hour = $rule['custom']['start-time']['hour'];
-								$minute = $rule['custom']['start-time']['minute'];
-								$meridian = $rule['custom']['start-time']['meridian'];
+								if ( isset( $rule['custom']['start-time']['hour'] ) ) {
 							
-								echo date( $time_format, strtotime( $hour . ':' . $minute . $meridian ) );
+									$hour = $rule['custom']['start-time']['hour'];
+									$minute = $rule['custom']['start-time']['minute'];
+									$meridian = $rule['custom']['start-time']['meridian'];
+									
+									echo date( $time_format, strtotime( $hour . ':' . $minute . $meridian ) );
 							
-								$hour = $hour + $rule['custom']['duration']['hours'];
-								$minute = $minute + $rule['custom']['duration']['minutes'];
+									$hour = $hour + $rule['custom']['duration']['hours'];
+									$minute = $minute + $rule['custom']['duration']['minutes'];
+
+									if ( (int) $minute >= 60 ) {
+										$minute -= 60;
+										$hour++;
+									}
+
+									// Leading zero
+									$minute = sprintf( '%02d', $minute );
+
+									if ( (int) $hour > 12 ) {
+										$hour -= 12;
+									}
+
+									if ( (int) $hour == 12 ) {
+
+										if ( strtolower( $meridian ) == 'am' ) {
+											$merdian = 'pm';
+										}
+										else {
+											$merdian = 'am';
+										}
+
+									}
+
+									echo tribe_get_option( 'timeRangeSeparator', ' - ' );
+
+									echo date( $time_format, strtotime( $hour . ':' . $minute . $meridian ) );
+									
+								}
+								else {
+									
+									echo $rule['custom']['start-time'] . tribe_get_option( 'timeRangeSeparator', ' - ' ) . $rule['custom']['end-time'];
+									
+								}
+							
 								
-								if ( (int) $minute >= 60 ) {
-									$minute -= 60;
-									$hour++;
-								}
-							
-								// Leading zero
-								$minute = sprintf( '%02d', $minute );
-							
-								if ( (int) $hour > 12 ) {
-									$hour -= 12;
-								}
-							
-								if ( (int) $hour == 12 ) {
-									
-									if ( strtolower( $meridian ) == 'am' ) {
-										$merdian = 'pm';
-									}
-									else {
-										$merdian = 'am';
-									}
-									
-								}
-							
-								echo tribe_get_option( 'timeRangeSeparator', ' - ' );
-							
-								echo date( $time_format, strtotime( $hour . ':' . $minute . $meridian ) );
 							
 							endif; ?>
 							
