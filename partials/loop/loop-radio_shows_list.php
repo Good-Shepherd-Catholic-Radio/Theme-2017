@@ -149,7 +149,7 @@ else {
 								}
 								else {
 									
-									echo $rule['custom']['start-time'] . tribe_get_option( 'timeRangeSeparator', ' - ' ) . $rule['custom']['end-time'];
+									echo preg_replace( '/(am)|(pm)/i', ' $0', $rule['custom']['start-time'] ) . tribe_get_option( 'timeRangeSeparator', ' - ' ) . preg_replace( '/(am)|(pm)/i', ' $0', $rule['custom']['end-time'] );
 									
 								}
 							
