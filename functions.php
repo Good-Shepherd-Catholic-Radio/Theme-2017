@@ -437,7 +437,7 @@ add_filter( 'post_type_labels_on-air-personality', 'gscr_change_featured_image_o
  */
 function gscr_change_featured_image_on_air_personality_profile_labels( $labels ) {
 
-	$labels->featured_image = __( 'Profile Image (Recommended 736 * 1000)', 'good-shepherd-catholic-radio' );
+	$labels->featured_image = __( 'Profile Image (Recommended 472 * 472)', 'good-shepherd-catholic-radio' );
 	$labels->set_featured_image = __( 'Set Profile Image', 'good-shepherd-catholic-radio' );
 	$labels->remove_featured_image = __( 'Remove Profile Image', 'good-shepherd-catholic-radio' );
 	$labels->use_featured_image = __( 'Use as Profile Image', 'good-shepherd-catholic-radio' );
