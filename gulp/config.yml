@@ -49,8 +49,8 @@ sass:
     - "last 2 versions"
     - "ie >= 9"
   front:
-    root: "./"
-    filename: "style.css"
+    root: "./assets/css"
+    filename: "app.css"
     vendor: 
       - "bower_components/foundation-sites/scss"
     notification: "Running Sass"

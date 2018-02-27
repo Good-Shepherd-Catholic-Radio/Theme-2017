@@ -53,7 +53,7 @@ add_action( 'init', function () {
 	// Theme styles
 	wp_register_style(
 		'good-shepherd-catholic-radio',
-		THEME_URL . '/style.css',
+		THEME_URL . '/assets/css/app.css',
 		null,
 		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER
 	);
