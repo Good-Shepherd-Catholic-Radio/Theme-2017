@@ -1,6 +1,6 @@
 {
 	"name": "Good_Shepherd_Catholic_Radio",
-	"version": "1.0.19",
+	"version": "1.0.20",
 	"main": "gulpfile.js",
 	"dependencies": {},
 	"devDependencies": {
