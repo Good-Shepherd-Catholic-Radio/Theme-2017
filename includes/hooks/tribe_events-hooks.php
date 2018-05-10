@@ -104,11 +104,20 @@ add_filter( 'tribe_event_featured_image', function( $featured_image, $post_id, $
 }, 10, 3 );
 
 add_action( 'tribe_events_community_form_before_template', function( $event_id ) {
+	
+	$policy_attachment_id = get_theme_mod( 'gscr_psa_policies_and_guidelines', false );
+	$policy_url = '/wp-content/uploads/2017/09/PSA.Policies.and_.Guidelines.Revised.pdf';
+	
+	if ( $policy_attachment_id ) {
+		
+		$policy_url = wp_get_attachment_url( $policy_attachment_id );
+		
+	}
 
 ?>
 	
-	<a href="/wp-content/uploads/2017/09/PSA.Policies.and_.Guidelines.Revised.pdf" class="tribe-button">
-		<?php echo _e( 'Policies and Guidelines', 'good-shepherd-catholic-radio' ); ?>
+	<a href="<?php echo $policy_url; ?>" class="tribe-button">
+		<?php _e( 'Policies and Guidelines', 'good-shepherd-catholic-radio' ); ?>
 	</a>
 
 <?php

@@ -49,6 +49,17 @@ add_action( 'customize_register', function( $wp_customize ) {
         'mime_type'  => 'image',
     ) ) );
 	
+	$wp_customize->add_setting( 'gscr_psa_policies_and_guidelines', array(
+            'default'     => false,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'gscr_psa_policies_and_guidelines', array(
+        'label'        => __( 'PSA Policies and Guidelines Document', 'good-shepherd-catholic-radio' ),
+        'section'    => 'gscr_customizer_section',
+        'settings'   => 'gscr_psa_policies_and_guidelines',
+    ) ) );
+	
 	$wp_customize->add_setting( 'gscr_stream_emails', array(
             'default'     => get_option( 'admin_email', 'hshill@gscr.org' ),
             'transport'   => 'refresh',
