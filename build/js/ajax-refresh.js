@@ -481,9 +481,19 @@
 		window.onpopstate = function(event) {
 			
 			if ( window.history.state !== null ) {
-
-				// By the time popstate has fired, location.pathname has been changed
-				loadPage( window.history.state.page, 1 );
+				
+				if ( typeof window.history.state.page !== 'undefined' ) { 
+					
+					// By the time popstate has fired, location.pathname has been changed
+					loadPage( window.history.state.page, 1 );
+					
+				}
+				else if ( typeof window.history.state.tribe_url_params !== 'undefined' ) {
+					
+					// Account for Events Calendar setting their own state
+					loadPage( location.pathname + '?' + window.history.state.tribe_url_params, 1 );
+					
+				}
 				
 			}
 
@@ -508,8 +518,6 @@
 				'scrolling' : 'no',
 				'onStart' : function( selectedArray, selectedIndex, selectedOpts ) {
 					
-					console.log( selectedOpts );
-					
 					selectedOpts.content = '<object data="' + selectedArray[ selectedIndex ].href + '" type="application/pdf" height="100%" width="100%"><a href="' + selectedArray[ selectedIndex ].href + '" style="display:block;position:absolute;top:48%;width:100%;text-align:center">' + $( selectedArray[ selectedIndex ] ).html() + '</a></object>';
 				}
 			}
@@ -518,5 +526,14 @@
 		$( document ).trigger( "ready" ).trigger( 'post-load' ); // Tell browser that Document is "ready" again
 		
 	} );
+	
+	// Trick Events Calendar List Ajax into not running onpopstate
+	// https://github.com/moderntribe/the-events-calendar/blob/a36371a018af857cc13d3aa1cf232e40b0055f43/src/Tribe/Main.php#L276-L277
+	// https://github.com/moderntribe/the-events-calendar/blob/master/src/resources/js/tribe-events-ajax-list.js#L19-L22
+	if ( $( '#tribe-events' ).length ) {
+		
+		$( '#tribe-events' ).append( '<div class="tribe-events-venue" style="display: none"></div>' );
+
+	}
 
 } )( jQuery );
