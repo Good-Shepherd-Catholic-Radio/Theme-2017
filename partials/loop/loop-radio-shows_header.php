@@ -57,13 +57,15 @@ else {
 		
 		<div class="radio-show-meta">
 			
-			<?php if ( rbm_get_field( 'radio_show_local' ) ) : ?>
+			<?php if ( $first && 
+					  rbm_get_field( 'radio_show_local' ) ) : ?>
 			
 				<span class="fa fa-2x fa-map-marker" title="<?php _e( 'Local', 'good-shepherd-catholic-radio' ); ?>"></span>
 			
 			<?php endif; ?>
 			
-			<?php if ( rbm_get_field( 'radio_show_live' ) ) : ?>
+			<?php if ( $first && 
+					  rbm_get_field( 'radio_show_live' ) ) : ?>
 			
 				<span class="fa-stack microphone-live" title="<?php _e( 'Live', 'good-shepherd-catholic-radio' ); ?>">
 					<span class="fa fa-rss fa-flip-horizontal left fa-stack-1x"></span>
