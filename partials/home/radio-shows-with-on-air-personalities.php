@@ -78,10 +78,10 @@ $radio_shows->posts = array_values( $radio_shows->posts );
 // Set Post Count to the new value
 $radio_shows->post_count = count( $radio_shows->posts );
 
-$background_color = rbm_get_field( 'gscr_home_on_air_personalities_background' );
+$background_color = rbm_get_field( 'gscr_home_radio_show_programs_background' );
 $background_color = ( ! $background_color ) ? '' : ' background-' . $background_color;
 
-$button_color = rbm_get_field( 'gscr_home_on_air_personalities_button_color' );						
+$button_color = rbm_get_field( 'gscr_home_radio_show_programs_button_color' );						
 $button_color = ( ! $button_color ) ? 'secondary' : $button_color;
 
 ?>

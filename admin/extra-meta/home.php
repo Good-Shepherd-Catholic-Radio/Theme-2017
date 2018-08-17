@@ -73,10 +73,20 @@ function gscr_add_home_metaboxes() {
             'normal'
         );
 		
+		/*
 		add_meta_box(
             'gscr-home-on-air-personalities',
             _x( 'On-Air Personalities Section', 'Home On-Air Personalities Metabox Title', 'good-shepherd-catholic-radio' ),
             'gscr_home_on_air_personalities_metabox_content',
+            'page',
+            'normal'
+        );
+		*/
+		
+		add_meta_box(
+            'gscr-home-radio-show-programs',
+            _x( 'Programs Section', 'Home Programs Metabox Title', 'good-shepherd-catholic-radio' ),
+            'gscr_home_radio_show_programs_metabox_content',
             'page',
             'normal'
         );
@@ -202,6 +212,49 @@ function gscr_home_on_air_personalities_metabox_content() {
 	rbm_do_field_select(
 		'gscr_home_on_air_personalities_button_color',
 		_x( 'On-Air Personalities Button Color', 'Home On-Air Personalities Button Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'description' => __( 'This changes the color of the buttons in this section', 'good-shepherd-catholic-radio' ),
+			'default' => 'secondary',
+			'options' => array(
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+    
+}
+
+/**
+ * Put fields in the Programs Metabox
+ * 
+ * @since       {{VERSION}}
+ * @return      void
+ */
+function gscr_home_radio_show_programs_metabox_content() {
+    
+    rbm_do_field_select(
+		'gscr_home_radio_show_programs_background',
+		_x( 'Programs Background Color', 'Home Programs Background Color Label', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'options' => array(
+				'' => __( 'White', 'good-shepherd-catholic-radio' ),
+				'primary' => _x( 'Purple', 'Primary Theme Color', 'good-shepherd-catholic-radio' ),
+				'secondary' => _x( 'Green', 'Secondary Theme Color', 'good-shepherd-catholic-radio' ),
+				'tertiary' => _x( 'Blue', 'Tertiary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quaternary' => _x( 'Gold', 'Quaternary Theme Color', 'good-shepherd-catholic-radio' ),
+				'quinary' => _x( 'Rose', 'Quinary Theme Color', 'good-shepherd-catholic-radio' ),
+            ),
+		)
+	);
+	
+	rbm_do_field_select(
+		'gscr_home_radio_show_programs_button_color',
+		_x( 'Programs Button Color', 'Home Programs Button Color Label', 'good-shepherd-catholic-radio' ),
 		false,
 		array(
 			'description' => __( 'This changes the color of the buttons in this section', 'good-shepherd-catholic-radio' ),
