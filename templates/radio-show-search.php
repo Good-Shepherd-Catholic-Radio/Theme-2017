@@ -78,18 +78,36 @@ get_header();
 // Restore WP Query, we've done the modifications we need
 $wp_query = $radio_shows;
 
-?>
+if ( $has_featured_image ) : ?>
 
-<div class="post-title">
-	<div class="post-title-color-overlay"></div>
-	<div class="post-title-text">
-		<h1>
-			<?php echo get_search_query(); ?>
-		</h1>
+	<div class="post-title">
+		<div class="post-title-color-overlay"></div>
+		<div class="post-title-text">
+			<h1>
+				<?php echo get_search_query(); ?>
+			</h1>
+		</div>
 	</div>
-</div>
+
+<?php endif; ?>
 
 <div class="main-content">
+	
+	<?php if ( ! $has_featured_image ) : ?>
+	
+		<div class="row">
+			
+			<div class="small-12 columns">
+
+				<h1 class="post-title">
+					<?php echo get_search_query(); ?>
+				</h1>
+				
+			</div>
+			
+		</div>
+
+	<?php endif; ?>
 	
 	<?php foreach ( $on_air_personalities as $personality_id ) : $personality = get_post( $personality_id ); ?>
 	
