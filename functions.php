@@ -223,6 +223,7 @@ add_action( 'after_setup_theme', function () {
 	require_once __DIR__ . '/includes/shortcodes/gscr-underwriters.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-staff.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-on-air-personalities.php';
+	require_once __DIR__ . '/includes/shortcodes/gscr-radio-show-programs.php';
 	
 	// Add Customer Controls
 	require_once __DIR__ . '/includes/customizer.php';
@@ -487,6 +488,30 @@ function gscr_change_radio_show_search_title( $title_parts ) {
 	$title_parts['title'] = get_search_query();
 	
 	return $title_parts;
+	
+}
+
+/**
+ * Remove unneeded text from Radio Show Title for better searching
+ * Don't use this outside of the Radio Show Search Page. If needed for other things, make a different function, future-me
+ * 
+ * @param		string $title Radio Show Title
+ *                                  
+ * @since		{{VERSION}}
+ * @return		string Radio Show Title
+ */
+function _gscr_sanitize_radio_show_name( $title ) {
+	
+	// Remove (Live) or (Encore) from the end
+	$title = preg_replace( '/\s(?:\(Encore\)|\(Live\))$/si', '', $title );
+	
+	// Remove "with ..." from the end of Titles
+	$title = preg_replace( '/\swith.*$/si', '', $title );
+	
+	// Remove "The Best of..." from the start of Titles
+	$title = preg_replace( '/^The\sBest\sof\s/si', '', $title );
+	
+	return $title;
 	
 }
 

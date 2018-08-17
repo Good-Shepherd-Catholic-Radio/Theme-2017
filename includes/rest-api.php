@@ -47,6 +47,7 @@ function gscr_increment_daily_offsets( $request ) {
 	
 		gscr_underwriters_offset_increment();
 		gscr_on_air_personalities_offset_increment();
+		gscr_radio_show_programs_offset_increment();
 
 		wp_send_json_success();
 		
