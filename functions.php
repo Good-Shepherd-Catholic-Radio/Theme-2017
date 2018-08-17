@@ -467,6 +467,29 @@ function gscr_change_featured_image_staff_profile_labels( $labels ) {
 
 }
 
+add_filter( 'document_title_parts', 'gscr_change_radio_show_search_title', 10 );
+
+/**
+ * Fix Title for our custom Radio Show Search page
+ * 
+ * @param		array $title_parts Title Parts
+ *                                  
+ * @access		public
+ * @since		{{VERSION}}
+ * @return		array Title Parts
+ */
+function gscr_change_radio_show_search_title( $title_parts ) {
+	
+	global $wp_query;
+	
+	if ( ! $wp_query->get( 'gscr_radio_show_search' ) ) return $title_parts;
+	
+	$title_parts['title'] = get_search_query();
+	
+	return $title_parts;
+	
+}
+
 /*
 
 I have no idea why these Radio Shows did not have their categories

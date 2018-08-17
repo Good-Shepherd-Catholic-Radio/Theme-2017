@@ -35,6 +35,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		// Events Calendar is such garbage
 		wp_reset_postdata();
 	
+		global $wp_query;
+	
 		$body_class = array( 'off-canvas-wrapper' );
 	
 		if ( get_post_type() == 'tribe_events' && 
@@ -52,6 +54,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 get_post_type() == 'tribe_events' && is_archive() && strpos( $_SERVER['REQUEST_URI'], 'radio-show' ) === false ) {
 			$body_class[] = 'has-featured-image';
 			$has_featured_image = true;
+		}
+		else if ( $wp_query->get( 'gscr_radio_show_search' ) && 
+				have_posts() && 
+				has_post_thumbnail( $wp_query->posts[0] ) ) {
+			
+			$body_class[] = 'has-featured-image';
+			$body_class[] = 'gscr-radio-show-search';
+			$has_featured_image = true;
+			
 		}
 	
 		$body_class = apply_filters( 'gscr_body_class', $body_class, $post_id );
@@ -304,7 +315,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					
 							<?php if ( ( is_single() && get_post_type() == 'post' ) ||
 									 get_post_type() == 'page' || 
-									 get_post_type() == 'tribe_events' ) : ?>
+									 ( get_post_type() == 'tribe_events' && ! $wp_query->get( 'gscr_radio_show_search' ) ) ) : ?>
 
 									<div class="row expanded small-collapse featured-image-container">
 
@@ -321,6 +332,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 										
 										?>
 
+										<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+
+									</div>
+					
+							<?php elseif ( $wp_query->get( 'gscr_radio_show_search' ) ) : ?>
+					
+									<div class="row expanded small-collapse featured-image-container">
+					
+										<?php
+										
+										$attachment_id = get_post_thumbnail_id( $wp_query->posts[0]->ID );
+										$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+										
+										?>
+										
 										<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
 
 									</div>

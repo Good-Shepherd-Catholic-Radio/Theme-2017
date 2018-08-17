@@ -40,6 +40,9 @@ function gscr_custom_breadcrumbs() {
                 echo $before_current . $post_type->labels->name . $after;
                 
             }
+			elseif ( is_404() ) {
+                echo $before_current . __( 'Error 404', 'good-shepherd-catholic-radio' ) . $after;
+            }
             elseif ( is_category() ) {
                 
                 $this_cat = get_category( get_query_var( 'cat' ), false );
@@ -48,6 +51,18 @@ function gscr_custom_breadcrumbs() {
                 echo $before . '<a href="' . $home_link . '/blog/">' . $post_type->labels->menu_name . '</a>' . $after;
                 echo $before_current . sprintf( __( '"%s" Archives', 'good-shepherd-catholic-radio' ), single_cat_title( '', false ) ) . $after;
             }
+			elseif ( $wp_query->get( 'gscr_radio_show_search' ) ) {
+				
+				if ( empty( $wp_query->posts ) ) {
+					echo 'nope';
+				}
+				else {
+				
+					echo $before_current . get_search_query() . $after;
+					
+				}
+				
+			}
             elseif ( is_search() ) {
                 echo $before_current . sprintf( __( 'Search results for "%s"', 'good-shepherd-catholic-radio' ), get_search_query() ) . $after;
             }
@@ -166,9 +181,7 @@ function gscr_custom_breadcrumbs() {
                 $userdata = get_userdata( $author );
                 echo $before_current . sprintf( __( 'Articles posted by %s', 'good-shepherd-catholic-radio' ), $userdata->display_name ) . $after;
             }
-            elseif ( is_404() ) {
-                echo $before_current . __( 'Error 404', 'good-shepherd-catholic-radio' ) . $after;
-            }
+            
             if ( get_query_var( 'paged' ) ) {
                 
                 echo $before;

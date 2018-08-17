@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-the_post();
 ?>
 
 <div class="row">

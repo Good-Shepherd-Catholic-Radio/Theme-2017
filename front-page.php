@@ -38,7 +38,7 @@ the_post();
 
 <?php
 
-include locate_template( 'partials/home/on-air-personalities.php' );
+include locate_template( 'partials/home/radio-shows-with-on-air-personalities.php' );
 
 include locate_template( 'partials/home/events.php' );
 
