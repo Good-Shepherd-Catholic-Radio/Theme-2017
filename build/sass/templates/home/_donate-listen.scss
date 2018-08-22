@@ -119,5 +119,15 @@ $cell-height: 175px;
 		}
 		
 	}
+	
+	@media #{$old-iphone-portrait} {
+		
+		.listen {
+			
+			min-height: 230px;
+			
+		}
+		
+	}
 
 }
