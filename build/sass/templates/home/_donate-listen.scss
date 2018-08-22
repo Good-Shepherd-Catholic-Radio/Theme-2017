@@ -119,5 +119,29 @@ $cell-height: 175px;
 		}
 		
 	}
+	
+	@media #{$old-iphone-portrait} {
+		
+		.listen {
+			
+			.button-container {
+				top: 2.5em !important;
+			}
+			
+		}
+		
+	}
+	
+	@media #{$ipad-portrait} {
+		
+		.listen {
+			
+			.button-container {
+				top: 3em !important;
+			}
+			
+		}
+		
+	}
 
 }
