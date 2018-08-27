@@ -476,7 +476,7 @@ add_filter( 'document_title_parts', 'gscr_change_radio_show_search_title', 10 );
  * @param		array $title_parts Title Parts
  *                                  
  * @access		public
- * @since		{{VERSION}}
+ * @since		1.0.24
  * @return		array Title Parts
  */
 function gscr_change_radio_show_search_title( $title_parts ) {
@@ -497,7 +497,7 @@ function gscr_change_radio_show_search_title( $title_parts ) {
  * 
  * @param		string $title Radio Show Title
  *                                  
- * @since		{{VERSION}}
+ * @since		1.0.24
  * @return		string Radio Show Title
  */
 function _gscr_sanitize_radio_show_name( $title ) {

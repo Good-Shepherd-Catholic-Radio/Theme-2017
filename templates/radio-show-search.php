@@ -4,7 +4,7 @@
  * Generates a page on-the-fly based on the passed Search Term by overloading $wp_query
  * I am sorry
  *
- * @since       {{VERSION}}
+ * @since       1.0.24
  * @package     Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/templates
  */

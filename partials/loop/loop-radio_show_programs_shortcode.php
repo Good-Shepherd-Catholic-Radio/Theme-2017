@@ -3,7 +3,7 @@
  * Radio Show Programs Loop for the Shortcode.
  * Radio Show Programs don't have an Archive, period. This allows one with a Content editor above it.
  *
- * @since       {{VERSION}}
+ * @since       1.0.24
  * @package     Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/partials/loop
  */

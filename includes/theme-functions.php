@@ -498,7 +498,7 @@ function gscr_on_air_personalities_offset_increment() {
 /**
  * Increment the Radio Show Programs Offset
  * 
- * @since		{{VERSION}}
+ * @since		1.0.24
  * @return		void
  */
 function gscr_radio_show_programs_offset_increment() {

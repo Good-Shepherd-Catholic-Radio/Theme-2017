@@ -231,7 +231,7 @@ function gscr_home_on_air_personalities_metabox_content() {
 /**
  * Put fields in the Programs Metabox
  * 
- * @since       {{VERSION}}
+ * @since       1.0.24
  * @return      void
  */
 function gscr_home_radio_show_programs_metabox_content() {

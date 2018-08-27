@@ -2,7 +2,7 @@
 /**
  * Adds the [gscr_radio_show_programs] shortcode
  *
- * @since   {{VERSION}}
+ * @since   1.0.24
  * @package Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/includes/shortcodes
  */

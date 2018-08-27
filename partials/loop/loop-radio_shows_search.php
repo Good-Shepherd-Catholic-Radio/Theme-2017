@@ -2,7 +2,7 @@
 /**
  * Loop for displaying Radio Shows on the Radio Search Pages
  *
- * @since       {{VERSION}}
+ * @since       1.0.24
  * @package     Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/partials/loop
  */
