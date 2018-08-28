@@ -118,6 +118,8 @@ if ( $radio_shows->have_posts() ) :
 	
 		$on_air_personalities = rbm_cpts_get_p2p_children( 'on-air-personality', get_the_ID() );
 	
+		if ( ! $on_air_personalities ) $on_air_personalities = array();
+	
 	?>
 
 		

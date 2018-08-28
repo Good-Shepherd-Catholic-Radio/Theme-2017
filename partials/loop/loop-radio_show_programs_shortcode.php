@@ -31,6 +31,8 @@ defined( 'ABSPATH' ) || die();
 	
 		$on_air_personalities = rbm_cpts_get_p2p_children( 'on-air-personality', get_the_ID() );
 	
+		if ( ! $on_air_personalities ) $on_air_personalities = array();
+	
 	?>
 			
 	<a href="/radio-show/program/<?php echo urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) ); ?>/" title="<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>">
