@@ -120,12 +120,18 @@ if ( $radio_shows->have_posts() ) :
 	
 		if ( ! $on_air_personalities ) $on_air_personalities = array();
 	
+		remove_filter( 'the_title', 'wptexturize' );
+	
+		$url = urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) );
+						 
+		add_filter( 'the_title', 'wptexturize' );
+	
 	?>
 
 		
 		<div class="radio-show-on-air-personality small-12 medium-4 columns">
 			
-			<a href="/radio-show/program/<?php echo urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) ); ?>/" title="<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>">
+			<a href="/radio-show/program/<?php echo urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) ); ?>/" title="<?php echo $url; ?>">
 
 				<div class="image-container">
 
