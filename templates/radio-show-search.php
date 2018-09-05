@@ -17,7 +17,8 @@ global $wp_query;
 $radio_shows = $wp_query;
 
 $wp_query = new WP_Query( array(
-	's' => get_search_query(),
+	's' => $radio_shows->get( 's' ),
+	'sentence' => true,
 	'gscr_radio_show_search' => true,
 	'post_type' => 'tribe_events',
 	'posts_per_page' => 1,
@@ -69,6 +70,8 @@ else {
 }
 
 $on_air_personalities = rbm_cpts_get_p2p_children( 'on-air-personality', $main_show_id );
+
+if ( ! $on_air_personalities ) $on_air_personalities = array();
 
 // Just in case there are any Hooks for Events
 locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );

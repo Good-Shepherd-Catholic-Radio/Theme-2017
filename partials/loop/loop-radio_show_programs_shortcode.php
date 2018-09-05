@@ -33,9 +33,15 @@ defined( 'ABSPATH' ) || die();
 	
 		if ( ! $on_air_personalities ) $on_air_personalities = array();
 	
+		remove_filter( 'the_title', 'wptexturize' );
+	
+		$url = urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) );
+						 
+		add_filter( 'the_title', 'wptexturize' );
+	
 	?>
 			
-	<a href="/radio-show/program/<?php echo urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) ); ?>/" title="<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>">
+	<a href="/radio-show/program/<?php echo $url; ?>/" title="<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>">
 
 		<div class="image-container">
 
