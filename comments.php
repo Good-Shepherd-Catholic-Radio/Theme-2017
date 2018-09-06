@@ -3,7 +3,7 @@
  * Displays Comments
  * Ripped right from /wp-includes/ from the default Comments form since it worked fine without this file being here
  *
- * @since   {{VERSION}}
+ * @since   1.0.29
  * @package Good_Shepherd_Catholic_Radio
  */
 
