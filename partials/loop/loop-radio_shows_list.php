@@ -161,7 +161,26 @@ else {
 				
 					<?php endforeach;
 				
-				endforeach; ?>
+				endforeach;
+				
+				
+				if ( empty( $recurrence['rules'] ) ) : 
+				
+					$time_format = get_option( 'time_format', 'g:i a' );
+				
+					?>
+				
+					<li>
+					
+						<?php echo date( 'l', strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
+						<?php echo tribe_get_option( 'dateTimeSeparator', ' @ ' ); ?>
+						<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
+						<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
+						<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+						
+					</li>
+					
+				<?php endif; ?>
 			
 			</ul>
 			
