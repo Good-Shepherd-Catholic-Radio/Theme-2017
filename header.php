@@ -172,7 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											echo file_get_contents( get_attached_file( $header_logo_id ) );
 										}
 										else {
-											echo wp_get_attachment_image( $header_log_id, 'medium', false, array(
+											echo wp_get_attachment_image( $header_logo_id, 'medium', false, array(
 												'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
 												'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
 											) ); 
@@ -193,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											echo file_get_contents( get_attached_file( $header_logo_id ) );
 										}
 										else {
-											echo wp_get_attachment_image( $header_log_id, 'medium', false, array(
+											echo wp_get_attachment_image( $header_logo_id, 'medium', false, array(
 												'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
 												'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
 											) ); 
