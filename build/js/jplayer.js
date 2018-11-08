@@ -45,6 +45,7 @@
 					
 						var data = {
 							action: 'gscr_stream_down',
+							error: event.jPlayer.error,
 						};
 
 						$( '#gscr_stream_down' ).foundation( 'open' );

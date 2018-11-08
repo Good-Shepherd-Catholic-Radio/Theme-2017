@@ -602,6 +602,13 @@ function gscr_stream_down_email() {
 		date_i18n( $date_format . ' @ ' . $time_format, current_time( 'timestamp' ) + HOUR_IN_SECONDS )
 	);
 	
+	$message .= "\n\n";
+	
+	$message .= sprintf( 
+		__( 'Error Message: %s', 'good-shepherd-catholic-radio' ),
+		"\n\n" . json_encode( $_POST['error'], JSON_PRETTY_PRINT )
+	);
+	
 	$success = wp_mail(
 		$emails,
 		__( 'GSCR Radio Stream Down', 'good-shepherd-catholic-radio' ),
