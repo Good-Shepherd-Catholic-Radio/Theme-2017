@@ -69,7 +69,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 		
 		<div class="row">
 	
-			<div class="small-12 medium-4 columns form">
+			<div class="small-12 large-4 columns form">
 
 				<div class="row small-collapse">
 					<div class="small-12 columns">
@@ -93,7 +93,7 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
 			</div>
 
-			<div class="small-12 medium-8 columns content">
+			<div class="small-12 large-8 columns content">
 
 				<div class="row small-collapse">
 
