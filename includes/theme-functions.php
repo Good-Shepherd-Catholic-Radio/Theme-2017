@@ -591,7 +591,7 @@ function gscr_stream_down_email() {
 	$time_format = get_option( 'time_format', 'g:i a' );
 	
 	$message = sprintf(
-		__( 'A visitor attempted to play the Radio Stream at %s and it failed. This is due to the Stream itself being unavailable.' ),
+		__( 'A visitor attempted to play the Radio Stream at %s and it failed. This could be due to a connection issue on their end, or it could possibly be due to the Stream itself being unavailable.' ),
 		current_time( $date_format . ' @ ' . $time_format )
 	);
 	
