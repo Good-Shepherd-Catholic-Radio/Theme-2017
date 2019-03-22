@@ -123,3 +123,14 @@ add_action( 'tribe_events_community_form_before_template', function( $event_id )
 <?php
 	
 } );
+
+add_action( 'tribe_events_before_view', function() {
+	
+	if ( gscr_is_radio_show() ) {
+	
+		// Don't show past event notice for Radio Shows
+		Tribe__Notices::remove_notice( 'event-past' );
+		
+	}
+	
+}, 20 );
