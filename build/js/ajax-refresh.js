@@ -30,7 +30,8 @@
 		
 		for ( var index in classes ) {
 			
-			if ( $element.hasClass( classes[ index ] ) ) {
+			if ( $element.hasClass( classes[ index ] ) || 
+			   $element.parent().hasClass( classes[ index ] ) ) {
 				return false;
 			}
 			
@@ -67,7 +68,8 @@
 		// Check if the Element has a Class that we are checking confirmations for
 		for ( var index in classes ) {
 
-			if ( $element.hasClass( classes[ index ] ) ) {
+			if ( $element.hasClass( classes[ index ] ) || 
+			   $element.parent().hasClass( classes[ index ] ) ) {
 				needsConfirm = true;
 			}
 
