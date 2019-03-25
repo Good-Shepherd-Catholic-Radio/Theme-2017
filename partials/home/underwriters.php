@@ -116,7 +116,7 @@ if ( $underwriters->post_count < 8 ) {
 	<div class="small-12 columns view-all-container">
 		<div class="row">
 			<div class="small-12 columns text-center">
-				<a href="/underwriters/" class="button <?php echo $button_color; ?>">
+				<a href="/underwriters/" class="button <?php echo $button_color; ?> no-ajax">
 					<?php _e( 'View All Underwriters', 'good-shepherd-catholic-radio' ); ?>
 				</a>
 			</div>
