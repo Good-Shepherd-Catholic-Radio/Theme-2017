@@ -142,5 +142,17 @@
 	.tribe-events-schedule > h2 {
 		font-size: 1.7em;
 	}
+	
+	.addtoany_share_save_container {
+		display: none;
+	}
+	
+	.tribe-events-content {
+		
+		.addtoany_share_save_container {
+			display: inline;
+		}
+		
+	}
 
 }
