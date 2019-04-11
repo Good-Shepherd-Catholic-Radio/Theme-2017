@@ -527,6 +527,8 @@
 
 		$( document ).trigger( "ready" ).trigger( 'post-load' ); // Tell browser that Document is "ready" again
 		
+		$( 'body' ).trigger( 'post-load' );
+		
 	} );
 	
 	// Trick Events Calendar List Ajax into not running onpopstate
