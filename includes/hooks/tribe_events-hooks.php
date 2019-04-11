@@ -134,3 +134,44 @@ add_action( 'tribe_events_before_view', function() {
 	}
 	
 }, 20 );
+
+add_filter( 'tribe_events_get_previous_event_link', 'goodshep_events_next_prev_filter', 10, 2 );
+add_filter( 'tribe_events_get_next_event_link', 'goodshep_events_next_prev_filter', 10, 2 );
+
+function goodshep_events_next_prev_filter( $args, $post_obj ) {
+	
+	$tax_query = array(
+		'relation' => 'OR',
+	);
+	
+	if ( isset( $args['tax_query'] ) && 
+	   $args['tax_query'] ) {
+		$tax_query = $args['tax_query'];
+	}
+	
+	if ( gscr_is_radio_show( $post_obj->ID ) ) {
+		
+		$tax_query[] = array(
+			'taxonomy' => 'tribe_events_cat',
+			'field' => 'slug',
+			'terms' => array( 'radio-show' ),
+			'operator' => 'IN',
+		);
+		
+	}
+	else {
+		
+		$tax_query[] = array(
+			'taxonomy' => 'tribe_events_cat',
+			'field' => 'slug',
+			'terms' => array( 'radio-show' ),
+			'operator' => 'NOT IN',
+		);
+		
+	}
+	
+	$args['tax_query'] = $tax_query;
+	
+	return $args;
+	
+}
