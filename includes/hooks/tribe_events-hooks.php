@@ -9,7 +9,7 @@ add_filter( 'tribe_events_event_schedule_details', function( $output, $post_id )
 	
 	ob_start();
 
-	if ( tribe_is_recurring_event( $post_id ) ) : ?>
+	if ( function_exists( 'tribe_is_recurring_event' ) && tribe_is_recurring_event( $post_id ) ) : ?>
 
 		<div class="recurringinfo">
 			<div class="event-is-recurring">
@@ -174,4 +174,19 @@ function goodshep_events_next_prev_filter( $args, $post_obj ) {
 	
 	return $args;
 	
+}
+
+/**
+ * Events Calendar forcing weird defaults again. Only seems to be a problem on the Home Page, so we'll fix it by running a Filter and then unhooking it after
+ *
+ * @param   string  $order_sql  Order SQL
+ * @param   object  $query      WP_Query Object
+ *
+ * @since   {{VERSION}}
+ * @return  string              Order SQL
+ */
+function gsrc_force_order_by_enddate_soonest_first( $order_sql, $query ) {
+
+	return 'EventEndDate ASC';
+
 }

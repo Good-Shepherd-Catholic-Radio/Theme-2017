@@ -66,8 +66,11 @@ add_action( 'init', function () {
 		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
 		true
 	);
-	
-	$communityBase = trailingslashit( tribe_get_events_link() . tribe( 'community.main' )->getOption( 'communityRewriteSlug', 'community', true ) );
+
+	$communityBase = '';
+	if ( class_exists( 'Tribe__Events__Community__Main' ) ) {
+		$communityBase = trailingslashit( tribe_get_events_link() . tribe( 'community.main' )->getOption( 'communityRewriteSlug', 'community', true ) );
+	}
 	
 	wp_localize_script(
 		'good-shepherd-catholic-radio',

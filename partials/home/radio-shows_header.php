@@ -14,9 +14,12 @@ locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
 
 global $post;
 
+add_filter( 'tribe_events_query_posts_orderby', 'gsrc_force_order_by_enddate_soonest_first', 10, 2 );
+
 $radio_shows = new WP_Query( array(
 	'post_type' => 'tribe_events',
 	'posts_per_page' => 3,
+	'eventDisplay' => 'custom',
 	'tax_query' => array(
 		'relationship' => 'AND',
 		array(
@@ -29,23 +32,15 @@ $radio_shows = new WP_Query( array(
 	'meta_query'     => array(
 		'relation'    => 'AND',
 		array(
-			'key' => '_EventStartDate',
-			'value' => current_time( 'Y-m-d' ),
-			'type' => 'DATETIME',
-			'compare' => '>=',
-		),
-		array(
 			'key' => '_EventEndDate',
 			'value' => current_time( 'Y-m-d H:i:s' ),
 			'type' => 'DATETIME',
 			'compare' => '>',
 		),
-		array(
-			'key' => '_EventHideFromUpcoming',
-			'compare' => 'NOT EXISTS',
-		),
 	),
 ) );
+
+remove_filter( 'tribe_events_query_posts_orderby', 'gsrc_force_order_by_enddate_soonest_first', 10, 2 );
 
 $index = 0; 
 $max_per_row = 0;

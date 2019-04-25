@@ -78,7 +78,11 @@ $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 						
 						<?php 
 						
-							$base = tribe_get_events_link() . tribe( 'community.main' )->getOption( 'communityRewriteSlug', 'community', true );
+							$base = '';
+							if ( class_exists( 'Tribe__Events__Community__Main' ) ) {
+								$base = tribe_get_events_link() . tribe( 'community.main' )->getOption( 'communityRewriteSlug', 'community', true );
+							}
+
 							$add_event_url = trailingslashit( esc_url( $base . '/' . sanitize_title( __( 'add', 'tribe-events-community' ) ) ) );
 						
 						?>
