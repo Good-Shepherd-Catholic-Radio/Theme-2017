@@ -182,7 +182,7 @@ function goodshep_events_next_prev_filter( $args, $post_obj ) {
  * @param   string  $order_sql  Order SQL
  * @param   object  $query      WP_Query Object
  *
- * @since   {{VERSION}}
+ * @since   1.0.37
  * @return  string              Order SQL
  */
 function gsrc_force_order_by_enddate_soonest_first( $order_sql, $query ) {
