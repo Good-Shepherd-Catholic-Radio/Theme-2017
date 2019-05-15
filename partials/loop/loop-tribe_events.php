@@ -79,6 +79,7 @@ if ( have_posts() ) : ?>
                 'prev_text'          => _x( 'Previous Page', 'Previous Page Pagination Text', 'good-shepherd-catholic-radio' ),
                 'next_text'          => _x( 'Next Page', 'Next Page Pagination Text', 'good-shepherd-catholic-radio' ),
                 'before_page_number' => '<span class="meta-nav screen-reader-text">' . _x( 'Page', 'Page Screen Reader Text', 'good-shepherd-catholic-radio' ) . ' </span>',
+                'mid_size' => 9,
             ) );
             ?>
         </div>
