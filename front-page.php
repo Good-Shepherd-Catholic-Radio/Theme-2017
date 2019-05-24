@@ -18,6 +18,8 @@ get_header();
 
 the_post();
 
+do_action( 'gscr_before_content' );
+
 ?>
 
 <div class="row expanded small-collapse">
