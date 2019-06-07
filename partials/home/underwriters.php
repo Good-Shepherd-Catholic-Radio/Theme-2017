@@ -18,6 +18,7 @@ $offset = get_option( 'gscr_underwriters_offset', 0 );
 
 $underwriters = new WP_Query( array(
 	'post_type' => 'underwriter',
+	'post_status' => 'publish',
 	'posts_per_page' => 8,
 	'order' => 'ASC',
 	'offset' => $offset,
@@ -36,6 +37,7 @@ if ( $underwriters->post_count < 8 ) {
 	
 	$more = new WP_Query( array(
 		'post_type' => 'underwriter',
+		'post_status' => 'publish',
 		'posts_per_page' => 8 - $underwriters->post_count,
 		'order' => 'ASC',
 	) );

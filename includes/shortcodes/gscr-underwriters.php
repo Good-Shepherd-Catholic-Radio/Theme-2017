@@ -33,6 +33,7 @@ function add_gscr_underwriters_shortcode( $atts, $content ) {
 	
 	$args = array(
 		'post_type' => 'underwriter',
+		'post_status' => 'publish',
 		'posts_per_page' => $atts['posts_per_page'],
 	);
 	
