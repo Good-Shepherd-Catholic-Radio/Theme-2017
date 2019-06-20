@@ -611,7 +611,7 @@ function gscr_stream_down_email() {
 	
 	$success = wp_mail(
 		$emails,
-		__( 'GSCR Radio Stream Down', 'good-shepherd-catholic-radio' ),
+		__( 'GSCR Radio Stream', 'good-shepherd-catholic-radio' ),
 		$message
 	);
 	
