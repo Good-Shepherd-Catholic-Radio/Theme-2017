@@ -37,9 +37,17 @@ $radio_shows = new WP_Query( array(
 			'compare' => 'NOT EXISTS',
 		),
 		array(
-			'key' => '_rbm_radio_show_on_home_page', // Only show ones for the Home Page
-			'value' => '1',
-			'compare' => '=',
+			'relation' => 'OR',
+			array(
+				'key' => '_rbm_radio_show_on_home_page', // Only show ones for the Home Page
+				'value' => '1',
+				'compare' => '=',
+			),
+			array(
+				'key' => '_rbm_radio_show_on_home_page', // New RBM FH format
+				'value' => '"1"',
+				'compare' => 'LIKE',
+			),
 		),
 	),
 ) );
