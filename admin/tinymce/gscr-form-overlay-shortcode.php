@@ -46,8 +46,14 @@ function add_gscr_form_overlay_tinymce_filters() {
  */
 add_filter( 'gscr_tinymce_l10n', 'gscr_form_overlay_tinymce_l10n' );
 function gscr_form_overlay_tinymce_l10n( $l10n ) {
+
+    $gravity_forms = array();
+
+    if ( class_exists( 'RGFormsModel' ) ) {
 	
-	$gravity_forms = wp_list_pluck( RGFormsModel::get_forms( null, 'title' ), 'title', 'id' );
+        $gravity_forms = wp_list_pluck( RGFormsModel::get_forms( null, 'title' ), 'title', 'id' );
+        
+    }
     
     $l10n['gscr_form_overlay_shortcode'] = array(
         'tinymce_title' => _x( 'Add Form Overlay', 'Form Overlay Shortcode TinyMCE Button Text', 'good-shepherd-catholic-radio' ),
