@@ -9,68 +9,16 @@
 
 defined( 'ABSPATH' ) || die();
 
-// Just in case there are any Hooks for Events
-locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
-
 global $post;
 
 $radio_shows = new WP_Query( array(
-	'post_type' => 'tribe_events',
+	'post_type' => 'radio-show',
+	'post_status' => 'publish',
 	'posts_per_page' => -1,
-	'eventDisplay' => 'custom',
 	'post_parent' => 0,
 	'order' => 'ASC',
 	'orderby' => 'title',
-	'tax_query' => array(
-		'relationship' => 'AND',
-		array(
-			'taxonomy' => 'tribe_events_cat',
-			'field' => 'slug',
-			'terms' => array( 'radio-show' ),
-			'operator' => 'IN'
-		),
-	),
-	'meta_query' => array(
-		'relation' => 'AND',
-		array(
-			'key' => '_EventHideFromUpcoming',
-			'compare' => 'NOT EXISTS',
-		),
-		array(
-			'relation' => 'OR',
-			array(
-				'key' => '_rbm_radio_show_on_home_page', // Only show ones for the Home Page
-				'value' => '1',
-				'compare' => '=',
-			),
-			array(
-				'key' => '_rbm_radio_show_on_home_page', // New RBM FH format
-				'value' => '"1"',
-				'compare' => 'LIKE',
-			),
-		),
-	),
 ) );
-
-// Remove all duplicate entries. This is important for shows like Blue Collar Theology which have all their shows broken out of the series
-$temp = array();
-foreach( $radio_shows->posts as $key => $object ) {
-	
-	$title = _gscr_sanitize_radio_show_name( $object->post_title );
-	
-    $temp[ $key ] = $title;
-	
-}
-
-$temp = array_unique( $temp );
-
-foreach ( $radio_shows->posts as $key => $object ) {
-	
-	if ( ! array_key_exists( $key, $temp ) ) {
-		unset( $radio_shows->posts[ $key ] );
-	}
-	
-}
 
 $limit = 9;
 $offset = get_option( 'gscr_radio_show_programs_offset', 0 );
@@ -116,8 +64,9 @@ if ( $radio_shows->have_posts() ) :
 	
 		if ( $count == $limit ) break;
 
-		if ( has_post_thumbnail() ) {
-			$attachment_id = get_post_thumbnail_id( get_the_ID() );
+		$attachment_id = rbm_cpts_get_field( 'banner' );
+
+		if ( $attachment_id ) {
 			$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 		}
 		else {
@@ -128,18 +77,12 @@ if ( $radio_shows->have_posts() ) :
 	
 		if ( ! $on_air_personalities ) $on_air_personalities = array();
 	
-		remove_filter( 'the_title', 'wptexturize' );
-	
-		$url = urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) );
-						 
-		add_filter( 'the_title', 'wptexturize' );
-	
 	?>
 
 		
 		<div class="radio-show-on-air-personality small-12 medium-4 columns">
 			
-			<a href="/radio-show/program/<?php echo urlencode( _gscr_sanitize_radio_show_name( get_the_title() ) ); ?>/" title="<?php echo $url; ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 
 				<div class="image-container">
 
@@ -148,7 +91,7 @@ if ( $radio_shows->have_posts() ) :
 					<div class="on-air-personality-title">
 						<div class="on-air-personality-title-overlay"></div>
 						<h5>
-							<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>
+							<?php the_title(); ?>
 						</h5>
 
 						<?php foreach ( $on_air_personalities as $personality_id ) : ?>
