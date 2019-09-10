@@ -13,7 +13,7 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 $image_url;
 
-$attachment_id = rbm_cpts_get_field( 'banner', $parent_id );
+$attachment_id = rbm_cpts_get_field( 'radio_show_background_image', $parent_id );
 
 if ( ! $attachment_id ) {
 	$image_url = THEME_URL . '/assets/images/default-radio-show.png';

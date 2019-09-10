@@ -356,6 +356,7 @@ if ( ! function_exists( 'gscr_get_radio_shows' ) ) {
 
 		$radio_shows = new WP_Query( array(
 			'post_type' => 'radio-show',
+			'post_status' => 'publish',
 			'posts_per_page' => -1,
 			'order' => 'ASC',
 			'orderby' => 'title',

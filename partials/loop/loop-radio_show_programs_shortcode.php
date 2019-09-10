@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || die();
 	
 	<?php 
 
-	$attachment_id = rbm_cpts_get_field( 'banner' );
+	$attachment_id = rbm_cpts_get_field( 'radio_show_background_image' );
 	
 	if ( $attachment_id ) {
 			$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
