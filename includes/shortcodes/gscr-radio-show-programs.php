@@ -31,68 +31,12 @@ function add_gscr_radio_show_programs_shortcode( $atts, $content ) {
     );
 	
 	$programs = new WP_Query( array(
-		'post_type' => 'tribe_events',
+		'post_type' => 'radio-show',
 		'posts_per_page' => $atts['posts_per_page'],
-		'eventDisplay' => 'custom',
-		'post_parent' => 0,
+		'post_status' => 'publish',
 		'order' => 'ASC',
 		'orderby' => 'title',
-		'tax_query' => array(
-			'relationship' => 'AND',
-			array(
-				'taxonomy' => 'tribe_events_cat',
-				'field' => 'slug',
-				'terms' => array( 'radio-show' ),
-				'operator' => 'IN'
-			),
-		),
-		'meta_query' => array(
-			'relation' => 'AND',
-			array(
-				'key' => '_EventHideFromUpcoming',
-				'compare' => 'NOT EXISTS',
-			),
-			array(
-				'relation' => 'OR',
-				array(
-					'key' => '_rbm_radio_show_on_home_page', // Only show ones for the Home Page
-					'value' => '1',
-					'compare' => '=',
-				),
-				array(
-					'key' => '_rbm_radio_show_on_home_page', // New RBM FH format
-					'value' => '"1"',
-					'compare' => 'LIKE',
-				),
-			),
-		),
 	) );
-	
-	// Remove all duplicate entries. This is important for shows like Blue Collar Theology which have all their shows broken out of the series
-	$temp = array();
-	foreach( $programs->posts as $key => $object ) {
-
-		$title = _gscr_sanitize_radio_show_name( $object->post_title );
-
-		$temp[ $key ] = $title;
-
-	}
-
-	$temp = array_unique( $temp );
-
-	foreach ( $programs->posts as $key => $object ) {
-
-		if ( ! array_key_exists( $key, $temp ) ) {
-			unset( $programs->posts[ $key ] );
-		}
-
-	}
-
-	// Reindex array
-	$programs->posts = array_values( $programs->posts );
-
-	// Set Post Count to the new value
-	$programs->post_count = count( $programs->posts );
 	
 	$index = 0;
 	$medium_class = 'medium-' . ( 12 / $atts['per_row'] );

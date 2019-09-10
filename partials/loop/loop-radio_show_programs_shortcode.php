@@ -20,9 +20,10 @@ defined( 'ABSPATH' ) || die();
 ) ); ?>>
 	
 	<?php 
+
+	$attachment_id = rbm_cpts_get_field( 'banner' );
 	
-	if ( has_post_thumbnail() ) {
-			$attachment_id = get_post_thumbnail_id( get_the_ID() );
+	if ( $attachment_id ) {
 			$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 		}
 		else {
@@ -41,30 +42,30 @@ defined( 'ABSPATH' ) || die();
 	
 	?>
 			
-	<a href="/radio-show/program/<?php echo $url; ?>/" title="<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 
-		<div class="image-container">
+				<div class="image-container">
 
-			<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+					<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+					
+					<div class="on-air-personality-title">
+						<div class="on-air-personality-title-overlay"></div>
+						<h5>
+							<?php the_title(); ?>
+						</h5>
 
-			<div class="on-air-personality-title">
-				<div class="on-air-personality-title-overlay"></div>
-				<h5>
-					<?php echo _gscr_sanitize_radio_show_name( get_the_title() ); ?>
-				</h5>
+						<?php foreach ( $on_air_personalities as $personality_id ) : ?>
 
-				<?php foreach ( $on_air_personalities as $personality_id ) : ?>
+							<h6>
+								<?php echo get_the_title( $personality_id ); ?>
+							</h6>
 
-					<h6>
-						<?php echo get_the_title( $personality_id ); ?>
-					</h6>
+						<?php endforeach; ?>
 
-				<?php endforeach; ?>
+					</div>
 
-			</div>
+				</div>
 
-		</div>
-
-	</a>
+			</a>
 
 </div>
