@@ -49,9 +49,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 		global $has_featured_image;
 		$has_featured_image = false;
+		if ( get_post_type() == 'radio-show' ) {
+			$body_class[] = 'has-featured-image';
+			$has_featured_image = true;
+		}
 		if ( ! is_front_page() && has_post_thumbnail() && get_post_type() !== 'tribe_events' || 
-			 get_post_type() == 'tribe_events' && is_single() && has_post_thumbnail( $post_id ) || 
-			 get_post_type() == 'tribe_events' && is_archive() && strpos( $_SERVER['REQUEST_URI'], 'radio-show' ) === false ) {
+			 get_post_type() == 'tribe_events' && is_single() && has_post_thumbnail( $post_id ) ) {
 			$body_class[] = 'has-featured-image';
 			$has_featured_image = true;
 		}
@@ -315,6 +318,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					
 							<?php if ( ( is_single() && get_post_type() == 'post' ) ||
 									 get_post_type() == 'page' || 
+									 get_post_type() == 'radio-show' || 
 									 ( get_post_type() == 'tribe_events' && ! $wp_query->get( 'gscr_radio_show_search' ) ) ) : ?>
 
 									<div class="row expanded small-collapse featured-image-container">
@@ -323,6 +327,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 										
 											if ( is_archive() && get_post_type() == 'tribe_events' ) {
 												$attachment_id = rbm_get_field( 'gscr_home_events_image', get_option( 'page_on_front' ) );
+												$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+											}
+											else if ( get_post_type() == 'radio-show' ) {
+												$attachment_id = rbm_cpts_get_field( 'radio_show_background_image' );
 												$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 											}
 											else {
