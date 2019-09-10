@@ -11,9 +11,6 @@ defined( 'ABSPATH' ) || die();
 
 get_header();
 
-// Just in case there are any Hooks for Events
-locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
-
 global $post;
 
 $radio_shows = new WP_Query( array(
