@@ -13,19 +13,14 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 global $post;
 
-if ( $post->post_parent !== 0 ) {
-	$post_id = $post->post_parent;
-}
-else {
-	$post_id = get_the_ID();
-}
-
 $image_url = '';
-if ( ! has_post_thumbnail( $post_id ) ) {
+
+$attachment_id = rbm_cpts_get_field( 'banner' );
+
+if ( ! $attachment_id ) {
 	$image_url = THEME_URL . '/assets/images/default-radio-show.png';
 }
 else {
-	$attachment_id = get_post_thumbnail_id( $post_id );
 	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 }
 
@@ -40,7 +35,7 @@ else {
 		
 		<div class="small-12 medium-3 columns image-container hide-for-print">
 			
-			<a href="<?php echo tribe_all_occurences_link( $post_id, false ); ?>" title="<?php the_title(); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				
 				<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
 				
@@ -50,7 +45,7 @@ else {
 		
 		<div class="small-12 medium-9 columns content">
 	
-			<a href="<?php echo tribe_all_occurences_link( $post_id, false ); ?>" title="<?php the_title(); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php the_title(); ?>
 			</a>
 			
@@ -61,132 +56,56 @@ else {
 			<ul>
 				
 				<?php 
-				
-				$weekdays = gscr_get_weekdays();
-				
-				$recurrence = get_post_meta( $post_id, '_EventRecurrence', true );
-				
-				foreach ( $recurrence['rules'] as $rule ) : 
-				
-					$days_array = array();
-					$same_time = false;
-					if ( isset( $rule['custom']['week'] ) ) {
-						
-						$days_array = $rule['custom']['week']['day'];
-						$same_time = isset( $rule['custom']['week']['same-time'] );
-						
-					}
-					else {
-						
-						// Every day
-						$days_array = array( '0', '1', '2', '3', '4', '5', '6' );
-						$same_time = isset( $rule['custom']['day']['same-time'] );
-						
-					}
-				
-					// Events calendar must have changed data formatting slightly for this
-					if ( isset( $rule['custom']['same-time'] ) && 
-					   $rule['custom']['same-time'] == 'yes' ) {
-						$same_time = true;
-					}
-				
-					foreach ( $days_array as $day_index ) : 
-				
-							// When they say 7, they really mean 0
-							// This ensure we show Sunday properly
-							if ( (int) $day_index == 7 ) $day_index = 0;
-				
-						?>
-				
-						<li>
-							<?php echo $weekdays[ $day_index ]; ?>
-							<?php echo tribe_get_option( 'dateTimeSeparator', ' @ ' ); ?>
-							
-							<?php if ( $same_time ) : ?>
-								<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-								<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
-								<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
-							<?php else : 
-							
-								if ( isset( $rule['custom']['start-time']['hour'] ) ) {
-							
-									$hour = $rule['custom']['start-time']['hour'];
-									$minute = $rule['custom']['start-time']['minute'];
-									$meridian = $rule['custom']['start-time']['meridian'];
-									
-									echo date( $time_format, strtotime( $hour . ':' . $minute . $meridian ) );
-							
-									$hour = $hour + $rule['custom']['duration']['hours'];
-									$minute = $minute + $rule['custom']['duration']['minutes'];
 
-									if ( (int) $minute >= 60 ) {
-										$minute -= 60;
-										$hour++;
-									}
+					$occurrences = new WP_Query( array(
+						'post_type' => 'radio-show',
+						'post_parent' => get_the_ID(),
+						'posts_per_page' => -1,
+						'post_status' => 'radioshow-occurrence',
+						'orderby' => array(
+							'rbm_cpts_day_of_the_week' => 'ASC',
+							'rbm_cpts_start_time' => 'ASC',
+						),
+						'meta_query' => array(
+							'relation' => 'AND',
+							array(
+								'key' => 'rbm_cpts_day_of_the_week',
+								'type' => 'NUMERIC',
+							),
+							array(
+								'key' => 'rbm_cpts_start_time',
+								'type' => 'TIME',
+							),
+						),
+					) );
 
-									// Leading zero
-									$minute = sprintf( '%02d', $minute );
+					if ( $occurrences->have_posts() ) : 
 
-									if ( (int) $hour > 12 ) {
-										$hour -= 12;
-									}
+						while ( $occurrences->have_posts() ) : $occurrences->the_post(); ?>
 
-									if ( (int) $hour == 12 ) {
+							<li>
 
-										if ( strtolower( $meridian ) == 'am' ) {
-											$merdian = 'pm';
-										}
-										else {
-											$merdian = 'am';
-										}
+								<?php echo date_i18n( 'l', strtotime( "Sunday +" . rbm_cpts_get_field( 'day_of_the_week' ) . " days" ) ); ?>
+								<?php echo ' @ '; ?>
+								<?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'start_time' ) ) ); ?>
+								<?php echo ' - '; ?>
+								<?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'end_time' ) ) ); ?>
 
-									}
+							</li>
 
-									echo tribe_get_option( 'timeRangeSeparator', ' - ' );
+						<?php endwhile;
 
-									echo date( $time_format, strtotime( $hour . ':' . $minute . $meridian ) );
-									
-								}
-								else {
-									
-									echo preg_replace( '/(am)|(pm)/i', ' $0', $rule['custom']['start-time'] ) . tribe_get_option( 'timeRangeSeparator', ' - ' ) . preg_replace( '/(am)|(pm)/i', ' $0', $rule['custom']['end-time'] );
-									
-								}
-							
-								
-							
-							endif; ?>
-							
-						</li>
-				
-					<?php endforeach;
-				
-				endforeach;
-				
-				
-				if ( empty( $recurrence['rules'] ) ) : 
-				
-					$time_format = get_option( 'time_format', 'g:i a' );
-				
-					?>
-				
-					<li>
-					
-						<?php echo date( 'l', strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-						<?php echo tribe_get_option( 'dateTimeSeparator', ' @ ' ); ?>
-						<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-						<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
-						<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
-						
-					</li>
-					
-				<?php endif; ?>
+						wp_reset_postdata();
+
+					endif;
+
+				?>
 			
 			</ul>
 			
 			<?php the_excerpt(); ?>
 			
-			<a href="<?php echo tribe_all_occurences_link( $post_id, false ); ?>" class="button secondary">
+			<a href="<?php the_permalink(); ?>" class="button secondary">
 				<?php _e( 'Find Out More', 'good-shepherd-catholic-radio' ); ?>
 			</a>
 			

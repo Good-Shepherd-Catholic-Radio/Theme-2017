@@ -353,87 +353,14 @@ if ( ! function_exists( 'gscr_get_radio_shows' ) ) {
 		$args = wp_parse_args( $_POST, array(
 			'search' => '',
 		) );
-		
-		$current_time = current_time( 'Y-m-d' );
-
-		// If today is a Sunday, use today. Else get the last Sunday
-		$sunday = '';
-		if ( (string) date( 'w', strtotime( $current_time ) ) == '0' ) {
-			$sunday = $current_time; 
-		}
-		else {
-			$sunday = date( 'Y-m-d', strtotime( 'last Sunday', strtotime( $current_time ) ) );
-		}
-
-		// If today is a Saturday, use today. Else get the next Saturday
-		$saturday = '';
-		if ( (string) date( 'w', strtotime( $current_time ) ) == '6' ) {
-			$saturday = $current_time; 
-		}
-		else {
-			$saturday = date( 'Y-m-d', strtotime( 'next Saturday', strtotime( $current_time ) ) );
-		}
 
 		$radio_shows = new WP_Query( array(
-			'post_type' => 'tribe_events',
+			'post_type' => 'radio-show',
 			'posts_per_page' => -1,
-			'start_date' => $sunday . ' 00:00',
 			'order' => 'ASC',
 			'orderby' => 'title',
-			'tax_query' => array(
-				'relationship' => 'AND',
-				array(
-					'taxonomy' => 'tribe_events_cat',
-					'field' => 'slug',
-					'terms' => array( 'radio-show' ),
-					'operator' => 'IN'
-				),
-			),
-			'meta_query' => array(
-				'relation' => 'AND',
-				array(
-					'key' => '_EventStartDate',
-					'value' => $sunday . ' 00:00',
-					'type' => 'DATETIME',
-					'compare' => '>=',
-				),
-				array(
-					'key' => '_EventStartDate',
-					'value' => $saturday . ' 23:59',
-					'type' => 'DATETIME',
-					'compare' => '<=',
-				),
-				array(
-					'key' => '_EventHideFromUpcoming',
-					'compare' => 'NOT EXISTS',
-				),
-			),
 			's' => ( isset( $args['search'] ) && ! empty( $args['search'] ) ) ? $args['search'] : '',
 		) );
-
-		// Remove all duplicate entries. Since by the time this query runs it can basically be guaranteed any particular Event isn't the "original", we can't filter out recurring via SQL
-		$temp = array();
-		foreach( $radio_shows->posts as $key => $object ) {
-			$temp[ $key ] = $object->post_title;
-		}
-
-		$temp = array_unique( $temp );
-
-		foreach ( $radio_shows->posts as $key => $object ) {
-
-			if ( ! array_key_exists( $key, $temp ) ) {
-				unset( $radio_shows->posts[ $key ] );
-			}
-
-		}
-
-		// Reindex array
-		$radio_shows->posts = array_values( $radio_shows->posts );
-
-		// Set Post Count to the new value
-		$radio_shows->post_count = count( $radio_shows->posts );
-		
-		//var_dump( $radio_shows->post_count );
 
 		echo gscr_radio_show_list_item( $radio_shows );
 
