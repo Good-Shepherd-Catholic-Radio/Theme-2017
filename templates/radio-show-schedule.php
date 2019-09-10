@@ -16,64 +16,29 @@ locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
 
 global $post;
 
-$current_time = current_time( 'Y-m-d' );
-
-// If today is a Sunday, use today. Else get the last Sunday
-$sunday = '';
-if ( (string) date( 'w', strtotime( $current_time ) ) == '0' ) {
-	$sunday = $current_time; 
-}
-else {
-	$sunday = date( 'Y-m-d', strtotime( 'last Sunday', strtotime( $current_time ) ) );
-}
-
-// If today is a Saturday, use today. Else get the next Saturday
-$saturday = '';
-if ( (string) date( 'w', strtotime( $current_time ) ) == '6' ) {
-	$saturday = $current_time; 
-}
-else {
-	$saturday = date( 'Y-m-d', strtotime( 'next Saturday', strtotime( $current_time ) ) );
-}
-
 $radio_shows = new WP_Query( array(
-	'post_type' => 'tribe_events',
+	'post_type' => 'radio-show',
 	'posts_per_page' => -1,
-	'eventDisplay' => 'custom',
-	'start_date' => $sunday . ' 00:00',
-	'order' => 'ASC',
-	'tax_query' => array(
-		'relationship' => 'AND',
-		array(
-			'taxonomy' => 'tribe_events_cat',
-			'field' => 'slug',
-			'terms' => array( 'radio-show' ),
-			'operator' => 'IN'
-		),
+	'post_status' => 'radioshow-occurrence',
+	'orderby' => array(
+		'rbm_cpts_day_of_the_week' => 'ASC',
+		'rbm_cpts_start_time' => 'ASC',
 	),
 	'meta_query' => array(
 		'relation' => 'AND',
 		array(
-			'key' => '_EventStartDate',
-			'value' => $sunday . ' 00:00',
-			'type' => 'DATETIME',
-			'compare' => '>=',
+			'key' => 'rbm_cpts_day_of_the_week',
+			'type' => 'NUMERIC',
 		),
 		array(
-			'key' => '_EventStartDate',
-			'value' => $saturday . ' 23:59',
-			'type' => 'DATETIME',
-			'compare' => '<=',
-		),
-		array(
-			'key' => '_EventHideFromUpcoming',
-			'compare' => 'NOT EXISTS',
+			'key' => 'rbm_cpts_start_time',
+			'type' => 'TIME',
 		),
 	),
 ) );
 
 $weekdays = gscr_get_weekdays();
-$current_date = date( 'w', current_time( 'timestamp' ) );
+$current_day_index = current_time( 'w' );
 
 ?>
 
@@ -92,7 +57,7 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 		<ul class="tabs hide-for-print" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="radio-show-schedule-tabs">
 
 			<?php foreach ( $weekdays as $index => $weekday ) : ?>
-				<li class="tabs-title<?php echo ( $index == $current_date ) ? ' is-active' : ''; ?>">
+				<li class="tabs-title<?php echo ( $index == $current_day_index ) ? ' is-active' : ''; ?>">
 					<a href="#<?php echo strtolower( $weekday ); ?>"<?php echo ( $index == 0 ) ? ' aria-selected="true"' : ''; ?>>
 						<?php echo $weekday; ?>
 					</a>
@@ -117,11 +82,10 @@ $current_date = date( 'w', current_time( 'timestamp' ) );
 
 				while ( $radio_shows->have_posts() ) : $radio_shows->the_post(); ?>
 
-					<?php $start_datetime = get_post_meta( get_the_ID(), '_EventStartDate', true ); ?>
-					<?php $start_time = date( 'Hi', strtotime( $start_datetime ) ); ?>
-					<?php $start_index = date( 'w', strtotime( $start_datetime ) ); ?>
-					<?php $end_datetime = get_post_meta( get_the_ID(), '_EventEndDate', true ); ?>
-					<?php $end_index = date( 'w', strtotime( $end_datetime ) ); ?>
+					<?php $parent_id = wp_get_post_parent_id( get_the_ID() ); ?>
+					<?php $start_time = rbm_cpts_get_field( 'start_time' ); ?>
+					<?php $start_index = rbm_cpts_get_field( 'day_of_the_week' ); ?>
+					<?php $end_time = rbm_cpts_get_field( 'end_time' ); ?>
 
 					<?php if ( $day_index == $start_index &&
 							 $first ) : ?>
