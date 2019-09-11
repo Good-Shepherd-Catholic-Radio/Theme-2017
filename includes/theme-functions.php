@@ -113,10 +113,21 @@ function gscr_custom_breadcrumbs() {
 					
 				}
                 else if ( get_post_type() != 'post' ) {
-                    $post_type = get_post_type_object( get_post_type() );
-                    $slug = $post_type->rewrite;
-                    echo $before . '<a href="' . $home_link . '/' . $slug['slug'] . '/">' . $post_type->labels->name . '</a>' . $after;
-                    if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+
+					$post_type = get_post_type_object( get_post_type() );
+
+					if ( $post_type->has_archive ) {
+					
+						$slug = $post_type->rewrite;
+						echo $before . '<a href="' . $home_link . '/' . $slug['slug'] . '/">' . $post_type->labels->name . '</a>' . $after;
+
+					}
+					else {
+						echo $before . $post_type->labels->name . $after;
+					}
+					
+					if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+					
                 }
                 else if ( get_post_type() == 'post' ) {
                     $post_type = get_post_type_object( get_post_type() );
