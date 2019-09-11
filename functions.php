@@ -441,7 +441,7 @@ add_filter( 'gscr_radio_show_background_image_label', 'gscr_radio_show_backgroun
  */
 function gscr_radio_show_background_image_label( $label ) {
 
-	return $label . ' ' . __( '(Recommended 1170 × 400)', 'good-shepherd-catholic-radio' );
+	return $label . ' ' . __( '(Recommended 1170 × 400)', 'good-shepherd-catholic-radio' ) . '<br /><br />' . __( 'This is the default if no Logo or Headshot is added.', 'good-shepherd-catholic-radio' );
 
 }
 
