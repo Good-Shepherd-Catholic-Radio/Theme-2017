@@ -58,15 +58,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$body_class[] = 'has-featured-image';
 			$has_featured_image = true;
 		}
-		else if ( $wp_query->get( 'gscr_radio_show_search' ) && 
-				have_posts() && 
-				has_post_thumbnail( $wp_query->posts[0] ) ) {
-			
-			$body_class[] = 'has-featured-image';
-			$body_class[] = 'gscr-radio-show-search';
-			$has_featured_image = true;
-			
-		}
 	
 		$body_class = apply_filters( 'gscr_body_class', $body_class, $post_id );
 	

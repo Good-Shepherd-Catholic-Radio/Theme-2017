@@ -519,53 +519,6 @@ function gscr_change_featured_image_staff_profile_labels( $labels ) {
 
 }
 
-add_filter( 'document_title_parts', 'gscr_change_radio_show_search_title', 10 );
-
-/**
- * Fix Title for our custom Radio Show Search page
- * 
- * @param		array $title_parts Title Parts
- *                                  
- * @access		public
- * @since		1.0.24
- * @return		array Title Parts
- */
-function gscr_change_radio_show_search_title( $title_parts ) {
-	
-	global $wp_query;
-	
-	if ( ! $wp_query->get( 'gscr_radio_show_search' ) ) return $title_parts;
-	
-	$title_parts['title'] = get_search_query();
-	
-	return $title_parts;
-	
-}
-
-/**
- * Remove unneeded text from Radio Show Title for better searching
- * Don't use this outside of the Radio Show Search Page. If needed for other things, make a different function, future-me
- * 
- * @param		string $title Radio Show Title
- *                                  
- * @since		1.0.24
- * @return		string Radio Show Title
- */
-function _gscr_sanitize_radio_show_name( $title ) {
-	
-	// Remove (Live) or (Encore) from the end
-	$title = preg_replace( '/\s(?:\(Encore\)|\(Live\))$/si', '', $title );
-	
-	// Remove "with ..." from the end of Titles
-	$title = preg_replace( '/\swith.*$/si', '', $title );
-	
-	// Remove "The Best of..." from the start of Titles
-	$title = preg_replace( '/^The\sBest\sof\s/si', '', $title );
-	
-	return $title;
-	
-}
-
 /**
  * Get any special modifications to the Title based on the Broadcast Type
  *
