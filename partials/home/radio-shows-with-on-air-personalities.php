@@ -64,12 +64,14 @@ if ( $radio_shows->have_posts() ) :
 	
 		if ( $count == $limit ) break;
 
+		$background_color = rbm_cpts_get_field( 'radio_show_background_image_color' );
 		$attachment_id = rbm_cpts_get_field( 'radio_show_background_image' );
 
+		$image_url = '';
 		if ( $attachment_id ) {
 			$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 		}
-		else {
+		else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image' ) && ! has_post_thumbnail() ) {
 			$image_url = THEME_URL . '/assets/images/default-radio-show.png';
 		}
 	
@@ -86,7 +88,28 @@ if ( $radio_shows->have_posts() ) :
 
 				<div class="image-container">
 
-					<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+					<div class="image<?php echo ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
+
+					<?php 
+
+						if ( $attachment_id = rbm_cpts_get_field( 'radio_show_headshot_image' ) ) : 
+
+							echo wp_get_attachment_image( $attachment_id, 'full', false, array(
+								'class' => 'attachment-full size-full wp-post-image radio-show-headshot',
+							) );
+
+						endif;
+
+						if ( ! $attachment_id && 
+							has_post_thumbnail() ) : // Logo. Only show one of these if it is the first item
+
+							the_post_thumbnail( 'full', array(
+								'class' => 'attachment-full size-full wp-post-image radio-show-logo' . ( ( $attachment_id ) ? ' hide-for-small-only' : ' no-headshot' ),
+							) );
+
+						endif;
+
+					?>
 					
 					<div class="on-air-personality-title">
 						<div class="on-air-personality-title-overlay"></div>

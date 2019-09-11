@@ -51,6 +51,8 @@ $cell-height: 125px;
 
 		position: relative;
 
+		@include radio-show-images;
+
 		.image {
 
 			position: absolute;
@@ -64,6 +66,42 @@ $cell-height: 125px;
 			background-size: cover;
 			background-position: center center;
 			background-color: $tertiary-color;
+
+		}
+
+		.radio-show-headshot, .radio-show-logo {
+
+			max-height: $cell-height;
+
+			@media #{$medium-up} {
+				max-height: $cell-height * 1.5;
+			}
+
+		}
+
+		.radio-show-headshot {
+
+			right: 0;
+
+		}
+
+		.radio-show-logo {
+
+			top: 30%;
+			left: 50%;
+			transform: translate( -50%, -30% );
+
+			&.no-headshot {
+
+				@media #{$small-only} {
+
+					right: 0;
+					left: auto;
+					transform: translateY( -30% );
+
+				}
+
+			}
 
 		}
 
