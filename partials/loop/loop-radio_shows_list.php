@@ -83,6 +83,8 @@ else {
 
 						while ( $occurrences->have_posts() ) : $occurrences->the_post(); ?>
 
+							<?php $broadcast_type = rbm_cpts_get_field( 'broadcast_type' ); ?>
+
 							<li>
 
 								<?php echo date_i18n( 'l', strtotime( "Sunday +" . rbm_cpts_get_field( 'day_of_the_week' ) . " days" ) ); ?>
@@ -90,6 +92,10 @@ else {
 								<?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'start_time' ) ) ); ?>
 								<?php echo ' - '; ?>
 								<?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'end_time' ) ) ); ?>
+								<?php if ( in_array( $broadcast_type, array( 'live', 'encore', 'pre-recorded' ) ) ): ?>
+									<?php echo ' '; ?>
+									(<?php echo gscr_get_broadcast_type_label( $broadcast_type ); ?>)
+								<?php endif; ?>
 
 							</li>
 

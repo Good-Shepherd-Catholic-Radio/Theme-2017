@@ -566,6 +566,60 @@ function _gscr_sanitize_radio_show_name( $title ) {
 	
 }
 
+/**
+ * Get any special modifications to the Title based on the Broadcast Type
+ *
+ * @param   integer  $post_id         Post ID (This should be the Parent/Source Radio Show)
+ * @param   string   $broadcast_type  Broadcast Type
+ *
+ * @since	{{VERSION}}
+ * @return  string                    Post Title with modifications based on Broadcast Type
+ */
+function gscr_get_occurrence_title( $post_id, $broadcast_type = '' ) {
+
+	$title = get_the_title( $post_id ); 
+
+	switch ( $broadcast_type ) {
+		case 'live' : 
+		case 'encore' : 
+			$title .= ' (' . gscr_get_broadcast_type_label( $broadcast_type ) . ')';
+			break;
+		case 'best-of' : 
+			$title = gscr_get_broadcast_type_label( $broadcast_type ) . ' ' . $title;
+			break;
+		default: 
+			break;
+	}
+
+	return $title;
+
+}
+
+/**
+ * Gets a label based on the Broadcast Type
+ *
+ * @param   string  $broadcast_type  Broadcast Type
+ *
+ * @since	{{VERSION}}
+ * @return  string                   Label
+ */
+function gscr_get_broadcast_type_label( $broadcast_type ) {
+
+	$labels = apply_filters( 'gscr_broadcast_type_labels', array(
+		'live' => __( 'Live', 'good-shepherd-catholic-radio' ),
+		'encore' => __( 'Encore', 'good-shepherd-catholic-radio' ),
+		'best-of' => __( 'The Best of', 'good-shepherd-catholic-radio' ),
+		'pre-recorded' => __( 'Pre-recorded', 'good-shepherd-catholic-radio' ),
+	) );
+
+	if ( array_key_exists( $broadcast_type, $labels ) ) {
+		return $labels[ $broadcast_type ];
+	}
+
+	return '';
+
+}
+
 /*
 
 I have no idea why these Radio Shows did not have their categories

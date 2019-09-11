@@ -22,6 +22,8 @@ else {
 	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 }
 
+$broadcast_type = rbm_cpts_get_field( 'broadcast_type' );
+
 ?>
 
 <article <?php post_class( array(
@@ -33,7 +35,7 @@ else {
 		
 		<div class="small-12 medium-3 columns image-container hide-for-print">
 			
-			<a href="<?php the_permalink(); ?>" title="<?php get_the_title( $parent_id ); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php echo gscr_get_occurrence_title( $parent_id, $broadcast_type ); ?>">
 				
 				<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
 				
@@ -43,10 +45,10 @@ else {
 		
 		<div class="small-12 medium-9 columns content">
 	
-			<a href="<?php the_permalink(); ?>" title="<?php get_the_title( $parent_id ); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php echo gscr_get_occurrence_title( $parent_id, $broadcast_type ); ?>">
 
 				<div class="radio-show-title">
-					<?php the_title(); ?>
+					<?php echo gscr_get_occurrence_title( $parent_id, $broadcast_type ); ?>
 					<br />
 					<?php echo date( $time_format, strtotime( $start_time ) ); ?>
 					<?php echo ' - '; ?>

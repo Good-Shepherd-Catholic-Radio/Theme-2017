@@ -24,6 +24,8 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image', $parent_id ) && ! h
 	$image_url = THEME_URL . '/assets/images/default-radio-show.png';
 }
 
+$broadcast_type = rbm_cpts_get_field( 'broadcast_type' );
+
 ?>
 
 <div <?php post_class( array(
@@ -55,7 +57,7 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image', $parent_id ) && ! h
 
 	<?php endif; ?>
 	
-	<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title( $parent_id ); ?>">
+	<a href="<?php the_permalink(); ?>" title="<?php echo gscr_get_occurrence_title( $parent_id, $broadcast_type ); ?>">
 		
 		<div class="image" style="background-image: url(<?php echo $image_url; ?>);<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
 
@@ -90,7 +92,7 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image', $parent_id ) && ! h
 			<?php endif; ?>
 			
 			<?php if ( $first && 
-					  rbm_cpts_get_field( 'broadcast_type' ) == 'live' ) : ?>
+					  $broadcast_type == 'live' ) : ?>
 			
 				<span class="fa-stack microphone-live" title="<?php _e( 'Live', 'good-shepherd-catholic-radio' ); ?>">
 					<span class="fa fa-rss fa-flip-horizontal left fa-stack-1x"></span>
@@ -108,7 +110,7 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image', $parent_id ) && ! h
 			
 			<span class="alignleft">
 			
-				<?php echo get_the_title( $parent_id ); ?>
+				<?php echo gscr_get_occurrence_title( $parent_id, $broadcast_type ); ?>
 				<br />
 				<?php echo date( $time_format, strtotime( rbm_cpts_get_field( 'start_time' ) ) ); ?>
 				<?php echo ' - '; ?>
