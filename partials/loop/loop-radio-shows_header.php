@@ -13,9 +13,9 @@ $time_format = get_option( 'time_format', 'g:i a' );
 
 $parent_id = wp_get_post_parent_id( get_the_ID() );
 
-$attachment_id = rbm_cpts_get_field( $parent_id, 'radio_show_background_image' );
+$attachment_id = rbm_cpts_get_field( 'radio_show_background_image', $parent_id );
 
-if ( has_post_thumbnail() ) {
+if ( $attachment_id ) {
 	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 }
 else {

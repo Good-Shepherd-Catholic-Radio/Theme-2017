@@ -1,0 +1,17 @@
+.single-radio-show {
+
+    &.has-featured-image {
+
+        .post-title {
+
+            margin-top: -6.5rem;
+
+			@media #{$medium-up} {
+				margin-top: -7.1rem;
+			}
+
+        }
+
+    }
+
+}

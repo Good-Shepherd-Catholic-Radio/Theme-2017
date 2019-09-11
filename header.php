@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 		global $has_featured_image;
 		$has_featured_image = false;
-		if ( get_post_type() == 'radio-show' ) {
+		if ( get_post_type() == 'radio-show' && rbm_cpts_get_field( 'radio_show_background_image' ) ) {
 			$body_class[] = 'has-featured-image';
 			$has_featured_image = true;
 		}
