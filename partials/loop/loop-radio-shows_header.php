@@ -67,7 +67,7 @@ else {
 			<?php endif; ?>
 			
 			<?php if ( $first && 
-					  rbm_get_field( 'radio_show_live' ) ) : ?>
+					  rbm_cpts_get_field( 'broadcast_type' ) == 'live' ) : ?>
 			
 				<span class="fa-stack microphone-live" title="<?php _e( 'Live', 'good-shepherd-catholic-radio' ); ?>">
 					<span class="fa fa-rss fa-flip-horizontal left fa-stack-1x"></span>
