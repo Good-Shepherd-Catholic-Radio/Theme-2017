@@ -429,6 +429,22 @@ function gscr_change_featured_image_banner_labels( $labels ) {
 
 }
 
+add_filter( 'gscr_radio_show_background_image_label', 'gscr_radio_show_background_image_label', 11 );
+
+/**
+ * Add Recommended size to the Background Image Label for Radio Shows
+ *
+ * @param   string  $label  Metabox Label
+ *
+ * @since	{{VERSION}}
+ * @return  string          Metabox Label
+ */
+function gscr_radio_show_background_image_label( $label ) {
+
+	return $label . ' ' . __( '(Recommended 1170 × 400)', 'good-shepherd-catholic-radio' );
+
+}
+
 add_filter( 'post_type_labels_on-air-personality', 'gscr_change_featured_image_on_air_personality_profile_labels' );
 
 /**
