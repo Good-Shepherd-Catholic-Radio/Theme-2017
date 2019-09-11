@@ -324,14 +324,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<div class="row expanded small-collapse featured-image-container">
 
 										<?php
+
+											$background_color = false;
 										
 											if ( is_archive() && get_post_type() == 'tribe_events' ) {
 												$attachment_id = rbm_get_field( 'gscr_home_events_image', get_option( 'page_on_front' ) );
 												$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 											}
 											else if ( get_post_type() == 'radio-show' ) {
+
 												$attachment_id = rbm_cpts_get_field( 'radio_show_background_image' );
 												$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+												$background_color = rbm_cpts_get_field( 'radio_show_background_image_color' );
+
 											}
 											else {
 												$attachment_id = get_post_thumbnail_id( get_the_ID() );
@@ -340,7 +345,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										
 										?>
 
-										<div class="image<?php echo ( get_post_type() == 'radio-show' && ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');"></div>
+										<div class="image<?php echo ( get_post_type() == 'radio-show' && ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
 
 										<?php if ( get_post_type() == 'radio-show' ) : 
 
