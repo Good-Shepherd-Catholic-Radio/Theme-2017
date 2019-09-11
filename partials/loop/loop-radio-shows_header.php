@@ -41,7 +41,7 @@ else {
 
 		</div>
 	
-		<?php if ( $phone_number = rbm_cpts_get_field( $parent_id, 'radio_show_call_in' ) ) : ?>
+		<?php if ( $phone_number = rbm_cpts_get_field( 'radio_show_call_in', $parent_id ) ) : ?>
 	
 			<div class="call-in-container">
 				
@@ -91,7 +91,7 @@ else {
 				<?php echo ' - '; ?>
 				<?php echo date( $time_format, strtotime( rbm_cpts_get_field( 'end_time' ) ) ); ?>
 				
-				<?php if ( $first && rbm_cpts_get_field( $parent_id, 'radio_show_call_in' ) ) : ?>
+				<?php if ( $first && rbm_cpts_get_field( 'radio_show_call_in', $parent_id ) ) : ?>
 				
 					<br />
 					&nbsp;
