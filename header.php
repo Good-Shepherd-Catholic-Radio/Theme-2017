@@ -340,7 +340,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 										
 										?>
 
-										<div class="image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+										<div class="image<?php echo ( get_post_type() == 'radio-show' && ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');"></div>
+
+										<?php if ( get_post_type() == 'radio-show' ) : 
+
+											if ( $attachment_id = rbm_cpts_get_field( 'radio_show_headshot_image' ) ) : 
+
+												echo wp_get_attachment_image( $attachment_id, 'full', false, array(
+													'class' => 'attachment-full size-full wp-post-image radio-show-headshot',
+												) );
+
+											endif;
+
+											if ( has_post_thumbnail() ) : // Logo
+
+												the_post_thumbnail( 'full', array(
+													'class' => 'attachment-full size-full wp-post-image radio-show-logo' . ( ( $attachment_id ) ? ' hide-for-small-only' : '' ),
+												) );
+
+											endif;
+
+										endif; ?>
 
 									</div>
 					

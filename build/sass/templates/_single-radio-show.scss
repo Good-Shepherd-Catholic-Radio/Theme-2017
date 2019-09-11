@@ -19,7 +19,45 @@
 			background-size: cover;
 			background-position: center center;
 			background-color: $tertiary-color;
-		}
+        }
+        
+        .radio-show-headshot, .radio-show-logo {
+
+            position: absolute;
+            width: auto;
+
+            max-height: 300px;
+            
+            @media #{$xlarge-up} {
+                max-height: 600px;
+            }
+
+        }
+
+        .radio-show-headshot {
+
+            right: 2rem;
+
+            @media #{$medium-up} {
+                right: 20rem;
+            }
+
+	        bottom: 0;
+
+        }
+        
+        .radio-show-logo {
+
+            top: 30%;
+            left: 50%;
+            transform: translate( -50%, -30% );
+            
+            @media #{$medium-up} {
+                left: 20rem;
+                transform: translate( 0, -30% );
+            }
+
+        }
 
 	}
 
