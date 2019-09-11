@@ -114,35 +114,87 @@ global $has_featured_image;
                     'fields' => 'ids',
                 ) );
 
-                if ( $occurrences->have_posts() ) : 
-
-                    $time_format = get_option( 'time_format', 'g:i a' );
-                
                 ?>
 
-                    <h3><?php _e( 'Broadcast Times', 'good-shepherd-catholic-radio' ); ?></h3>
+                <div class="radio-show-details row">
 
-                    <ul>
+                    <?php if ( $occurrences->have_posts() ) : 
 
-                    <?php foreach ( $occurrences->posts as $occurrence_id ) : ?>
+                        $time_format = get_option( 'time_format', 'g:i a' );
+                    
+                    ?>
 
-                        <li>
+                    <div class="small-12 medium-6 columns">
 
-                            <?php echo date_i18n( 'l', strtotime( "Sunday +" . rbm_cpts_get_field( 'day_of_the_week', $occurrence_id ) . " days" ) ); ?>
-                            <?php echo ' @ '; ?>
-                            <?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'start_time', $occurrence_id ) ) ); ?>
-                            <?php echo ' - '; ?>
-                            <?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'end_time', $occurrence_id ) ) ); ?>
+                        <h3><?php _e( 'Broadcast Times', 'good-shepherd-catholic-radio' ); ?></h3>
 
-                        </li>
+                        <ul>
 
-                    <?php endforeach; ?>
+                        <?php foreach ( $occurrences->posts as $occurrence_id ) : ?>
 
-                    </ul>
+                            <?php $broadcast_type = rbm_cpts_get_field( 'broadcast_type', $occurrence_id ); ?>
 
-                <?php endif;
+                            <li>
 
-            ?>
+                                <?php echo date_i18n( 'l', strtotime( "Sunday +" . rbm_cpts_get_field( 'day_of_the_week', $occurrence_id ) . " days" ) ); ?>
+                                <?php echo ' @ '; ?>
+                                <?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'start_time', $occurrence_id ) ) ); ?>
+                                <?php echo ' - '; ?>
+                                <?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'end_time', $occurrence_id ) ) ); ?>
+                                <?php if ( in_array( $broadcast_type, array( 'live', 'encore', 'pre-recorded' ) ) ): ?>
+                                    <?php echo ' '; ?>
+                                    (<?php echo gscr_get_broadcast_type_label( $broadcast_type ); ?>)
+                                <?php endif; ?>
+
+                            </li>
+
+                        <?php endforeach; ?>
+
+                        </ul>
+
+                    </div>
+
+                    <?php endif; ?>
+
+                    <div class="small-12 medium-6 columns">
+
+                        <h3><?php _e( 'Details', 'good-shepherd-catholic-radio' ); ?></h3>
+
+                        <ul>
+
+                            <?php if ( $phone_number = rbm_cpts_get_field( 'radio_show_call_in' ) ) : ?>
+                                <li><?php _e( 'Call in now!', 'good-shepherd-catholic-radio' ); ?> <?php echo gscr_get_phone_number_link( $phone_number ); ?></li>
+                            <?php endif; ?>
+
+                            <?php if ( rbm_cpts_get_field( 'radio_show_is_local' ) ) : ?>
+                                <li><?php _e( 'Local Radio Show', 'good-shepherd-catholic-radio' ); ?></li>
+                            <?php endif; ?>
+
+                            <?php if ( ! empty( $on_air_personalities ) ) : ?>
+
+                                <li>
+                                    
+                                    <?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
+
+                                    <ul>
+                                        <?php foreach ( $on_air_personalities as $personality_id ) : ?>
+                                            <li>
+                                                <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
+                                                    <?php echo get_the_title( $personality_id ); ?>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                            
+                                </li>
+
+                            <?php endif; ?>
+
+                        </ul>
+
+                    </div>
+
+                </div>
 
 			<?php the_content(); ?>
 
