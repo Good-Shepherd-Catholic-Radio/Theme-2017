@@ -47,7 +47,43 @@ global $has_featured_image;
 					<?php the_title(); ?>
 				</h1>
 			
-			<?php endif; ?>
+            <?php endif; ?>
+            
+            <?php 
+            
+                $on_air_personalities = rbm_cpts_get_p2p_children( 'on-air-personality' );
+
+                if ( ! $on_air_personalities ) $on_air_personalities = array();
+
+                foreach ( $on_air_personalities as $personality_id ) : $personality = get_post( $personality_id ); ?>
+	
+                    <div class="row on-air-personality post-<?php echo $personality_id; ?>">
+                        
+                        <div class="small-12 columns">
+                            
+                            <?php if ( has_post_thumbnail( $personality_id ) ) : ?>
+                                <div class="thumbnail alignleft">
+                                    <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
+                                        <?php echo get_the_post_thumbnail( $personality_id, 'thumbnail' ); ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <h3 class="post-title">
+                                <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
+                                    <?php echo get_the_title( $personality_id ); ?>
+                                </a>
+                            </h3>
+                            
+                            <?php echo apply_filters( 'the_content', $personality->post_content ); ?>
+                            
+                        </div>
+                        
+                    </div>
+                
+                <?php endforeach;
+
+            ?>
 
 			<?php the_content(); ?>
 
