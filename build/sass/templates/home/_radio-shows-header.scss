@@ -58,6 +58,8 @@ $cell-height: 175px;
 
 		}
 
+		@include radio-show-images;
+
 		.image {
 			position: absolute;
 			top: 0;
@@ -294,7 +296,45 @@ $cell-height: 175px;
 	.radio-shows-left {
 
 		.radio-show {
+
 			border-left: none;
+
+			.radio-show-headshot, .radio-show-logo {
+
+				max-height: $cell-height;
+
+				@media #{$medium-up} {
+					max-height: $cell-height * 2;
+				}
+
+			}
+
+			.radio-show-headshot {
+
+				right: 0;
+
+			}
+
+			.radio-show-logo {
+
+				top: 30%;
+				left: 50%;
+				transform: translate( -50%, -30% );
+
+				&.no-headshot {
+
+					@media #{$small-only} {
+
+						right: 0;
+						left: auto;
+						transform: translateY( -30% );
+
+					}
+
+				}
+
+			}
+
 		}
 
 	}
@@ -303,6 +343,52 @@ $cell-height: 175px;
 
 		.radio-show, .image {
 			min-height: $cell-height;
+		}
+
+		.radio-show-headshot, .radio-show-logo {
+
+			max-height: $cell-height;
+
+		}
+
+		.radio-show-headshot {
+
+			right: 0;
+
+			@media #{$medium-up} {
+				right: 5%;
+			}
+
+		}
+
+		.radio-show-logo {
+
+			top: 30%;
+			left: 50%;
+			transform: translate( -50%, -30% );
+
+			@media #{$medium-up} {
+				left: 5%;
+				transform: translate( -5%, -30% );
+			}
+
+			@media #{$xlarge-up} {
+				left: 32%;
+				transform: translate( -32%, -30% );
+			}
+
+			&.no-headshot {
+
+				right: 0;
+				left: auto;
+				transform: translateY( -30% );
+
+				@media #{$medium-up} {
+					right: 5%;
+				}
+
+			}
+
 		}
 
 	}

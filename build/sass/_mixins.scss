@@ -86,3 +86,57 @@
 	// text-shadow is supported by IE 11, but doesn't work the best with this typeface
 
 }
+
+@mixin radio-show-images {
+
+	.image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		background-color: $tertiary-color;
+	}
+	
+	.radio-show-headshot, .radio-show-logo {
+
+		position: absolute;
+		width: auto;
+
+		max-height: 300px;
+		
+		@media #{$xlarge-up} {
+			max-height: 600px;
+		}
+
+	}
+
+	.radio-show-headshot {
+
+		right: 5%;
+
+		@media #{$medium-up} {
+			right: 22%;
+		}
+
+		bottom: 0;
+
+	}
+	
+	.radio-show-logo {
+
+		top: 30%;
+		left: 50%;
+		transform: translate( -50%, -30% );
+		
+		@media #{$medium-up} {
+			left: 22%;
+			transform: translate( 0, -30% );
+		}
+
+	}
+
+}
