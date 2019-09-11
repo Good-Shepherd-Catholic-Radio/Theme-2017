@@ -55,6 +55,8 @@ global $has_featured_image;
 
                 if ( ! $on_air_personalities ) $on_air_personalities = array();
 
+                remove_filter( 'the_content', 'A2A_SHARE_SAVE_add_to_content', 98 );
+
                 foreach ( $on_air_personalities as $personality_id ) : $personality = get_post( $personality_id ); ?>
 	
                     <div class="row on-air-personality post-<?php echo $personality_id; ?>">
@@ -82,6 +84,8 @@ global $has_featured_image;
                     </div>
                 
                 <?php endforeach;
+
+                add_filter( 'the_content', 'A2A_SHARE_SAVE_add_to_content', 98 );
 
             ?>
 
