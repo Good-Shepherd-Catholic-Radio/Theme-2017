@@ -89,6 +89,61 @@ global $has_featured_image;
 
             ?>
 
+            <?php 
+
+                $occurrences = new WP_Query( array(
+                    'post_type' => 'radio-show',
+                    'post_parent' => get_the_ID(),
+                    'post_status' => 'radioshow-occurrence',
+                    'posts_per_page' => -1,
+                    'orderby' => array(
+                        'rbm_cpts_day_of_the_week' => 'ASC',
+                        'rbm_cpts_start_time' => 'ASC',
+                    ),
+                    'meta_query' => array(
+                        'relation' => 'AND',
+                        array(
+                            'key' => 'rbm_cpts_day_of_the_week',
+                            'type' => 'NUMERIC',
+                        ),
+                        array(
+                            'key' => 'rbm_cpts_start_time',
+                            'type' => 'TIME',
+                        ),
+                    ),
+                    'fields' => 'ids',
+                ) );
+
+                if ( $occurrences->have_posts() ) : 
+
+                    $time_format = get_option( 'time_format', 'g:i a' );
+                
+                ?>
+
+                    <h3><?php _e( 'Broadcast Times', 'good-shepherd-catholic-radio' ); ?></h3>
+
+                    <ul>
+
+                    <?php foreach ( $occurrences->posts as $occurrence_id ) : ?>
+
+                        <li>
+
+                            <?php echo date_i18n( 'l', strtotime( "Sunday +" . rbm_cpts_get_field( 'day_of_the_week', $occurrence_id ) . " days" ) ); ?>
+                            <?php echo ' @ '; ?>
+                            <?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'start_time', $occurrence_id ) ) ); ?>
+                            <?php echo ' - '; ?>
+                            <?php echo date_i18n( $time_format, strtotime( rbm_cpts_get_field( 'end_time', $occurrence_id ) ) ); ?>
+
+                        </li>
+
+                    <?php endforeach; ?>
+
+                    </ul>
+
+                <?php endif;
+
+            ?>
+
 			<?php the_content(); ?>
 
 		</article>
