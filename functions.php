@@ -473,7 +473,7 @@ add_filter( 'gscr_radio_show_logo_image_label', 'gscr_radio_show_logo_image_labe
  */
 function gscr_radio_show_logo_image_label( $label ) {
 
-	return $label . ' ' . __( '(Recommended 400 × 200)', 'good-shepherd-catholic-radio' );
+	return $label . ' ' . __( '(Recommended 400 × 300)', 'good-shepherd-catholic-radio' );
 
 }
 
