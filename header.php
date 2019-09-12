@@ -351,7 +351,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											if ( has_post_thumbnail() ) : // Logo
 
 												the_post_thumbnail( 'full', array(
-													'class' => 'attachment-full size-full wp-post-image radio-show-logo' . ( ( $attachment_id ) ? ' hide-for-small-only' : '' ),
+													'class' => 'attachment-full size-full wp-post-image radio-show-logo' . ( ( $attachment_id ) ? ' hide-for-small-only' : ' no-headshot' ),
 												) );
 
 											endif;
