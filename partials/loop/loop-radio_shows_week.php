@@ -39,7 +39,7 @@ $broadcast_type = rbm_cpts_get_field( 'broadcast_type' );
 			
 			<a href="<?php the_permalink(); ?>" title="<?php echo gscr_get_occurrence_title( $parent_id, $broadcast_type ); ?>">
 				
-				<div class="image<?php echo ( ! has_post_thumbnail( $parent_id ) && ! rbm_cpts_get_field( 'radio_show_headshot_image', $parent_id ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
+				<div class="image<?php echo ( $image_url || ( ! has_post_thumbnail( $parent_id ) && ! rbm_cpts_get_field( 'radio_show_headshot_image', $parent_id ) ) ? ' has-image-url' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
 
 				<?php 
 

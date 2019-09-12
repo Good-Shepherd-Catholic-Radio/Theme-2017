@@ -336,7 +336,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										
 										?>
 
-										<div class="image<?php echo ( get_post_type() == 'radio-show' && ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
+										<div class="image<?php echo ( get_post_type() == 'radio-show' && ( $image_url || ( ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ) ) ) ? ' has-image-url' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
 
 										<?php if ( get_post_type() == 'radio-show' ) : 
 

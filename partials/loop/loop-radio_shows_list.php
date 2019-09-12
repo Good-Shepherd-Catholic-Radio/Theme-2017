@@ -39,7 +39,7 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image' ) && ! has_post_thum
 			
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				
-				<div class="image<?php echo ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ? ' legacy' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
+				<div class="image<?php echo ( $image_url || ( ! has_post_thumbnail() && ! rbm_cpts_get_field( 'radio_show_headshot_image' ) ) ? ' has-image-url' : '' ); ?>" style="background-image: url('<?php echo $image_url; ?>');<?php echo ( $background_color ) ? ' background-color: ' . $background_color . ';': ''; ?>"></div>
 
 				<?php 
 
