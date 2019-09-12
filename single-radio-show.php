@@ -158,39 +158,50 @@ global $has_featured_image;
 
                     <div class="small-12 medium-6 columns">
 
-                        <h3><?php _e( 'Details', 'good-shepherd-catholic-radio' ); ?></h3>
+                        <?php 
 
-                        <ul>
+                            $phone_number = rbm_cpts_get_field( 'radio_show_call_in' );
+                            $is_local = rbm_cpts_get_field( 'radio_show_is_local' );
 
-                            <?php if ( $phone_number = rbm_cpts_get_field( 'radio_show_call_in' ) ) : ?>
-                                <li><?php _e( 'Call in now!', 'good-shepherd-catholic-radio' ); ?> <?php echo gscr_get_phone_number_link( $phone_number ); ?></li>
-                            <?php endif; ?>
+                            if ( $phone_number || $is_local || ! empty( $on_air_personalities ) ) : ?>
 
-                            <?php if ( rbm_cpts_get_field( 'radio_show_is_local' ) ) : ?>
-                                <li><?php _e( 'Local Radio Show', 'good-shepherd-catholic-radio' ); ?></li>
-                            <?php endif; ?>
+                                <h3><?php _e( 'Details', 'good-shepherd-catholic-radio' ); ?></h3>
 
-                            <?php if ( ! empty( $on_air_personalities ) ) : ?>
+                                <ul>
 
-                                <li>
+                                    <?php if ( $phone_number ) : ?>
+                                        <li><?php _e( 'Call in now!', 'good-shepherd-catholic-radio' ); ?> <?php echo gscr_get_phone_number_link( $phone_number ); ?></li>
+                                    <?php endif; ?>
+
+                                    <?php if ( $is_local ) : ?>
+                                        <li><?php _e( 'Local Radio Show', 'good-shepherd-catholic-radio' ); ?></li>
+                                    <?php endif; ?>
+
+                                    <?php if ( ! empty( $on_air_personalities ) ) : ?>
+
+                                        <li>
+                                            
+                                            <?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
+
+                                            <ul>
+                                                <?php foreach ( $on_air_personalities as $personality_id ) : ?>
+                                                    <li>
+                                                        <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
+                                                            <?php echo get_the_title( $personality_id ); ?>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                     
-                                    <?php _e( 'On-Air Personalities', 'good-shepherd-catholic-radio' ); ?>
+                                        </li>
 
-                                    <ul>
-                                        <?php foreach ( $on_air_personalities as $personality_id ) : ?>
-                                            <li>
-                                                <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
-                                                    <?php echo get_the_title( $personality_id ); ?>
-                                                </a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
+                                    <?php endif; ?>
+
+                                </ul>
+
+                            <?php endif; 
                             
-                                </li>
-
-                            <?php endif; ?>
-
-                        </ul>
+                        ?>
 
                     </div>
 
