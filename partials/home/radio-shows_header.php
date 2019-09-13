@@ -49,18 +49,20 @@ if ( $radio_shows->post_count < 3 ) {
 		'post_status' => 'radioshow-occurrence',
 		'posts_per_page' => 3 - $radio_shows->post_count,
 		'orderby' => array(
+			'rbm_cpts_day_of_the_week' => 'ASC',
 			'rbm_cpts_start_time' => 'ASC',
 		),
 		'meta_query' => array(
 			'relation' => 'AND',
 			array(
-				'key' => 'rbm_cpts_start_time',
-				'type' => 'TIME',
-			),
-			array(
 				'key' => 'rbm_cpts_day_of_the_week',
 				'type' => 'NUMERIC',
-				'value' => ( $current_day_index == 6 ) ? 0 : $current_day_index + 1, // Use Sunday if it is Saturday
+				'value' => ( $current_day_index == 6 ) ? 0 : $current_day_index, // Use Sunday if it is Saturday
+				'compare' => ( $current_day_index == 6 ) ? '>=' : '>', // If Saturday, show results Sunday or later. Otherwise just later than current day
+			),
+			array(
+				'key' => 'rbm_cpts_start_time',
+				'type' => 'TIME',
 			),
 			// We are not checking for a specific Time since we just want to show whateven is earliest in this case. It should always be Midnight unless there is a gap in the schedule
 		),
