@@ -9,38 +9,70 @@
 
 defined( 'ABSPATH' ) || die();
 
-// Just in case there are any Hooks for Events
-locate_template( '/includes/hooks/tribe_events-hooks.php', true, true );
-
 global $post;
 
-add_filter( 'tribe_events_query_posts_orderby', 'gsrc_force_order_by_enddate_soonest_first', 10, 2 );
+$current_day_index = current_time( 'w' );
 
 $radio_shows = new WP_Query( array(
-	'post_type' => 'tribe_events',
+	'post_type' => 'radio-show',
 	'posts_per_page' => 3,
-	'eventDisplay' => 'custom',
-	'tax_query' => array(
-		'relationship' => 'AND',
-		array(
-			'taxonomy' => 'tribe_events_cat',
-			'field' => 'slug',
-			'terms' => array( 'radio-show' ),
-			'operator' => 'IN'
-		),
+	'post_status' => 'radioshow-occurrence',
+	'orderby' => array(
+		'rbm_cpts_start_time' => 'ASC',
 	),
-	'meta_query'     => array(
-		'relation'    => 'AND',
+	'meta_query' => array(
+		'relation' => 'AND',
 		array(
-			'key' => '_EventEndDate',
-			'value' => current_time( 'Y-m-d H:i:s' ),
-			'type' => 'DATETIME',
+			'key' => 'rbm_cpts_start_time',
+			'type' => 'TIME',
+		),
+		array(
+			'key' => 'rbm_cpts_day_of_the_week',
+			'type' => 'NUMERIC',
+			'value' => $current_day_index,
+		),
+		array(
+			'key' => 'rbm_cpts_end_time',
+			'type' => 'TIME',
 			'compare' => '>',
+			'value' => current_time( 'H:i' ), // Show only results with an End Time after our current Time
 		),
 	),
 ) );
 
-remove_filter( 'tribe_events_query_posts_orderby', 'gsrc_force_order_by_enddate_soonest_first', 10, 2 );
+// If there were not enough results in the current day (We're nearing the end of the day), start pulling results for the next day
+if ( $radio_shows->post_count < 3 ) {
+	
+	$more = new WP_Query( array(
+		'post_type' => 'radio-show',
+		'post_status' => 'publish',
+		'post_status' => 'radioshow-occurrence',
+		'posts_per_page' => 3 - $radio_shows->post_count,
+		'orderby' => array(
+			'rbm_cpts_start_time' => 'ASC',
+		),
+		'meta_query' => array(
+			'relation' => 'AND',
+			array(
+				'key' => 'rbm_cpts_start_time',
+				'type' => 'TIME',
+			),
+			array(
+				'key' => 'rbm_cpts_day_of_the_week',
+				'type' => 'NUMERIC',
+				'value' => ( $current_day_index == 6 ) ? 0 : $current_day_index + 1, // Use Sunday if it is Saturday
+			),
+			// We are not checking for a specific Time since we just want to show whateven is earliest in this case. It should always be Midnight unless there is a gap in the schedule
+		),
+	) );
+	
+	$radio_shows->post_count = $radio_shows->post_count + $more->post_count;
+	
+	$radio_shows->posts = array_merge( $radio_shows->posts, $more->posts );
+	
+	$radio_shows->posts = array_values( $radio_shows->posts );
+	
+}
 
 $index = 0; 
 $max_per_row = 0;

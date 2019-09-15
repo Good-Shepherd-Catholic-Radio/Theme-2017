@@ -32,7 +32,7 @@ $cell-height: 175px;
 
 	}
 
-	.cat_radio-show {
+	.radio-show {
 
 		overflow: hidden;
 
@@ -269,7 +269,7 @@ $cell-height: 175px;
 
 	}
 
-	& > .cat_radio-show, .row:first-of-type .cat_radio-show {
+	& > .radio-show, .row:first-of-type .radio-show {
 
 		@media #{$medium-up} {
 
@@ -279,7 +279,7 @@ $cell-height: 175px;
 
 	}
 
-	& > .cat_radio-show {
+	& > .radio-show {
 
 		@media #{$small-only} {
 
@@ -293,7 +293,7 @@ $cell-height: 175px;
 
 	.radio-shows-left {
 
-		.cat_radio-show {
+		.radio-show {
 			border-left: none;
 		}
 
@@ -301,7 +301,7 @@ $cell-height: 175px;
 
 	.radio-shows-right {
 
-		.cat_radio-show, .image {
+		.radio-show, .image {
 			min-height: $cell-height;
 		}
 

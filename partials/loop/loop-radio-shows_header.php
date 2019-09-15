@@ -11,7 +11,9 @@ defined( 'ABSPATH' ) || die();
 
 $time_format = get_option( 'time_format', 'g:i a' );
 
-$attachment_id = get_post_thumbnail_id( get_the_ID() );
+$parent_id = wp_get_post_parent_id( get_the_ID() );
+
+$attachment_id = rbm_cpts_get_field( $parent_id, 'banner' );
 
 if ( has_post_thumbnail() ) {
 	$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
@@ -39,7 +41,7 @@ else {
 
 		</div>
 	
-		<?php if ( $phone_number = rbm_get_field( 'radio_show_call_in' ) ) : ?>
+		<?php if ( $phone_number = rbm_cpts_get_field( $parent_id, 'radio_show_call_in' ) ) : ?>
 	
 			<div class="call-in-container">
 				
@@ -51,14 +53,14 @@ else {
 
 	<?php endif; ?>
 	
-	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+	<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title( $parent_id ); ?>">
 		
 		<div class="image" style="background-image: url(<?php echo $image_url; ?>);"></div>
 		
 		<div class="radio-show-meta">
 			
 			<?php if ( $first && 
-					  rbm_get_field( 'radio_show_local' ) ) : ?>
+					  rbm_cpts_get_field( $parent_id, 'radio_show_local' ) ) : ?>
 			
 				<span class="fa fa-2x fa-map-marker" title="<?php _e( 'Local', 'good-shepherd-catholic-radio' ); ?>"></span>
 			
@@ -83,13 +85,13 @@ else {
 			
 			<span class="alignleft">
 			
-				<?php the_title(); ?>
+				<?php echo get_the_title( $parent_id ); ?>
 				<br />
-				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventStartDate', true ) ) ); ?>
-				<?php echo tribe_get_option( 'timeRangeSeparator', ' - ' ); ?>
-				<?php echo date( $time_format, strtotime( get_post_meta( get_the_ID(), '_EventEndDate', true ) ) ); ?>
+				<?php echo date( $time_format, strtotime( rbm_cpts_get_field( 'start_time' ) ) ); ?>
+				<?php echo ' - '; ?>
+				<?php echo date( $time_format, strtotime( rbm_cpts_get_field( 'end_time' ) ) ); ?>
 				
-				<?php if ( $first && rbm_get_field( 'radio_show_call_in' ) ) : ?>
+				<?php if ( $first && rbm_cpts_get_field( $parent_id, 'radio_show_call_in' ) ) : ?>
 				
 					<br />
 					&nbsp;
