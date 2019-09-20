@@ -79,6 +79,8 @@ $broadcast_type = rbm_cpts_get_field( 'broadcast_type' );
 				</div>
 
 			</a>
+
+			<?php edit_post_link( '<span class="fa fa-edit"></span> ' . __( 'Edit this Radio Show', 'good-shepherd-catholic-radio' ), '<br />', '', $parent_id ); ?>
 			
 		</div>
 	
