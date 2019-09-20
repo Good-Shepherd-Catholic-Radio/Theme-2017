@@ -91,11 +91,11 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image' ) && ! has_post_thum
 						),
 						'meta_query' => array(
 							'relation' => 'AND',
-							array(
+							'rbm_cpts_day_of_the_week' => array(
 								'key' => 'rbm_cpts_day_of_the_week',
 								'type' => 'NUMERIC',
 							),
-							array(
+							'rbm_cpts_start_time' => array(
 								'key' => 'rbm_cpts_start_time',
 								'type' => 'TIME',
 							),

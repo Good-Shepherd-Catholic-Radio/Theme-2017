@@ -22,16 +22,16 @@ $radio_shows = new WP_Query( array(
 	),
 	'meta_query' => array(
 		'relation' => 'AND',
-		array(
+		'rbm_cpts_start_time' => array(
 			'key' => 'rbm_cpts_start_time',
 			'type' => 'TIME',
 		),
-		array(
+		'rbm_cpts_day_of_the_week' => array(
 			'key' => 'rbm_cpts_day_of_the_week',
 			'type' => 'NUMERIC',
 			'value' => $current_day_index,
 		),
-		array(
+		'rbm_cpts_end_time' => array(
 			'key' => 'rbm_cpts_end_time',
 			'type' => 'TIME',
 			'compare' => '>',
@@ -54,13 +54,13 @@ if ( $radio_shows->post_count < 3 ) {
 		),
 		'meta_query' => array(
 			'relation' => 'AND',
-			array(
+			'rbm_cpts_day_of_the_week' => array(
 				'key' => 'rbm_cpts_day_of_the_week',
 				'type' => 'NUMERIC',
 				'value' => ( $current_day_index == 6 ) ? 0 : $current_day_index, // Use Sunday if it is Saturday
 				'compare' => ( $current_day_index == 6 ) ? '>=' : '>', // If Saturday, show results Sunday or later. Otherwise just later than current day
 			),
-			array(
+			'rbm_cpts_start_time' => array(
 				'key' => 'rbm_cpts_start_time',
 				'type' => 'TIME',
 			),
