@@ -436,7 +436,7 @@ add_filter( 'gscr_radio_show_background_image_label', 'gscr_radio_show_backgroun
  *
  * @param   string  $label  Metabox Label
  *
- * @since	{{VERSION}}
+ * @since	1.1.0
  * @return  string          Metabox Label
  */
 function gscr_radio_show_background_image_label( $label ) {
@@ -452,7 +452,7 @@ add_filter( 'gscr_radio_show_headshot_image_label', 'gscr_radio_show_headshot_im
  *
  * @param   string  $label  Metabox Label
  *
- * @since	{{VERSION}}
+ * @since	1.1.0
  * @return  string          Metabox Label
  */
 function gscr_radio_show_headshot_image_label( $label ) {
@@ -468,7 +468,7 @@ add_filter( 'gscr_radio_show_logo_image_label', 'gscr_radio_show_logo_image_labe
  *
  * @param   string  $label  Metabox Label
  *
- * @since	{{VERSION}}
+ * @since	1.1.0
  * @return  string          Metabox Label
  */
 function gscr_radio_show_logo_image_label( $label ) {
@@ -525,7 +525,7 @@ function gscr_change_featured_image_staff_profile_labels( $labels ) {
  * @param   integer  $post_id         Post ID (This should be the Parent/Source Radio Show)
  * @param   string   $broadcast_type  Broadcast Type
  *
- * @since	{{VERSION}}
+ * @since	1.1.0
  * @return  string                    Post Title with modifications based on Broadcast Type
  */
 function gscr_get_occurrence_title( $post_id, $broadcast_type = '' ) {
@@ -553,7 +553,7 @@ function gscr_get_occurrence_title( $post_id, $broadcast_type = '' ) {
  *
  * @param   string  $broadcast_type  Broadcast Type
  *
- * @since	{{VERSION}}
+ * @since	1.1.0
  * @return  string                   Label
  */
 function gscr_get_broadcast_type_label( $broadcast_type ) {
