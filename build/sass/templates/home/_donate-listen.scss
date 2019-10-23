@@ -144,4 +144,37 @@ $cell-height: 175px;
 		
 	}
 
+	.donate {
+
+		min-height: $cell-height * 2;
+
+		.image {
+
+			background-position: 75%;
+			transform: none;
+
+		}
+
+		@media #{$old-iphone-portrait} {
+			
+		}
+		
+		@include breakpoint( medium down ) {
+				
+			.button-container {
+				left: auto !important;
+			}
+			
+		}
+
+		@media #{$ipad-landscape} {
+
+			.button-container {
+				left: auto !important;
+			}
+
+		}
+
+	}
+
 }
