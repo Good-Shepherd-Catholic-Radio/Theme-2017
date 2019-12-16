@@ -13,9 +13,12 @@
 	 * @param 		{object}           $element jQuery Object of the <a> tag
 	 *                       
 	 * @since		1.0.0
-	 * @returns 	{boolean}		   Ignore or not
+	 * @returns 	{boolean}		   True to ajax refresh, false to ignore
 	 */
 	function checkAjaxIgnore( $element ) {
+
+		// If IE or Edge, force a normal refresh for everything
+		if ( GSCRdetectIE() ) return false;
 
 		var urlPatterns = goodShepherdCatholicRadio.ajaxIgnore.urlPatterns,
 			classes = goodShepherdCatholicRadio.ajaxIgnore.classes;
