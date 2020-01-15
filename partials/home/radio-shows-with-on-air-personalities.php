@@ -116,15 +116,6 @@ if ( $radio_shows->have_posts() ) :
 						<h5>
 							<?php the_title(); ?>
 						</h5>
-
-						<?php foreach ( $on_air_personalities as $personality_id ) : ?>
-
-							<h6>
-								<?php echo get_the_title( $personality_id ); ?>
-							</h6>
-
-						<?php endforeach; ?>
-
 					</div>
 
 				</div>
