@@ -19,6 +19,7 @@ javascript:
       - "bower_components/foundation-sites/js/foundation.tabs.js"
       - "bower_components/foundation-sites/js/foundation.reveal.js"
       - "bower_components/jPlayer/dist/jplayer/jquery.jplayer.js"
+      - "bower_components/foundation-sites/js/foundation.accordion.js"
     notification: "Running JavaScript"
     # Paths to JavaScript libraries, which are combined into one file
     src:

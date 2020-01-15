@@ -1,0 +1,13 @@
+.accordion {
+
+    .accordion-title, .accordion-title:before {
+
+        color: $anchor-color;
+
+        &:hover, &:focus {
+            color: $anchor-color-hover;
+        }
+
+    }
+
+}

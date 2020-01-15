@@ -222,6 +222,7 @@ add_action( 'after_setup_theme', function () {
     require_once __DIR__ . '/includes/shortcodes/gscr-button.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-phone.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-form-overlay.php';
+	require_once __DIR__ . '/includes/shortcodes/gscr-accordion.php';
 
 	require_once __DIR__ . '/includes/shortcodes/gscr-underwriters.php';
 	require_once __DIR__ . '/includes/shortcodes/gscr-staff.php';

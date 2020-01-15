@@ -171,7 +171,11 @@ global $has_featured_image;
 
                 </div>
 
-			<?php the_content(); ?>
+                <div class="row small-collapse">
+                    <div class="small-12 columns">
+			            <?php the_content(); ?>
+                    </div>
+                </div>
 
 		</article>
 

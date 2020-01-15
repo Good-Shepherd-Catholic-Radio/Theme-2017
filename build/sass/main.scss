@@ -38,6 +38,7 @@
 @include foundation-close-button;
 @include foundation-sticky;
 @include foundation-tabs;
+@include foundation-accordion;
 
 @import "global/wp";
 @import "global/base";
@@ -46,6 +47,7 @@
 @import "global/icons";
 @import "global/reveal";
 @import "global/gscr-icons";
+@import "global/accordion";
 
 @import "static/top-bar";
 @import "static/top-bar-extra";
