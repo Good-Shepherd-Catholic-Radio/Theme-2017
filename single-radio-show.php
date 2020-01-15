@@ -55,42 +55,6 @@ global $has_featured_image;
 
                 if ( ! $on_air_personalities ) $on_air_personalities = array();
 
-                remove_filter( 'the_content', 'A2A_SHARE_SAVE_add_to_content', 98 );
-
-                foreach ( $on_air_personalities as $personality_id ) : $personality = get_post( $personality_id ); ?>
-	
-                    <div class="row on-air-personality post-<?php echo $personality_id; ?>">
-                        
-                        <div class="small-12 columns">
-                            
-                            <?php if ( has_post_thumbnail( $personality_id ) ) : ?>
-                                <div class="thumbnail alignleft">
-                                    <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
-                                        <?php echo get_the_post_thumbnail( $personality_id, 'thumbnail' ); ?>
-                                    </a>
-                                </div>
-                            <?php endif; ?>
-
-                            <h3 class="post-title">
-                                <a href="<?php echo get_permalink( $personality_id ); ?>" title="<?php echo get_the_title( $personality_id ); ?>">
-                                    <?php echo get_the_title( $personality_id ); ?>
-                                </a>
-                            </h3>
-                            
-                            <?php echo apply_filters( 'the_content', $personality->post_content ); ?>
-                            
-                        </div>
-                        
-                    </div>
-                
-                <?php endforeach;
-
-                add_filter( 'the_content', 'A2A_SHARE_SAVE_add_to_content', 98 );
-
-            ?>
-
-            <?php 
-
                 $occurrences = new WP_Query( array(
                     'post_type' => 'radio-show',
                     'post_parent' => get_the_ID(),
