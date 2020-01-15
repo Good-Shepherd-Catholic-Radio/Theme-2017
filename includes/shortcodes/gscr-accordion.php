@@ -4,7 +4,7 @@
  *
  * Displays an accordion.
  *
- * @since   {{VERSION}}
+ * @since   1.1.3
  * @package Good_Shepherd_Catholic_Radio
  * @subpackage  Good_Shepherd_Catholic_Radio/includes/shortcodes
  */
