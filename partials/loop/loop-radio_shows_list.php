@@ -80,6 +80,9 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image' ) && ! has_post_thum
 				
 				<?php 
 
+					global $post;
+					$post_backup = $post;
+
 					$occurrences = new WP_Query( array(
 						'post_type' => 'radio-show',
 						'post_parent' => get_the_ID(),
@@ -125,6 +128,8 @@ else if ( ! rbm_cpts_get_field( 'radio_show_headshot_image' ) && ! has_post_thum
 						<?php endwhile;
 
 						wp_reset_postdata();
+
+						$post = $post_backup;
 
 					endif;
 
