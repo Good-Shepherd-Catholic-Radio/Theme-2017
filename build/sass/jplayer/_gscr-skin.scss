@@ -24,7 +24,11 @@
 
 .sticky-container {
 
-	display: inline;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: -0.35rem; // Fixes weird black spacing between header and content
+
+	height: auto !important;
 	
 	.sticky {
 		

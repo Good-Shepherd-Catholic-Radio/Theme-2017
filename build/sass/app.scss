@@ -3,7 +3,8 @@
 @import "mixins";
 @import "functions";
 
-@import "settings";
+@import "settings/settings";
+@import 'settings-override';
 
 @include foundation-global-styles;
 @include foundation-typography;
