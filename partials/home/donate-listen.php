@@ -9,64 +9,77 @@
 
 defined( 'ABSPATH' ) || die();
 
+$blocks = array(
+	'donate',
+	'listen',
+);
+
 ?>
 
-<div class="donate-listen row expanded small-collapse">
+<div class="donate-listen row expanded small-collapse<?php echo ( ! rbm_get_field( 'gscr_show_two_donate_listen_sections' ) ) ? ' only-donate' : ''; ?>">
 	
 	<div class="small-12 columns">
 		
 		<div class="row small-collapse">
 	
 			<div class="small-12 columns">
-				
-				<div class="donate">
-					
-					<?php
-				
-					$attachment_id = rbm_get_field( 'gscr_home_donate_image' );
-					$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
 
-					?>
+				<?php foreach ( $blocks as $index => $name ) : ?>
 
-					<div class="image" style="background-image: url('<?php echo $image_url ?>');"></div>
-					
-					<div class="content row">
+					<?php if ( $name == 'listen' && ! rbm_get_field( 'gscr_show_two_donate_listen_sections' ) ) continue; ?>
+
+					<div class="<?php echo esc_attr( $name ); ?>">
 						
-						<div class="small-12 columns">
-				
-							<h3><?php printf( __( 'Support %s', 'good-shepherd-catholic-radio' ), get_bloginfo( 'name' ) ); ?></h3>
+						<?php
 
-							<?php if ( $give_form = rbm_get_field( 'gscr_home_donate_form' ) ) : ?>
+							$attachment_id = rbm_get_field( 'gscr_home_' . $name . '_image' );
+							$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+
+						?>
+
+						<?php if ( $link = rbm_get_field( 'gscr_home_' . $name . '_link' ) ) : ?>
+
+							<a href="<?php echo esc_attr( $link ); ?>"<?php echo ( rbm_get_field( 'gscr_home_' . $name . '_link_new_tab' ) ? ' target="_blank"' : '' ); ?>>
+
+						<?php endif; ?>
+
+						<div class="image" style="background-image: url('<?php echo $image_url ?>');"></div>
+						
+						<div class="content row">
 							
-								<div class="button-container">
+							<div class="small-12 columns">
 
-									<a data-open="gscr_donate_modal" class="secondary button">
-										<?php _e( 'Donate Now', 'good-shepherd-catholic-radio' ); ?>
-									</a>
-									
-								</div>
+								<?php 
+								
+								$title = rbm_get_field( 'gscr_home_' . $name . '_title' );
+								$title = ( $title ) ? $title : __( 'Listening Options', 'good-shepherd-catholic-radio' );
 
-								<div class="reveal" id="gscr_donate_modal" data-reveal>
+								$content = rbm_get_field( 'gscr_home_' . $name . '_text' );
 
-									<?php echo do_shortcode( '[give_form id="' . $give_form . '" show_title="true" show_goal="false" show_content="none"]' ); ?>
+								?>
 
-									<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'good-shepherd-catholic-radio' ); ?>" type="button">
-										<span aria-hidden="true">&times;</span>
-									</button>
+								<?php if ( $title ) : ?>
+									<h3><?php echo $title; ?></h3>
+								<?php endif; ?>
 
-								</div>
-
-							<?php else : ?>
-
-								<?php echo _x( 'Please select a Donation Form on the Edit Screen for this page', 'No Donation Form set', 'good-shepherd-catholic-radio' ); ?>
-
-							<?php endif; ?>
+								<?php 
+								
+								echo apply_filters( 'the_content', $content ); 
+								
+								?>
+								
+							</div>
 							
 						</div>
-						
+
+						<?php if ( $link ) : ?>
+							<div class="color-overlay"></div>
+							</a>
+						<?php endif; ?>
+
 					</div>
-					
-				</div>
+
+				<?php endforeach; ?>
 				
 			</div>
 			

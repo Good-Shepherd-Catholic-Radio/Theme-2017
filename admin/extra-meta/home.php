@@ -321,30 +321,43 @@ function gscr_home_underwriters_metabox_content() {
  * @return      void
  */
 function gscr_home_donate_listen_metabox_content() {
-    
-    // All Forms
-	$give_forms = new WP_Query( array(
-		'post_type' => 'give_forms',
-		'posts_per_page' => -1,
-		'orderby' => 'post_title',
-		'order' => 'ASC',
+
+	rbm_fh_do_field_toggle( array(
+		'name' => 'gscr_show_two_donate_listen_sections',
+		'label' => __( 'Show two blocks?', 'good-shepherd-catholic-radio' ),
 	) );
-	
-	$give_forms = wp_list_pluck( $give_forms->posts, 'post_title', 'ID' );
-    
-    rbm_do_field_select(
-        'gscr_home_donate_form',
-        _x( 'Donate Form', 'Home Donate Form Label', 'good-shepherd-catholic-radio' ),
-        false,
-        array(
-            'description' => __( 'Choose the Give Form through which Visitors will Donate.', 'good-shepherd-catholic-radio' ),
-            'options' => $give_forms,
-        )
-    );
+
+	rbm_do_field_text(
+		'gscr_home_donate_title',
+		__( 'Block One Title', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'default' => __( 'Support Good Shepherd Catholic Radio', 'good-shepherd-catholic-radio' ),
+			'input_atts' => array(
+				'required' => true,
+			)
+		)
+	);
+
+	rbm_do_field_wysiwyg(
+		'gscr_home_donate_text',
+		__( 'Block One Content', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'wysiwyg_options' => array(
+				'mediaButtons' => false,
+				'tinymce' => array(
+					'content_css' => THEME_URL . 'assets/css/app.css',
+					'toolbar1' => 'formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,wp_adv',
+					'toolbar2' => 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help',
+				),
+			)
+		)
+	);
 	
 	rbm_do_field_media(
  		'gscr_home_donate_image',
- 		_x( 'Donate Background Image', 'Home Donate Background Image Label', 'good-shepherd-catholic-radio' ),
+ 		_x( 'Block One Background Image', 'Home Donate Background Image Label', 'good-shepherd-catholic-radio' ),
  		false,
  		array(
 			'type' => 'image',
@@ -352,20 +365,59 @@ function gscr_home_donate_listen_metabox_content() {
 			'button_remove_text' => _x( 'Remove Image', 'Home Donate Image Remove Button Text', 'good-shepherd-catholic-radio' ),
 			'window_title' => _x( 'Choose Image', 'Home Donate Image Window Title', 'good-shepherd-catholic-radio' ),
 			'window_button_text' => _x( 'Use Image', 'Home Donate Image Select Button Text', 'good-shepherd-catholic-radio' ),
+			'input_atts' => array(
+				'required' => true,
+			)
  		)
- 	);
+	);
+
+	rbm_do_field_text(
+		'gscr_home_donate_link',
+		__( 'Block One Link', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			
+		)
+	);
+
+	rbm_fh_do_field_toggle( array(
+		'name' => 'gscr_home_donate_link_new_tab',
+		'label' => __( 'Open Block One Link in a New Tab?', 'good-shepherd-catholic-radio' ),
+	) );
+
+	echo '<hr />';
+	 
+	rbm_do_field_text(
+		'gscr_home_listen_title',
+		__( 'Block Two Title', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+			'default' => __( 'Listening Options', 'good-shepherd-catholic-radio' ),
+			'input_atts' => array(
+				'required' => true,
+			)
+		)
+	);
 	
 	rbm_do_field_wysiwyg(
 		'gscr_home_listen_text',
-		_x( 'Listening Options', 'Home Listen Text Label', 'good-shepherd-catholic-radio' ),
+		__( 'Block Two Content', 'good-shepherd-catholic-radio' ),
 		false,
 		array(
+			'wysiwyg_options' => array(
+				'mediaButtons' => false,
+				'tinymce' => array(
+					'content_css' => THEME_URL . 'assets/css/app.css',
+					'toolbar1' => 'formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,wp_more,wp_adv',
+					'toolbar2' => 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help',
+				),
+			)
 		)
 	);
 	
 	rbm_do_field_media(
  		'gscr_home_listen_image',
- 		_x( 'Listen Background Image', 'Home Listen Background Image Label', 'good-shepherd-catholic-radio' ),
+ 		__( 'Block Two Background Image', 'good-shepherd-catholic-radio' ),
  		false,
  		array(
 			'type' => 'image',
@@ -373,8 +425,25 @@ function gscr_home_donate_listen_metabox_content() {
 			'button_remove_text' => _x( 'Remove Image', 'Home Listen Image Remove Button Text', 'good-shepherd-catholic-radio' ),
 			'window_title' => _x( 'Choose Image', 'Home Listen Image Window Title', 'good-shepherd-catholic-radio' ),
 			'window_button_text' => _x( 'Use Image', 'Home Listen Image Select Button Text', 'good-shepherd-catholic-radio' ),
+			'input_atts' => array(
+				'required' => true,
+			)
  		)
- 	);
+	 );
+	 
+	 rbm_do_field_text(
+		'gscr_home_listen_link',
+		__( 'Block Two Link', 'good-shepherd-catholic-radio' ),
+		false,
+		array(
+
+		)
+	 );
+
+	 rbm_fh_do_field_toggle( array(
+		'name' => 'gscr_home_listen_link_new_tab',
+		'label' => __( 'Open Block Two Link in a New Tab?', 'good-shepherd-catholic-radio' ),
+	) );
     
 }
 
