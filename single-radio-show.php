@@ -165,7 +165,7 @@ global $has_featured_image;
 
                                     <?php endif; ?>
 
-                                    <?php if ( ! is_wp_error( $broadcasters ) ) : ?>
+                                    <?php if ( ! is_wp_error( $broadcasters ) && ! empty( $broadcasters ) ) : ?>
 
                                         <li>
                                             
