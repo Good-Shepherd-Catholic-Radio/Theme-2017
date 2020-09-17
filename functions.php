@@ -61,7 +61,7 @@ add_action( 'init', function () {
 	// Theme script
 	wp_register_script(
 		'good-shepherd-catholic-radio',
-		THEME_URL . '/assets/js/script.js',
+		THEME_URL . '/assets/js/app.js',
 		array( 'jquery' ),
 		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
 		true

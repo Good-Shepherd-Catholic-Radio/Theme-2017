@@ -1,3 +1,5 @@
+require( 'foundation-sites' );
+
 ( function( $ ) {
     
     $( document ).ready( function() {

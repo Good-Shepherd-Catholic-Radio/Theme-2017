@@ -1,6 +1,8 @@
 // In jquery.jplayer.js within ./bower_components, ensure you search/replace 'root.jQuery' with 'jQuery'!
 // I hate solutions like this, but I cannot tell what they were even trying to do there. Maybe it is a Browserify/AMD thing?
 
+require( 'jplayer' );
+
 ( function( $ ) {
 
 	$( document ).ready( function() {
@@ -38,7 +40,7 @@
 				
 				if ( played && event.jPlayer.error.type === $.jPlayer.error.URL ) {
 					
-					var ie = GSCRdetectIE();
+					var ie = window.GSCRdetectIE();
 					
 					// If they're not on IE 11 or below, determine the Stream must be down
 					if ( ! ie || ie >= 12 ) {

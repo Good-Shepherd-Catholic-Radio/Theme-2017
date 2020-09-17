@@ -18,7 +18,7 @@
 	function checkAjaxIgnore( $element ) {
 
 		// If IE or Edge, force a normal refresh for everything
-		if ( GSCRdetectIE() ) return false;
+		if ( window.GSCRdetectIE() ) return false;
 
 		var urlPatterns = goodShepherdCatholicRadio.ajaxIgnore.urlPatterns,
 			classes = goodShepherdCatholicRadio.ajaxIgnore.classes;

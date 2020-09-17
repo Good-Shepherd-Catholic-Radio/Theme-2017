@@ -5,7 +5,7 @@
  * @since		1.0.14
  * @returns		{number} IE Version. False if not IE. Edge is IE 12+
  */
-function GSCRdetectIE() {
+window.GSCRdetectIE = function() {
 	
 	var ua = window.navigator.userAgent;
 
