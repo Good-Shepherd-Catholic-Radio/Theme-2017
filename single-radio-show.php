@@ -171,7 +171,7 @@ global $has_featured_image;
                                             
                                             <?php _e( 'Broadcasted by:', 'good-shepherd-catholic-radio' ); ?>
 
-                                            <ul>
+                                            <ul style="list-style-type: none;">
                                                 <?php foreach ( $broadcasters as $term ) : ?>
                                                     <li>
                                                         <?php echo $term->name; ?>
