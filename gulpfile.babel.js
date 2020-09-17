@@ -230,10 +230,10 @@ function reload(done) {
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/scss/**/*.scss').on('all', sass);
+  gulp.watch('build/sass/**/*.scss').on('all', sass);
   //gulp.watch('**/*.php').on('all', browser.reload);
-  gulp.watch('src/js/**/*.js').on('all', gulp.series('webpack:build', tinymce));
-  gulp.watch('src/img/**/*').on('all', gulp.series(images));
+  gulp.watch('build/js/**/*.js').on('all', gulp.series('webpack:build', tinymce));
+  gulp.watch('build/img/**/*').on('all', gulp.series(images));
 }
 
 // Build the "dist" folder by running all of the below tasks

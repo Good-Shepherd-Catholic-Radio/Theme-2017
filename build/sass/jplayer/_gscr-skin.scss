@@ -23,10 +23,12 @@
 }
 
 .sticky-container {
+
+	display: inline;
 	
 	.sticky {
 		
-		width: 100%;
+		min-width: 100%;
 		
 		&, * {
 			transition: all 300ms;
