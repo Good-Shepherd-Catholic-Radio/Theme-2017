@@ -52,7 +52,21 @@ $blocks = array(
 								<?php 
 								
 								$title = rbm_get_field( 'gscr_home_' . $name . '_title' );
-								$title = ( $title ) ? $title : __( 'Listening Options', 'good-shepherd-catholic-radio' );
+
+								if ( ! $title ) {
+
+									switch ( $name ) {
+
+										case 'donate':
+											$title = __( 'Support Good Shepherd Catholic Radio', 'good-shepherd-catholic-radio' );
+											break;
+										default:
+											$title = __( 'Listening Options', 'good-shepherd-catholic-radio' );
+											break;
+
+									}
+
+								}
 
 								$content = rbm_get_field( 'gscr_home_' . $name . '_text' );
 
