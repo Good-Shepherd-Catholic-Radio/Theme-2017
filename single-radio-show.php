@@ -127,7 +127,11 @@ global $has_featured_image;
                             $phone_number = rbm_cpts_get_field( 'radio_show_call_in' );
                             $is_local = rbm_cpts_get_field( 'radio_show_is_local' );
 
-                            if ( $phone_number || $is_local || ! empty( $on_air_personalities ) ) : ?>
+                            $broadcasters = wp_get_post_terms( get_the_ID(), 'radio-show-broadcaster', array() );
+
+                            $email = rbm_cpts_get_field( 'radio_show_email' );
+
+                            if ( $phone_number || $is_local || ! empty( $on_air_personalities ) || ( ! is_wp_error( $broadcasters ) && ! empty( $broadcasters ) ) || $email ) : ?>
 
                                 <h3><?php _e( 'Details', 'good-shepherd-catholic-radio' ); ?></h3>
 
@@ -157,6 +161,34 @@ global $has_featured_image;
                                                 <?php endforeach; ?>
                                             </ul>
                                     
+                                        </li>
+
+                                    <?php endif; ?>
+
+                                    <?php if ( ! is_wp_error( $broadcasters ) ) : ?>
+
+                                        <li>
+                                            
+                                            <?php _e( 'Broadcasted by:', 'good-shepherd-catholic-radio' ); ?>
+
+                                            <ul>
+                                                <?php foreach ( $broadcasters as $term ) : ?>
+                                                    <li>
+                                                        <?php echo $term->name; ?>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                    
+                                        </li>
+
+                                    <?php endif; ?>
+
+                                    <?php if ( $email ) : ?>
+
+                                        <li>
+                                            <a href="mailto:<?php echo esc_attr( $email ); ?>">
+                                                <?php echo esc_html( $email ); ?>
+                                            </a>
                                         </li>
 
                                     <?php endif; ?>
