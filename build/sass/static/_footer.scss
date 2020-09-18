@@ -41,7 +41,7 @@ footer {
 
 		}
 
-		a {
+		a:not( .button ) {
 
 			color: $medium-gray;
 			text-decoration: underline;
@@ -53,7 +53,7 @@ footer {
 
 		}
 
-		&, a {
+		&, a:not( .button ) {
 			font-weight: bold;
 		}
 		
