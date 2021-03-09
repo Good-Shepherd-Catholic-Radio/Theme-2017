@@ -157,7 +157,11 @@ const webpack = {
     return gulp.src(PATHS.entries.js, { allowEmpty: true } )
       .pipe(named())
       .pipe(webpackStream(webpack.config, webpack2))
+      .pipe( $.sourcemaps.init( { loadMaps: true } ) ) 
       .pipe($.uglify())
+      .pipe(
+        $.if( ! PRODUCTION, $.sourcemaps.write( '.' ) )
+      )
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
       .pipe(gulp.dest(PATHS.dist + '/js'))
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
