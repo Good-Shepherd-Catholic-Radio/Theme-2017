@@ -110,7 +110,7 @@ function sass() {
       $.if( PRODUCTION, $.cleanCss( { compatibility: 'ie9' } ) )
     )
     .pipe(
-      $.if( ! PRODUCTION, $.sourcemaps.write() )
+      $.if( ! PRODUCTION, $.sourcemaps.write( '.' ) )
     )
     .pipe(
       $.if( REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev() )
