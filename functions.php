@@ -622,7 +622,7 @@ add_action( 'init', function() {
 
 /**
  * Defers parsing of JS
- * @since	{{ VERSION }}
+ * @since	{{VERSION}}
  */
 function defer_parsing_of_js ( $url ) {
 	if ( FALSE === strpos( $url, '.js' ) ) return $url;
