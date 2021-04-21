@@ -258,7 +258,8 @@ function version() {
         'languages/**/*',
         'templates/**/*',
         'style.css',
-        'readme.txt'
+        'readme.txt',
+        '*.php'
     ], { base: './', allowEmpty: true } )
     // Doc block versions, only update on non-Betas and 1.0.0+ releases
         .pipe( $.if( ( pkg.version.indexOf( 'b' ) == -1 && compareVersions( pkg.version, '1.0.0' ) !== -1 ), $.replace( /\{\{VERSION}}/g, pkg.version ) ) )

@@ -629,7 +629,7 @@ add_filter( 'script_loader_tag', 'gscr_defer_js', 10, 3 );
  * @param   string  $handle  Script Handle
  * @param   string  $src     JavaScript Source
  *
- * @since	{{VERSION}}
+ * @since	1.1.9
  * @return  string           JavaScript Tag
  */
 function gscr_defer_js( $tag, $handle, $src ) {
