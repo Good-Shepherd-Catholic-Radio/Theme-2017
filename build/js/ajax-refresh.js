@@ -116,7 +116,7 @@
 			}
 			
 			// if its not an admin url, or doesnt contain #
-			if ( this.href.indexOf( goodShepherdCatholicRadio.siteUrl ) >= 0 && 
+			if ( this.href.indexOf( goodShepherdCatholicRadio.siteUrl ) == 0 && 
 				checkAjaxIgnore( $( this ) ) == true ) {
 
 				// stop default behaviour
