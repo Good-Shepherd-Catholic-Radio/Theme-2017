@@ -620,13 +620,29 @@ add_action( 'init', function() {
 
 */
 
+add_filter( 'script_loader_tag', 'gscr_defer_js', 10, 3 );
+
 /**
- * Defers parsing of JS
+ * Defer JavaScript
+ *
+ * @param   string  $tag     JavaScript Tag
+ * @param   string  $handle  Script Handle
+ * @param   string  $src     JavaScript Source
+ *
  * @since	{{VERSION}}
+ * @return  string           JavaScript Tag
  */
-function defer_parsing_of_js ( $url ) {
-	if ( FALSE === strpos( $url, '.js' ) ) return $url;
-	if ( strpos( $url, 'jquery.js' ) ) return $url;
-	return "$url' defer ";
-	}
-	add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
+function gscr_defer_js( $tag, $handle, $src ) {
+	
+	if ( is_admin() ) return $tag;
+
+    if ( $handle == 'jquery' ) return $tag;
+
+	// Ensures stuff like `wp` is available
+	// Also contains a fix for WooCommerce Square
+	if ( strpos( $src, 'wp-includes' ) !== false || strpos( $src, 'woocommerce-square' ) !== false ) return $tag;
+        
+    $tag = str_replace( 'src=', 'defer="defer" src=', $tag );
+    return $tag;
+	
+}
