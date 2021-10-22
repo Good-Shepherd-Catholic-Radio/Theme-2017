@@ -98,7 +98,7 @@ global $has_featured_image;
 
                             <?php $broadcast_type = rbm_cpts_get_field( 'broadcast_type', $occurrence_id ); ?>
 
-                            <li>
+                            <li class="occurrence-<?php echo esc_attr( $occurrence_id ); ?>">
 
                                 <?php echo date_i18n( 'l', strtotime( "Sunday +" . rbm_cpts_get_field( 'day_of_the_week', $occurrence_id ) . " days" ) ); ?>
                                 <?php echo ' @ '; ?>
